@@ -30,7 +30,7 @@ function Location() {
     <p>Loading user location...</p>
   )}
   <Link to="/report-incident">
-    <button>Report an incident</button>
+    <button>Report to Authority</button>
   </Link>
 </div>
   );
