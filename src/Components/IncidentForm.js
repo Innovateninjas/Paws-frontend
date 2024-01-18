@@ -279,7 +279,7 @@ function IncidentForm() {
               <button>Back to Home</button>
             </Link>
             <p>View Your Reports</p>
-            <Link to="/ViewReports">
+            <Link to="/view-reports">
               <button>View Reports</button>
             </Link>
           </div>
