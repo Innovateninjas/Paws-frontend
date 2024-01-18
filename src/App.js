@@ -5,6 +5,7 @@ import IncidentList from './Components/IncidentList';
 import Location from './Components/Location';
 import LoginForm from './Components/LoginForm';
 import RegisterForm from './Components/RegisterForm';
+import ViewReports from './Components/ViewReports';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/register" element={<RegisterForm />} />
         <Route path="/report-incident" element={<IncidentForm />} />
         <Route path="/incident-list" element={<IncidentList />} />
+        <Route path="/view-reports" element={<ViewReports />} />
       </Routes>
     </Router>
   );

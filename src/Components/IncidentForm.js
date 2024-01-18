@@ -278,6 +278,10 @@ function IncidentForm() {
             <Link to="/">
               <button>Back to Home</button>
             </Link>
+            <p>View Your Reports</p>
+            <Link to="/ViewReports">
+              <button>View Reports</button>
+            </Link>
           </div>
         );
       default:
