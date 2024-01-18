@@ -6,10 +6,12 @@ import Location from './Components/Location';
 import LoginForm from './Components/LoginForm';
 import RegisterForm from './Components/RegisterForm';
 import ViewReports from './Components/ViewReports';
+import Navbar from './Components/Navbar';
 
 function App() {
   return (
     <Router>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Location />} />
         <Route path="/login" element={<LoginForm />} />
