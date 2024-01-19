@@ -7,6 +7,8 @@ import LoginForm from './Components/LoginForm';
 import RegisterForm from './Components/RegisterForm';
 import ViewReports from './Components/ViewReports';
 import Navbar from './Components/Navbar';
+import UserPage from './Components/UserPage';
+import Logout from './Components/Logout';
 
 function App() {
   return (
@@ -14,11 +16,13 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Location />} />
-        <Route path="/login" element={<LoginForm />} />
-        <Route path="/register" element={<RegisterForm />} />
         <Route path="/report-incident" element={<IncidentForm />} />
         <Route path="/incident-list" element={<IncidentList />} />
         <Route path="/view-reports" element={<ViewReports />} />
+        <Route path="/login" element={<LoginForm />} />
+        <Route path="/register" element={<RegisterForm />} />
+        <Route path="/user" element={<UserPage />} />
+        <Route path="/logout" element={<Logout />} />
       </Routes>
     </Router>
   );
