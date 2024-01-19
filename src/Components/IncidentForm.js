@@ -6,26 +6,31 @@ import { Link } from 'react-router-dom';
 function IncidentForm() {
   const [currentPage, setCurrentPage] = useState(1);
   const [formData, setFormData] = useState({
-    animalType: '',
-    numberOfAnimals: '',
+    user_name: '',
+    user_email: '',
+    user_phone: '',
+    animal_type: '',
     description: '',
     condition: '',
     image: '',
-    userLocation: { latitude: '', longitude: '' },
-    name: '',
-    phoneNumber: '',
-    email: '',
+    latitude: '',
+    longitude: '',
+    landmark: 'near here', // @rishicds add proper landmark
+    status: 'not resolved',// @rishicds add proper status
   });
 
   const [errors, setErrors] = useState({
-    animalType: '',
-    numberOfAnimals: '',
+    user_name: '',
+    user_email: '',
+    user_phone: '',
+    animal_type: '',
     description: '',
     condition: '',
     image: '',
-    name: '',
-    phoneNumber: '',
-    email: '',
+    latitude: '',
+    longitude: '',
+    landmark: '',
+    status: '',
   });
 
   const handleChange = (e) => {
@@ -48,22 +53,36 @@ function IncidentForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log('Submitting form:', formData);
     if (validateForm()) {
-      // Handle form submission logic here, e.g., send data to backend
-      console.log('Form submitted:', formData);
-      // Show success page or perform any other post-submission actions
-      setCurrentPage(4); // Assuming 4 is the index for the success page
+      fetch('https://aniresfr-backend.vercel.app/api/animals/', {  // Replace with your Django server URL
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Success:', data);
+        setCurrentPage(4); // Assuming 4 is the index for the success page
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+    } else {
+      console.log('Form is not valid');
     }
   };
 
   const validatePage = (page) => {
     const pageData = formData;
     const pageErrors = {};
-
+  
     switch (page) {
       case 1:
-        if (!pageData.animalType) {
-          pageErrors.animalType = 'Animal type is required.';
+        if (!pageData.animal_type) {
+          pageErrors.animal_type = 'Animal type is required.';
         }
         if (!pageData.description) {
           pageErrors.description = 'Description is required.';
@@ -78,18 +97,18 @@ function IncidentForm() {
         }
         break;
       case 3:
-        if (!pageData.name) {
-          pageErrors.name = 'Name is required.';
+        if (!pageData.user_name) {
+          pageErrors.user_name = 'Name is required.';
         }
-        if (!pageData.phoneNumber) {
-          pageErrors.phoneNumber = 'Phone number is required.';
-        } else if (!isValidPhoneNumber(pageData.phoneNumber)) {
-          pageErrors.phoneNumber = 'Invalid phone number.';
+        if (!pageData.user_phone) {
+          pageErrors.user_phone = 'Phone number is required.';
+        } else if (!isValidPhoneNumber(pageData.user_phone)) {
+          pageErrors.user_phone = 'Invalid phone number.';
         }
-        if (!pageData.email) {
-          pageErrors.email = 'Email is required.';
-        } else if (!isValidEmail(pageData.email)) {
-          pageErrors.email = 'Invalid email address.';
+        if (!pageData.user_email) {
+          pageErrors.user_email = 'Email is required.';
+        } else if (!isValidEmail(pageData.user_email)) {
+          pageErrors.user_email = 'Invalid email address.';
         }
         break;
       default:
@@ -101,6 +120,7 @@ function IncidentForm() {
   };
 
   const validateForm = () => {
+    return true; // @rishicds fix this
     return Object.keys(formData).every((field) => {
       if (field === 'userLocation') {
         return true; // No need to validate userLocation
@@ -126,10 +146,8 @@ function IncidentForm() {
       navigator.geolocation.getCurrentPosition((position) => {
         setFormData((prevData) => ({
           ...prevData,
-          userLocation: {
-            latitude: position.coords.latitude,
-            longitude: position.coords.longitude,
-          },
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
         }));
       });
     } else {
@@ -150,8 +168,8 @@ function IncidentForm() {
             <label>
               Animal Type:
               <select
-                name="animalType"
-                value={formData.animalType}
+                name="animal_type"
+                value={formData.animal_type}
                 onChange={handleChange}>
                 <option value="">Select Animal Type</option>
                 <option value="Cat">Cat</option>
@@ -159,7 +177,7 @@ function IncidentForm() {
                 <option value="Cattle">Cattle</option>
                 <option value="Other">Other</option>
               </select>
-              <div className="error">{errors.animalType}</div>
+              <div className="error">{errors.animal_type}</div>
             </label>
             <br />
             {formData.animalType === 'Other' && (
@@ -219,8 +237,8 @@ function IncidentForm() {
             </label>
             <br />
             <p>
-              User's Location: Latitude {formData.userLocation.latitude},{' '}
-              Longitude {formData.userLocation.longitude}
+              User's Location: Latitude {formData.latitude},{' '}
+              Longitude {formData.longitude}
             </p>
             <br />
             <button type="button" onClick={handleNextPage}>
@@ -236,36 +254,36 @@ function IncidentForm() {
               Name:
               <input
                 type="text"
-                name="name"
-                value={formData.name}
+                name="user_name"
+                value={formData.user_name}
                 onChange={handleChange}
               />
-              <div className="error">{errors.name}</div>
+              <div className="error">{errors.user_name}</div>
             </label>
             <br />
             <label>
               Phone Number:
               <input
                 type="text"
-                name="phoneNumber"
-                value={formData.phoneNumber}
+                name="user_phone"
+                value={formData.user_phone}
                 onChange={handleChange}
               />
-              <div className="error">{errors.phoneNumber}</div>
+              <div className="error">{errors.user_phone}</div>
             </label>
             <br />
             <label>
               Email:
               <input
                 type="text"
-                name="email"
-                value={formData.email}
+                name="user_email"
+                value={formData.user_email}
                 onChange={handleChange}
               />
-              <div className="error">{errors.email}</div>
+              <div className="error">{errors.user_email}</div>
             </label>
             <br />
-            <button type="button" onClick={handleNextPage}>
+            <button type="button" onClick={(e) => { handleSubmit(e); handleNextPage(); }}>
               Next
             </button>
           </div>
