@@ -6,31 +6,18 @@ function IncidentList() {
   const [reportedIncidents, setReportedIncidents] = useState([]);
 
   useEffect(() => {
-    // Fetch reported incidents from the backend or any storage mechanism
-    // For demonstration purposes, using dummy data
-    const dummyData = [
-      {
-        id: 1,
-        name: 'John Doe',
-        animalType: 'Dog',
-        condition: 'Critical',
-        phoneNumber: '123-456-7890',
-        landmark: 'Central Park',
-        userLocation: { latitude: '40.785091', longitude: '-73.968285' },
-      },
-      {
-        id: 2,
-        name: 'Jane Smith',
-        animalType: 'Cat',
-        condition: 'Urgent',
-        phoneNumber: '987-654-3210',
-        landmark: 'Times Square',
-        userLocation: { latitude: '40.758896', longitude: '-73.985130' },
-      },
-      // Add more incidents as needed
-    ];
+    const fetchReports = async () => {
+      try {
+        const response = await fetch('https://aniresfr-backend.vercel.app/api/animals'); // Replace with your actual API endpoint
+        const data = await response.json();
+        setReportedIncidents(data);
+        console.log(data);
+      } catch (error) {
+        console.error('Error fetching reports:', error);
+      }
+    };
 
-    setReportedIncidents(dummyData);
+    fetchReports();
   }, []);
 
   return (
@@ -42,12 +29,15 @@ function IncidentList() {
         <ul>
           {reportedIncidents.map((incident) => (
             <li key={incident.id}>
-              <strong>Name:</strong> {incident.name},{' '}
-              <strong>Animal Type:</strong> {incident.animalType},{' '}
+              <strong>Name:</strong> {incident.user_name},{' '}
+              <strong>Phone Number:</strong> {incident.user_phone},{' '}
+              <strong>Email:</strong> {incident.user_email},{' '}
+              <strong>Animal Type:</strong> {incident.animal_type},{' '}
+              <strong>description:</strong> {incident.description},{' '}
+              <strong>image:</strong> {incident.image},{' '}
               <strong>Condition:</strong> {incident.condition},{' '}
-              <strong>Phone Number:</strong> {incident.phoneNumber},{' '}
               <strong>Landmark:</strong> {incident.landmark},{' '}
-              <strong>User's Location:</strong> Lat: {incident.userLocation.latitude}, Lon: {incident.userLocation.longitude}
+              <strong>User's Location:</strong> Lat: {incident.latitude}, Lon: {incident.longitude}
             </li>
           ))}
         </ul>
