@@ -10,10 +10,11 @@ function LoginForm() {
         event.preventDefault();
 
         try {
-            const response = await axios.post('http://localhost:8000/login/', { username, password });
+            const response = await axios.post('https://aniresfr-backend.vercel.app/login/', { username, password });
             const token = response.data.token;
-            console.log('Login successful, token:', token);
-            // Here you would typically save the token to local storage or context and redirect the user
+            console.log('Login successful, csrftoken:', token);
+            localStorage.setItem('csrftoken', token);
+            window.location.href = '/';
         } catch (error) {
             if (error.response && error.response.data.error) {
                 setError(error.response.data.error);
@@ -28,7 +29,7 @@ function LoginForm() {
             <h1>Login</h1>
             <form onSubmit={handleSubmit}>
                 <label>
-                    Username:
+                    Email:
                     <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} required />
                 </label>
                 <label>
