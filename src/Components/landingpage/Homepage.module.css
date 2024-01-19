@@ -1,0 +1,33 @@
+.main{
+    background: #BFDBFB;
+    height: 100vh;
+    width: 100vw;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: -1;
+}
+.main_text{
+    margin: 40px;
+    color: #000;
+    text-align: center;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    z-index: 1;
+
+}
+.imgTop{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 0;
+}
+.profileIcon{
+    position: absolute;
+    z-index: 1;
+    top: 3%;
+    right: 5%;
+}

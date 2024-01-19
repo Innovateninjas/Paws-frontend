@@ -1,0 +1,18 @@
+.big_btn{
+    padding: 1.125rem .625rem;
+    background-color: white;
+    color: black;
+    border-radius: 1.875rem;
+    display: flex;
+    align-items: center;
+    min-width: 14.6875rem;
+    min-height: 4.125rem;
+    font-size: 1rem;
+    font-weight: 800;
+    line-height: normal;
+    justify-content: center;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    backdrop-filter: blur(2px);
+    cursor: pointer;
+}
+
