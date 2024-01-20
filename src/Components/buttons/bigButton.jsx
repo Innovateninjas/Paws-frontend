@@ -5,7 +5,7 @@ const Button = ({  icon, text, ...rest }) => {
         <button {...rest} className={styles.big_btn}>
 
             {icon} 
-            {/* if you pass icon pass it with font size which will determin the size of the icon example icon={<HiMail fontSize={24} /> (here i have used reacticons folder first import it ) */}
+            {/* if you pass icon pass it with font size which will determine the size of the icon example icon={<HiMail fontSize={24} /> (here i have used reacticons folder first import it ) */}
             {text}
         </button>
     );
