@@ -27,6 +27,7 @@ function ViewReports() {
             <p>Animal Type: {report.animal_type}</p>
             <p>Description: {report.description}</p>
             <p>Location: Latitude - {report.latitude}, Longitude - {report.longitude}</p>
+            <p>Status: {report.status}</p> {/* Display the status here */}
             <img src={report.image} alt={report.description} className='incident-image'/>
           </li>
         ))}
