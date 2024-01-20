@@ -36,14 +36,19 @@ function IncidentForm() {
     status: "",
   });
 
-  const handleChange = (e) => {
+  const handleChange = async (e) => {
     const { name, value, files } = e.target;
 
     if (name === "image" && files && files.length > 0) {
       // Handle image file separately
+
+      // Upload the image to Cloudinary
+      const cloudinaryUrl = await uploadImageToCloudinary(files[0]);
+
+      // Update the formData with the Cloudinary URL
       setFormData((prevData) => ({
         ...prevData,
-        [name]: files[0],
+        image: cloudinaryUrl,
       }));
     } else {
       setFormData((prevData) => ({
@@ -69,15 +74,6 @@ function IncidentForm() {
     console.log("Submitting form:", formData);
 
     try {
-      // Upload the image to Cloudinary
-      const cloudinaryUrl = await uploadImageToCloudinary(formData.image);
-
-      // Update the formData with the Cloudinary URL
-      setFormData((prevData) => ({
-        ...prevData,
-        image: cloudinaryUrl,
-      }));
-
       if (validateForm()) {
         // Send the form data with the Cloudinary URL to the backend
         const response = await fetch("https://aniresfr-backend.vercel.app/api/animals/", {
