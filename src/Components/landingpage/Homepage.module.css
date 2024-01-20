@@ -26,11 +26,3 @@
     top: 0;
     z-index: 0;
 }
-.profileIcon{
-    position: absolute;
-    width: 65px;
-    height: 65px;
-    z-index: 1;
-    top: 3%;
-    right: 5%;
-}
