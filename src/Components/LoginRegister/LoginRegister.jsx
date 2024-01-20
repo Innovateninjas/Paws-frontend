@@ -19,7 +19,7 @@ function LoginRegisterForm() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
-    const [success, setSuccess] = useState("");
+    const [success, setSuccess] = useState(""); 
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -52,6 +52,7 @@ function LoginRegisterForm() {
                 );
                 alert("Registration successful");
                 // convert this alert into toast.succes() notificication using ReactToastify
+                window.location.href = "/login";
                 setSuccess("Registration successful. You can now login.");
             } catch (error) {
                 if (error.response && error.response.data.error) {
@@ -108,7 +109,7 @@ function LoginRegisterForm() {
                     type="email"
                     placeholder="Email"
                     value={email}
-                    onChange={(e) => setPhoneNumber(e.target.value)}
+                    onChange={(e) => setEmail(e.target.value)}
                     required
                 />
                 <InputField
@@ -139,11 +140,6 @@ function LoginRegisterForm() {
                     </button>
                 )}
             </form>
-            {success && (
-                <Link to="/login">
-                    <button>Login</button>
-                </Link>
-            )}
 
             {error && <p className={styles.errtext} >{error}</p>}
             <img src="./images/paw.png" alt="paw img" className={styles.paw2} />
