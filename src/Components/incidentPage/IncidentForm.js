@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import isValidPhoneNumber from "../utils/Functions/phoneNumberValidator";
 import isValidEmail from "../utils/Functions/emailValidator";
+import { Cloudinary } from "@cloudinary/url-gen";
 
 function IncidentForm() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -14,7 +15,7 @@ function IncidentForm() {
     animal_type: "",
     description: "",
     condition: "",
-    image: "",
+    image: null, // Change to null for correct file handling
     latitude: "",
     longitude: "",
     landmark: "near here", // @rishicds add proper landmark
@@ -36,11 +37,21 @@ function IncidentForm() {
   });
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+    const { name, value, files } = e.target;
+
+    if (name === "image" && files && files.length > 0) {
+      // Handle image file separately
+      setFormData((prevData) => ({
+        ...prevData,
+        [name]: files[0],
+      }));
+    } else {
+      setFormData((prevData) => ({
+        ...prevData,
+        [name]: value,
+      }));
+    }
+
     setErrors((prevErrors) => ({
       ...prevErrors,
       [name]: "", // Clear the error when the user starts typing
@@ -53,28 +64,42 @@ function IncidentForm() {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("Submitting form:", formData);
-    if (validateForm()) {
-      fetch("https://aniresfr-backend.vercel.app/api/animals/", {
-        // Replace with your Django server URL
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      })
-        .then((response) => response.json())
-        .then((data) => {
+
+    try {
+      // Upload the image to Cloudinary
+      const cloudinaryUrl = await uploadImageToCloudinary(formData.image);
+
+      // Update the formData with the Cloudinary URL
+      setFormData((prevData) => ({
+        ...prevData,
+        image: cloudinaryUrl,
+      }));
+
+      if (validateForm()) {
+        // Send the form data with the Cloudinary URL to the backend
+        const response = await fetch("https://aniresfr-backend.vercel.app/api/animals/", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
+
+        if (response.ok) {
+          const data = await response.json();
           console.log("Success:", data);
           setCurrentPage(4); // Assuming 4 is the index for the success page
-        })
-        .catch((error) => {
-          console.error("Error:", error);
-        });
-    } else {
-      console.log("Form is not valid");
+        } else {
+          console.error("Error:", response.statusText);
+        }
+      } else {
+        console.log("Form is not valid");
+      }
+    } catch (error) {
+      console.error("Error:", error);
     }
   };
 
@@ -148,6 +173,33 @@ function IncidentForm() {
   useEffect(() => {
     getUserLocation();
   }, []);
+
+  // Function to upload image to Cloudinary
+  const uploadImageToCloudinary = async (imageFile) => {
+    const cloudinaryUploadUrl = "https://api.cloudinary.com/v1_1/dff97ky68/upload";
+    const uploadPreset = "mnxkqfco";
+
+    const formData = new FormData();
+    formData.append("file", imageFile);
+    formData.append("upload_preset", uploadPreset);
+
+    try {
+      const response = await fetch(cloudinaryUploadUrl, {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error(`Failed to upload image to Cloudinary: ${response.statusText}`);
+      }
+
+      const result = await response.json();
+      return result.secure_url; // Assuming Cloudinary API returns an object with a 'secure_url' property
+    } catch (error) {
+      console.error("Error uploading image to Cloudinary:", error);
+      throw error; // Propagate the error
+    }
+  };
 
   const renderPage = () => {
     switch (currentPage) {
