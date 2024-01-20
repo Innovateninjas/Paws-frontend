@@ -23,23 +23,6 @@ form {
     flex-direction: column;
     gap: 34px;
 }
-input {
-    display: flex;
-    height: 46px;
-    padding: 10px 17px;
-    align-items: center;
-    flex-shrink: 0;
-    border-radius: 10px;
-    background: #dedede;
-}
-input::placeholder {
-    color: #989898;
-    font-size: 1.15rem;
-    font-family: cursive;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-}
 
 .btn {
     margin-top: 1.875rem;

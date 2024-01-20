@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import styles from "./LoginRegister.module.css";
+import InputField from "../InputsFields/bigInputs";
 
 function LoginRegisterForm() {
     const location = useLocation();
@@ -18,7 +19,7 @@ function LoginRegisterForm() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
-    const [success, setSuccess] = useState("");
+    const [success, setSuccess] = useState(""); 
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -51,6 +52,7 @@ function LoginRegisterForm() {
                 );
                 alert("Registration successful");
                 // convert this alert into toast.succes() notificication using ReactToastify
+                window.location.href = "/login";
                 setSuccess("Registration successful. You can now login.");
             } catch (error) {
                 if (error.response && error.response.data.error) {
@@ -86,31 +88,31 @@ function LoginRegisterForm() {
                 {isRegistration && (
                     <>
                         <h1 className={styles.heading}>Create account</h1>
-                        <input
+                        <InputField
                             type="text"
                             placeholder="Full Name"
                             value={fullName}
                             onChange={(e) => setFullName(e.target.value)}
                             required
                         />
-                        <input
-                            placeholder="Phone Number"
+                        <InputField
                             type="tel"
+                            placeholder="Phone Number"
                             value={phoneNumber}
                             onChange={(e) => setPhoneNumber(e.target.value)}
                             required
                         />
                     </>
                 )}
-                {isLogin && <h1> Welcome Back</h1>}
-                <input
-                    placeholder="Email"
+                {isLogin && <h1 className={styles.heading }> Welcome Back</h1>}
+                <InputField
                     type="email"
+                    placeholder="Email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
                 />
-                <input
+                <InputField
                     type="password"
                     placeholder="Password"
                     value={password}
@@ -138,11 +140,6 @@ function LoginRegisterForm() {
                     </button>
                 )}
             </form>
-            {success && (
-                <Link to="/login">
-                    <button>Login</button>
-                </Link>
-            )}
 
             {error && <p className={styles.errtext} >{error}</p>}
             <img src="./images/paw.png" alt="paw img" className={styles.paw2} />
