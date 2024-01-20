@@ -18,6 +18,7 @@ function LoginRegisterForm() {
     const [phoneNumber, setPhoneNumber] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [isNGO, setIsNGO] = useState(false);
     const [error, setError] = useState("");
     const [success, setSuccess] = useState(""); 
 
@@ -48,6 +49,7 @@ function LoginRegisterForm() {
                         phoneNumber,
                         email,
                         password,
+                        userType: isNGO ? 'ngo' : 'user',
                     }
                 );
                 alert("Registration successful");
@@ -65,7 +67,10 @@ function LoginRegisterForm() {
             try {
                 const response = await axios.post(
                     "https://aniresfr-backend.vercel.app/login/",
-                    { email, password }
+                    { 
+                        username: email,
+                        password: password
+                    }
                 );
                 const token = response.data.token;
                 console.log("Login successful, csrftoken:", token);
@@ -102,6 +107,9 @@ function LoginRegisterForm() {
                             onChange={(e) => setPhoneNumber(e.target.value)}
                             required
                         />
+                        {/* 
+                        @arnab add a toggle button for NGO and User
+                        */}
                     </>
                 )}
                 {isLogin && <h1 className={styles.heading }> Welcome Back</h1>}

@@ -20,7 +20,7 @@ function Dashboard() {
 
   const handleStatusChange = async (reportId, newStatus) => {
     try {
-      const response = await fetch(`https://aniresfr-backend.vercel.app/api/animals/${reportId}`, {
+      const response = await fetch(`https://aniresfr-backend.vercel.app/api/animals/${reportId}/`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
