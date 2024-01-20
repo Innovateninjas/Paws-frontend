@@ -21,8 +21,7 @@ const Navbar = () => {
         <li style={styles.navItem}><Link to="/report-incident">Report</Link></li>
         <li style={styles.navItem}><Link to="/blog">Blogs</Link></li>
         <li style={styles.navItem}><Link to="/general">General</Link></li>
-        <li style={styles.navItem}><Link to="/view-reports">View Reports</Link></li>
-        <li style={styles.navItem}><Link to="/view-reports">View Reports</Link></li>
+        <li style={styles.navItem}><Link to="/view-reports">Your Reports</Link></li>
         {/* Add more navigation items as needed */}
       </ul>
     </nav>
