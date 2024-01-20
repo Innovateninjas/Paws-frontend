@@ -51,6 +51,7 @@ input::placeholder {
     border-radius: 14px;
     background: #121212;
     font-size: 19px;
+    cursor: pointer;
     font-weight: 700;
     line-height: normal;
 }
