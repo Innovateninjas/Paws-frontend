@@ -9,6 +9,7 @@ import ViewReports from './Components/ViewReports';
 import Navbar from './Components/Navbar';
 import UserPage from './Components/UserPage';
 import Logout from './Components/Logout';
+import Dashboard from './Components/dashboard/dashboard';
 
 function App() {
   return (
@@ -24,6 +25,8 @@ function App() {
                   <Route path="/register" element={<LoginRegisterForm />} />
                   <Route path="/user" element={<UserPage />} />
                   <Route path="/logout" element={<Logout />} />
+                  <Route path="*" element={<h1>404 NOT FOUND</h1>} />
+                  <Route path="/dashboard" element={<Dashboard/>} />
               </Routes>
           </Router>
       </div>
