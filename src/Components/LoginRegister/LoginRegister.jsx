@@ -102,7 +102,7 @@ function LoginRegisterForm() {
                         />
                     </>
                 )}
-                {isLogin && <h1> Welcome Back</h1>}
+                {isLogin && <h1 className={styles.heading }> Welcome Back</h1>}
                 <input
                     placeholder="Email"
                     type="email"
