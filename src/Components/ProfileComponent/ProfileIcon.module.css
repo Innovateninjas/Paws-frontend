@@ -1,0 +1,9 @@
+/* ProfileIcon.module.css */
+.profileIcon {
+  position: absolute;
+  width: 65px;
+  height: 65px;
+  z-index: 1;
+  top: 3%;
+  right: 5%;
+}
