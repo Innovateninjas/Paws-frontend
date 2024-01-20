@@ -4,7 +4,6 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import isValidPhoneNumber from "../utils/Functions/phoneNumberValidator";
 import isValidEmail from "../utils/Functions/emailValidator";
-import { Cloudinary } from "@cloudinary/url-gen";
 
 function IncidentForm() {
   const [currentPage, setCurrentPage] = useState(1);
