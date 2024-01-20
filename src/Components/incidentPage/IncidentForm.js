@@ -65,9 +65,18 @@ function IncidentForm() {
 
   const handleNextPage = () => {
     if (validatePage(currentPage)) {
+      // Check if animal_type is "Other" and otherAnimalType is not empty
+      if (formData.animal_type === "Other" && formData.otherAnimalType.trim() !== "") {
+        // Set animal_type to the value of otherAnimalType
+        setFormData({
+          ...formData,
+          animal_type: formData.otherAnimalType.trim(),
+        });
+      }
       setCurrentPage((prevPage) => prevPage + 1);
     }
   };
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
