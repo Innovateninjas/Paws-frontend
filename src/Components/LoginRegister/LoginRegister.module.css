@@ -1,0 +1,98 @@
+.heading {
+    color: #121212;
+    font-size: 34px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+}
+.container {
+    position: relative;
+    background: white;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    z-index: 0;
+    overflow: hidden;
+}
+form {
+    position: absolute;
+    height: auto;
+    top: 10%;
+    display: flex;
+    flex-direction: column;
+    gap: 34px;
+}
+input {
+    display: flex;
+    height: 46px;
+    padding: 10px 17px;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #dedede;
+}
+input::placeholder {
+    color: #989898;
+    font-size: 1.15rem;
+    font-family: cursive;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.btn {
+    margin-top: 1.875rem;
+    display: flex;
+    padding: 10px 85px;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 14px;
+    background: #121212;
+    font-size: 19px;
+    font-weight: 700;
+    line-height: normal;
+}
+
+img {
+    width: 263.672px;
+    height: 273.438px;
+    flex-shrink: 0;
+    z-index: 0;
+}
+.paw1 {
+    position: relative;
+    right: -15%;
+    top: -10%;
+}
+.paw2 {
+    position: relative;
+    /* right: -15%; */
+    top: 60%;
+    z-index: -1;
+}
+.errtext {
+    color: red;
+    position: absolute;
+    bottom: 40%;
+}
+.text {
+    position: absolute;
+    bottom: -12%;
+    color: #989898;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    display: inline-block
+
+}
+.LoginNow {
+    color: #272730;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    display: inline-block;
+}
