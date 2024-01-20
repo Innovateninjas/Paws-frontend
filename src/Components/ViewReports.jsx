@@ -26,8 +26,8 @@ function ViewReports() {
           <li key={report.id} className="incident-box">
             <p>Animal Type: {report.animal_type}</p>
             <p>Description: {report.description}</p>
-            <img src={report.image} alt={report.description} className='incident-image'/>
             <p>Location: Latitude - {report.latitude}, Longitude - {report.longitude}</p>
+            <img src={report.image} alt={report.description} className='incident-image'/>
           </li>
         ))}
       </ul>
