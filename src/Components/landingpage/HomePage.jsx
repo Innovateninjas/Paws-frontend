@@ -23,7 +23,7 @@ function LandingPage() {
 
     return (
         <div className={styles.main}>
-        <img  className ={styles.profileIcon}src="./images/profile_icon.png" alt="profile icon"  />
+        <img  className ={styles.profileIcon} src="./images/profile_icon.png" alt="profile icon"  />
             <img
                 className={styles.imgTop}
                 src="./images/homepagetop.png"

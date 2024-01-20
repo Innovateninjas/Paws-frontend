@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import styles from "./LoginRegister.module.css";
+import InputField from "../InputsFields/bigInputs";
 
 function LoginRegisterForm() {
     const location = useLocation();
@@ -86,16 +87,16 @@ function LoginRegisterForm() {
                 {isRegistration && (
                     <>
                         <h1 className={styles.heading}>Create account</h1>
-                        <input
+                        <InputField
                             type="text"
                             placeholder="Full Name"
                             value={fullName}
                             onChange={(e) => setFullName(e.target.value)}
                             required
                         />
-                        <input
-                            placeholder="Phone Number"
+                        <InputField
                             type="tel"
+                            placeholder="Phone Number"
                             value={phoneNumber}
                             onChange={(e) => setPhoneNumber(e.target.value)}
                             required
@@ -103,14 +104,14 @@ function LoginRegisterForm() {
                     </>
                 )}
                 {isLogin && <h1 className={styles.heading }> Welcome Back</h1>}
-                <input
-                    placeholder="Email"
+                <InputField
                     type="email"
+                    placeholder="Email"
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={(e) => setPhoneNumber(e.target.value)}
                     required
                 />
-                <input
+                <InputField
                     type="password"
                     placeholder="Password"
                     value={password}

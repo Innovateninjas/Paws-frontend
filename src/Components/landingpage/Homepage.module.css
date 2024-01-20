@@ -19,6 +19,7 @@
     z-index: 1;
 
 }
+
 .imgTop{
     width: 100%;
     position: absolute;
@@ -27,6 +28,8 @@
 }
 .profileIcon{
     position: absolute;
+    width: 65px;
+    height: 65px;
     z-index: 1;
     top: 3%;
     right: 5%;
