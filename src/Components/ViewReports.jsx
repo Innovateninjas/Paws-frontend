@@ -23,10 +23,10 @@ function ViewReports() {
       <h2>View Reports</h2>
       <ul>
         {reports.map((report) => (
-          <li key={report.id}>
+          <li key={report.id} className="incident-box">
             <p>Animal Type: {report.animal_type}</p>
             <p>Description: {report.description}</p>
-            <img src={report.image} alt={report.description} />
+            <img src={report.image} alt={report.description} className='incident-image'/>
             <p>Location: Latitude - {report.latitude}, Longitude - {report.longitude}</p>
           </li>
         ))}
