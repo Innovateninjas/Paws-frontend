@@ -6,6 +6,8 @@
   align-items: center;
   flex-shrink: 0;
   border-radius: 10px;
+  color: black;
+  font-size: large;
   border: 1px solid #b6b5b5;
   background: #dedede;
 }
