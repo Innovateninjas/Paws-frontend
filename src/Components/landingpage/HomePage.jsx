@@ -1,9 +1,8 @@
-// Location.js
-
 import React, { useEffect, useState } from "react";
 import Button from '../buttons/bigButton';
 import { Link } from "react-router-dom";
 import styles from "./Homepage.module.css";
+import ProfileIcon from "../ProfileComponent/ProfileIcon";
 
 function LandingPage() {
     // const [userLocation, setUserLocation] = useState(null);
@@ -23,7 +22,7 @@ function LandingPage() {
 
     return (
         <div className={styles.main}>
-        <img  className ={styles.profileIcon}src="./images/profile_icon.png" alt="profile icon"  />
+        <ProfileIcon/>
             <img
                 className={styles.imgTop}
                 src="./images/homepagetop.png"
