@@ -59,7 +59,7 @@ img {
 .errtext {
     color: red;
     position: absolute;
-    bottom: 40%;
+    bottom: 43%;
 }
 .text {
     position: absolute;
@@ -79,4 +79,11 @@ img {
     font-weight: 700;
     line-height: normal;
     display: inline-block;
+    margin-inline: .23rem;
 }
+label{
+    position: absolute;
+    bottom: 11%;
+    margin-left: 1rem;
+}
+
