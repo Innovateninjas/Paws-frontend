@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import styles from "./LoginRegister.module.css";
 import InputField from "../InputsFields/bigInputs";
+import Checkbox from "../CheckBoxes/Checkbox";
 
 function LoginRegisterForm() {
     const location = useLocation();
@@ -21,6 +22,29 @@ function LoginRegisterForm() {
     const [isNGO, setIsNGO] = useState(false);
     const [error, setError] = useState("");
     const [success, setSuccess] = useState(""); 
+
+    const handleLogin = async () =>{
+        try {
+            const response = await axios.post(
+                "https://aniresfr-backend.vercel.app/login/",
+                {
+                    username: email,
+                    password: password
+                }
+            );
+            const token = response.data.token;
+            console.log("Login successful, csrftoken:", token);
+            localStorage.setItem("csrftoken", token);
+            window.location.href = "/";
+        } catch (error) {
+            if (error.response && error.response.data.error) {
+                setError(error.response.data.error);
+            } else {
+                setError("An error occurred while logging in.");
+            }
+            window.location.href = "/login";
+        }
+    }
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -54,7 +78,7 @@ function LoginRegisterForm() {
                 );
                 alert("Registration successful");
                 // convert this alert into toast.succes() notificication using ReactToastify
-                window.location.href = "/login";
+                handleLogin()    
                 setSuccess("Registration successful. You can now login.");
             } catch (error) {
                 if (error.response && error.response.data.error) {
@@ -64,25 +88,7 @@ function LoginRegisterForm() {
                 }
             }
         } else {
-            try {
-                const response = await axios.post(
-                    "https://aniresfr-backend.vercel.app/login/",
-                    { 
-                        username: email,
-                        password: password
-                    }
-                );
-                const token = response.data.token;
-                console.log("Login successful, csrftoken:", token);
-                localStorage.setItem("csrftoken", token);
-                window.location.href = "/";
-            } catch (error) {
-                if (error.response && error.response.data.error) {
-                    setError(error.response.data.error);
-                } else {
-                    setError("An error occurred while logging in.");
-                }
-            }
+            handleLogin() 
         }
     };
 
@@ -107,9 +113,6 @@ function LoginRegisterForm() {
                             onChange={(e) => setPhoneNumber(e.target.value)}
                             required
                         />
-                        {/* 
-                        @arnab add a toggle button for NGO and User
-                        */}
                     </>
                 )}
                 {isLogin && <h1 className={styles.heading }> Welcome Back</h1>}
@@ -137,6 +140,12 @@ function LoginRegisterForm() {
                 )}
                 {isRegistration && (
                     <>
+                            <Checkbox
+                                checked={isNGO}
+                                onChange={() => setIsNGO(!isNGO)}
+                                label="Register as NGO/Govt Body"
+                                style={{ marginRight: "10px" }}
+                            />
                         <button type="submit" className={styles.btn}>
                             Register
                         </button>
