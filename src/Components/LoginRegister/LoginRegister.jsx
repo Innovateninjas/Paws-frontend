@@ -5,6 +5,9 @@ import { useLocation } from "react-router-dom";
 import styles from "./LoginRegister.module.css";
 import InputField from "../InputsFields/bigInputs";
 import Checkbox from "../CheckBoxes/Checkbox";
+import ReactiveButton from 'reactive-button';
+import isValidEmail from "../utils/Functions/emailValidator";
+import isValidPhoneNumber from "../utils/Functions/phoneNumberValidator";
 
 function LoginRegisterForm() {
     const location = useLocation();
@@ -15,16 +18,30 @@ function LoginRegisterForm() {
         isLogin = false;
     }
 
+    const customButtonStyle = {
+        borderRadius: '14px',
+        background: '#333333',
+        padding: '10px 85px',
+        marginTop: '0.675rem',
+        fontSize: '19px',
+        fontWeight: '700',
+    };
     const [fullName, setFullName] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [isNGO, setIsNGO] = useState(false);
     const [error, setError] = useState("");
-    const [success, setSuccess] = useState(""); 
+    const [state, setButtonState] = useState('idle');
 
-    const handleLogin = async () =>{
+    const handleLogin = async () => {
+        if (!isValidEmail(email)) {
+            setError("Enter a valid email address.");
+            return;
+        }
+
         try {
+            setButtonState('loading');
             const response = await axios.post(
                 "https://aniresfr-backend.vercel.app/login/",
                 {
@@ -32,70 +49,59 @@ function LoginRegisterForm() {
                     password: password
                 }
             );
+            setButtonState('success');
             const token = response.data.token;
             console.log("Login successful, csrftoken:", token);
             localStorage.setItem("csrftoken", token);
             window.location.href = "/";
         } catch (error) {
+            setButtonState("error");
             if (error.response && error.response.data.error) {
                 setError(error.response.data.error);
             } else {
                 setError("An error occurred while logging in.");
             }
-            window.location.href = "/login";
         }
     }
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
+    const handleRegistration = async () => {
 
-        // Email validation
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
+        if (!isValidEmail(email)) {
             setError("Enter a valid email address.");
             return;
         }
-        if (isRegistration) {
-            // Phone number validation (10 digits only)
-            const phoneRegex =
-                /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
-            if (!phoneRegex.test(phoneNumber)) {
-                setError("Enter a valid  phone number.");
-                console.log("wrog ph");
-                return;
-            }
-
-            try {
-                await axios.post(
-                    "https://aniresfr-backend.vercel.app/register/",
-                    {
-                        fullName,
-                        phoneNumber,
-                        email,
-                        password,
-                        userType: isNGO ? 'ngo' : 'user',
-                    }
-                );
-                alert("Registration successful");
-                // convert this alert into toast.succes() notificication using ReactToastify
-                handleLogin()    
-                setSuccess("Registration successful. You can now login.");
-            } catch (error) {
-                if (error.response && error.response.data.error) {
-                    setError(error.response.data.error);
-                } else {
-                    setError("An error occurred while registering.");
+        if (!isValidPhoneNumber(phoneNumber)) {
+            setError("Enter a valid  phone number.");
+            return;
+        }
+        try {
+            setButtonState('loading');
+            await axios.post(
+                "https://aniresfr-backend.vercel.app/register/",
+                {
+                    fullName,
+                    phoneNumber,
+                    email,
+                    password,
+                    userType: isNGO ? 'ngo' : 'user',
                 }
+            );
+            setButtonState('success');
+            handleLogin()
+        } catch (error) {
+            setButtonState('error');
+            if (error.response && error.response.data.error) {
+                setError(error.response.data.error);
+            } else {
+                setError("An error occurred while registering.");
             }
-        } else {
-            handleLogin() 
         }
     };
 
     return (
         <div className={styles.container}>
             <img src="./images/paw.png" alt="paw img" className={styles.paw1} />
-            <form onSubmit={handleSubmit}>
+            <form >
                 {isRegistration && (
                     <>
                         <h1 className={styles.heading}>Create account</h1>
@@ -115,7 +121,7 @@ function LoginRegisterForm() {
                         />
                     </>
                 )}
-                {isLogin && <h1 className={styles.heading }> Welcome Back</h1>}
+                {isLogin && <h1 className={styles.heading}> Welcome Back</h1>}
                 <InputField
                     type="email"
                     placeholder="Email"
@@ -132,29 +138,46 @@ function LoginRegisterForm() {
                 />
                 {isRegistration && (
                     <p className={styles.text}>
-                        Already have an account? 
+                        Already have an account?
                         <Link to="/login" className={styles.LoginNow}>
-                        Login now!
+                            Login now!
                         </Link>
                     </p>
                 )}
                 {isRegistration && (
                     <>
+                        <div className={styles.wrap}>
+
+
                             <Checkbox
                                 checked={isNGO}
                                 onChange={() => setIsNGO(!isNGO)}
                                 label="Register as NGO/Govt Body"
                                 style={{ marginRight: "10px" }}
                             />
-                        <button type="submit" className={styles.btn}>
-                            Register
-                        </button>
+                            <ReactiveButton
+                                style={customButtonStyle}
+                                buttonState={state}
+                                idleText="Register"
+                                loadingText="wait.."
+                                successText="Logging In"
+                                errorText="Register"
+                                messageDuration={3000}
+                                shadow
+                                onClick={handleRegistration}
+                            /></div>
                     </>
                 )}
                 {isLogin && (
-                    <button type="submit" className={styles.btn}>
-                        Login
-                    </button>
+                    <ReactiveButton
+                        style={customButtonStyle}
+                        buttonState={state}
+                        idleText="Login"
+                        loadingText="wait.."
+                        successText="Logging In"
+                        errorText="Login"
+                        onClick={handleLogin}
+                    />
                 )}
             </form>
 
