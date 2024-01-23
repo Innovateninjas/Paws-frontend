@@ -40,5 +40,6 @@
   font-weight: 700;
   line-height: normal;
   display: flex;
+  position: relative;
   align-items: center;
 }
