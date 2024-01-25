@@ -1,9 +1,12 @@
 // IncidentForm.js
 
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import isValidPhoneNumber from "../utils/Functions/phoneNumberValidator";
 import isValidEmail from "../utils/Functions/emailValidator";
+import ImageAndLocationPage from "../Forms/ImageAndLocationPage";
+import AnimalDetailsPage from "../Forms/AnimalDetailsPage";
+import ContactInformationPage from "../Forms/ContactInformationPage";
+import SuccessPage from "../Forms/SuccessPage";
 
 function IncidentForm() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -209,154 +212,35 @@ function IncidentForm() {
     switch (currentPage) {
       case 1:
         return (
-          <div>
-            <h2>Page 1: Image and Location</h2>
-            <label>
-              Image:
-              <input
-                type="file"
-                accept="image/*"
-                name="image"
-                onChange={handleChange}
-              />
-              <div className="error">{errors.image}</div>
-            </label>
-            <br />
-            <p>
-              User's Location: Latitude {formData.latitude}, Longitude{" "}
-              {formData.longitude}
-            </p>
-            <br />
-            <button type="button" onClick={handleNextPage}>
-              Next
-            </button>
-          </div>
+          <ImageAndLocationPage
+            formData={formData}
+            errors={errors}
+            handleChange={handleChange}
+            handleNextPage={handleNextPage}
+          />
         );
       case 2:
         return (
-          <div>
-            <h2>Page 2: Animal Details</h2>
-            <label>
-              Animal Type:
-              <select
-                name="animal_type"
-                value={formData.animal_type}
-                onChange={handleChange}
-              >
-                <option value="">Select Animal Type</option>
-                <option value="Cat">Cat</option>
-                <option value="Dog">Dog</option>
-                <option value="Cattle">Cattle</option>
-                <option value="Other">Other</option>
-              </select>
-              <div className="error">{errors.animal_type}</div>
-            </label>
-            <br />
-            {formData.animal_type === "Other" && (
-              <label>
-                Please specify:
-                <input
-                  type="text"
-                  name="otherAnimalType"
-                  onChange={handleChange}
-                />
-              </label>
-            )}
-            <br />
-            <label>
-              Description:
-              <textarea
-                name="description"
-                value={formData.description}
-                onChange={handleChange}
-              ></textarea>
-              <div className="error">{errors.description}</div>
-            </label>
-            <br />
-            <label>
-              Condition:
-              <select
-                name="condition"
-                value={formData.condition}
-                onChange={handleChange}
-              >
-                <option value="">Select Condition</option>
-                <option value="Critical">Critical</option>
-                <option value="Urgent">Urgent</option>
-                <option value="Normal">Normal</option>
-              </select>
-              <div className="error">{errors.condition}</div>
-            </label>
-            <br />
-            <button type="button" onClick={handleNextPage}>
-              Next
-            </button>
-          </div>
+          <AnimalDetailsPage
+            formData={formData}
+            errors={errors}
+            handleChange={handleChange}
+            handleNextPage={handleNextPage}
+          />
         );
       case 3:
         return (
-          <div>
-            <h2>Page 3: Contact Information</h2>
-            <label>
-              Name:
-              <input
-                type="text"
-                name="user_name"
-                value={formData.user_name}
-                onChange={handleChange}
-              />
-              <div className="error">{errors.user_name}</div>
-            </label>
-            <br />
-            <label>
-              Phone Number:
-              <input
-                type="text"
-                name="user_phone"
-                value={formData.user_phone}
-                onChange={handleChange}
-              />
-              <div className="error">{errors.user_phone}</div>
-            </label>
-            <br />
-            <label>
-              Email:
-              <input
-                type="text"
-                name="user_email"
-                value={formData.user_email}
-                onChange={handleChange}
-              />
-              <div className="error">{errors.user_email}</div>
-            </label>
-            <br />
-            <button
-              type="button"
-              onClick={(e) => {
-                if (validatePage(currentPage)) {
-                  handleNextPage();
-                  handleSubmit(e);
-                }
-              }}
-            >
-              Next
-            </button>
-          </div>
+          <ContactInformationPage
+            formData={formData}
+            errors={errors}
+            handleChange={handleChange}
+            handleNextPage={handleNextPage}
+            handleSubmit={handleSubmit}
+            validatePage={() => validatePage(currentPage)}
+          />
         );
       case 4:
-        return (
-          <div>
-            <h2>Success Page</h2>
-            <p>Thank you for submitting the form!</p>
-            <Link to="/">
-              <button>Back to Home</button>
-            </Link>
-            <p>View Your Reports</p>
-            <Link to="/view-reports">
-              <button>View Reports</button>
-            </Link>
-          </div>
-        );
+        return <SuccessPage />;
       default:
         return null;
     }
