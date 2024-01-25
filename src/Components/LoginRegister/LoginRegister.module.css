@@ -39,7 +39,6 @@ img {
 }
 .paw2 {
     position: relative;
-    /* right: -15%; */
     top: 60%;
     z-index: -1;
 }
@@ -67,11 +66,7 @@ img {
     display: inline-block;
     margin-inline: 0.23rem;
 }
-label {
-    position: absolute;
-    bottom: 11%;
-    margin-left: 1rem;
-}
+
 .wrap{
     width: 100%;
     display: flex;
