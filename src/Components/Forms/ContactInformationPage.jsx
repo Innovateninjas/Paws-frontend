@@ -1,7 +1,8 @@
-import React, { useEffect, useCallback ,useState} from "react";
+import React, { useEffect, useCallback } from "react";
 import axios from "axios";
 import checkLoginStatus from "../utils/Functions/isLoggedIn";
 
+const isLoggedIn = checkLoginStatus();
 function ContactInformationPage({
   formData,
   setFormData,
@@ -11,8 +12,6 @@ function ContactInformationPage({
   validatePage,
   handleNextPage,
 }) {
-  const [isLoggedIn,setIsLoggedIn] = useState(false)
-  // const isLoggedIn = await checkLoginStatus ;
   
   const fetchUserData = useCallback(async () => {
     try {
@@ -40,8 +39,6 @@ function ContactInformationPage({
 
   useEffect(() => {
     const fetchData = async () => {
-      const isLoggedIn = await checkLoginStatus();
-      setIsLoggedIn(isLoggedIn);
       if (isLoggedIn) {
         const userData = await fetchUserData();
         setFormData((prevData) => ({
@@ -54,20 +51,10 @@ function ContactInformationPage({
     };
 
     fetchData();
-  }, [isLoggedIn, fetchUserData, setFormData]);
+  }, [ fetchUserData, setFormData]);
 
   // Update input values when formData changes
-  useEffect(() => {
-    // Make sure the user's changes don't override the fetched data
-    if (!isLoggedIn) {
-      setFormData((prevData) => ({
-        ...prevData,
-        user_name: formData.user_name,
-        user_phone: formData.user_phone,
-        user_email: formData.user_email,
-      }));
-    }
-  }, [formData, isLoggedIn, setFormData]);
+
 
   return (
     <div>
