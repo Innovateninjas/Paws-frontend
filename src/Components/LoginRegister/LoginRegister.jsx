@@ -41,6 +41,7 @@ function LoginRegisterForm() {
         }
 
         try {
+            setError("") // clearing the previous error if any 
             setButtonState('loading');
             const response = await axios.post(
                 "https://aniresfr-backend.vercel.app/login/",
@@ -75,6 +76,7 @@ function LoginRegisterForm() {
             return;
         }
         try {
+            setError("") // clearing the previous error if any 
             setButtonState('loading');
             await axios.post(
                 "https://aniresfr-backend.vercel.app/register/",

@@ -224,6 +224,7 @@ function IncidentForm() {
         return (
           <ContactInformationPage
             formData={formData}
+            setFormData = {setFormData}
             errors={errors}
             handleChange={handleChange}
             handleNextPage={handleNextPage}
