@@ -1,4 +1,4 @@
-const checkLoginStatus = async () => {
+const checkLoginStatus =  () => {
     try {
         // Check if the user is logged in by verifying the presence of a CSRF token in localStorage
         const token = localStorage.getItem("csrftoken");
