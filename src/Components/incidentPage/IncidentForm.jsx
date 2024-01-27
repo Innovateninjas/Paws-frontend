@@ -3,10 +3,10 @@
 import React, { useState, useEffect } from "react";
 import isValidPhoneNumber from "../utils/Functions/phoneNumberValidator";
 import isValidEmail from "../utils/Functions/emailValidator";
-import ImageAndLocationPage from "../Forms/ImageAndLocationPage";
-import AnimalDetailsPage from "../Forms/AnimalDetailsPage";
-import ContactInformationPage from "../Forms/ContactInformationPage";
-import SuccessPage from "../Forms/SuccessPage";
+import ImageAndLocationPage from "../Forms/imageAndLocationPage/ImageAndLocationPage";
+import AnimalDetailsPage from "../Forms/animalDetailspage/AnimalDetailsPage";
+import ContactInformationPage from "../Forms/contactInformationPage/ContactInformationPage";
+import SuccessPage from "../Forms/successPage/SuccessPage";
 
 function IncidentForm() {
   const [currentPage, setCurrentPage] = useState(1);
