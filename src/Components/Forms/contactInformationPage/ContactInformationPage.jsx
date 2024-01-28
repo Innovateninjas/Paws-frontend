@@ -1,6 +1,6 @@
 import React, { useEffect, useCallback } from "react";
 import axios from "axios";
-import checkLoginStatus from "../utils/Functions/isLoggedIn";
+import checkLoginStatus from "../../utils/Functions/isLoggedIn";
 
 const isLoggedIn = checkLoginStatus();
 function ContactInformationPage({
