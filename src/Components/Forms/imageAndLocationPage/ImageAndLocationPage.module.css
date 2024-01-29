@@ -1,0 +1,55 @@
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #fff;
+  color: black;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.image-upload-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border: 2px dashed #ccc;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.image-upload-button:hover {
+  border-color: #007bff;
+}
+
+.image-upload-button .icon {
+  margin-right: 10px;
+}
+
+.image-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.image-item {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.image-preview {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.remove-button {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
