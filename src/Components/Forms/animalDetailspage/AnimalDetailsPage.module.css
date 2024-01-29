@@ -35,7 +35,6 @@ font-size: 1.1rem;
   padding: 10px;
   display: flex;
   flex-direction: row;
-  overflow-x: scroll;
   justify-content: space-evenly;
   border-radius: 10px;
   background-color: #6d8ca0;
