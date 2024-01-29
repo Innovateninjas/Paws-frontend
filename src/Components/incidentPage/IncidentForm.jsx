@@ -106,6 +106,7 @@ function IncidentForm() {
   };
 
   const validatePage = (page) => {
+
     const pageData = formData;
     const pageErrors = {};
 
