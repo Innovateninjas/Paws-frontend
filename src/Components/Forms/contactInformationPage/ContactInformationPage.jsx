@@ -68,9 +68,11 @@ function ContactInformationPage({
     <div className={styles.main}>
       {isLoggedIn && !loaded && ( // Render only when isLoggedIn is true and loaded is false
         <div className={styles.spinners_wrap}>
-          <h1 style={
-            { fontFamily: "cursive" }
-          } >Loading...</h1>
+          <h2 style={
+            { fontFamily: "cursive",
+            fontSize: "2rem",
+             }
+          } >Loading...</h2>
           <Watch
             visible={true}
             height={80}
