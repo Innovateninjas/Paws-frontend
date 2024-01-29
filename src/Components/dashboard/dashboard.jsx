@@ -1,4 +1,7 @@
+// Dashboard.js
+
 import React, { useState, useEffect } from 'react';
+import styles from './dashboard.module.css';  // Import the CSS module
 
 function Dashboard() {
   const [reports, setReports] = useState([]);
@@ -7,7 +10,7 @@ function Dashboard() {
   useEffect(() => {
     const fetchReports = async () => {
       try {
-        const response = await fetch('https://aniresfr-backend.vercel.app/api/animals'); // Replace with your actual API endpoint
+        const response = await fetch('https://aniresfr-backend.vercel.app/api/animals');
         const data = await response.json();
         setReports(data);
       } catch (error) {
@@ -29,7 +32,6 @@ function Dashboard() {
       });
 
       if (response.ok) {
-        // Update the local state after successful update
         setReports((prevReports) =>
           prevReports.map((report) =>
             report.id === reportId ? { ...report, status: newStatus } : report
@@ -44,12 +46,12 @@ function Dashboard() {
   };
 
   return (
-    <div>
-      <h2>NGO Dashboard</h2>
+    <div className={styles.masterContainer}>
+      <h2 className={styles.heading}>NGO Dashboard</h2>
       <ul>
         {reports.map((report) => (
-          <li key={report.id} className="incident-box">
-            <img src={report.image} alt={report.description} className="incident-image" />
+          <li key={report.id} className={styles.incidentBox}>
+            <img src={report.image} alt={report.description} className={styles.incidentImage} />
             <div>
               <p>Animal Type: {report.animal_type}</p>
               <p>Description: {report.description}</p>
@@ -63,6 +65,7 @@ function Dashboard() {
                 <select
                   value={report.status || ''}
                   onChange={(e) => handleStatusChange(report.id, e.target.value)}
+                  className={styles.select}
                 >
                   <option value="" disabled>
                     Select Status
