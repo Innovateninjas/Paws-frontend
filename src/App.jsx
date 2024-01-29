@@ -6,7 +6,7 @@ import IncidentList from './Components/IncidentList';
 import LandingPage from './Components/landingpage/HomePage'
 import LoginRegisterForm from "./Components/LoginRegister/LoginRegister";
 import ViewReports from './Components/ViewReports';
-import Navbar from './Components/Navbar';
+import Navbar from './Components/navbar/Navbar';
 import UserPage from './Components/UserPage';
 import Logout from './Components/Logout';
 import Dashboard from './Components/dashboard/dashboard';
