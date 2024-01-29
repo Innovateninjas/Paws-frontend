@@ -1,6 +1,11 @@
-import React, { useEffect, useCallback } from "react";
+import React, { useEffect, useCallback, useState } from "react";
 import axios from "axios";
+import Rodal from 'rodal';
+import 'rodal/lib/rodal.css';
 import checkLoginStatus from "../../utils/Functions/isLoggedIn";
+import styles from "./ContactInformationPage.module.css"
+import InputField from "../../InputsFields/bigInputs";
+import { Watch } from "react-loader-spinner";
 
 const isLoggedIn = checkLoginStatus();
 function ContactInformationPage({
@@ -12,7 +17,9 @@ function ContactInformationPage({
   validatePage,
   handleNextPage,
 }) {
-  
+  const [loaded, setLoaded] = useState(false);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
   const fetchUserData = useCallback(async () => {
     try {
       const csrftoken = localStorage.getItem("csrftoken");
@@ -28,6 +35,7 @@ function ContactInformationPage({
 
       if (response.status === 200) {
         const userData = response.data;
+        setLoaded(true);
         return userData;
       } else {
         console.error("Error fetching user information");
@@ -51,62 +59,103 @@ function ContactInformationPage({
     };
 
     fetchData();
-  }, [ fetchUserData, setFormData]);
+  }, [fetchUserData, setFormData]);
 
   // Update input values when formData changes
 
 
   return (
-    <div>
-      <h2>Page 3: Contact Information</h2>
-      {isLoggedIn && (
-        <h3>rukja vai tera information la raha hu  </h3>
+    <div className={styles.main}>
+      {isLoggedIn && !loaded && ( // Render only when isLoggedIn is true and loaded is false
+        <div className={styles.spinners_wrap}>
+          <h1 style={
+            { fontFamily: "cursive" }
+          } >Loading...</h1>
+          <Watch
+            visible={true}
+            height={80}
+            width={80}
+            radius={40}
+            color="#4fa94d"
+            ariaLabel="watch-loading"
+
+            wrapperClass={styles.spinner}
+          />
+        </div>
       )}
-      {/* Allow the user to fill in details manually if not logged in */}
-      <label>
-        Name:
-        <input
-          type="text"
-          name="user_name"
-          value={formData.user_name}
-          onChange={handleChange}
-        />
-        <div className="error">{errors.first_name}</div>
-      </label>
-      <br />
-      <label>
-        Phone Number:
-        <input
-          type="tel"
-          name="user_phone"
-          value={formData.user_phone}
-          onChange={handleChange}
-        />
-        <div className="error">{errors.last_name}</div>
-      </label>
-      <br />
-      <label>
-        Email:
-        <input
-          type="email"
-          name="user_email"
-          value={formData.user_email}
-          onChange={handleChange}
-        />
-        <div className="error">{errors.username}</div>
-      </label>
-      <br />
-      <button
-        type="button"
-        onClick={(e) => {
-          if (validatePage()) {
-            handleNextPage(); // Call the handleNextPage function
-            handleSubmit(e);
-          }
-        }}
-      >
-        Next
-      </button>
+
+      <div className={styles.wrap}>
+
+        <h1 className={styles.heading}>Contact Details</h1>
+        {/* Allow the user to fill in details manually if not logged in */}
+        <label>
+          Name:
+          <InputField
+            type="text"
+            name="user_name"
+            placeholder="Name"
+            value={formData.user_name}
+            onChange={handleChange}
+            required={true}
+            backgroundColor={"#D9D9D9"}
+            outline={true}
+          />
+          <div className="error">{errors.first_name}</div>
+        </label>
+        <br />
+        <label>
+          Phone Number:
+          <InputField
+            type="tel"
+            name="user_phone"
+            placeholder="Phone Number"
+            value={formData.user_phone}
+            onChange={handleChange}
+            required={true}
+            backgroundColor={"#D9D9D9"}
+            outline={true}
+          />
+          <div className="error">{errors.last_name}</div>
+        </label>
+        <br />
+        <label>
+          Email:
+          <InputField
+            type="email"
+            name="user_email"
+            placeholder="Email"
+            value={formData.user_email}
+            onChange={handleChange}
+            required={true}
+            backgroundColor={"#D9D9D9"}
+            outline={true}
+          />
+          <div className="error">{errors.username}</div>
+        </label>
+        <br />
+        <p className={styles.para} onClick={() => setModalIsOpen(true)}>Learn why we need that data</p>
+        <div className={styles.buttons}>
+          <button
+            className={styles.customButton}
+          >
+            Back
+          </button>
+          <button
+            className={styles.customButton}
+            onClick={(e) => {
+              if (validatePage()) {
+                handleNextPage(); // Call the handleNextPage function
+                handleSubmit(e);
+              }
+            }}
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+      <Rodal visible={modalIsOpen} animation="zoom" showCloseButton closeMaskOnClick onClose={() => { setModalIsOpen(false) }} closeOnEsc className={styles.modal} width={350}	>
+        <p className={styles.modalText}>Your name, email, and phone number are essential for us to contact you and coordinate the rescue process effectively. Providing accurate information will help us rescue animals promptly and ensure their safety and well-being. Thank you for your cooperation.</p>
+      </Rodal>
     </div>
   );
 }

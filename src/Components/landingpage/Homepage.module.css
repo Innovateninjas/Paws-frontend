@@ -7,6 +7,7 @@
     flex-direction: column;
     justify-content: center;
     z-index: -1;
+    margin-inline:auto  ;
 }
 .main_text{
     margin: 40px;

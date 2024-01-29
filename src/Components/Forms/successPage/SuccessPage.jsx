@@ -1,20 +1,22 @@
 // SuccessPage.js
-
 import React from "react";
 import { Link } from "react-router-dom";
+import styles from "./SuccessPage.module.css";
 
 function SuccessPage() {
   return (
-    <div>
-      <h2>Success Page</h2>
-      <p>Thank you for submitting the form!</p>
-      <Link to="/">
-        <button>Back to Home</button>
-      </Link>
-      <p>View Your Reports</p>
-      <Link to="/view-reports">
-        <button>View Reports</button>
-      </Link>
+    <div className={styles.container}>
+      <h2 className={styles.heading}>Success</h2>
+      <div className={styles.checkmark}>✓</div>
+      <p className={styles.message}>Your report has been successfully submitted!</p>
+      <div className={styles.buttons}>
+        <Link to="/" className={styles.button}>
+          Back to Home
+        </Link>
+        <Link to="/view-reports" className={styles.button}>
+          View Reports
+        </Link>
+      </div>
     </div>
   );
 }

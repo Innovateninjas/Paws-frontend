@@ -74,7 +74,9 @@ function IncidentForm() {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    if (e) {
+      e.preventDefault();
+    }
     console.log("Submitting form:", formData);
 
     try {
