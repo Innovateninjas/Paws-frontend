@@ -22,6 +22,7 @@ function IncidentForm() {
     longitude: "",
     landmark: "near here", // @rishicds add proper landmark
     status: "not resolved", // @rishicds add proper status
+    numberOfAnimals: "", // New field for the number of animals
   });
 
   const [errors, setErrors] = useState({
@@ -36,6 +37,7 @@ function IncidentForm() {
     longitude: "",
     landmark: "",
     status: "",
+    numberOfAnimals: "", // New field for the number of animals
   });
 
   const handleChange = async (e) => {
@@ -70,7 +72,6 @@ function IncidentForm() {
       setCurrentPage((prevPage) => prevPage + 1);
     }
   };
-  
 
   const handleSubmit = async (e) => {
     if (e) {
@@ -226,7 +227,7 @@ function IncidentForm() {
         return (
           <ContactInformationPage
             formData={formData}
-            setFormData = {setFormData}
+            setFormData={setFormData}
             errors={errors}
             handleChange={handleChange}
             handleNextPage={handleNextPage}

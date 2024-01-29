@@ -26,6 +26,42 @@ function AnimalDetailsPage({ formData, errors, handleChange, handleNextPage }) {
       )}
       <br />
       <label>
+        How many animals:
+        <div>
+          <label>
+            <input
+              type="radio"
+              name="numberOfAnimals"
+              value="One"
+              checked={formData.numberOfAnimals === "One"}
+              onChange={handleChange}
+            />
+            One
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="numberOfAnimals"
+              value="Two"
+              checked={formData.numberOfAnimals === "Two"}
+              onChange={handleChange}
+            />
+            Two
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="numberOfAnimals"
+              value="More"
+              checked={formData.numberOfAnimals === "More"}
+              onChange={handleChange}
+            />
+            More
+          </label>
+        </div>
+      </label>
+      <br />
+      <label>
         Description:
         <textarea name="description" value={formData.description} onChange={handleChange}></textarea>
         <div className="error">{errors.description}</div>
