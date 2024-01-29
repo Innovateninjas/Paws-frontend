@@ -2,8 +2,6 @@
 
 body {
     font-family: "Poppins", sans-serif;
-    background-color: #121212; /* Dark background */
-    color: #ffffff; /* Light text */
 }
 
 * {
@@ -12,11 +10,6 @@ body {
     box-sizing: border-box;
 }
 
-/* Other elements */
-button, input, textarea {
-    background-color: #2d2d2d; /* Darker background for inputs */
-    color: #ffffff; /* Light text */
-}
 
 .incident-box {
     border: 1px solid #ccc;
