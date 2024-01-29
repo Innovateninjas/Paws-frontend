@@ -11,11 +11,12 @@
     position: relative;
 }
 .heading {
-    font-size: 24px;
+    font-size: 2rem;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
     margin-bottom: 20px;
+    text-decoration: #333333 underline;
 }
 
 .para {
@@ -44,7 +45,9 @@
     background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(5px);
 }
-
+label{
+     font-size: x-large;
+}
 .modalText {
     font-size: 14px;
     font-family: cursive;
@@ -65,12 +68,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 61px;
+    height: 50px;
     padding: 10px 36px;
     color: #333;
     border: 1px solid #333333;
     margin-top: 0.675rem;
-    font-size: 16px;
+    font-size: 1.3rem;
     font-weight: 700;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
     transition: background 0.3s ease, color 0.3s ease; 
