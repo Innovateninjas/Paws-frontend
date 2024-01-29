@@ -1,12 +1,13 @@
 .masterContainer{
   /* font-family:sans-serif; */
     color: #2d2d2d;
-    background-color: #BFDBFB;
+    background-color: #ADBD7F;
     height: calc(100vh - 45px);
     width: 100%;
     padding: 1rem;display: flex;
     flex-direction: column;
     gap: 5px;
+    justify-content: center;
 }
 p{
   margin-bottom: 3px;
@@ -14,6 +15,7 @@ p{
 }
 h1{
     text-align: center;
+    padding-bottom: 3px;
 }
 .masterContainer label{
 font-size: 1.1rem;
@@ -37,7 +39,7 @@ font-size: 1.1rem;
   flex-direction: row;
   justify-content: space-evenly;
   border-radius: 10px;
-  background-color: #6d8ca0;
+  background-color: #C4C29D;
   border: 3px;
   box-shadow:1px 1px 2px black ;
 }
@@ -106,8 +108,9 @@ input[type="radio"] {
 }
 .bttn{
     font-size: 1.3rem;
-    border: 2px solid #35434e;
-    background-color: #40535f;
+    color: #2c3022;
+    border: 2px solid #2d2d2d;
+    background-color: #FFFFFF;
     border-radius: 10px;
     padding: 5px;
     width: 100px;
