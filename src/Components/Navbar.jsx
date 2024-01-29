@@ -34,7 +34,7 @@ const styles = {
     bottom: 0,
     left: 0,
     width: '100%',
-    backgroundColor: 'red',
+    backgroundColor: '#C0C0C0',
     padding: '10px',
     zIndex: 1000,
   },
