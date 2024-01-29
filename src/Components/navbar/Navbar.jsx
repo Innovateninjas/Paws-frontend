@@ -20,9 +20,9 @@ const Navbar = () => {
       >
         {csrftoken ? (
           <>
-            <BottomNavigationAction label="Profile" component={Link} to="/user" icon={<FaUser />} />
-            <BottomNavigationAction label="Home" component={Link} to="/" icon={<FaHome />} />
-            <BottomNavigationAction label="Logout" component={Link} to="/logout" icon={<FaSignOutAlt />} />
+            <BottomNavigationAction label="Profile" component={Link} to="/user" icon={<FaUser size={24} />} />
+            <BottomNavigationAction label="Home" component={Link} to="/" icon={<FaHome size={24} />} />
+            <BottomNavigationAction label="Logout" component={Link} to="/logout" icon={<FaSignOutAlt size={24} />} />
           </>
         ) : (
           <>
@@ -33,7 +33,7 @@ const Navbar = () => {
                 <BottomNavigationAction
                   component={Link}
                   to="/register"
-                  icon={<FaUserPlus />}
+                    icon={<FaUserPlus size={24} />}
                 />
                 <span className={styles.label}>Register</span>
               </div>
@@ -42,7 +42,7 @@ const Navbar = () => {
                 <BottomNavigationAction
                   component={Link}
                   to="/login"
-                  icon={<FaUser />}
+                    icon={<FaUser size={24} />}
                 />
                 <span className={styles.label}>Login</span>
               </div>
