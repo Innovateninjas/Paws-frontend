@@ -40,6 +40,39 @@ function IncidentForm() {
     numberOfAnimals: "", // New field for the number of animals
   });
 
+  const getUserLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(async (position) => {
+        const { latitude, longitude } = position.coords;
+        console.log(`Latitude: ${latitude}, Longitude: ${longitude}`); // Add this line
+  
+        const response = await fetch(
+          `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyBBUSExqFtg19K7UZQ4LzGE7MygnoxibRo`
+        );
+        const data = await response.json();
+  
+        if (data.results && data.results.length > 0) {
+          const address = data.results[0].formatted_address;
+  
+          setFormData((prevData) => ({
+            ...prevData,
+            latitude,
+            longitude,
+            address, // Store the address in the form data
+          }));
+        } else {
+          console.log('No results found');
+        }
+      });
+    } else {
+      console.log('Geolocation is not supported by this browser.');
+    }
+  };
+  useEffect(() => {
+    getUserLocation();
+  }, []);
+
+
   const handleChange = async (e) => {
     const { name, value, files } = e.target;
 
@@ -159,24 +192,8 @@ function IncidentForm() {
     });
   };
 
-  const getUserLocation = () => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        setFormData((prevData) => ({
-          ...prevData,
-          latitude: position.coords.latitude,
-          longitude: position.coords.longitude,
-        }));
-      });
-    } else {
-      console.log("Geolocation is not supported by this browser.");
-    }
-  };
 
-  useEffect(() => {
-    getUserLocation();
-  }, []);
-
+ 
   // Function to upload image to Cloudinary
   const uploadImageToCloudinary = async (imageFile) => {
     const cloudinaryUploadUrl = "https://api.cloudinary.com/v1_1/dff97ky68/upload";

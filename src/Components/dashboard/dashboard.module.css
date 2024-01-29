@@ -1,0 +1,56 @@
+/* dashboard.module.css */
+
+.masterContainer {
+  background-color: #ADBD7F;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.heading {
+  color: #2d2d2d;
+  text-align: center;
+  padding-bottom: 1rem;
+}
+
+.incidentBox {
+  list-style: none;
+  border-radius: 10px;
+  border: 1px solid;
+  padding: 20px;
+  margin: 20px ;
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.5); /* Add this line */
+}
+.incidentBox p{
+  color: #2d2d2d;
+}
+.incidentBox label{
+  color: #2d2d2d;
+}
+.incidentImage {
+  width: 200px; /* Set your preferred width */
+  height: 200px; /* Set your preferred height */
+  margin-right: 10px;
+  border-radius: 10px; /* Optional: Add border-radius for a rounded look */
+  object-fit: cover;
+  object-position: center;
+  box-shadow: 2px 2px 5px black;
+}
+
+.incidentBox div {
+  flex-grow: 1;
+}
+
+.select {
+  margin-left: 10px;
+  padding: 5px;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
