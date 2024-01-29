@@ -1,0 +1,54 @@
+/* SuccessPage.module.css */
+.container {
+    width: 100%;
+    height: 60vh;
+    text-align: center;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    justify-content: center;
+
+}
+
+.heading {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.checkmark {
+    font-size: 40px;
+    margin-bottom: 20px;
+    color: #4caf50; /* Green color for the checkmark */
+}
+
+.message {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: #4caf50; /* Green color for the buttons */
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #388e3c; /* Darker shade of green on hover */
+}
+
+.linkText {
+    margin-bottom: 10px;
+}
