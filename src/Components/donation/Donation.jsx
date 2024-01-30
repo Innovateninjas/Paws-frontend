@@ -4,29 +4,38 @@ import styles from "./Donation.module.css";
 function Donation() {
   return (
     <div>
+      <div className={styles.masterContain}>
 
-      <div className={styles.contain}>
-        <h2 className={styles.heading}>HELP US TO HELP OUR LITTLE FRIENDS!</h2>
-        <p className={styles.p}>Your donations will help us take care of our little friends and help them find their next life-long home</p>
-        <div className={styles.butt}>
+      <div><img src="./images/Donation.png"></img>
+      <h2 className={styles.heading}> <span>HELP US BRIGHTEN THEIR LIVES!</span></h2></div>
+       
+        <div className={styles.main}>
+
+        <p className={styles.p}>Your generous donations play a crucial role in caring for our little friends and helping them find their forever homes.</p>
+        
+        <div className={styles.makeDonation}>
           <div className={styles.mainbtn}>
-            <button >10 rupees</button>
-            <button >25 rupees</button>
-            <button >50 rupees</button>
+            <button >100 rupees</button>
+            <button >250 rupees</button>
+            <button >500 rupees</button>
           </div>
           <h2>OR</h2>
-          <label for="password">Custom Amount :</label>
+          <label className={styles.amt} for="password">Custom Amount</label>
           <div className={styles.gap}>
-            <input type="text" id="amount" name="rupees" placeholder="Enter custom amount" required></input>
+            <input type="number" id="amount" name="rupees" placeholder="Enter custom amount..." required></input>
           </div>
           <div className={styles.donatebtn}>
             <button className={styles.dont}>Donate now!</button>
           </div>
         </div>
+
+        </div>
+       
       </div>
 
     </div>
   );
+  
 }
 
 export default Donation

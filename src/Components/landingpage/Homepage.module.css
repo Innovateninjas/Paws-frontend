@@ -1,30 +1,55 @@
-.main{
-    background: #BFDBFB;
-    height: 100vh;
-    width: 100vw;
-    /* position: relative; */
+.main {
+    font-family: serif;
+    position: relative;
     align-items: center;
-    display: flex;
     flex-direction: column;
     justify-content: center;
-    z-index: -1;
-    margin-inline:auto  ;
+    height: calc(100vh - 76px);
+    height: 100vh;
+    width: 100vw;
+    background-image: url(bg9.jpg);
+    opacity: 0.95;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
 }
-.main_text{
-    margin: 40px;
-    color: #000;
-    text-align: center;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 800;
-    line-height: normal;
-    z-index: 1;
-
-}
-
-.imgTop{
-    width: 100%;
+.container{
     position: absolute;
-    top: 0;
+    top: 10%;
+}
+.main img {
+    /* position: absolute; */
+    right: 10px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center; 
+    float: right;
+    z-index: 3;
+}
+
+.main_text {
     z-index: 0;
+    text-align: left;
+    font-size: 2rem;
+padding-top:10px ;
+padding-bottom: 10px;
+padding-left: 15px;
+    color: white;
+    backdrop-filter: invert(10%);
+}
+.main button{
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    border: 1px;
+    width: fit-content;
+    transform: translate(-50%, -50%);
+    font-size: 1.2rem;
+    background-color: #2d2d2d;
+    color: #fff;
+    box-shadow: 1px 1px 2px black;
+ 
 }
