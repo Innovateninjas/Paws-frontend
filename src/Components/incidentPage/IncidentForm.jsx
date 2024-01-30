@@ -21,7 +21,7 @@ function IncidentForm() {
     latitude: "",
     longitude: "",
     landmark: "near here", // @rishicds add proper landmark
-    status: "not resolved", // @rishicds add proper status
+    status: "Received", // @rishicds add proper status
     numberOfAnimals: "", // New field for the number of animals
   });
 
@@ -76,12 +76,10 @@ function IncidentForm() {
   const handleChange = async (e) => {
     const { name, value, files } = e.target;
 
-    if (name !== "image") {
-      setFormData((prevData) => ({
-        ...prevData,
-        [name]: value,
-      }));
-    }
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
 
     setErrors((prevErrors) => ({
       ...prevErrors,
