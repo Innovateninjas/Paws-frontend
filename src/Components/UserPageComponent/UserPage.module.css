@@ -1,0 +1,37 @@
+/* UserPage.module.css */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 98vh; /* Use full viewport height */
+  overflow: hidden;
+}
+
+.profileContainer {
+  width: 100vw;
+  height: 20vh; /* Set the height to 20% for the gradient */
+  background: linear-gradient(to bottom, #91baff, #205fff);
+  margin-bottom: 43px;
+}
+
+.userDetails {
+  padding: 20px;
+  width: 98%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Different styles for each field */
+.name {
+  color: #333; /* Change the color for the name */
+  font-weight: bold; /* Apply bold font weight */
+}
+
+.email {
+  color: #007bff; /* Change the color for the email */
+}
+
+.phone {
+  color: #28a745; /* Change the color for the phone */
+}

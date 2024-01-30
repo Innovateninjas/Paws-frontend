@@ -2,6 +2,7 @@
     background: #BFDBFB;
     height: 100vh;
     width: 100vw;
+    /* position: relative; */
     align-items: center;
     display: flex;
     flex-direction: column;
