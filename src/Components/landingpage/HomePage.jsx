@@ -22,27 +22,22 @@ function LandingPage() {
 
     return (
         <div className={styles.main}>
-            <ProfileIcon 
+            {/* <ProfileIcon 
                 top="-18%"
                 left="44%"
-            />
-            <img
-                className={styles.imgTop}
-                src="./images/homepagetop.png"
-                alt="alt_text"
-            />
+            /> */}
+            <div className={styles.container}>
+            <img src="./images/logo.jpg"></img>
             <p className={styles.main_text}>
-                Your help can save a life. Report any wounded or distress
-                animals directly to the authorities with ease. Be a part of the
-                solution and ensure swift assistance for animals in need. Click
-                below to notify the relevant authorities about injured wildlife
-                and contribute to their timely rescue and care
+          "Save lives – report injured animals to authorities. Click below to notify and make a difference."
             </p>
+            </div>
             <Link to="/report-incident">
-                <Button text="Report to Authority" />
+                <Button text="Report" />
             </Link>
         </div>
     );
 }
+//   "Your help can save lives. If you come across wounded or distressed animals, report it to the authorities effortlessly. Be part of the solution for swift assistance and contribute to their timely rescue and care. Click below to notify the relevant authorities about injured wildlife and make a difference."
 
 export default LandingPage;
