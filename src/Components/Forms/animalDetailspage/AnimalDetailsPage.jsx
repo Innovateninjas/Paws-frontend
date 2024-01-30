@@ -30,7 +30,7 @@ function AnimalDetailsPage({ formData, errors, handleChange, handleNextPage }) {
           <div>
             <input type="radio" id="dog" name="animal_type" value="Dog" checked={formData.animal_type === 'Dog'} onChange={handleChange} hidden />
             <label htmlFor="dog">
-              <img src="./images/dog.avif" alt="" />
+              <img src="./images/dog.jpg" alt="" />
             </label>
           </div>
           <div>
