@@ -28,17 +28,48 @@ function ImageAndLocationPage({ formData, handleChange, handleNextPage }) {
     }
   }, [formData.latitude, formData.longitude]);
 
-  const onChange = (imageList) => {
-    // data for submit
+  const onChange = async (imageList) => {
     if (imageList.length > 0) {
-      setImage(imageList[0].data_url);
-      handleChange({
-        target: {
-          name: "image",
-          value: imageList[0].data_url
-        }
-      });
+      try {
+        const imageUrl = await uploadImageToCloudinary(imageList[0].file);
+        setImage(imageUrl);
+        handleChange({
+          target: {
+            name: "image",
+            value: imageUrl
+          }
+        });
+      } catch (error) {
+        console.error('Error uploading image:', error);
+      }
     }
+  };
+
+    // Function to upload image to Cloudinary
+  const uploadImageToCloudinary = async (imageFile) => {
+      const cloudinaryUploadUrl = "https://api.cloudinary.com/v1_1/dff97ky68/upload";
+      const uploadPreset = "mnxkqfco";
+  
+      const Data = new FormData();
+      Data.append("file", imageFile);
+      Data.append("upload_preset", uploadPreset);
+  
+      try {
+        const response = await fetch(cloudinaryUploadUrl, {
+          method: "POST",
+          body: Data,
+        });
+  
+        if (!response.ok) {
+          throw new Error(`Failed to upload image to Cloudinary: ${response.statusText}`);
+        }
+  
+        const result = await response.json();
+        return result.secure_url; // Assuming Cloudinary API returns an object with a 'secure_url' property
+      } catch (error) {
+        console.error("Error uploading image to Cloudinary:", error);
+        throw error; // Propagate the error
+      }
   };
 
   return (
