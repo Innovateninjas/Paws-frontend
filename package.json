@@ -10,6 +10,8 @@
     "@mui/icons-material": "^5.15.6",
     "@mui/material": "^5.15.6",
     "@primer/octicons-react": "^19.8.0",
+    "@tensorflow-models/mobilenet": "^2.1.1",
+    "@tensorflow/tfjs": "^4.16.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
