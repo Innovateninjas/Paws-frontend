@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
-import { FaUser, FaUserPlus, FaHome, FaSignOutAlt } from 'react-icons/fa';
+import { FaUser, FaUserPlus, FaHome, FaSignOutAlt, FaDonate } from 'react-icons/fa'; // Import FaHeart icon
 import styles from './Navbar.module.css';
 
 const Navbar = () => {
@@ -21,6 +21,7 @@ const Navbar = () => {
           [
             <BottomNavigationAction key="profile" component={Link} to="/user" icon={<FaUser size={24} />} />,
             <BottomNavigationAction key="home" component={Link} to="/" icon={<FaHome size={24} />} />,
+            <BottomNavigationAction key="donation" component={Link} to="/donation" icon={<FaDonate size={24} />} />, 
             <BottomNavigationAction key="logout" component={Link} to="/logout" icon={<FaSignOutAlt size={24} />} />
           ]
         ) : (
