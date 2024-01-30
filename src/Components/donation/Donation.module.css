@@ -29,7 +29,7 @@
     height: 100px;
 }
 
-span{
+.someThing{
     animation: fadeInOut 2s infinite ;
     font-size: 1.5rem;
     

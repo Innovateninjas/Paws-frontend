@@ -7,7 +7,7 @@ function Donation() {
       <div className={styles.masterContain}>
 
       <div><img src="./images/Donation.png"></img>
-      <h2 className={styles.heading}> <span>HELP US BRIGHTEN THEIR LIVES!</span></h2></div>
+      <h2 className={styles.heading}> <span className={styles.someThing}>HELP US BRIGHTEN THEIR LIVES!</span></h2></div>
        
         <div className={styles.main}>
 
@@ -35,7 +35,7 @@ function Donation() {
 
     </div>
   );
-  
+
 }
 
 export default Donation
