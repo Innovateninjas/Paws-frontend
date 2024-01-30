@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Button from '../buttons/bigButton';
 import { Link } from "react-router-dom";
 import styles from "./Homepage.module.css";
-import ProfileIcon from "../ProfileComponent/ProfileIcon";
 
 function LandingPage() {
     // const [userLocation, setUserLocation] = useState(null);
@@ -27,7 +26,7 @@ function LandingPage() {
                 left="44%"
             /> */}
             <div className={styles.container}>
-            <img src="./images/logo.jpg"></img>
+            <img src="./images/logo.jpg" alt=""></img>
             <p className={styles.main_text}>
           "Save lives – report injured animals to authorities. Click below to notify and make a difference."
             </p>
