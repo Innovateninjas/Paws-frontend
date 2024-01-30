@@ -7,7 +7,7 @@ function Donation() {
 
       <div className={styles.contain}>
         <h2 className={styles.heading}>HELP US TO HELP OUR LITTLE FRIENDS!</h2>
-        <p>Your donations will help us take care of our little friends and help them find their next life-long home</p>
+        <p className={styles.p}>Your donations will help us take care of our little friends and help them find their next life-long home</p>
         <div className={styles.butt}>
           <div className={styles.mainbtn}>
             <button >10 rupees</button>
