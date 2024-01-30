@@ -22,7 +22,10 @@ function LandingPage() {
 
     return (
         <div className={styles.main}>
-            <ProfileIcon />
+            <ProfileIcon 
+                top="-18%"
+                left="44%"
+            />
             <img
                 className={styles.imgTop}
                 src="./images/homepagetop.png"
