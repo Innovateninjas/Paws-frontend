@@ -68,6 +68,9 @@ function ImageAndLocationPage({ formData, errors, handleChange, handleNextPage }
       <p>
         User's Location: Latitude {formData.latitude}, Longitude {formData.longitude}
       </p>
+      <p>
+        Address: {formData.address}
+      </p>
       <br />
       <button type="button" onClick={handleNextPage}>
         Next
