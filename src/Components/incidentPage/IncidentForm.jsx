@@ -7,6 +7,8 @@ import ImageAndLocationPage from "../Forms/imageAndLocationPage/ImageAndLocation
 import AnimalDetailsPage from "../Forms/animalDetailspage/AnimalDetailsPage";
 import ContactInformationPage from "../Forms/contactInformationPage/ContactInformationPage";
 import SuccessPage from "../Forms/successPage/SuccessPage";
+import * as mobilenet from "@tensorflow-models/mobilenet";
+import "@tensorflow/tfjs";
 
 function IncidentForm() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -17,12 +19,12 @@ function IncidentForm() {
     animal_type: "",
     description: "",
     condition: "",
-    image: null, // Change to null for correct file handling
+    image: null,
     latitude: "",
     longitude: "",
-    landmark: "near here", // @rishicds add proper landmark
-    status: "not resolved", // @rishicds add proper status
-    numberOfAnimals: "", // New field for the number of animals
+    landmark: "near here",
+    status: "not resolved",
+    numberOfAnimals: "",
   });
 
   const [errors, setErrors] = useState({
@@ -37,7 +39,7 @@ function IncidentForm() {
     longitude: "",
     landmark: "",
     status: "",
-    numberOfAnimals: "", // New field for the number of animals
+    numberOfAnimals: "",
   });
 
   const getUserLocation = () => {
@@ -71,32 +73,57 @@ function IncidentForm() {
   useEffect(() => {
     getUserLocation();
   }, []);
+  
 
+  const classifyImage = async (imgElement) => {
+    console.log('classifyImage called');
+    const model = await mobilenet.load();
+    const predictions = await model.classify(imgElement);
+
+    const topPrediction = predictions[0].className;
+    let classification;
+
+    if (topPrediction.includes('cat')) {
+      classification = 'cat';
+    } else if (topPrediction.includes('dog')) {
+      classification = 'dog';
+    } else if (topPrediction.includes('cattle')) {
+      classification = 'cattle';
+    } else {
+      classification = 'other';
+    }
+
+    console.log(`Classification: ${classification}`);
+    return classification;
+  };
 
   const handleChange = async (e) => {
     const { name, value, files } = e.target;
-
+    let classification; // Declare classification here
+  
     if (name === "image" && files && files.length > 0) {
-      // Handle image file separately
-
-      // Upload the image to Cloudinary
-      const cloudinaryUrl = await uploadImageToCloudinary(files[0]);
-
-      // Update the formData with the Cloudinary URL
-      setFormData((prevData) => ({
-        ...prevData,
-        image: cloudinaryUrl,
-      }));
+      const img = document.createElement('img');
+      img.src = URL.createObjectURL(files[0]);
+      img.onload = async () => {
+        console.log('Image loaded');
+        classification = await classifyImage(img);
+        const cloudinaryUrl = await uploadImageToCloudinary(files[0]);
+        setFormData((prevData) => ({
+          ...prevData,
+          image: cloudinaryUrl,
+          animal_type: classification,
+        }));
+      };
     } else {
       setFormData((prevData) => ({
         ...prevData,
         [name]: value,
       }));
     }
-
+  
     setErrors((prevErrors) => ({
       ...prevErrors,
-      [name]: "", // Clear the error when the user starts typing
+      [name]: "",
     }));
   };
 
@@ -110,11 +137,9 @@ function IncidentForm() {
     if (e) {
       e.preventDefault();
     }
-    console.log("Submitting form:", formData);
 
     try {
       if (validateForm()) {
-        // Send the form data with the Cloudinary URL to the backend
         const response = await fetch("https://aniresfr-backend.vercel.app/api/animals/", {
           method: "POST",
           headers: {
@@ -126,7 +151,7 @@ function IncidentForm() {
         if (response.ok) {
           const data = await response.json();
           console.log("Success:", data);
-          setCurrentPage(4); // Assuming 4 is the index for the success page
+          setCurrentPage(4);
         } else {
           console.error("Error:", response.statusText);
         }
@@ -139,7 +164,6 @@ function IncidentForm() {
   };
 
   const validatePage = (page) => {
-
     const pageData = formData;
     const pageErrors = {};
 
@@ -186,15 +210,12 @@ function IncidentForm() {
   const validateForm = () => {
     return Object.keys(formData).every((field) => {
       if (field === "userLocation") {
-        return true; // No need to validate userLocation
+        return true;
       }
       return formData[field] !== "";
     });
   };
 
-
- 
-  // Function to upload image to Cloudinary
   const uploadImageToCloudinary = async (imageFile) => {
     const cloudinaryUploadUrl = "https://api.cloudinary.com/v1_1/dff97ky68/upload";
     const uploadPreset = "mnxkqfco";
@@ -214,10 +235,10 @@ function IncidentForm() {
       }
 
       const result = await response.json();
-      return result.secure_url; // Assuming Cloudinary API returns an object with a 'secure_url' property
+      return result.secure_url;
     } catch (error) {
       console.error("Error uploading image to Cloudinary:", error);
-      throw error; // Propagate the error
+      throw error;
     }
   };
 
