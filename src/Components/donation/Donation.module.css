@@ -18,7 +18,7 @@
     padding-bottom: 20px;
 }
 
-button {
+.mainbtn button {
     width: 100px;
     height: 30px;
     font-size: 16px;
@@ -74,7 +74,7 @@ input {
     }
 }
 
-p {
+.p {
     animation: fadeIn 2s ease-in-out;
     /* Adjust duration and timing function as needed */
     padding-top: 10px;
