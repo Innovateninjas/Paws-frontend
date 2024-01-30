@@ -10,8 +10,7 @@ root.render(
     <App />
   </React.StrictMode>
 );
-// src/index.js
-// src/index.js
+
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.ready.then(() => {
     navigator.serviceWorker.register('%PUBLIC_URL%/service-worker.js')
