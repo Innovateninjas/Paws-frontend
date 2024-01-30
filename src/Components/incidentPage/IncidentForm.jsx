@@ -20,7 +20,7 @@ function IncidentForm() {
     image: null, // Change to null for correct file handling
     latitude: "",
     longitude: "",
-    landmark: "near here", // @rishicds add proper landmark
+    landmark: "", // @rishicds add proper landmark
     status: "Received", // @rishicds add proper status
     numberOfAnimals: "", // New field for the number of animals
   });
@@ -74,7 +74,7 @@ function IncidentForm() {
 
 
   const handleChange = async (e) => {
-    const { name, value, files } = e.target;
+    const { name, value } = e.target;
 
     setFormData((prevData) => ({
       ...prevData,
