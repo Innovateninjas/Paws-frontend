@@ -62,7 +62,7 @@ function Dashboard() {
               <p> <span> Name :</span> {report.user_name}</p>
               <p><span>Phone Number:</span> {report.user_phone}</p>
               <p><span>Email:</span> {report.user_email}</p>
-              <label>
+              <label className={styles.label}>
                 Status:
                 <select
                   value={report.status || ''}
