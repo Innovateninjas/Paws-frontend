@@ -111,14 +111,20 @@ function LoginRegisterForm() {
                             type="text"
                             placeholder="Full Name"
                             value={fullName}
-                            onChange={(e) => setFullName(e.target.value)}
+                            onChange={(e) => {
+                                setError("");
+                                setFullName(e.target.value);
+                            }}
                             required
                         />
                         <InputField
                             type="tel"
                             placeholder="Phone Number"
                             value={phoneNumber}
-                            onChange={(e) => setPhoneNumber(e.target.value)}
+                            onChange={(e) => {
+                                setError("");
+                                setPhoneNumber(e.target.value);
+                            }}
                             required
                         />
                     </>
@@ -128,20 +134,26 @@ function LoginRegisterForm() {
                     type="email"
                     placeholder="Email"
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={(e) => {
+                        setError("");
+                        setEmail(e.target.value);
+                    }}
                     required
                 />
                 <InputField
                     type="password"
                     placeholder="Password"
                     value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    onChange={(e) => {
+                        setError("");
+                        setPassword(e.target.value);
+                    }}
                     required
                 />
                 {isRegistration && (
                     <p className={styles.text}>
                         Already have an account?
-                        <Link to="/login" className={styles.LoginNow}>
+                        <Link to="/login" className={styles.LoginNow} >
                             Login now!
                         </Link>
                     </p>
