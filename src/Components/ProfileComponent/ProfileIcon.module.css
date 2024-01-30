@@ -3,7 +3,5 @@
   position: absolute;
   width: 65px;
   height: 65px;
-  z-index: 1;
-  top: 3%;
-  right: 5%;
+  z-index: 10;
 }
