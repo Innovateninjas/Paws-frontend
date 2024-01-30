@@ -10,7 +10,7 @@ import Navbar from './Components/navbar/Navbar';
 import UserPage from './Components/profilePage/UserPage';
 import Logout from './Components/Logout';
 import Dashboard from './Components/dashboard/dashboard';
-
+import Donation from './Components/donation/Donation'
 function App() {
   return (
       <div>
@@ -27,6 +27,7 @@ function App() {
                   <Route path="/logout" element={<Logout />} />
                   <Route path="*" element={<h1>404 NOT FOUND</h1>} />
                   <Route path="/dashboard" element={<Dashboard/>} />
+                  <Route path="/donation" element={<Donation/>} />
               </Routes>
           </Router>
       </div>
