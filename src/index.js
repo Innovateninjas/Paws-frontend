@@ -11,15 +11,19 @@ root.render(
   </React.StrictMode>
 );
 // src/index.js
+// src/index.js
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('../public/service-worker.js')
-    .then((registration) => {
-      console.log('Service Worker registered with scope:', registration.scope);
-    })
-    .catch((error) => {
-      console.error('Service Worker registration failed:', error);
-    });
+  navigator.serviceWorker.ready.then(() => {
+    navigator.serviceWorker.register('%PUBLIC_URL%/service-worker.js')
+      .then((registration) => {
+        console.log('Service Worker registered with scope:', registration.scope);
+      })
+      .catch((error) => {
+        console.error('Service Worker registration failed:', error);
+      });
+  });
 }
+
 
 
 // If you want to start measuring performance in your app, pass a function
