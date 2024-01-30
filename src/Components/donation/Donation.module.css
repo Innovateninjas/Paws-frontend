@@ -1,0 +1,90 @@
+.contain {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 100px;
+}
+
+.butt {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.mainbtn {
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+button {
+    width: 100px;
+    height: 30px;
+    font-size: 16px;
+    border: 5px solid green;
+    border-radius: 9px;
+    margin: 4px;
+
+}
+
+.donatebtn {
+    padding-top: 30px;
+}
+
+/* body{
+    background-image: url(C:\Users\user\OneDrive\sbh\aniresfr\public\images\pfc_clone_65b7fabecca78.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+} */
+label {
+    font-size: 25px;
+    font-family: 'Franklin Gothic Medium';
+}
+
+input {
+    padding: 8px;
+    border: 4px solid green;
+    border-radius: 4px;
+}
+
+.gap {
+    padding-top: 15px;
+}
+@keyframes fadeInOut {
+    0%, 100% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
+  .heading {
+    animation: fadeInOut 2s infinite;
+  }
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+p {
+    animation: fadeIn 2s ease-in-out;
+    /* Adjust duration and timing function as needed */
+    padding-top: 10px;
+}
+.dont{
+    width: 200px;
+    height: 40px;
+    border: 4px solid goldenrod;
+    border-radius: 4px;
+}
+.heading{
+    padding-left: 30px;
+}
