@@ -53,13 +53,15 @@ function Dashboard() {
           <li key={report.id} className={styles.incidentBox}>
             <img src={report.image} alt={report.description} className={styles.incidentImage} />
             <div>
-              <p>Animal Type: {report.animal_type}</p>
-              <p>Description: {report.description}</p>
-              <p>Location: Latitude - {report.latitude}, Longitude - {report.longitude}</p>
-              <p>Landmark: {report.landmark}</p>
-              <p>Name: {report.user_name}</p>
-              <p>Phone Number: {report.user_phone}</p>
-              <p>Email: {report.user_email}</p>
+              <p><span> Animal Type:</span> {report.animal_type}</p>
+              <p><span> Description: </span>{report.description}</p>
+              <p> <span> Location:</span>
+              <li className={styles.liStyle}>Latitude - {report.latitude}</li>
+              <li className={styles.liStyle}> Longitude - {report.longitude}</li></p>
+              <p> <span>Landmark:</span> {report.landmark}</p>
+              <p> <span> Name :</span> {report.user_name}</p>
+              <p><span>Phone Number:</span> {report.user_phone}</p>
+              <p><span>Email:</span> {report.user_email}</p>
               <label>
                 Status:
                 <select

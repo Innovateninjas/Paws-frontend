@@ -111,8 +111,8 @@ function AnimalDetailsPage({ formData, errors, handleChange, handleNextPage }) {
 
           <textarea name="description" value={formData.description} onChange={handleChange} rows={4} placeholder="Describe here"></textarea>
           {/* Changed "div" tag to "small" tag and className="error" to  className={styles.error} */}
-          <small className={styles.error}>{errors.description}</small>
         </label>
+        <small className={styles.error}>{errors.description}</small>
       </div>
 
       {/* DESCRIBE SEVERITY */}
@@ -148,8 +148,9 @@ function AnimalDetailsPage({ formData, errors, handleChange, handleNextPage }) {
             </label>
           </div>
           {/* Changed "div" tag to "small" tag and className="error" to  className={styles.error} */}
-          <small className={styles.error}>{errors.condition}</small>
+          
         </label>
+        <small className={styles.error}>{errors.condition}</small>
       </div>
 
 
