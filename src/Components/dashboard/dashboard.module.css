@@ -5,25 +5,32 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
   padding: 1rem;
+  gap: 1rem;
+  height: calc(100vh - 76px);
 }
-
 .heading {
   color: #2d2d2d;
   text-align: center;
-  padding-bottom: 1rem;
+  text-shadow: 1px 1px 1px #2d2d2d;
+  /* padding-bottom: 1rem; */
+  font-size: 2.5rem;
+  text-decoration: underline;
 }
-
 .incidentBox {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
   list-style: none;
   border-radius: 10px;
-  border: 1px solid;
+  border: 1px ;
   padding: 20px;
-  margin: 20px ;
+  /* margin: 20px ; */
   display: flex;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.5); /* Add this line */
+  background-color: rgba(255, 255, 255, 0.5); 
+  box-shadow: 1px 1px 3px black;
 }
 .incidentBox p{
   color: #2d2d2d;
@@ -32,25 +39,42 @@
   color: #2d2d2d;
 }
 .incidentImage {
-  width: 200px; /* Set your preferred width */
-  height: 200px; /* Set your preferred height */
+  width:250px; 
+  height: 150px; 
   margin-right: 10px;
-  border-radius: 10px; /* Optional: Add border-radius for a rounded look */
+  border-radius: 10px; 
   object-fit: cover;
   object-position: center;
-  box-shadow: 2px 2px 5px black;
+  box-shadow: 1px 1px 2px black;
 }
 
 .incidentBox div {
   flex-grow: 1;
+  padding-top: 10px;
 }
-
+p{
+  font-size: 1rem;
+}
 .select {
   margin-left: 10px;
   padding: 5px;
+}
+span {
+  font-size: 1.2rem;
+  font-weight: 800;
+  /* text-decoration: underline; */
 }
 
 ul {
   padding: 0;
   margin: 0;
 }
+label{
+  font-size: 1.5rem !important;
+  text-shadow: 0.11px 0.1px 0.5px #2d2d2d;
+}
+select{
+  border-radius: 10px;
+  box-shadow: 1px 1px 2px black;
+}
+
