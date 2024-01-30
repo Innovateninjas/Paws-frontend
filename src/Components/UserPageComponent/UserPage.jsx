@@ -9,9 +9,9 @@ function UserPage() {
   const [userData, setUserData] = useState(null);
 
   useEffect(() => {
+    const csrftoken = localStorage.getItem('csrftoken');
     const fetchData = async () => {
       try {
-        const csrftoken = localStorage.getItem('csrftoken');
         const response = await axios.get('https://aniresfr-backend.vercel.app/user', {
           headers: {
             'Authorization': `Token ${csrftoken}`,
@@ -26,6 +26,10 @@ function UserPage() {
 
     fetchData();
   }, []);
+  const csrftoken = localStorage.getItem('csrftoken');
+  if (!csrftoken){
+    return <h1>You Need to login first</h1>
+  }
 
   if (!userData) {
     return <Loader/>;
