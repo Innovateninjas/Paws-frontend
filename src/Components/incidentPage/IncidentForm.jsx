@@ -20,8 +20,8 @@ function IncidentForm() {
     image: null, // Change to null for correct file handling
     latitude: "",
     longitude: "",
-    landmark: "near here", // @rishicds add proper landmark
-    status: "not resolved", // @rishicds add proper status
+    landmark: "", // @rishicds add proper landmark
+    status: "Received", // @rishicds add proper status
     numberOfAnimals: "", // New field for the number of animals
   });
 
@@ -74,25 +74,13 @@ function IncidentForm() {
 
 
   const handleChange = async (e) => {
-    const { name, value, files } = e.target;
+    const { name, value } = e.target;
 
-    if (name === "image" && files && files.length > 0) {
-      // Handle image file separately
 
-      // Upload the image to Cloudinary
-      const cloudinaryUrl = await uploadImageToCloudinary(files[0]);
-
-      // Update the formData with the Cloudinary URL
-      setFormData((prevData) => ({
-        ...prevData,
-        image: cloudinaryUrl,
-      }));
-    } else {
-      setFormData((prevData) => ({
-        ...prevData,
-        [name]: value,
-      }));
-    }
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
 
     setErrors((prevErrors) => ({
       ...prevErrors,

@@ -91,7 +91,7 @@ function ImageAndLocationPage({ formData, handleChange, handleNextPage }) {
         <p className={styles.detailWrap}>
           Address: {formData.address}
         </p>
-        <textarea name="description" value={formData.description} onChange={handleChange} rows={3} placeholder="Enter a landmark"></textarea>
+        <textarea name="landmark" value={formData.landmark} onChange={handleChange} rows={3} placeholder="Enter a landmark"></textarea>
         {/* Changed "div" tag to "small" tag and className="error" to  className={styles.error} */}
       </label>
       <br />
