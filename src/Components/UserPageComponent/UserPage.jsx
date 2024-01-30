@@ -4,7 +4,11 @@ import { FiUser, FiMail, FiPhone } from 'react-icons/fi'; // Import icons from R
 import ProfileIcon from '../ProfileComponent/ProfileIcon';
 import styles from './UserPage.module.css';
 import Loader from '../loader/loader';
+import { Link } from 'react-router-dom'; // Import at the top of your file
 
+// ...
+
+// ...
 function UserPage() {
   const [userData, setUserData] = useState(null);
 
@@ -49,6 +53,9 @@ function UserPage() {
         <p><FiMail /> <span className={styles.email}>{userData.username}</span></p>
         {/* Icon for Phone */}
         <p><FiPhone /> <span className={styles.phone}>{userData.last_name}</span></p>
+        <p>
+        <Link to="/view-reports">View Reports</Link> {/* Add this line */}
+        </p>
       </div>
     </div>
   );
