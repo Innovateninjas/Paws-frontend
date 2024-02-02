@@ -1,3 +1,4 @@
+// Import React and necessary components
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import BottomNavigation from '@mui/material/BottomNavigation';
@@ -5,12 +6,14 @@ import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import { FaUser, FaUserPlus, FaHome, FaSignOutAlt, FaDonate } from 'react-icons/fa';
 import styles from './Navbar.module.css';
 
+// Define the Navbar component
 const Navbar = () => {
   const csrftoken = localStorage.getItem('csrftoken');
   const [value, setValue] = useState(0);
   const [showNavbar, setShowNavbar] = useState(true);
   const location = useLocation();
 
+  // Handle scroll event
   useEffect(() => {
     const handleScroll = () => {
       const isBottom = window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight;
@@ -26,6 +29,7 @@ const Navbar = () => {
     };
   }, [location.pathname]);
 
+  // Render the Navbar component
   return showNavbar ? (
     <nav className={styles.navbar}>
       <BottomNavigation
@@ -52,4 +56,5 @@ const Navbar = () => {
   ) : null;
 };
 
+// Export the Navbar component
 export default Navbar;
