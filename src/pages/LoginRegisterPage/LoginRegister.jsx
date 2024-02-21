@@ -3,11 +3,11 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import styles from "./LoginRegister.module.css";
-import InputField from "../InputsFields/bigInputs";
-import Checkbox from "../CheckBoxes/Checkbox";
+import InputField from "../../Components/InputsFields/bigInputs";
+import Checkbox from "../../Components/CheckBoxes/Checkbox";
 import ReactiveButton from 'reactive-button';
-import isValidEmail from "../utils/Functions/emailValidator";
-import isValidPhoneNumber from "../utils/Functions/phoneNumberValidator";
+import isValidEmail from "../../Components/utils/Functions/emailValidator";
+import isValidPhoneNumber from "../../Components/utils/Functions/phoneNumberValidator";
 
 function LoginRegisterForm() {
     const location = useLocation();
