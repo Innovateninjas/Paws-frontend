@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Button from '../buttons/bigButton';
+import Button from '../../Components/buttons/bigButton';
 import { Link } from "react-router-dom";
 import styles from "./Homepage.module.css";
 
