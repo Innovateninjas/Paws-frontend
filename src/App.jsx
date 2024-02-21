@@ -12,23 +12,27 @@ import Logout from './Components/Logout';
 import Dashboard from './Components/dashboard/dashboard';
 import Donation from './Components/donation/Donation';
 
+/**
+ * The main component of the application.
+ * @returns {JSX.Element} The rendered App component.
+ */
 function App() {
   return (
     <div>
       <Router>
-        <Navbar />
+        <Navbar /> {/* Renders the Navbar component */}
         <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/report-incident" element={<IncidentForm />} />
-          <Route path="/incident-list" element={<IncidentList />} />
-          <Route path="/view-reports" element={<ViewReports />} />
-          <Route path="/login" element={<LoginRegisterForm />} />
-          <Route path="/register" element={<LoginRegisterForm />} />
-          <Route path="/user" element={<UserPage />} />
-          <Route path="/logout" element={<Logout />} />
-          <Route path="*" element={<h1>404 NOT FOUND</h1>} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/donation" element={<Donation />} />
+          <Route path="/" element={<LandingPage />} /> {/* Renders the LandingPage component */}
+          <Route path="/report-incident" element={<IncidentForm />} /> {/* Renders the IncidentForm component */}
+          <Route path="/incident-list" element={<IncidentList />} /> {/* Renders the IncidentList component */}
+          <Route path="/view-reports" element={<ViewReports />} /> {/* Renders the ViewReports component */}
+          <Route path="/login" element={<LoginRegisterForm />} /> {/* Renders the LoginRegisterForm component */}
+          <Route path="/register" element={<LoginRegisterForm />} /> {/* Renders the LoginRegisterForm component */}
+          <Route path="/user" element={<UserPage />} /> {/* Renders the UserPage component */}
+          <Route path="/logout" element={<Logout />} /> {/* Renders the Logout component */}
+          <Route path="*" element={<h1>404 NOT FOUND</h1>} /> {/* Renders a 404 NOT FOUND message */}
+          <Route path="/dashboard" element={<Dashboard />} /> {/* Renders the Dashboard component */}
+          <Route path="/donation" element={<Donation />} /> {/* Renders the Donation component */}
         </Routes>
       </Router>
     </div>

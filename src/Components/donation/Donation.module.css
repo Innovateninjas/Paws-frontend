@@ -8,10 +8,9 @@
     gap: 40px;
     height: calc(100vh - 76px);
     background-color: #adbd7f;
-    
 }
 .heading {
-    position: relative;
+    /* position: relative; */
     border-radius: 20px;
     background-color: #c4c29d;
     padding-left: 0 !important;
@@ -22,13 +21,22 @@
 .masterContain img{
     z-index: 3;
     position: absolute;
-    top: 21px;
-    left: 21px;
+    top: -87px;
+    left: 22px;
     width: 90%;
     object-fit: contain;
-    height: 100px;
-}
+    height: 100px;}
+    @media (max-width: 400px) {
+        .masterContain img {
+            top: -85px;
+            left: 3px;
+            width: 100%;
+        }
+    }
 
+.imgContainer{
+    position: relative;
+}
 .someThing{
     animation: fadeInOut 2s infinite ;
     font-size: 1.5rem;
