@@ -3,8 +3,7 @@ import ImageUploading from 'react-images-uploading';
 import { MdDelete } from 'react-icons/md';
 import { Camera } from 'react-bootstrap-icons';
 import styles from "./ImageAndLocationPage.module.css";
-import MyComponent from "../../MapComponent/map";
-
+import MyComponent from "../../../Components/MapComponent/map"
 function ImageAndLocationPage({ formData, handleChange, handleNextPage }) {
   const [image, setImage] = useState(null);
   const [customCenter, setCustomCenter] = useState({ lat: 0, lng: 0 });
