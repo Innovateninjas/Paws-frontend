@@ -3,9 +3,20 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import styles from './ProfileIcon.module.css';
 
+/**
+ * ProfileIcon component to display a profile icon.
+ * @param {object} props - The props of the ProfileIcon component.
+ * @param {number|string} [props.top] - The top position of the icon. (Optional)
+ * @param {number|string} [props.right] - The right position of the icon. (Optional)
+ * @param {number|string} [props.bottom] - The bottom position of the icon. (Optional)
+ * @param {number|string} [props.left] - The left position of the icon. (Optional)
+ * @param {boolean} [props.borderVisible=false] - Whether to show a border around the icon. (Optional)
+ * @param {string} [props.position='relative'] - The position of the icon. (Optional)
+ * @returns {JSX.Element} ProfileIcon component.
+ */
 const ProfileIcon = ({ top, right, bottom, left, borderVisible, position }) => {
     const positionStyle = {
-        position: position || 'relative', // Use 'relative' by default if no position prop is provided
+        position: position || 'relative',
         width: '65px',
         height: '65px',
         zIndex: 1,
@@ -14,8 +25,8 @@ const ProfileIcon = ({ top, right, bottom, left, borderVisible, position }) => {
         bottom: bottom || 'auto',
         left: left || '50%',
         transform: 'translate(-50%, -50%)',
-        border: borderVisible ? '1px solid black' : 'none', // Apply border if borderVisible is true
-        borderRadius: borderVisible ? '50%' : '0', // Apply border-radius to make it a circle if borderVisible is true
+        border: borderVisible ? '1px solid black' : 'none',
+        borderRadius: borderVisible ? '50%' : '0',
     };
 
     return (
@@ -25,20 +36,18 @@ const ProfileIcon = ({ top, right, bottom, left, borderVisible, position }) => {
     );
 };
 
-// Define PropTypes for the component
 ProfileIcon.propTypes = {
     top: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     right: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     bottom: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     left: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-    borderVisible: PropTypes.bool, // Prop for controlling border visibility
-    position: PropTypes.string, // Prop for setting position (default: 'relative')
+    borderVisible: PropTypes.bool,
+    position: PropTypes.string,
 };
 
-// Set default props
 ProfileIcon.defaultProps = {
-    borderVisible: false, // Default border visibility is false
-    position: 'relative', // Default position is 'relative'
+    borderVisible: false,
+    position: 'relative',
 };
 
 export default ProfileIcon;
