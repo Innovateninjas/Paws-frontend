@@ -1,12 +1,12 @@
 // IncidentForm.js
 
 import React, { useState, useEffect } from "react";
-import isValidPhoneNumber from "../utils/Functions/phoneNumberValidator";
-import isValidEmail from "../utils/Functions/emailValidator";
-import ImageAndLocationPage from "../Forms/imageAndLocationPage/ImageAndLocationPage";
-import AnimalDetailsPage from "../Forms/animalDetailspage/AnimalDetailsPage";
-import ContactInformationPage from "../Forms/contactInformationPage/ContactInformationPage";
-import SuccessPage from "../Forms/successPage/SuccessPage";
+import isValidPhoneNumber from "../../Components/utils/Functions/phoneNumberValidator";
+import isValidEmail from "../../Components/utils/Functions/emailValidator";
+import ImageAndLocationPage from "./imageAndLocationPage/ImageAndLocationPage";
+import AnimalDetailsPage from "./animalDetailspage/AnimalDetailsPage";
+import ContactInformationPage from "./contactInformationPage/ContactInformationPage"
+import SuccessPage from "../successPage/SuccessPage";
 
 function IncidentForm() {
   const [currentPage, setCurrentPage] = useState(1);
