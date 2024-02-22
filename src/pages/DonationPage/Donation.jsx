@@ -7,7 +7,7 @@ function Donation() {
       <div className={styles.masterContain}>
 
       <div className={styles.imgContainer}>
-      <img src="./images/Donation.png"></img>
+      <img src="./images/Donation.png" alt=''></img>
       <h2 className={styles.heading}> <span className={styles.someThing}>HELP US BRIGHTEN THEIR LIVES!</span></h2>
       </div>
        

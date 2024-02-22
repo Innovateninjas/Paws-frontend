@@ -1,16 +1,16 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import IncidentForm from './Components/incidentPage/IncidentForm';
-import IncidentList from './Components/IncidentList';
-import LandingPage from './Components/landingpage/HomePage';
-import LoginRegisterForm from './Components/LoginRegister/LoginRegister';
-import ViewReports from './Components/ViewReports';
+import IncidentForm from './pages/ReportIncidentPage/IncidentMain';
+import IncidentList from './pages/ReportedIncidentPage/IncidentList';
+import LandingPage from './pages/landingpage/HomePage';
+import LoginRegisterForm from './pages/LoginRegisterPage/LoginRegister';
+import ViewReports from './pages/UsrViuReportsPage/ViewReports'
 import Navbar from './Components/navbar/Navbar';
-import UserPage from './Components/UserPageComponent/UserPage';
-import Logout from './Components/Logout';
-import Dashboard from './Components/dashboard/dashboard';
-import Donation from './Components/donation/Donation';
+import UserPage from './pages/UserProfilePage/UserPage';
+import Logout from './Components/utils/Functions/Logout';
+import Dashboard from './pages/dashboardPage/dashboard';
+import Donation from './pages/DonationPage/Donation';
 
 /**
  * The main component of the application.

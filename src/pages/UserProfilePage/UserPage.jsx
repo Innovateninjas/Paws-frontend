@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { FiUser, FiMail, FiPhone } from 'react-icons/fi'; // Import icons from React Icons
-import ProfileIcon from '../ProfileComponent/ProfileIcon';
+import ProfileIcon from '../../Components/ProfileComponent/ProfileIcon';
 import styles from './UserPage.module.css';
-import Loader from '../loader/loader';
+import Loader from '../../Components/loader/loader';
 import { Link } from 'react-router-dom'; // Import at the top of your file
 
 // ...
