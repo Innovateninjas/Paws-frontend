@@ -2,9 +2,9 @@ import React, { useEffect, useCallback, useState } from "react";
 import axios from "axios";
 import Rodal from 'rodal';
 import 'rodal/lib/rodal.css';
-import checkLoginStatus from "../../utils/Functions/isLoggedIn";
+import checkLoginStatus from "../../../Components/utils/Functions/isLoggedIn";
 import styles from "./ContactInformationPage.module.css"
-import InputField from "../../InputsFields/bigInputs";
+import InputField from "../../../Components/InputsFields/bigInputs"
 import { Watch } from "react-loader-spinner";
 
 const isLoggedIn = checkLoginStatus();

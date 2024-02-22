@@ -3,9 +3,9 @@
 import React, { useState, useEffect } from "react";
 import isValidPhoneNumber from "../../Components/utils/Functions/phoneNumberValidator";
 import isValidEmail from "../../Components/utils/Functions/emailValidator";
-import ImageAndLocationPage from "../../Components/incidentPage/imageAndLocationPage/ImageAndLocationPage";
+import ImageAndLocationPage from "./imageAndLocationPage/ImageAndLocationPage";
 import AnimalDetailsPage from "./animalDetailspage/AnimalDetailsPage";
-import ContactInformationPage from "../../Components/incidentPage/contactInformationPage/ContactInformationPage";
+import ContactInformationPage from "./contactInformationPage/ContactInformationPage"
 import SuccessPage from "../successPage/SuccessPage";
 
 function IncidentForm() {
