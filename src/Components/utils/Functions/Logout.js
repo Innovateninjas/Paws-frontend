@@ -5,12 +5,11 @@ function Logout() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    localStorage.removeItem('csrftoken');
+    localStorage.clear(); // clears both userData and csrf token at once 
     navigate('/');
     window.location.reload();
   }, [navigate]);
 
-  return null;
 }
 
 export default Logout;
