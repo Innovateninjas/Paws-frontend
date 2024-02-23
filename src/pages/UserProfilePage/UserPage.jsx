@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { FiUser, FiMail, FiPhone } from 'react-icons/fi'; // Import icons from React Icons
+import { FiUser, FiMail, FiPhone } from 'react-icons/fi'; 
 import ProfileIcon from '../../Components/ProfileComponent/ProfileIcon';
 import styles from './UserPage.module.css';
 import Loader from '../../Components/loader/loader';
-import { Link } from 'react-router-dom'; // Import at the top of your file
+import { Link } from 'react-router-dom'; 
 
-// ...
-
-// ...
 function UserPage() {
   const [userData, setUserData] = useState(null);
 
@@ -36,7 +33,8 @@ function UserPage() {
   }
 
   if (!userData) {
-    return <Loader/>;
+    
+    return <Loader visible/>;
   }
 
   return (
