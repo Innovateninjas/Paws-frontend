@@ -1,21 +1,18 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import styles from "./LoginRegister.module.css";
 import InputField from "../../Components/InputsFields/bigInputs";
-import Checkbox from "../../Components/CheckBoxes/Checkbox";
 import ReactiveButton from 'reactive-button';
-import isValidEmail from "../../Components/utils/Functions/emailValidator";
-import isValidPhoneNumber from "../../Components/utils/Functions/phoneNumberValidator";
+import { login, registration } from "../../Components/utils/Functions/authService";
+
 
 function LoginRegisterForm() {
     const location = useLocation();
-    let isRegistration = false;
+
     let isLogin = true;
     if (location.pathname === "/register") {
-        isRegistration = true;
-        isLogin = false;
+        isLogin = !isLogin;
     }
 
     const customButtonStyle = {
@@ -30,81 +27,15 @@ function LoginRegisterForm() {
     const [phoneNumber, setPhoneNumber] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [isNGO, setIsNGO] = useState(false);
     const [error, setError] = useState("");
     const [state, setButtonState] = useState('idle');
 
-    const handleLogin = async () => {
-        if (!isValidEmail(email)) {
-            setError("Enter a valid email address.");
-            return;
-        }
-
-        try {
-            setError("") // clearing the previous error if any 
-            setButtonState('loading');
-            const response = await axios.post(
-                "https://aniresfr-backend.vercel.app/login/",
-                {
-                    username: email,
-                    password: password
-                }
-            );
-            setButtonState('success');
-            const token = response.data.token;
-            console.log("Login successful, csrftoken:", token);
-            localStorage.setItem("csrftoken", token);
-            window.location.href = "/";
-        } catch (error) {
-            setButtonState("error");
-            if (error.response && error.response.data.error) {
-                setError(error.response.data.error);
-            } else {
-                setError("An error occurred while logging in.");
-            }
-        }
-    }
-
-    const handleRegistration = async () => {
-
-        if (!isValidEmail(email)) {
-            setError("Enter a valid email address.");
-            return;
-        }
-        if (!isValidPhoneNumber(phoneNumber)) {
-            setError("Enter a valid  phone number.");
-            return;
-        }
-        try {
-            setError("") // clearing the previous error if any 
-            setButtonState('loading');
-            await axios.post(
-                "https://aniresfr-backend.vercel.app/register/",
-                {
-                    fullName,
-                    phoneNumber,
-                    email,
-                    password,
-                    userType: isNGO ? 'ngo' : 'user',
-                }
-            );
-            setButtonState('success');
-            handleLogin()
-        } catch (error) {
-            setButtonState('error');
-            if (error.response && error.response.data.error) {
-                setError(error.response.data.error);
-            } else {
-                setError("An error occurred while registering.");
-            }
-        }
-    };
 
     return (
         <div className={styles.container}>
             <img src="./images/paw.png" alt="paw img" className={styles.paw1} />
             <form >
-                {isRegistration && (
+                {!isLogin && (
                     <>
                         <h1 className={styles.heading}>Create account</h1>
                         <InputField
@@ -150,7 +81,7 @@ function LoginRegisterForm() {
                     }}
                     required
                 />
-                {isRegistration && (
+                {!isLogin && (
                     <p className={styles.text}>
                         Already have an account?
                         <Link to="/login" className={styles.LoginNow} >
@@ -158,17 +89,11 @@ function LoginRegisterForm() {
                         </Link>
                     </p>
                 )}
-                {isRegistration && (
+                {!isLogin && (
                     <>
                         <div className={styles.wrap}>
 
 
-                            <Checkbox
-                                checked={isNGO}
-                                onChange={() => setIsNGO(!isNGO)}
-                                label="Register as NGO/Govt Body"
-                                style={{ marginRight: "10px" }}
-                            />
                             <ReactiveButton
                                 style={customButtonStyle}
                                 buttonState={state}
@@ -178,7 +103,14 @@ function LoginRegisterForm() {
                                 errorText="Register"
                                 messageDuration={3000}
                                 shadow
-                                onClick={handleRegistration}
+                                onClick={
+                                    async () => registration(fullName,
+                                        phoneNumber,
+                                        email,
+                                        password,
+                                        setError,
+                                        setButtonState)
+                                }
                             /></div>
                     </>
                 )}
@@ -190,7 +122,12 @@ function LoginRegisterForm() {
                         loadingText="wait.."
                         successText="Logging In"
                         errorText="Login"
-                        onClick={handleLogin}
+                        onClick={
+                            async () => login(email,
+                                password,
+                                setError,
+                                setButtonState)
+                        }
                     />
                 )}
             </form>
