@@ -8,19 +8,6 @@ function AnimalDetailsPage({ formData, errors, handleChange, handleNextPage }) {
     <div className={styles.masterContainer}>
       <h1> Describe The Issue</h1>
 
-      {/* <label>
-        Animal Type:
-        <select name="animal_type" value={formData.animal_type} onChange={handleChange}>
-          <option value="">Select Animal Type</option>
-          <option value="Cat">Cat</option>
-          <option value="Dog">Dog</option>
-          <option value="Cattle">Cattle</option>
-          <option value="Other">Other</option>
-        </select>
-        <div className="error">{errors.animal_type}</div>
-      </label> */}
-
-
       {/* USED RADIO INPUT INSTEAD OF SELECT TAG */}
       <div>
 
@@ -122,12 +109,7 @@ function AnimalDetailsPage({ formData, errors, handleChange, handleNextPage }) {
         <label className={styles.wrapSeverity}>
 
 
-          {/* <select name="condition" value={formData.condition} onChange={handleChange}>
-          <option value="">Select Condition</option>
-          <option value="Critical">Critical</option>
-          <option value="Urgent">Urgent</option>
-          <option value="Normal">Normal</option>
-        </select> */}
+
         
           <div className={styles.severity}>
             <input type="radio" id="urgent" name="condition" value="Urgent" checked={formData.condition === 'Urgent'} onChange={handleChange} />
