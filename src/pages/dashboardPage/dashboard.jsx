@@ -49,39 +49,39 @@ function Dashboard() {
     <div className={styles.masterContainer}>
       <h2 className={styles.heading}>NGO Dashboard</h2>
       <ul>
-        {reports.map((report) => (
-          <li key={report.id} className={styles.incidentBox}>
-            <img src={report.image} alt={report.description} className={styles.incidentImage} />
-            <div>
-              <p><span> Animal Type:</span> {report.animal_type}</p>
-              <p><span> Description: </span>{report.description}</p>
-              <p> <span> Location:</span>
-              <li className={styles.liStyle}>Latitude - {report.latitude}</li>
-              <li className={styles.liStyle}> Longitude - {report.longitude}</li></p>
-              <p> <span>Landmark:</span> {report.landmark}</p>
-              <p> <span> Name :</span> {report.user_name}</p>
-              <p><span>Phone Number:</span> {report.user_phone}</p>
-              <p><span>Email:</span> {report.user_email}</p>
-              <label className={styles.label}>
-                Status:
-                <select
-                  value={report.status || ''}
-                  onChange={(e) => handleStatusChange(report.id, e.target.value)}
-                  className={styles.select}
-                >
-                  <option value="" disabled>
-                    Select Status
-                  </option>
-                  {statusOptions.map((status) => (
-                    <option key={status} value={status}>
-                      {status}
-                    </option>
-                  ))}
-                </select>
-              </label>
-            </div>
-          </li>
-        ))}
+      <div className={styles.cardContainer}>
+  {reports.map((report) => (
+    <div key={report.id} className={styles.card}>
+      <img src={report.image} alt={report.description} className={styles.cardImage} />
+      <div className={styles.cardContent}>
+        <p><strong>Animal Type:</strong> {report.animal_type}</p>
+        <p><strong>Description:</strong> {report.description}</p>
+        <p><strong>Location:</strong>
+          <ul>
+            <li>Latitude - {report.latitude}</li>
+            <li>Longitude - {report.longitude}</li>
+          </ul>
+        </p>
+        <p><strong>Landmark:</strong> {report.landmark}</p>
+        <p><strong>Name:</strong> {report.user_name}</p>
+        <p><strong>Phone Number:</strong> {report.user_phone}</p>
+        <p><strong>Email:</strong> {report.user_email}</p>
+        <label>
+          <strong>Status:</strong>
+          <select
+            value={report.status || ''}
+            onChange={(e) => handleStatusChange(report.id, e.target.value)}
+          >
+            <option value="" disabled>Select Status</option>
+            {statusOptions.map((status) => (
+              <option key={status} value={status}>{status}</option>
+            ))}
+          </select>
+        </label>
+      </div>
+    </div>
+  ))}
+</div>
       </ul>
     </div>
   );

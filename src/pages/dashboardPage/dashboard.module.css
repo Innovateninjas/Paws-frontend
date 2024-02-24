@@ -1,13 +1,12 @@
 /* dashboard.module.css */
 
 .masterContainer {
-  background-color: #ADBD7F;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  background-color: #cae37f;
+  
   /* justify-content: center; */
   padding: 1rem;
   gap: 1rem;
+  
 }
 .heading {
   color: #2d2d2d;
@@ -17,63 +16,42 @@
   font-size: 2.5rem;
   text-decoration: underline;
 }
-.incidentBox {
-  display: flex;
-  width: 100%;
-  flex-direction: column;
-  list-style: none;
-  border-radius: 10px;
-  border: 1px ;
+.card-container {
+ 
+  flex-wrap: wrap;
+  
+}
+@media screen and (min-width: 600px) {
+  .card {
+    flex: 0 0 calc(50% - 20px); /* 2 cards per row on medium screens */
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .card {
+    flex: 0 0 calc(33.33% - 20px); /* 3 cards per row on large screens */
+  }
+}
+.card {
+  border: 1px solid #ddd;
+  border-radius: 4px;
   padding: 20px;
-  /* margin: 20px ; */
-  display: flex;
-  align-items: center;
-  background-color: rgba(255, 255, 255, 0.5); 
-  box-shadow: 1px 1px 3px black;
-}
-.incidentBox p{
-  color: #2d2d2d;
-}
-.incidentBox label{
-  color: #2d2d2d;
-}
-.incidentImage {
-  width:250px; 
-  height: 150px; 
-  margin-right: 10px;
-  border-radius: 10px; 
-  object-fit: cover;
-  object-position: center;
-  box-shadow: 1px 1px 2px black;
+  margin: 20px;
+  flex: 0 0 calc(33.33% - 20px);
+  transition: transform 0.3s ease-in-out;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
-.incidentBox div {
-  flex-grow: 1;
-  padding-top: 10px;
-}
-p{
-  font-size: 1rem;
-}
-.select {
-  margin-left: 10px;
-  padding: 5px;
-}
-span {
-  font-size: 1.2rem;
-  font-weight: 800;
-  /* text-decoration: underline; */
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
-ul {
-  padding: 0;
-  margin: 0;
-}
-.label{
-  font-size: 1.5rem !important;
-  text-shadow: 0.11px 0.1px 0.5px #2d2d2d;
-}
-select{
-  border-radius: 10px;
-  box-shadow: 1px 1px 2px black;
+.card-image {
+  width: 100%;
+  height: auto;
 }
 
+.card-content {
+  padding: 10px;
+}
