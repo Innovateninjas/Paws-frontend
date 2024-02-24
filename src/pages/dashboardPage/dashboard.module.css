@@ -1,43 +1,18 @@
-/* dashboard.module.css */
-
 .masterContainer {
+  display: flex;
+  flex-wrap: wrap;
   background-color: #cae37f;
-  
-  /* justify-content: center; */
   padding: 1rem;
   gap: 1rem;
-  
-}
-.heading {
-  color: #2d2d2d;
-  text-align: center;
-  text-shadow: 1px 1px 1px #2d2d2d;
-  /* padding-bottom: 1rem; */
-  font-size: 2.5rem;
-  text-decoration: underline;
-}
-.card-container {
- 
-  flex-wrap: wrap;
-  
-}
-@media screen and (min-width: 600px) {
-  .card {
-    flex: 0 0 calc(50% - 20px); /* 2 cards per row on medium screens */
-  }
 }
 
-@media screen and (min-width: 900px) {
-  .card {
-    flex: 0 0 calc(33.33% - 20px); /* 3 cards per row on large screens */
-  }
-}
 .card {
+  width: 300px; /* Set the width of the card */
+  height: 400px; /* Set the height of the card */
   border: 1px solid #ddd;
   border-radius: 4px;
   padding: 20px;
   margin: 20px;
-  flex: 0 0 calc(33.33% - 20px);
   transition: transform 0.3s ease-in-out;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
@@ -49,7 +24,6 @@
 
 .card-image {
   width: 100%;
-  height: auto;
 }
 
 .card-content {
