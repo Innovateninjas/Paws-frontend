@@ -1,7 +1,13 @@
 // Dashboard.js
 
 import React, { useState, useEffect } from 'react';
-import styles from './dashboard.module.css';  // Import the CSS module
+import styles from './dashboard.module.css'; 
+import {MDCRipple} from '@material/ripple';
+
+const selector = '.mdc-button, .mdc-icon-button, .mdc-card__primary-action';
+const ripples = [].map.call(document.querySelectorAll(selector), function(el) {
+  return new MDCRipple(el);
+}); // Import the CSS module
 
 function Dashboard() {
   const [reports, setReports] = useState([]);
