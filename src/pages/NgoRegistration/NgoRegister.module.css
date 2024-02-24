@@ -1,0 +1,39 @@
+
+    .errtext {
+      position: absolute;
+      top: 72%; /* Adjust as needed */
+      color: red;
+    }
+    input{
+      width: 300px;
+    }
+    .container {
+      position: relative;
+      background: white;
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      z-index: 0;
+      overflow: hidden;
+  }
+  form {
+      position: absolute;
+      height: auto;
+      top: 2%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+  }
+  .paw1 {
+    position: relative;
+    right: -15%;
+    top: -10%;
+}
+.paw2 {
+    position: relative;
+    top: 60%;
+    z-index: -1;
+}

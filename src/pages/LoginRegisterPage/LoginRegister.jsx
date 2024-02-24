@@ -102,7 +102,7 @@ function LoginRegisterForm() {
                                 successText="Logging In"
                                 errorText="Register"
                                 messageDuration={3000}
-                                shadow
+                                
                                 onClick={
                                     async () => registration(fullName,
                                         phoneNumber,
