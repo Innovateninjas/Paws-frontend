@@ -11,6 +11,8 @@ import UserPage from './pages/UserProfilePage/UserPage';
 import Logout from './Components/utils/Functions/Logout';
 import Dashboard from './pages/dashboardPage/dashboard';
 import Donation from './pages/DonationPage/Donation';
+import NgoRegister from './pages/NgoRegistration/NgoRegister';
+
 
 /**
  * The main component of the application.
@@ -33,6 +35,8 @@ function App() {
           <Route path="*" element={<h1>404 NOT FOUND</h1>} /> {/* Renders a 404 NOT FOUND message */}
           <Route path="/dashboard" element={<Dashboard />} /> {/* Renders the Dashboard component */}
           <Route path="/donation" element={<Donation />} /> {/* Renders the Donation component */}
+          <Route path="/ngologin" element={<NgoRegister />} /> {/* Renders the LoginRegisterForm component */}
+          <Route path="/ngoregister" element={<NgoRegister />} /> {/* Renders the LoginRegisterForm component */}
         </Routes>
       </Router>
     </div>
