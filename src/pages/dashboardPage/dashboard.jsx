@@ -1,13 +1,10 @@
-// Dashboard.js
+//dashboard.js
 
 import React, { useState, useEffect } from 'react';
-import styles from './dashboard.module.css'; 
-import {MDCRipple} from '@material/ripple';
-
-const selector = '.mdc-button, .mdc-icon-button, .mdc-card__primary-action';
-const ripples = [].map.call(document.querySelectorAll(selector), function(el) {
-  return new MDCRipple(el);
-}); // Import the CSS module
+import styles from './dashboard.module.css';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
 
 function Dashboard() {
   const [reports, setReports] = useState([]);
@@ -18,14 +15,26 @@ function Dashboard() {
       try {
         const response = await fetch('https://aniresfr-backend.vercel.app/api/animals');
         const data = await response.json();
-        setReports(data);
+        // Add 'expanded' property to each report object
+        const updatedReports = data.map((report) => ({
+          ...report,
+          expanded: false,
+        }));
+        setReports(updatedReports);
       } catch (error) {
         console.error('Error fetching reports:', error);
       }
     };
 
+    // Fetch reports initially
     fetchReports();
-  }, []);
+    
+    // Set up interval to fetch reports every 10 seconds
+    const intervalId = setInterval(fetchReports, 10000);
+
+    // Clean up function to clear interval on unmount
+    return () => clearInterval(intervalId);
+  }, []); // Empty dependency array to run effect only once on mount
 
   const handleStatusChange = async (reportId, newStatus) => {
     try {
@@ -36,7 +45,7 @@ function Dashboard() {
         },
         body: JSON.stringify({ status: newStatus }),
       });
-
+      
       if (response.ok) {
         setReports((prevReports) =>
           prevReports.map((report) =>
@@ -51,44 +60,71 @@ function Dashboard() {
     }
   };
 
+  const toggleExpand = (index) => {
+    const updatedReports = [...reports];
+    updatedReports[index].expanded = !updatedReports[index].expanded;
+    setReports(updatedReports);
+  };
+
   return (
     <div className={styles.masterContainer}>
       <h2 className={styles.heading}>NGO Dashboard</h2>
-      <ul>
-      <div className={styles.cardContainer}>
-  {reports.map((report) => (
-    <div key={report.id} className={styles.card}>
-      <img src={report.image} alt={report.description} className={styles.cardImage} />
-      <div className={styles.cardContent}>
-        <p><strong>Animal Type:</strong> {report.animal_type}</p>
-        <p><strong>Description:</strong> {report.description}</p>
-        <p><strong>Location:</strong>
-          <ul>
-            <li>Latitude - {report.latitude}</li>
-            <li>Longitude - {report.longitude}</li>
-          </ul>
-        </p>
-        <p><strong>Landmark:</strong> {report.landmark}</p>
-        <p><strong>Name:</strong> {report.user_name}</p>
-        <p><strong>Phone Number:</strong> {report.user_phone}</p>
-        <p><strong>Email:</strong> {report.user_email}</p>
-        <label>
-          <strong>Status:</strong>
-          <select
-            value={report.status || ''}
-            onChange={(e) => handleStatusChange(report.id, e.target.value)}
-          >
-            <option value="" disabled>Select Status</option>
-            {statusOptions.map((status) => (
-              <option key={status} value={status}>{status}</option>
-            ))}
-          </select>
-        </label>
-      </div>
-    </div>
-  ))}
-</div>
-      </ul>
+     
+      {reports.map((report, index) => (
+        <Card
+          key={report.id}
+          className={`${styles.card} ${report.expanded ? styles.expanded : ''}`}
+          onClick={() => toggleExpand(index)}
+        >
+          <CardContent>
+            {/* Show image initially */}
+            <img src={report.image} alt={report.description} className={styles.incidentImage} />
+            <Typography gutterBottom variant="h4" component="div">
+            <span style={{ display: "inline-block",fontWeight: "bold", paddingLeft: "40px",paddingTop: "5px",fontSize: "35px", textAlign: "center" }}>Animal Type:</span> {report.animal_type}
+            </Typography>
+            <Typography variant="body1" color="text.primary" style={{ fontSize: '20px',paddingLeft: '15px' }}>
+              Address - {report.latitude}, {report.longitude}
+            </Typography>
+            <Typography variant="body1" color="text.primary" style={{ fontSize: '20px',paddingLeft: '15px' }}>
+              Landmark: {report.landmark}
+            </Typography>
+            {report.expanded && (
+              <>
+                <Typography variant="body1" color="text.primary" style={{ fontSize: '20px',paddingLeft: '15px' }}>
+                  Description: {report.description}
+                </Typography>
+                <Typography variant="body1" color="text.primary" style={{ fontSize: '20px',paddingLeft: '15px' }}>
+                  Name: {report.user_name}
+                </Typography>
+                <Typography variant="body1" color="text.primary" style={{ fontSize: '20px',paddingLeft: '15px' }}>
+                  Phone Number: {report.user_phone}
+                </Typography>
+                <Typography variant="body1" color="text.primary" style={{ fontSize: '20px',paddingLeft: '15px' }}>
+                  Email: {report.user_email}
+                </Typography>
+                <Typography variant="body1" color="text.primary" style={{ fontSize: '20px',paddingLeft: '15px' }}>
+                  Status:
+                  <select
+                    value={report.status || ''}
+                    onChange={(e) => handleStatusChange(report.id, e.target.value)}
+                    className={styles.select}
+                  >
+                    <option value="" disabled>
+                      Select Status
+                    </option>
+                    {statusOptions.map((status) => (
+                      <option key={status} value={status}>
+                        {status}
+                      </option>
+                    ))}
+                  </select>
+                </Typography>
+              </>
+            )}
+          </CardContent>
+        </Card>
+      ))}
+      
     </div>
   );
 }
