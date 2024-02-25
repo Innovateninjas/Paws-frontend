@@ -1,31 +1,113 @@
+/* dashboard.module.css */
+
 .masterContainer {
+  background-color: #ADBD7F;
   display: flex;
-  flex-wrap: wrap;
-  background-color: #cae37f;
+  flex-wrap: wrap; /* Allow cards to wrap to the next line */
+  justify-content: center; /* Center cards horizontally */
+  align-items: flex-start; /* Align cards to the top */
   padding: 1rem;
   gap: 1rem;
+  
+}
+
+.heading {
+  color: #2d2d2d;
+  text-align: center;
+  text-shadow: 1px 1px 1px #fee6e6;
+  font-size: 5.5rem;
+  text-decoration: underline;
+ 
+  
+}
+
+.incidentBox {
+  width: 300px; /* Set a fixed width for the card */
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  border-radius: 10px;
+  border: 1px;
+  padding: 20px;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.5); 
+  box-shadow: 1px 1px 3px black;
+  
+}
+.incidentBox p {
+  color: #2d2d2d;
+}
+
+.incidentBox label {
+  color: #2d2d2d;
+}
+
+.incidentImage {
+  width: 350px; 
+  height: 250px; 
+  margin-right: 10px;
+  margin-left: 10px;
+  border-radius: 20px; 
+  object-fit: cover;
+  object-position: center;
+  border: 5px solid rgb(23, 20, 20);
+}
+
+.incidentBox div {
+  flex-grow: 1;
+  padding-top: 10px;
+}
+
+.select {
+  margin-left: 10px;
+  padding: 5px;
+}
+
+span {
+  font-size: 5.2rem;
+  font-weight: 800;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+.label {
+  font-size: 1.5rem !important;
+  text-shadow: 0.11px 0.1px 0.5px #2d2d2d;
+}
+
+select {
+  border-radius: 10px;
+  box-shadow: 1px 1px 2px black;
 }
 
 .card {
-  width: 300px; /* Set the width of the card */
-  height: 400px; /* Set the height of the card */
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 20px;
-  margin: 20px;
-  transition: transform 0.3s ease-in-out;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-}
-
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-}
-
-.card-image {
-  width: 100%;
-}
-
-.card-content {
+  cursor: pointer;
+  border-radius: 30px;
   padding: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition: transform 0.3s ease-in-out; /* This makes the hover effect animate smoothly */
+}
+.card:hover {
+  transform: scale(1.05); /* This makes the card grow slightly when hovered over */
+}
+
+.expanded {
+  height: auto;
+}
+
+/* Media query for mobile devices */
+
+@media (max-width: 768px) {
+  .masterContainer {
+    flex-direction: column; /* Change to column layout on mobile */
+    align-items: center; /* Center cards vertically */
+  }
+
+  .incidentBox {
+    width: 100%; /* Full width on mobile */
+    max-width: 300px; /* Set maximum width for readability */
+  }
 }
