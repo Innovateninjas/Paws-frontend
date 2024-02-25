@@ -72,9 +72,21 @@ function Dashboard() {
      
       {reports.map((report, index) => (
         <Card
-          key={report.id}
-          className={`${styles.card} ${report.expanded ? styles.expanded : ''}`}
-        >
+        key={report.id}
+        className={`${styles.card} ${report.expanded ? styles.expanded : ''}`}
+        style={{ // Apply inline styles for customization
+          backgroundColor: '#F0F0F0', // Change background color
+          borderRadius: '20px', // Adjust border radius
+          boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)', // Add box shadow
+          marginBottom: '20px', // Add some space between cards
+          cursor: 'pointer', // Change cursor on hover
+          transition: 'transform 0.3s', // Add transition effect
+          '&:hover': { // Apply styles on hover
+            transform: 'scale(1.05)', // Scale the card on hover
+            boxShadow: '0px 0px 15px rgba(0, 0, 0, 0.2)', // Adjust box shadow on hover
+          },
+        }}
+      >
           <CardContent onClick={() => toggleExpand(index)}>
             {/* Show image initially */}
             <img src={report.image} alt={report.description} className={styles.incidentImage} />
