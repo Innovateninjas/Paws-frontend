@@ -1,0 +1,75 @@
+
+.addbtn{
+    display: flex;
+    flex-direction: column;
+}
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.imageUploadButton {
+    background-color: #dc3545;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    gap: 4px;
+    padding: 10px 20px;
+    background-color: #4caf50; /* Green color for the buttons */
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+
+
+.dragging {
+    color: red;
+}
+
+.imagePreview {
+    border: 3px solid #0a6d06;
+    object-fit: cover;
+    width: 100%;
+    border-radius: 20px;
+    height: 20vh;
+}
+
+.removeButton {
+    background-color: #dc3545;
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px 20px;
+    background-color: #4caf50; /* Green color for the buttons */
+    color: white;
+    text-decoration: none;
+    margin-bottom: 20px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.Uploadarea{
+    display: flex;
+    background: #d8f7d4;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+   border: 3px solid #0a6d06;
+    object-fit: cover;
+    width: 100%;
+    border-radius: 20px;
+    height: 20vh;
+    margin-bottom: 20px;
+}
+
+
+

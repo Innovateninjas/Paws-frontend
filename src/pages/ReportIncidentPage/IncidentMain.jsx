@@ -45,7 +45,7 @@ function IncidentForm() {
         console.log(`Latitude: ${latitude}, Longitude: ${longitude}`); // Add this line
 
         const response = await fetch(
-          `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=YOUR_API_KEY`
+          `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyBBUSExqFtg19K7UZQ4LzGE7MygnoxibRo`
         );
         const data = await response.json();
 

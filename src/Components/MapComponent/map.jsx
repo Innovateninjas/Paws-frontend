@@ -1,43 +1,42 @@
 import React from 'react';
-import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
+import PropTypes from 'prop-types';
+import { MapContainer, TileLayer } from 'react-leaflet';
+import 'leaflet/dist/leaflet.css';
 
-function MyComponent({ containerStyle, center, zoom }) {
-    const { isLoaded } = useJsApiLoader({
-        id: 'google-map-script',
-        googleMapsApiKey: "AIzaSyBBUSExqFtg19K7UZQ4LzGE7MygnoxibRo"
-    })
+/**
+ * Renders a styled map using React Leaflet.
+ * @param {Object} props - The props for the component.
+ * @param {number} [props.zoom=13] - The zoom level of the map.
+ * @param {number[]} [props.center=[22.5726, 88.3639]] - The center coordinates of the map in [latitude, longitude] format.
+ * @returns {JSX.Element} A React component representing the  map.
+ */
 
-    // eslint-disable-next-line no-unused-vars
-    const [map, setMap] = React.useState(null)
+const Map = ({ zoom = 13, center = [22.5726, 88.3639] }) => {
+    return (
+        <div className="map-container">
+            <MapContainer
+                center={center}
+                zoom={zoom}
+                style={{
+                    width: '100%',
+                    height: '16vh',
+                    borderRadius: '10px',
+                    border: "3px solid #0a6d06",
+                    boxShadow: '0px 6px 12px rgba(0, 0, 0, 0.1)',
+                }}
+            >
+                <TileLayer
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    attribution="paws"
+                />
+            </MapContainer>
+        </div>
+    );
+};
 
-    const onLoad = React.useCallback(function callback(map) {
-        const bounds = new window.google.maps.LatLngBounds(center);
-        map.fitBounds(bounds);
+Map.propTypes = {
+    zoom: PropTypes.number,
+    center: PropTypes.arrayOf(PropTypes.number),
+};
 
-        setMap(map)
-    }, [center])
-
-    const onUnmount = React.useCallback(function callback(map) {
-        setMap(null)
-    }, [])
-
-    const mapOptions = {
-        mapTypeId: 'satellite' // Set default map type to satellite
-    };
-
-    return isLoaded ? (
-        <GoogleMap
-            mapContainerStyle={containerStyle}
-            center={center}
-            zoom={zoom}
-            onLoad={onLoad}
-            onUnmount={onUnmount}
-            options={mapOptions} // Pass the map options here
-        >
-            { /* Child components, such as markers, info windows, etc. */}
-            <></>
-        </GoogleMap>
-    ) : <></>
-}
-
-export default React.memo(MyComponent);
+export default Map;
