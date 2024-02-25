@@ -115,7 +115,7 @@ function Dashboard() {
                 </Typography>
                 <Typography variant="body1" color="text.primary" style={{ fontSize: '20px',paddingLeft: '5px' }}>
                   Status:
-                  <select
+                  <select 
                     value={report.status || ''}
                     onChange={(e) => handleStatusChange(report.id, e.target.value)}
                     className={styles.select}
