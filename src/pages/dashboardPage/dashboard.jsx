@@ -18,8 +18,15 @@ function Dashboard() {
       }
     };
 
+    // Fetch reports initially
     fetchReports();
-  }, []);
+
+    // Set up interval to fetch reports every 10 seconds
+    const intervalId = setInterval(fetchReports, 10000);
+
+    // Clean up function to clear interval on unmount
+    return () => clearInterval(intervalId);
+  }, []); // Empty dependency array to run effect only once on mount
 
   const handleStatusChange = async (reportId, newStatus) => {
     try {
