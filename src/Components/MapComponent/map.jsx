@@ -7,6 +7,7 @@ function MyComponent({ containerStyle, center, zoom }) {
         googleMapsApiKey: "AIzaSyBBUSExqFtg19K7UZQ4LzGE7MygnoxibRo"
     })
 
+    // eslint-disable-next-line no-unused-vars
     const [map, setMap] = React.useState(null)
 
     const onLoad = React.useCallback(function callback(map) {
