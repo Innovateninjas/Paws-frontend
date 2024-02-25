@@ -1,11 +1,9 @@
-// IncidentForm.js
-
 import React, { useState, useEffect } from "react";
 import isValidPhoneNumber from "../../Components/utils/Functions/phoneNumberValidator";
 import isValidEmail from "../../Components/utils/Functions/emailValidator";
 import ImageAndLocationPage from "./imageAndLocationPage/ImageAndLocationPage";
 import AnimalDetailsPage from "./animalDetailspage/AnimalDetailsPage";
-import ContactInformationPage from "./contactInformationPage/ContactInformationPage"
+import ContactInformationPage from "./contactInformationPage/ContactInformationPage";
 import SuccessPage from "../successPage/SuccessPage";
 
 function IncidentForm() {
@@ -45,15 +43,15 @@ function IncidentForm() {
       navigator.geolocation.getCurrentPosition(async (position) => {
         const { latitude, longitude } = position.coords;
         console.log(`Latitude: ${latitude}, Longitude: ${longitude}`); // Add this line
-  
+
         const response = await fetch(
-          `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyBBUSExqFtg19K7UZQ4LzGE7MygnoxibRo`
+          `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=YOUR_API_KEY`
         );
         const data = await response.json();
-  
+
         if (data.results && data.results.length > 0) {
           const address = data.results[0].formatted_address;
-  
+
           setFormData((prevData) => ({
             ...prevData,
             latitude,
@@ -61,21 +59,20 @@ function IncidentForm() {
             address, // Store the address in the form data
           }));
         } else {
-          console.log('No results found');
+          console.log("No results found");
         }
       });
     } else {
-      console.log('Geolocation is not supported by this browser.');
+      console.log("Geolocation is not supported by this browser.");
     }
   };
+
   useEffect(() => {
     getUserLocation();
   }, []);
 
-
   const handleChange = async (e) => {
     const { name, value } = e.target;
-
 
     setFormData((prevData) => ({
       ...prevData,
@@ -94,6 +91,10 @@ function IncidentForm() {
     }
   };
 
+  const handleBackPage = () => {
+    setCurrentPage((prevPage) => prevPage - 1);
+  };
+
   const handleSubmit = async (e) => {
     if (e) {
       e.preventDefault();
@@ -103,13 +104,16 @@ function IncidentForm() {
     try {
       if (validateForm()) {
         // Send the form data with the Cloudinary URL to the backend
-        const response = await fetch("https://aniresfr-backend.vercel.app/api/animals/", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        });
+        const response = await fetch(
+          "https://aniresfr-backend.vercel.app/api/animals/",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+          }
+        );
 
         if (response.ok) {
           const data = await response.json();
@@ -127,7 +131,6 @@ function IncidentForm() {
   };
 
   const validatePage = (page) => {
-
     const pageData = formData;
     const pageErrors = {};
 
@@ -180,8 +183,6 @@ function IncidentForm() {
     });
   };
 
-
- 
   // Function to upload image to Cloudinary
 
   const renderPage = () => {
@@ -202,6 +203,7 @@ function IncidentForm() {
             errors={errors}
             handleChange={handleChange}
             handleNextPage={handleNextPage}
+            handleBackPage={handleBackPage} // Pass handleBackPage to AnimalDetailsPage
           />
         );
       case 3:
