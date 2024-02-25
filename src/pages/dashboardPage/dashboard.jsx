@@ -29,7 +29,6 @@ function Dashboard() {
 
     // Fetch reports initially
     fetchReports();
-    
     // Set up interval to fetch reports every 10 seconds
     const intervalId = setInterval(fetchReports, 10000);
 
