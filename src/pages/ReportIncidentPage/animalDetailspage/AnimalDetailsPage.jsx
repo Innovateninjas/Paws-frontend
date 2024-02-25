@@ -2,7 +2,7 @@
 
 import React from "react";
 import styles from "./AnimalDetailsPage.module.css";;
-function AnimalDetailsPage({ formData, errors, handleChange, handleNextPage }) {
+function AnimalDetailsPage({ formData, errors, handleChange,handleBackPage, handleNextPage }) {
   return (
     // A MASTER CONTAINER
     <div className={styles.masterContainer}>
@@ -139,7 +139,11 @@ function AnimalDetailsPage({ formData, errors, handleChange, handleNextPage }) {
       {/* BUTTONS */}
       <div className={styles.bttnContainer}>
         {/* ADD AN EVENT AHNDLER FOR BACK BUTTON */}
-        <button type="button" className={styles.bttn} >
+        <button
+          type="button"
+          className={styles.bttn}
+          onClick={handleBackPage}
+        >
           Back
         </button>
         <button type="button" className={styles.bttn} onClick={handleNextPage}>
