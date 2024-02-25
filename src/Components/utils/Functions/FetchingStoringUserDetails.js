@@ -20,3 +20,5 @@ export async function fetchAndStoreUserDetails() {
         console.error('Error fetching user data:', error.message);
     }
 }
+
+
