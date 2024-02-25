@@ -1,7 +1,11 @@
-// Dashboard.js
+//dashboard.js
 
 import React, { useState, useEffect } from 'react';
-import styles from './dashboard.module.css';  // Import the CSS module
+import styles from './dashboard.module.css';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 function Dashboard() {
   const [reports, setReports] = useState([]);
@@ -12,7 +16,12 @@ function Dashboard() {
       try {
         const response = await fetch('https://aniresfr-backend.vercel.app/api/animals');
         const data = await response.json();
-        setReports(data);
+        // Add 'expanded' property to each report object
+        const updatedReports = data.map((report) => ({
+          ...report,
+          expanded: false,
+        }));
+        setReports(updatedReports);
       } catch (error) {
         console.error('Error fetching reports:', error);
       }
@@ -20,7 +29,6 @@ function Dashboard() {
 
     // Fetch reports initially
     fetchReports();
-
     // Set up interval to fetch reports every 10 seconds
     const intervalId = setInterval(fetchReports, 10000);
 
@@ -37,7 +45,7 @@ function Dashboard() {
         },
         body: JSON.stringify({ status: newStatus }),
       });
-
+      
       if (response.ok) {
         setReports((prevReports) =>
           prevReports.map((report) =>
@@ -52,44 +60,75 @@ function Dashboard() {
     }
   };
 
+  const toggleExpand = (index) => {
+    const updatedReports = [...reports];
+    updatedReports[index].expanded = !updatedReports[index].expanded;
+    setReports(updatedReports);
+  };
+
   return (
     <div className={styles.masterContainer}>
       <h2 className={styles.heading}>NGO Dashboard</h2>
-      <ul>
-        {reports.map((report) => (
-          <li key={report.id} className={styles.incidentBox}>
+     
+      {reports.map((report, index) => (
+        <Card
+          key={report.id}
+          className={`${styles.card} ${report.expanded ? styles.expanded : ''}`}
+        >
+          <CardContent onClick={() => toggleExpand(index)}>
+            {/* Show image initially */}
             <img src={report.image} alt={report.description} className={styles.incidentImage} />
-            <div>
-              <p><span> Animal Type:</span> {report.animal_type}</p>
-              <p><span> Description: </span>{report.description}</p>
-              <p> <span> Location:</span>
-              <li className={styles.liStyle}>Latitude - {report.latitude}</li>
-              <li className={styles.liStyle}> Longitude - {report.longitude}</li></p>
-              <p> <span>Landmark:</span> {report.landmark}</p>
-              <p> <span> Name :</span> {report.user_name}</p>
-              <p><span>Phone Number:</span> {report.user_phone}</p>
-              <p><span>Email:</span> {report.user_email}</p>
-              <label className={styles.label}>
-                Status:
-                <select
-                  value={report.status || ''}
-                  onChange={(e) => handleStatusChange(report.id, e.target.value)}
-                  className={styles.select}
-                >
-                  <option value="" disabled>
-                    Select Status
-                  </option>
-                  {statusOptions.map((status) => (
-                    <option key={status} value={status}>
-                      {status}
+            <Typography gutterBottom variant="h4" component="div">
+              <span style={{ display: "inline-block",fontWeight: "bold", paddingLeft: "40px",paddingTop: "5px",fontSize: "35px", textAlign: "center" }}>Animal Type:</span> {report.animal_type}
+            </Typography>
+            <Typography variant="body1" color="text.primary" style={{ fontSize: '20px',paddingLeft: '5px' }}>
+              Address - {report.latitude}, {report.longitude}
+            </Typography>
+            <Typography variant="body1" color="text.primary" style={{ fontSize: '20px',paddingLeft: '5px' }}>
+              Landmark: {report.landmark}
+            </Typography>
+            {report.expanded && (
+              <>
+                <Typography variant="body1" color="text.primary" style={{ fontSize: '20px',paddingLeft: '5px' }}>
+                  Description: {report.description}
+                </Typography>
+                <Typography variant="body1" color="text.primary" style={{ fontSize: '20px',paddingLeft: '5px' }}>
+                  Name: {report.user_name}
+                </Typography>
+                <Typography variant="body1" color="text.primary" style={{ fontSize: '20px',paddingLeft: '5px' }}>
+                  Phone Number: {report.user_phone}
+                </Typography>
+                <Typography variant="body1" color="text.primary" style={{ fontSize: '20px',paddingLeft: '5px' }}>
+                  Email: {report.user_email}
+                </Typography>
+                <Typography variant="body1" color="text.primary" style={{ fontSize: '20px',paddingLeft: '5px' }}>
+                  Status:
+                  <select
+                    value={report.status || ''}
+                    onChange={(e) => handleStatusChange(report.id, e.target.value)}
+                    className={styles.select}
+                  >
+                    <option value="" disabled>
+                      Select Status
                     </option>
-                  ))}
-                </select>
-              </label>
+                    {statusOptions.map((status) => (
+                      <option key={status} value={status}>
+                        {status}
+                      </option>
+                    ))}
+                  </select>
+                </Typography>
+              </>
+            )}
+          </CardContent>
+          <div className={styles.expandIconContainer} onClick={() => toggleExpand(index)}>
+            <div className={styles.expandIconCircle}>
+              <ExpandMoreIcon className={styles.expandIcon} />
             </div>
-          </li>
-        ))}
-      </ul>
+          </div>
+        </Card>
+      ))}
+      
     </div>
   );
 }

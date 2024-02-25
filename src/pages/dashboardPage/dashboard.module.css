@@ -1,79 +1,135 @@
 /* dashboard.module.css */
 
 .masterContainer {
-  background-color: #ADBD7F;
+  background-color: #02102c;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  /* justify-content: center; */
+  flex-wrap: wrap; /* Allow cards to wrap to the next line */
+  justify-content: center; /* Center cards horizontally */
+  align-items: flex-start; /* Align cards to the top */
   padding: 1rem;
   gap: 1rem;
+  
 }
+
 .heading {
-  color: #2d2d2d;
+  color: #2291e1;
   text-align: center;
-  text-shadow: 1px 1px 1px #2d2d2d;
-  /* padding-bottom: 1rem; */
-  font-size: 2.5rem;
+  text-shadow: 1px 1px 1px #fee6e6;
+  font-size: 5.5rem;
   text-decoration: underline;
+  
 }
+
 .incidentBox {
+  width: 300px; /* Set a fixed width for the card */
   display: flex;
-  width: 100%;
   flex-direction: column;
   list-style: none;
   border-radius: 10px;
-  border: 1px ;
+  border: 1px;
   padding: 20px;
-  /* margin: 20px ; */
-  display: flex;
   align-items: center;
   background-color: rgba(255, 255, 255, 0.5); 
   box-shadow: 1px 1px 3px black;
+  
 }
-.incidentBox p{
+.incidentBox p {
   color: #2d2d2d;
 }
-.incidentBox label{
+
+.incidentBox label {
   color: #2d2d2d;
 }
+
 .incidentImage {
-  width:250px; 
-  height: 150px; 
+  width: 350px; 
+  height: 250px; 
   margin-right: 10px;
-  border-radius: 10px; 
+  margin-left: 10px;
+  border-radius: 20px; 
   object-fit: cover;
   object-position: center;
-  box-shadow: 1px 1px 2px black;
+  border: 5px solid rgb(23, 20, 20);
 }
 
 .incidentBox div {
   flex-grow: 1;
   padding-top: 10px;
 }
-p{
-  font-size: 1rem;
-}
+
 .select {
   margin-left: 10px;
   padding: 5px;
 }
+
 span {
-  font-size: 1.2rem;
+  font-size: 5.2rem;
   font-weight: 800;
-  /* text-decoration: underline; */
 }
 
 ul {
   padding: 0;
   margin: 0;
 }
-.label{
+
+.label {
   font-size: 1.5rem !important;
   text-shadow: 0.11px 0.1px 0.5px #2d2d2d;
 }
-select{
+
+select {
   border-radius: 10px;
   box-shadow: 1px 1px 2px black;
 }
 
+.card {
+  cursor: pointer;
+  border-radius: 30px;
+  padding: 10px;
+  opacity: 0.9;
+  transition:transform 0.3s;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition: transform 0.3s ease-in-out; /* This makes the hover effect animate smoothly */
+}
+.card:hover {
+  opacity:1;
+  transform: scale(1.05); /* This makes the card grow slightly when hovered over */
+}
+
+.expanded {
+  height: auto;
+}
+.expandIconContainer {
+  position: relative;
+}
+
+.expandIconCircle {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #c7bfbf;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 5px;
+  border: 2px solid #0f0303;
+  
+}
+
+/* Media query for mobile devices */
+
+@media (max-width: 768px) {
+  .masterContainer {
+    flex-direction: column; /* Change to column layout on mobile */
+    align-items: center; /* Center cards vertically */
+  }
+
+  .incidentBox {
+    width: 100%; /* Full width on mobile */
+    max-width: 300px; /* Set maximum width for readability */
+  }
+}
