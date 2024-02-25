@@ -5,6 +5,7 @@ import styles from './dashboard.module.css';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 function Dashboard() {
   const [reports, setReports] = useState([]);
@@ -74,35 +75,34 @@ function Dashboard() {
         <Card
           key={report.id}
           className={`${styles.card} ${report.expanded ? styles.expanded : ''}`}
-          onClick={() => toggleExpand(index)}
         >
-          <CardContent>
+          <CardContent onClick={() => toggleExpand(index)}>
             {/* Show image initially */}
             <img src={report.image} alt={report.description} className={styles.incidentImage} />
             <Typography gutterBottom variant="h4" component="div">
-            <span style={{ display: "inline-block",fontWeight: "bold", paddingLeft: "40px",paddingTop: "5px",fontSize: "35px", textAlign: "center" }}>Animal Type:</span> {report.animal_type}
+              <span style={{ display: "inline-block",fontWeight: "bold", paddingLeft: "40px",paddingTop: "5px",fontSize: "35px", textAlign: "center" }}>Animal Type:</span> {report.animal_type}
             </Typography>
-            <Typography variant="body1" color="text.primary" style={{ fontSize: '20px',paddingLeft: '15px' }}>
+            <Typography variant="body1" color="text.primary" style={{ fontSize: '20px',paddingLeft: '5px' }}>
               Address - {report.latitude}, {report.longitude}
             </Typography>
-            <Typography variant="body1" color="text.primary" style={{ fontSize: '20px',paddingLeft: '15px' }}>
+            <Typography variant="body1" color="text.primary" style={{ fontSize: '20px',paddingLeft: '5px' }}>
               Landmark: {report.landmark}
             </Typography>
             {report.expanded && (
               <>
-                <Typography variant="body1" color="text.primary" style={{ fontSize: '20px',paddingLeft: '15px' }}>
+                <Typography variant="body1" color="text.primary" style={{ fontSize: '20px',paddingLeft: '5px' }}>
                   Description: {report.description}
                 </Typography>
-                <Typography variant="body1" color="text.primary" style={{ fontSize: '20px',paddingLeft: '15px' }}>
+                <Typography variant="body1" color="text.primary" style={{ fontSize: '20px',paddingLeft: '5px' }}>
                   Name: {report.user_name}
                 </Typography>
-                <Typography variant="body1" color="text.primary" style={{ fontSize: '20px',paddingLeft: '15px' }}>
+                <Typography variant="body1" color="text.primary" style={{ fontSize: '20px',paddingLeft: '5px' }}>
                   Phone Number: {report.user_phone}
                 </Typography>
-                <Typography variant="body1" color="text.primary" style={{ fontSize: '20px',paddingLeft: '15px' }}>
+                <Typography variant="body1" color="text.primary" style={{ fontSize: '20px',paddingLeft: '5px' }}>
                   Email: {report.user_email}
                 </Typography>
-                <Typography variant="body1" color="text.primary" style={{ fontSize: '20px',paddingLeft: '15px' }}>
+                <Typography variant="body1" color="text.primary" style={{ fontSize: '20px',paddingLeft: '5px' }}>
                   Status:
                   <select
                     value={report.status || ''}
@@ -122,6 +122,11 @@ function Dashboard() {
               </>
             )}
           </CardContent>
+          <div className={styles.expandIconContainer} onClick={() => toggleExpand(index)}>
+            <div className={styles.expandIconCircle}>
+              <ExpandMoreIcon className={styles.expandIcon} />
+            </div>
+          </div>
         </Card>
       ))}
       
