@@ -13,38 +13,58 @@ import styles from "./biginputs.module.css";
  * @param {boolean} [props.required] - Whether the input field is required.
  * @param {string} [props.backgroundColor] - The background color of the input field.
  * @param {boolean} [props.outline] - Whether to display an outline around the input field.
+ * @param {string} [props.margin="none"] - The margin of the input field.
+ * @param {string} [props.boxShadow="none"] - The box shadow of the input field.
  * @returns {JSX.Element} InputField component.
  */
-function InputField({ name = "none", placeholder, type, value, onChange, required, backgroundColor, outline }) {
+function InputField({
+    name = "none",
+    placeholder,
+    type,
+    value,
+    onChange,
+    required,
+    backgroundColor,
+    outline,
+    margin = "none",
+    boxShadow = "none"
+}) {
     // Apply styles dynamically based on props
     const inputStyle = {
         backgroundColor: backgroundColor || 'white', // Default background color to white if not provided
         outline: outline ? '1px solid black' : 'none', // Apply outline style if outline prop is true
+        margin: margin,
+        boxShadow: boxShadow
     };
-    if (type === 'textarea') {
-        return <textarea className={styles.inputArea}
-        type={type}
-        placeholder={placeholder}
-        value={value}
-        onChange={onChange}
-        required={required}
-        style={inputStyle}
-        name={name} />;
-      } else {
-        return <input
-        className={styles.input}
-        type={type}
-        placeholder={placeholder}
-        value={value}
-        onChange={onChange}
-        required={required}
-        style={inputStyle}
-        name={name}
-    />;
-      }
-    }
-    
 
+    if (type === 'textarea') {
+        return (
+            <textarea
+                className={styles.inputArea}
+                type={type}
+                placeholder={placeholder}
+                value={value}
+                onChange={onChange}
+                required={required}
+                style={inputStyle}
+                name={name}
+            />
+        );
+    } else {
+        return (
+            <input
+                className={styles.input}
+                type={type}
+                placeholder={placeholder}
+                value={value}
+                onChange={onChange}
+                required={required}
+                style={inputStyle}
+                name={name}
+            />
+        );
+    }
+}
 
 InputField.propTypes = {
     /** The name attribute of the input field. */
@@ -63,6 +83,10 @@ InputField.propTypes = {
     backgroundColor: PropTypes.string,
     /** Whether to display an outline around the input field. */
     outline: PropTypes.bool,
+    /** The margin of the input field. */
+    margin: PropTypes.string,
+    /** The box shadow of the input field. */
+    boxShadow: PropTypes.string
 };
 
 InputField.defaultProps = {
@@ -70,6 +94,10 @@ InputField.defaultProps = {
     name: "none",
     /** The default value of the outline prop. */
     outline: false,
+    /** The default value of the margin prop. */
+    margin: "none",
+    /** The default value of the boxShadow prop. */
+    boxShadow: "none"
 };
 
 export default InputField;

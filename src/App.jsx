@@ -12,7 +12,7 @@ import Logout from './Components/utils/Functions/Logout';
 import Dashboard from './pages/dashboardPage/dashboard';
 import Donation from './pages/DonationPage/Donation';
 import NgoRegister from './pages/NgoRegistration/NgoRegister';
-import Campaign from './pages/CampaignNgoPage/campaign';
+import Campaign from './pages/CampaignNgoPage/campaignMain';
 
 /**
  * The main component of the application.
