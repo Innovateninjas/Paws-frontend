@@ -21,20 +21,30 @@ function InputField({ name = "none", placeholder, type, value, onChange, require
         backgroundColor: backgroundColor || 'white', // Default background color to white if not provided
         outline: outline ? '1px solid black' : 'none', // Apply outline style if outline prop is true
     };
+    if (type === 'textarea') {
+        return <textarea className={styles.inputArea}
+        type={type}
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+        required={required}
+        style={inputStyle}
+        name={name} />;
+      } else {
+        return <input
+        className={styles.input}
+        type={type}
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+        required={required}
+        style={inputStyle}
+        name={name}
+    />;
+      }
+    }
+    
 
-    return (
-        <input
-            className={styles.input}
-            type={type}
-            placeholder={placeholder}
-            value={value}
-            onChange={onChange}
-            required={required}
-            style={inputStyle}
-            name={name}
-        />
-    );
-}
 
 InputField.propTypes = {
     /** The name attribute of the input field. */
