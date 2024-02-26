@@ -51,12 +51,12 @@ function Dashboard() {
           className={`${styles.card} ${report.expanded ? styles.expanded : ''}`}
           style={{ // Apply inline styles for customization
             position: 'relative',
-            padding:"2px",
+            padding:"3px",
             backgroundColor: '#F0F0F0', // Change background color
             alignItems: 'left',
-            borderRadius: '30px', // Adjust border radius
+            borderRadius: '20px', // Adjust border radius
             boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)', // Add box shadow
-            marginBottom: '10px', // Add some space between cards
+            marginBottom: '15px', // Add some space between cards
             cursor: 'pointer', // Change cursor on hover
             opacity: '0.9',
             transition: 'transform 0.3s ease-in-out', // Add ease in and out transition effect
