@@ -9,6 +9,7 @@
     background: linear-gradient(to bottom, #adbd7f, #b1ddab);
     color: #000;
 }
+
 .wrapper {
     display: flex;
     flex-direction: column;
@@ -20,7 +21,7 @@
     text-decoration: underline;
 }
 
-.detailWrap{
+.detailWrap {
     display: flex;
     flex-direction: column;
     width: 87vw;
@@ -31,7 +32,6 @@
     font-size: small;
     margin-bottom: 10px;
 }
-
 
 .next {
     border-radius: 12px;
@@ -47,8 +47,8 @@
     margin-top: 0.675rem;
     font-size: 1.3rem;
     font-weight: 700;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
-    transition: background 0.3s ease, color 0.3s ease; 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease, color 0.3s ease;
 }
 .next:hover {
     background: #333333;
@@ -58,7 +58,7 @@
     align-self: center;
     border-radius: 10px;
     font-size: medium;
-    background-color: #D9D9D9;
+    background-color: #d9d9d9;
     color: #2d2d2d;
     width: 100%;
     padding: 10px;
