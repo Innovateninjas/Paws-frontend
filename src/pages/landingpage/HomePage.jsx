@@ -1,4 +1,4 @@
-import Button from '../../Components/buttons/bigButton';
+import Button from '../../Components/buttons/Bigbutton/bigButton';
 import { Link } from "react-router-dom";
 import { useEffect } from 'react';
 import styles from "./Homepage.module.css";
