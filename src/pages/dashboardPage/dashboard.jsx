@@ -68,22 +68,24 @@ function Dashboard() {
 
   return (
     <div className={styles.masterContainer}>
-      <h2 className={styles.heading}>NGO Dashboard</h2>
+      <h2 style={{ textAlign: 'center', marginBottom: '20px' }}>NGO Dashboard</h2>
      
       {reports.map((report, index) => (
         <Card
         key={report.id}
         className={`${styles.card} ${report.expanded ? styles.expanded : ''}`}
         style={{ // Apply inline styles for customization
+          position: 'relative',
           backgroundColor: '#F0F0F0', // Change background color
-          borderRadius: '20px', // Adjust border radius
+          borderRadius: '30px', // Adjust border radius
           boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)', // Add box shadow
           marginBottom: '20px', // Add some space between cards
           cursor: 'pointer', // Change cursor on hover
+          opacity:'0.9',
           transition: 'transform 0.3s', // Add transition effect
           '&:hover': { // Apply styles on hover
-            transform: 'scale(1.05)', // Scale the card on hover
-            boxShadow: '0px 0px 15px rgba(0, 0, 0, 0.2)', // Adjust box shadow on hover
+           
+            boxShadow: '10px 10px 10px solid black', // Adjust box shadow on hover
           },
         }}
       >
@@ -91,31 +93,35 @@ function Dashboard() {
             {/* Show image initially */}
             <img src={report.image} alt={report.description} className={styles.incidentImage} />
             <Typography gutterBottom variant="h4" component="div">
-              <span style={{ display: "inline-block",fontWeight: "bold", paddingLeft: "40px",paddingTop: "5px",fontSize: "35px", textAlign: "center" }}>Animal Type:</span> {report.animal_type}
+              <span style={{ display: "inline-block", fontWeight: "bold", paddingLeft: "40px", paddingTop: "5px", fontSize: window.innerWidth <= 768 ? "20px" : "10px", textAlign: "center" }}>Animal Type:</span>
+              <span style={{ display: "inline-block", fontSize: "25px" }}>{report.animal_type}</span>
             </Typography>
-            <Typography variant="body1" color="text.primary" style={{ fontSize: '20px',paddingLeft: '5px' }}>
+            <Typography variant="body1" color="text.primary" style={{ fontSize: window.innerWidth <= 768 ? '14px' : '20px', paddingLeft: '5px' }}>
               Address - {report.latitude}, {report.longitude}
             </Typography>
-            <Typography variant="body1" color="text.primary" style={{ fontSize: '20px',paddingLeft: '5px' }}>
+            <Typography variant="body1" color="text.primary" style={{ fontSize: window.innerWidth <= 768 ? '14px' : '20px', paddingLeft: '5px' }}>
               Landmark: {report.landmark}
             </Typography>
             {report.expanded && (
               <>
-                <Typography variant="body1" color="text.primary" style={{ fontSize: '20px',paddingLeft: '5px' }}>
+                <Typography variant="body1" color="text.primary" style={{ fontSize: window.innerWidth <= 768 ? '14px' : '20px', paddingLeft: '5px' }}>
                   Description: {report.description}
                 </Typography>
-                <Typography variant="body1" color="text.primary" style={{ fontSize: '20px',paddingLeft: '5px' }}>
+                <Typography variant="body1" color="text.primary" style={{ fontSize: window.innerWidth <= 768 ? '14px' : '20px', paddingLeft: '5px' }}>
+                  Condition: {report.condition}
+                </Typography>
+                <Typography variant="body1" color="text.primary" style={{ fontSize: window.innerWidth <= 768 ? '14px' : '20px', paddingLeft: '5px' }}>
                   Name: {report.user_name}
                 </Typography>
-                <Typography variant="body1" color="text.primary" style={{ fontSize: '20px',paddingLeft: '5px' }}>
+                <Typography variant="body1" color="text.primary" style={{ fontSize: window.innerWidth <= 768 ? '14px' : '20px', paddingLeft: '5px' }}>
                   Phone Number: {report.user_phone}
                 </Typography>
-                <Typography variant="body1" color="text.primary" style={{ fontSize: '20px',paddingLeft: '5px' }}>
+                <Typography variant="body1" color="text.primary" style={{ fontSize: window.innerWidth <= 768 ? '14px' : '20px', paddingLeft: '5px' }}>
                   Email: {report.user_email}
                 </Typography>
-                <Typography variant="body1" color="text.primary" style={{ fontSize: '20px',paddingLeft: '5px' }}>
+                <Typography variant="body1" color="text.primary" style={{ fontSize: window.innerWidth <= 768 ? '14px' : '20px', paddingLeft: '5px' }}>
                   Status:
-                  <select 
+                  <select
                     value={report.status || ''}
                     onChange={(e) => handleStatusChange(report.id, e.target.value)}
                     className={styles.select}
@@ -133,10 +139,8 @@ function Dashboard() {
               </>
             )}
           </CardContent>
-          <div className={styles.expandIconContainer} onClick={() => toggleExpand(index)}>
-            <div className={styles.expandIconCircle}>
-              <ExpandMoreIcon className={styles.expandIcon} />
-            </div>
+          <div className={styles.expandIcon} onClick={() => toggleExpand(index)}>
+          <ExpandMoreIcon className={styles.expandIcon} style={{ position: 'absolute', bottom: '10px', right: '10px' }} />
           </div>
         </Card>
       ))}
