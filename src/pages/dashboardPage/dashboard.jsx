@@ -68,7 +68,7 @@ function Dashboard() {
 
   return (
     <div className={styles.masterContainer}>
-      <h2 style={{ textAlign: 'center', marginBottom: '20px' }}>NGO Dashboard</h2>
+      <h2 style={{ textAlign: 'center', marginBottom: '20px'}}>NGO Dashboard</h2>
      
       {reports.map((report, index) => (
         <Card
@@ -93,7 +93,7 @@ function Dashboard() {
             {/* Show image initially */}
             <img src={report.image} alt={report.description} className={styles.incidentImage} />
             <Typography gutterBottom variant="h4" component="div">
-              <span style={{ display: "inline-block", fontWeight: "bold", paddingLeft: "40px", paddingTop: "5px", fontSize: window.innerWidth <= 768 ? "20px" : "10px", textAlign: "center" }}>Animal Type:</span>
+              <span style={{ display: "inline-block", fontWeight: "bold", paddingLeft: "30px", paddingTop: "5px", fontSize: window.innerWidth <= 768 ? "20px" : "30px", textAlign: "center" }}>Animal Type:</span>
               <span style={{ display: "inline-block", fontSize: "25px" }}>{report.animal_type}</span>
             </Typography>
             <Typography variant="body1" color="text.primary" style={{ fontSize: window.innerWidth <= 768 ? '14px' : '20px', paddingLeft: '5px' }}>
