@@ -7,6 +7,7 @@ import {rolesOptions} from './Roles';
 import isValidEmail from "../../../Components/utils/Functions/emailValidator";
 import isValidPhoneNumber from "../../../Components/utils/Functions/phoneNumberValidator";
 import CustomSelect from "../../../Components/dropDown/AdvancedDropDown/multiSelectInput";
+
 const CampaignForm = ({ setShowForm }) => {
     const [phoneNumber, setPhoneNumber] = useState("");
     const [email, setEmail] = useState("");
@@ -33,14 +34,12 @@ const CampaignForm = ({ setShowForm }) => {
             return;
         }
     };
-    const onRoleChange = (selectedRoles) => {
-        setRoles(selectedRoles);
-    }
     
     return (
         <div className={styles.container}>
             <h1 className={styles.heading}>Volunteer Now: Make Your Mark!</h1>
             <img src="./images/paw.png" alt="paw img" className={styles.paw1} />
+
             <fieldset className={styles.fldset}>
                 <legend>Decsription</legend>
                 <InputField
@@ -106,6 +105,7 @@ const CampaignForm = ({ setShowForm }) => {
                     required
                 />
             </fieldset>
+
             <fieldset className={styles.fldset}>
                 <legend>Duration</legend>
                 <div className={styles.dates}>
@@ -159,7 +159,7 @@ const CampaignForm = ({ setShowForm }) => {
                             id="thirteen"
                             name="age"
                             value="Thirteen Plus"
-                            onChange={(e) => {
+                            onChange={() => {
                                 setRestriction(13);
                             }
                         }
@@ -189,10 +189,6 @@ const CampaignForm = ({ setShowForm }) => {
                                 src="./images/18+.png"
                                 alt=""
                             />
-                            onChange={(e) => {
-                                setRestriction(0);
-                            }
-                            }
                         </label>
                     </div>
                     <div className={styles.radioInput}>
@@ -200,13 +196,19 @@ const CampaignForm = ({ setShowForm }) => {
                             className="radios"
                             id="all"
                             name="age"
-                            value="Everybody" />
+                            value="Everybody" 
+                            onChange={(e) => {
+                                setRestriction(0);
+                            }
+                        }
+                            />
                         <label htmlFor="all">
                             <img className={styles.radioImage} src="./images/all.png" alt="" />
                         </label>
                     </div>
                 </div>
             </fieldset>
+
             <fieldset className={styles.fldset}>
                 <legend>Upload Images</legend>
                 <InputField
