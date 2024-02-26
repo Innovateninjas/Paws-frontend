@@ -109,16 +109,4 @@ export const registration = async (
   }
 };
 
-export const campaign = async (phoneNumber, email, setError) => {
-  // Validate the email address
-  if (!isValidEmail(email)) {
-    setError("Enter a valid email address.");
-    return;
-  }
 
-  // Validate the phone number
-  if (!isValidPhoneNumber(phoneNumber)) {
-    setError("Enter a valid phone number.");
-    return;
-  }
-};
