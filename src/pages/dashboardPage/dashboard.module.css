@@ -1,22 +1,13 @@
 /* dashboard.module.css */
 
 .masterContainer {
-  background-color: #02102c;
+  background-color: #4cf096;
   display: flex;
   flex-wrap: wrap; /* Allow cards to wrap to the next line */
   justify-content: center; /* Center cards horizontally */
   align-items: flex-start; /* Align cards to the top */
   padding: 1rem;
   gap: 1rem;
-  
-}
-
-.heading {
-  color: #2291e1;
-  text-align: center;
-  text-shadow: 1px 1px 1px #fee6e6;
-  font-size: 5.5rem;
-  text-decoration: underline;
   
 }
 
@@ -73,54 +64,33 @@
 
 
 
-.card {
-  cursor: pointer;
-  border-radius: 30px;
-  padding: 10px;
-  opacity: 0.9;
-  transition:transform 0.3s;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  transition: transform 0.3s ease-in-out; /* This makes the hover effect animate smoothly */
-}
 .card:hover {
-  opacity:1;
-  transform: scale(1.05); /* This makes the card grow slightly when hovered over */
+  opacity: 1 !important; /* Adjust this value to your needs */
+  box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.5) !important;
 }
+
 
 .expanded {
   height: auto;
-}
-.expandIconContainer {
-  position: relative;
-}
+}/* Media query for mobile devices */
 
-.expandIconCircle {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: #c7bfbf;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  padding: 5px;
-  border: 2px solid #0f0303;
-  
-}
-
-/* Media query for mobile devices */
-
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   .masterContainer {
     flex-direction: column; /* Change to column layout on mobile */
     align-items: center; /* Center cards vertically */
+    background-size: cover;
   }
 
   .incidentBox {
-    width: 100%; /* Full width on mobile */
-    max-width: 300px; /* Set maximum width for readability */
+    width: 80%; /* Full width on mobile */
+    max-width: 100px; /* Set maximum width for readability */
   }
+  .card {
+    width: 80%; /* Adjust as needed */
+    margin: 0 auto;
+  }
+  .incidentImage {
+    width: 90%; /* Full width on mobile */
+  }
+  
 }
