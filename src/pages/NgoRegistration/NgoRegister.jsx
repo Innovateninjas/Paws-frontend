@@ -4,7 +4,7 @@ import styles from "./NgoRegister.module.css";
 import { useLocation } from "react-router-dom";
 import InputField from "../../Components/InputsFields/bigInputs";
 import ReactiveButton from "reactive-button";
-import Dropdown from "../../Components/dropDown/select";
+import Dropdown from "../../Components/dropDown/SimpleDropDown/select";
 import {
   login,
   registration,
