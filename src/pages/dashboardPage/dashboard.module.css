@@ -82,15 +82,16 @@
   }
 
   .incidentBox {
-    width: 80%; /* Full width on mobile */
+    width: 90%; /* Full width on mobile */
     max-width: 100px; /* Set maximum width for readability */
   }
   .card {
-    width: 80%; /* Adjust as needed */
+    width: 100%; /* Adjust as needed */
     margin: 0 auto;
   }
   .incidentImage {
-    width: 90%; /* Full width on mobile */
+    width: 95%; /* Full width on mobile */
+    border: 3px solid rgb(23, 20, 20);
   }
   
 }

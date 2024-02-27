@@ -77,7 +77,7 @@ function Dashboard() {
         style={{ // Apply inline styles for customization
           position: 'relative',
           backgroundColor: '#F0F0F0', // Change background color
-          borderRadius: '30px', // Adjust border radius
+          borderRadius: '20px', // Adjust border radius
           boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)', // Add box shadow
           marginBottom: '20px', // Add some space between cards
           cursor: 'pointer', // Change cursor on hover
