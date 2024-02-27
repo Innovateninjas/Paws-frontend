@@ -24,7 +24,7 @@ function ContactInformationPage({
     try {
       const csrftoken = localStorage.getItem("csrftoken");
       const response = await axios.get(
-        "https://aniresfr-backend.vercel.app/user",
+        "https://aniresfr-backend.vercel.app/info/user/",
         {
           headers: {
             Authorization: `Token ${csrftoken}`,
