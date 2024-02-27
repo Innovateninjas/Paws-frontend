@@ -13,7 +13,7 @@ function UserPage() {
     const csrftoken = localStorage.getItem('csrftoken');
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://aniresfr-backend.vercel.app/user', {
+        const response = await axios.get('https://aniresfr-backend.vercel.app/info/user/', {
           headers: {
             'Authorization': `Token ${csrftoken}`,
           },
@@ -46,11 +46,11 @@ function UserPage() {
       </div>
       <div className={styles.userDetails}>
         {/* Icon for Name */}
-        <p><FiUser /> <span className={styles.name}>{userData.first_name}</span></p>
+        <p><FiUser /> <span className={styles.name}>{userData.name}</span></p>
         {/* Icon for Email */}
-        <p><FiMail /> <span className={styles.email}>{userData.username}</span></p>
+        <p><FiMail /> <span className={styles.email}>{userData.email}</span></p>
         {/* Icon for Phone */}
-        <p><FiPhone /> <span className={styles.phone}>{userData.last_name}</span></p>
+        <p><FiPhone /> <span className={styles.phone}>{userData.phone_number}</span></p>
         <p>
         <Link to="/view-reports">View Reports</Link> {/* Add this line */}
         </p>
