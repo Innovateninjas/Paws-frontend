@@ -7,7 +7,7 @@ export async function fetchAndStoreUserDetails() {
     }
 
     try {
-        const response = await axios.get('https://aniresfr-backend.vercel.app/user', {
+        const response = await axios.get('https://aniresfr-backend.vercel.app/info/user/', {
             headers: {
                 'Authorization': `Token ${csrftoken}`,
             },

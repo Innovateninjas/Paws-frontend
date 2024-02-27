@@ -1,51 +1,25 @@
 /* dashboard.module.css */
 
 .masterContainer {
-  background-color: #4cf096;
+  background-color: #727171;
   display: flex;
   flex-wrap: wrap; /* Allow cards to wrap to the next line */
   justify-content: center; /* Center cards horizontally */
   align-items: flex-start; /* Align cards to the top */
   padding: 1rem;
-  gap: 1rem;
+  gap: 1px;
   
-}
-
-.incidentBox {
-  width: 300px; /* Set a fixed width for the card */
-  display: flex;
-  flex-direction: column;
-  list-style: none;
-  border-radius: 30px;
-  border: 1px;
-  padding: 20px;
-  align-items: center;
-  background-color: rgba(255, 255, 255, 0.5); 
-  box-shadow: 1px 1px 3px black;
-  
-}
-.incidentBox p {
-  color: #2d2d2d;
-}
-
-.incidentBox label {
-  color: #2d2d2d;
 }
 
 .incidentImage {
-  width: 350px; 
+  width: 100%; 
   height: 250px; 
-  margin-right: 10px;
-  margin-left: 10px;
+  /* margin-right: 10px; */
+  /* margin-left: 10px; */
   border-radius: 20px; 
   object-fit: cover;
   object-position: center;
-  border: 5px solid rgb(23, 20, 20);
-}
-
-.incidentBox div {
-  flex-grow: 1;
-  padding-top: 10px;
+  border: 1px solid rgb(23, 20, 20);
 }
 
 .select {
@@ -54,7 +28,6 @@
   border-radius: 10px;
   box-shadow: 1px 1px 2px black;
 }
-
 
 
 .label {
@@ -82,16 +55,15 @@
   }
 
   .incidentBox {
-    width: 90%; /* Full width on mobile */
+    width: 80%; /* Full width on mobile */
     max-width: 100px; /* Set maximum width for readability */
   }
   .card {
-    width: 100%; /* Adjust as needed */
+    width: 80%; /* Adjust as needed */
     margin: 0 auto;
   }
   .incidentImage {
-    width: 95%; /* Full width on mobile */
-    border: 3px solid rgb(23, 20, 20);
+    width: 90%; /* Full width on mobile */
   }
   
 }
