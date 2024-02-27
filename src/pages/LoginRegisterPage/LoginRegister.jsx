@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import styles from "./LoginRegister.module.css";
 import InputField from "../../Components/InputsFields/bigInputs";
 import ReactiveButton from 'reactive-button';
 import { login, registration } from "../../Components/utils/Functions/userAuthService";
-
-
+import LoginTextLink from "../../Components/LoginLinkText/LoginTextLink";
 function LoginRegisterForm() {
     const location = useLocation();
 
@@ -82,13 +80,10 @@ function LoginRegisterForm() {
                     required
                 />
                 {!isLogin && (
-                    <p className={styles.text}>
-                        Already have an account?
-                        <Link to="/login" className={styles.LoginNow} >
-                            Login now!
-                        </Link>
-                    </p>
-                )}
+                    <LoginTextLink
+                        bottomPosition={"-14%"}
+                    />
+                 )}
                 {!isLogin && (
                     <>
                         <div className={styles.wrap}>

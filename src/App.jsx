@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import IncidentForm from './pages/ReportIncidentPage/IncidentMain';
-import IncidentList from './pages/ReportedIncidentPage/IncidentList';
 import LandingPage from './pages/landingpage/HomePage';
 import LoginRegisterForm from './pages/LoginRegisterPage/LoginRegister';
 import ViewReports from './pages/UsrViuReportsPage/ViewReports'
@@ -26,7 +25,6 @@ function App() {
         <Routes>
           <Route path="/" element={<LandingPage />} /> {/* Renders the LandingPage component */}
           <Route path="/report-incident" element={<IncidentForm />} /> {/* Renders the IncidentForm component */}
-          <Route path="/incident-list" element={<IncidentList />} /> {/* Renders the IncidentList component */}
           <Route path="/view-reports" element={<ViewReports />} /> {/* Renders the ViewReports component */}
           <Route path="/login" element={<LoginRegisterForm />} /> {/* Renders the LoginRegisterForm component */}
           <Route path="/register" element={<LoginRegisterForm />} /> {/* Renders the LoginRegisterForm component */}
