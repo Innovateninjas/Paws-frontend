@@ -51,9 +51,9 @@ function ContactInformationPage({
         const userData = await fetchUserData();
         setFormData((prevData) => ({
           ...prevData,
-          user_name: userData.first_name,
-          user_phone: userData.last_name,
-          user_email: userData.username,
+          user_name: userData.name,
+          user_phone: userData.phone_number,
+          user_email: userData.email,
         }));
       }
     };
