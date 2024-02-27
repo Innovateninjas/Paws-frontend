@@ -8,7 +8,7 @@ import Dropdown from "../../Components/dropDown/select";
 import {
   login,
   registration,
-} from "../../Components/utils/Functions/authService";
+} from "../../Components/utils/Functions/ngoAuthService";
 // import { shadow } from "@cloudinary/url-gen/actions/effect";
 function NgoRegisterForm() {
   const location = useLocation();
@@ -36,11 +36,15 @@ function NgoRegisterForm() {
   const [state, setButtonState] = useState("idle");
   const [lcation, setLocation] = useState("");
   const [websiteLink, setWebsite] = useState("");
+  const [latitude, setLatitude] = useState();
+  const [longitude, setLongitude] = useState();
 // GETLOCATION 
   const getUserLocation = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(async (position) => {
         const { latitude, longitude } = position.coords;
+        setLatitude(latitude);
+        setLongitude(longitude);
         console.log(`latitude: ${latitude}, longitude: ${longitude}`); // Add this line
 
         const response = await fetch(
@@ -175,15 +179,30 @@ function NgoRegisterForm() {
                 errorText="Register"
                 messageDuration={3000}
                 onClick={async () => {
+                  console.log(
+                    orgName,
+                    phoneNumber,
+                    email,
+                    emergency,
+                    password,
+                    lcation,
+                    websiteLink,
+                    latitude,
+                    longitude);
                   registration(
                     orgName,
                     phoneNumber,
                     email,
+                    emergency,
                     password,
+                    lcation,
+                    websiteLink,
+                    latitude,
+                    longitude,
                     setError,
                     setButtonState
                   );
-                  //   console.log("BAKA");
+                  //   console.log("BAKA"); hai hai subarashi
                 }}
               />
             </div>
