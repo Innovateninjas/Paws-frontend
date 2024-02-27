@@ -7,7 +7,6 @@ import Typography from '@mui/material/Typography';
 function ViewReports() {
   // Fetch and store the reports data from your backend or any source
   const [reports, setReports] = useState([]);
-  const [statusOptions] = useState(['Received', 'In Progress', 'Rescued']);
 
 
   useEffect(() => {
@@ -23,30 +22,6 @@ function ViewReports() {
   
     fetchReports();
   }, []);
-
-  const handleStatusChange = async (reportId, newStatus) => {
-    try {
-      const response = await fetch(`https://aniresfr-backend.vercel.app/api/animals/${reportId}/`, {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ status: newStatus }),
-      });
-      
-      if (response.ok) {
-        setReports((prevReports) =>
-          prevReports.map((report) =>
-            report.id === reportId ? { ...report, status: newStatus } : report
-          )
-        );
-      } else {
-        console.error('Error updating status:', response.statusText);
-      }
-    } catch (error) {
-      console.error('Error updating status:', error);
-    }
-  };
 
   return (
     <div className="header">
@@ -87,22 +62,8 @@ function ViewReports() {
                   Condition: {report.condition}
                 </Typography>
                 <Typography variant="body1" color="text.primary" style={{ fontSize: window.innerWidth <= 768 ? '14px' : '20px', paddingLeft: '15px', paddingBottom: '10px' }}>
-                  Status:
-                  <select
-                    value={report.status || ''}
-                    onChange={(e) => handleStatusChange(report.id, e.target.value)}
-                    className={styles.select}
-                  >
-                    <option value="" disabled>
-                      Select Status
-                    </option>
-                    {statusOptions.map((status) => (
-                      <option key={status} value={status}>
-                        {status}
-                      </option>
-                    ))}
-                  </select>
-                </Typography>
+                 Status: {report.status || 'No status'}
+                  </Typography>
                </Card>
      ))}
                </ul>
