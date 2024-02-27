@@ -6,14 +6,14 @@ import { FaPlus } from "react-icons/fa";
 import {rolesOptions} from './Roles';
 import isValidEmail from "../../../Components/utils/Functions/emailValidator";
 import isValidPhoneNumber from "../../../Components/utils/Functions/phoneNumberValidator";
-import CustomSelect from "../../../Components/dropDown/AdvancedDropDown/multiSelectInput";
+import Creatable from 'react-select/creatable';
 
 const CampaignForm = ({ setShowForm }) => {
     const [phoneNumber, setPhoneNumber] = useState("");
     const [email, setEmail] = useState("");
     const [campTitle, setCampTitle] = useState("");
     const [campDes, setcampDes] = useState("");
-    const [roles, setRoles] = useState("");
+    const [tags, setTags] = useState("");
     const [error, setError] = useState("");
     const [strtDate, setstrtDate] = useState("");
     const [endDate, setendDate] = useState("");
@@ -64,19 +64,34 @@ const CampaignForm = ({ setShowForm }) => {
                     }}
                     required
                 />
-                <CustomSelect
+                <Creatable
+                    styles={{
+                        control: base =>
+                        ({
+                            ...base,
+                            width: '300px',
+                            boxShadow:"1px 1px 2px black",
+                            border: '1px solid #b6b5b5',
+                            height: '46px',
+                            borderRadius: '10px',
+                            padding: '10px 17px',
+                            marginTop: '0.675rem',
+                            fontSize: '16px',
+                            marginLeft: '10px',
+                            // fontWeight: '700'
+                        })
+                    }
+                    }
+                    isMulti={true}
+                    placeholder="enter tags"
                     options={rolesOptions}
-                    required
-                    create={true}
-                    selectAllLabel="Select all"
-                    clearAllLabel="Clear"
-                    searchBy="name"
-                    placeholder="Define Roles"
-                    valueField="id"
-                    labelField="name"
-                    onChange={(selectedRoles) => {
-                        setRoles(selectedRoles);
-                    }}  />
+                    onChange={(selectedOptions) => {
+                        const tags = selectedOptions.map(option => option.label);
+                        setError("");
+                        setTags(tags);
+                    }
+                    }
+                />
             </fieldset>
             <fieldset className={styles.fldset}>
                 <legend>Contact Details</legend>
