@@ -63,13 +63,7 @@ body{
     opacity: 1 !important; /* Adjust this value to your needs */
     box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.5) !important;
   }
-  .select {
-    margin-left: 10px;
-    padding: 5px;
-    border-radius: 10px;
-    box-shadow: 1px 1px 2px black;
-  
-  }
+
   @media (max-width: 600px) {
     .masterContainer {
       flex-direction: column; /* Change to column layout on mobile */
