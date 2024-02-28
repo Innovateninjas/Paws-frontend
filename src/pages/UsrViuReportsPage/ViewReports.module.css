@@ -1,0 +1,88 @@
+.body{
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.heading {
+    color: rgb(56, 56, 193);
+    text-align: center;
+    font-size: 70px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .incidentBox {
+    width: 300px; /* Set a fixed width for the card */
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    border-radius: 30px;
+    border: 1px;
+    padding: 20px;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.5); 
+    box-shadow: 1px 1px 3px black;
+    }
+    
+  .incidentBox p {
+    color: #2d2d2d;
+  }
+  
+  .incidentBox label {
+    color: #2d2d2d;
+  }
+  
+  .incidentImage {
+    width: 350px; 
+    height: 250px; 
+    margin-top: 10px;
+    margin-right: 15px;
+    margin-left: 15px;
+    border-radius: 20px; 
+    object-fit: cover;
+    object-position: center;
+    border: 5px solid rgb(23, 20, 20);
+    }
+  
+  .incidentBox div {
+    flex-grow: 1;
+    padding-top: 10px;
+  }
+
+  .cardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  
+  @media (max-width: 768px) {
+    .card {
+      width: 100%;
+    }
+  }
+  .card:hover {
+    opacity: 1 !important; /* Adjust this value to your needs */
+    box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.5) !important;
+  }
+
+  @media (max-width: 600px) {
+    .masterContainer {
+      flex-direction: column; /* Change to column layout on mobile */
+      align-items: center; /* Center cards vertically */
+      background-size: cover;
+    }
+  
+    .incidentBox {
+      width: 90%; /* Full width on mobile */
+      max-width: 100px; /* Set maximum width for readability */
+    }
+    .card {
+      width: 90%; /* Adjust as needed */
+      margin: 0 auto;
+    }
+    .incidentImage {
+      width: 90%; /* Full width on mobile */
+      border: 3px solid rgb(23, 20, 20);
+    }
+    
+  }
+  

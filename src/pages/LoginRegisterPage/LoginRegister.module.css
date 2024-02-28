@@ -47,25 +47,7 @@ img {
     position: absolute;
     bottom: 43%;
 }
-.text {
-    position: absolute;
-    bottom: -14%;
-    color: #989898;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    display: inline-block;
-}
-.LoginNow {
-    color: #272730;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    display: inline-block;
-    margin-inline: 0.23rem;
-}
+
 
 .wrap{
     width: 100%;

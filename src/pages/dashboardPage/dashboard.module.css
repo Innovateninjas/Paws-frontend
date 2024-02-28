@@ -55,16 +55,15 @@
   }
 
   .incidentBox {
-    width: 100%; /* Full width on mobile */
-    /* max-width: ; Set maximum width for readability */
+    width: 80%; /* Full width on mobile */
+    max-width: 100px; /* Set maximum width for readability */
   }
   .card {
-    width: 93%; /* Adjust as needed */
+    width: 80%; /* Adjust as needed */
     margin: 0 auto;
   }
   .incidentImage {
-    width: 100%; /* Full width on mobile */
-    height: 170px;
+    width: 90%; /* Full width on mobile */
   }
   
 }

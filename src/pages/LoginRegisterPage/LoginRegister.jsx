@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import styles from "./LoginRegister.module.css";
 import InputField from "../../Components/InputsFields/bigInputs";
 import ReactiveButton from 'reactive-button';
-import { login, registration } from "../../Components/utils/Functions/authService";
-
-
+import { login, registration } from "../../Components/utils/Functions/userAuthService";
+import LoginTextLink from "../../Components/LoginLinkText/LoginTextLink";
 function LoginRegisterForm() {
     const location = useLocation();
 
@@ -23,8 +21,8 @@ function LoginRegisterForm() {
         fontSize: '19px',
         fontWeight: '700',
     };
-    const [fullName, setFullName] = useState("");
-    const [phoneNumber, setPhoneNumber] = useState("");
+    const [name, setname] = useState("");
+    const [phone_number, setPhone_number] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
@@ -41,20 +39,20 @@ function LoginRegisterForm() {
                         <InputField
                             type="text"
                             placeholder="Full Name"
-                            value={fullName}
+                            value={name}
                             onChange={(e) => {
                                 setError("");
-                                setFullName(e.target.value);
+                                setname(e.target.value);
                             }}
                             required
                         />
                         <InputField
                             type="tel"
                             placeholder="Phone Number"
-                            value={phoneNumber}
+                            value={phone_number}
                             onChange={(e) => {
                                 setError("");
-                                setPhoneNumber(e.target.value);
+                                setPhone_number(e.target.value);
                             }}
                             required
                         />
@@ -82,13 +80,10 @@ function LoginRegisterForm() {
                     required
                 />
                 {!isLogin && (
-                    <p className={styles.text}>
-                        Already have an account?
-                        <Link to="/login" className={styles.LoginNow} >
-                            Login now!
-                        </Link>
-                    </p>
-                )}
+                    <LoginTextLink
+                        bottomPosition={"-14%"}
+                    />
+                 )}
                 {!isLogin && (
                     <>
                         <div className={styles.wrap}>
@@ -104,8 +99,8 @@ function LoginRegisterForm() {
                                 messageDuration={3000}
                                 
                                 onClick={
-                                    async () => registration(fullName,
-                                        phoneNumber,
+                                    async () => registration(name,
+                                        phone_number,
                                         email,
                                         password,
                                         setError,
