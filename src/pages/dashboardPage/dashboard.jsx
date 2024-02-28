@@ -47,24 +47,23 @@ function Dashboard() {
 
       {reports.map((report, index) => (
         <Card
-          key={report.id}
-          className={`${styles.card} ${report.expanded ? styles.expanded : ''}`}
-          style={{ // Apply inline styles for customization
-            position: 'relative',
-            padding:"3px",
-            backgroundColor: '#F0F0F0', // Change background color
-            alignItems: 'left',
-            borderRadius: '20px', // Adjust border radius
-            boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)', // Add box shadow
-            marginBottom: '15px', // Add some space between cards
-            cursor: 'pointer', // Change cursor on hover
-            opacity: '0.9',
-            transition: 'transform 0.3s ease-in-out', // Add ease in and out transition effect
-            '&:hover': { // Apply styles on hover
-              boxShadow: '10px 10px 10px solid black', // Adjust box shadow on hover
-            },
-          }}
-        >
+        key={report.id}
+        className={`${styles.card} ${report.expanded ? styles.expanded : ''}`}
+        style={{ // Apply inline styles for customization
+          position: 'relative',
+          backgroundColor: '#F0F0F0', // Change background color
+          borderRadius: '30px', // Adjust border radius
+          boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)', // Add box shadow
+          marginBottom: '20px', // Add some space between cards
+          cursor: 'pointer', // Change cursor on hover
+          opacity:'0.9',
+          transition: 'transform 0.3s', // Add transition effect
+          '&:hover': { // Apply styles on hover
+           
+            boxShadow: '10px 10px 10px solid black', // Adjust box shadow on hover
+          },
+        }}
+      >
           <CardContent onClick={() => toggleExpand(index)}>
             {/* Show image initially */}
             <img src={report.image} alt={report.description} className={styles.incidentImage} />

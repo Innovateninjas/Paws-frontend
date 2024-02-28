@@ -5,19 +5,19 @@ import styles from "./ImageAndLocationPage.module.css";
 import MapSkeleton from "../../../Components/Skeletons/mapSkeleton";
 const LazyMap = React.lazy(() => import("../../../Components/MapComponent/map"));
 
-function ImageAndLocationPage({ formData, handleChange, handleNextPage }) {
+function ImageAndLocationPage({ formData, setFormData, handleChange, handleNextPage,errors}) {
   const [image, setImage] = useState(null);
+  const [setAnimalType] = useState(""); // State to store the detected animal type
+
   const onChange = (imageList) => {
-    handleImageChange(imageList, setImage, handleChange);
+    handleImageChange(imageList, setImage, handleChange, setAnimalType);
   };
 
   return (
     <div className={styles.container}>
       <h2>Upload Image and Location</h2>
       <ImageUploader image={image} setImage={setImage} onChange={onChange} />
-      <Suspense fallback={
-      <MapSkeleton />
-      }>
+      <Suspense fallback={<MapSkeleton />}>
         <LazyLoadedMap formData={formData} />
       </Suspense>
       <label className={styles.description}>

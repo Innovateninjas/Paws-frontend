@@ -1,17 +1,43 @@
 import { uploadImageToCloudinary } from "../../../Components/utils/Functions/imageUploader";
 
 /**
- * Handles the change of an image, uploads it to Cloudinary, and updates the state accordingly.
- * @async
- * @param {Array} imageList - An array containing the selected image file.
- * @param {Function} setImage - A function to update the state with the uploaded image URL.
- * @param {Function} handleChange - A function to handle changes in the form data.
- * @returns {Promise<void>} A promise that resolves when the image upload and state update are complete.
+ * Function to handle image change, upload it to Cloudinary, and detect animal type using Azure Custom Vision API.
+ * @param {array} imageList - List of images to handle.
+ * @param {function} setImage - Function to set the image.
+ * @param {function} handleChange - Function to handle change.
+ * @param {function} setAnimalType - Function to set the detected animal type.
  */
-export const handleImageChange = async (imageList, setImage, handleChange) => {
+export const handleImageChange = async (imageList, setImage, handleChange, setAnimalType) => {
     try {
         const imageUrl = await uploadImageToCloudinary(imageList[0].file);
         setImage(imageUrl);
+        
+        // Detect animal type using Azure Custom Vision API
+        const predictionUrl = "https://southcentralus.api.cognitive.microsoft.com/customvision/v3.0/Prediction/9fcd78e5-6ce4-41ba-9bec-c214ee23708d/detect/iterations/AnimalClassifier/url";
+        const predictionKey = "d341019dfb574879acbf12ee6c4791cc";
+  
+        const response = await fetch(predictionUrl, {
+            method: "POST",
+            headers: {
+                "Prediction-Key": predictionKey,
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ Url: imageUrl }),
+        });
+  
+        if (response.ok) {
+            const data = await response.json();
+            if (data.predictions && data.predictions.length > 0) {
+                const topPrediction = data.predictions[0];
+                const animalType = topPrediction.tagName;
+                setAnimalType(animalType);
+            } else {
+                throw new Error("No predictions found.");
+            }
+        } else {
+            throw new Error(`Error: ${response.status} - ${response.statusText}`);
+        }
+
         handleChange({
             target: {
                 name: "image",
@@ -19,6 +45,6 @@ export const handleImageChange = async (imageList, setImage, handleChange) => {
             }
         });
     } catch (error) {
-        console.error('Error uploading image:', error);
+        console.error('Error handling image change:', error);
     }
 };
