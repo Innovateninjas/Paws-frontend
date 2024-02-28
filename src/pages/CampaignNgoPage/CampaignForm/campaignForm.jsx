@@ -263,9 +263,9 @@ const CampaignForm = ({ setShowForm }) => {
                         ageGroup,
                         lastDate,
                         headerImgUrl,
-                         setError
+                         setError,
+                         setShowForm
                          );
-                    setShowForm(true); // This line will hide the form after submission
                 }}
             >
                 Create <FaPlus fontSize="18px" />
