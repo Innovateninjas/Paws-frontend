@@ -2,12 +2,22 @@ import isValidEmail from "../../Components/utils/Functions/emailValidator";
 import isValidPhoneNumber from "../../Components/utils/Functions/phoneNumberValidator";
 import axios from "axios";
 
-const createCampaign =async (orgName,phoneNumber,email,campaignTitle,CampaignDescription,tags,startDate,endDate,ageGroup,lastDate,headerImgUrl,setError) => {
+const createCampaign = async ( orgName,phoneNumber,email,campaignTitle,CampaignDescription,tags,startDate,endDate,ageGroup,lastDate,headerImgUrl,setError) => {
+    console.log("from create camp",
+    orgName,
+    phoneNumber,
+    email,
+    campaignTitle,
+    CampaignDescription,
+    tags,
+    startDate,
+    )
     if (!orgName) {
         console.log("i am inside orgName")
         setError("Erorr Fetching Organization Name,Plese Login first");
         return;
     }
+    
     if (!isValidPhoneNumber(phoneNumber)) {
         console.log("i am inside phoneNumber")
         setError("Enter a Valid phone Number");
@@ -53,23 +63,30 @@ const createCampaign =async (orgName,phoneNumber,email,campaignTitle,CampaignDes
         setError("Last Date is required");
         return;
     }
-
+    const ngo_name = orgName;
+    const title = campaignTitle;
+    const description = CampaignDescription;
+    const phone_number = phoneNumber;
+    const start_date = startDate;
+    const end_date = endDate;
+    const application_deadline = lastDate;
+    const age_group = ageGroup;
     setError("");
     try {
         console.log("i am here finally")
         const response = await axios.post(
             "https://aniresfr-backend.vercel.app/api/campaigns/",
             {
-                orgName,
-                phoneNumber,
+                ngo_name,
+                phone_number,
                 email,
-                campaignTitle,
-                CampaignDescription,
+                title,
+                description,
                 tags,
-                startDate,
-                endDate,
-                ageGroup,
-                lastDate,
+                start_date,
+                end_date,
+                age_group,
+                application_deadline,
                 headerImgUrl
             }
         );

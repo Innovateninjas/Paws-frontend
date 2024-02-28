@@ -239,19 +239,19 @@ const CampaignForm = ({ setShowForm }) => {
             <button
                 className={styles.create}
                 onClick={async () => {
-                    // console.log(
-                    //     orgName,
-                    //     phoneNumber,
-                    //     email,
-                    //     campTitle,
-                    //     campDes,
-                    //     tags,
-                    //     strtDate,
-                    //     endDate,
-                    //     ageGroup,
-                    //     lastDate,
-                    //     headerImgUrl
-                    // );
+                    console.log(
+                        orgName,
+                        phoneNumber,
+                        email,
+                        campTitle,
+                        campDes,
+                        tags,
+                        strtDate,
+                        endDate,
+                        ageGroup,
+                        lastDate,
+                        headerImgUrl
+                    );
                     createCampaign(orgName,
                         phoneNumber, 
                         email,
