@@ -29,10 +29,6 @@ function Dashboard() {
     // Fetch reports initially
     fetchReports();
     // Set up interval to fetch reports every 10 seconds
-    const intervalId = setInterval(fetchReports, 10000);
-
-    // Clean up function to clear interval on unmount
-    return () => clearInterval(intervalId);
   }, []); // Empty dependency array to run effect only once on mount
 
   const toggleExpand = (index) => {
@@ -52,7 +48,7 @@ function Dashboard() {
         style={{ // Apply inline styles for customization
           position: 'relative',
           backgroundColor: '#F0F0F0', // Change background color
-          borderRadius: '30px', // Adjust border radius
+          borderRadius: '15px', // Adjust border radius 
           boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)', // Add box shadow
           marginBottom: '20px', // Add some space between cards
           cursor: 'pointer', // Change cursor on hover
@@ -64,7 +60,7 @@ function Dashboard() {
           },
         }}
       >
-          <CardContent onClick={() => toggleExpand(index)}>
+          <CardContent >
             {/* Show image initially */}
             <img src={report.image} alt={report.description} className={styles.incidentImage} />
             <Typography gutterBottom variant="h5" component="div">
@@ -159,7 +155,7 @@ function Dashboard() {
                   variant="body1"
                   color="text.primary"
                   style={{
-                    fontSize: window.innerWidth <= 768 ? '14px' : '20px', paddingLeft: '5px'
+                    fontSize: window.innerWidth <= 768 ? '14px' : '20px', paddingLeft: '0px'
                   }}>
                   Status:
                   <select
@@ -180,8 +176,9 @@ function Dashboard() {
               </>
             )}
           </CardContent>
-          <div className={styles.expandIcon} onClick={() => toggleExpand(index)}>
+          <div className={styles.expandIcon} >
             <ExpandMoreIcon
+              onClick={() => toggleExpand(index)}
               className={styles.expandIcon}
               style={{
                 position: 'absolute',

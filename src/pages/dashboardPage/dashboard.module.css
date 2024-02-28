@@ -6,25 +6,25 @@
   flex-wrap: wrap; /* Allow cards to wrap to the next line */
   justify-content: center; /* Center cards horizontally */
   align-items: flex-start; /* Align cards to the top */
-  padding: 1rem;
+  padding: 0.3rem;
   gap: 1px;
   
 }
 
 .incidentImage {
-  width: 100%; 
+  width: 100% !important; 
   height: 250px; 
   /* margin-right: 10px; */
   /* margin-left: 10px; */
-  border-radius: 20px; 
-  object-fit: cover;
+  border-radius: 15px; 
+  object-fit:cover;
   object-position: center;
   border: 1px solid rgb(23, 20, 20);
 }
 
 .select {
   margin-left: 10px;
-  padding: 5px;
+  /* padding: 5px; */
   border-radius: 10px;
   box-shadow: 1px 1px 2px black;
 }
@@ -56,10 +56,10 @@
 
   .incidentBox {
     width: 80%; /* Full width on mobile */
-    max-width: 100px; /* Set maximum width for readability */
+    max-width: 200px; /* Set maximum width for readability */
   }
   .card {
-    width: 80%; /* Adjust as needed */
+    width: 90%; /* Adjust as needed */
     margin: 0 auto;
   }
   .incidentImage {
