@@ -2,7 +2,7 @@ import isValidEmail from "../../Components/utils/Functions/emailValidator";
 import isValidPhoneNumber from "../../Components/utils/Functions/phoneNumberValidator";
 import axios from "axios";
 
-const createCampaign = async ( orgName,phoneNumber,email,campaignTitle,CampaignDescription,tags,startDate,endDate,ageGroup,lastDate,headerImgUrl,setError) => {
+const createCampaign = async ( orgName,phoneNumber,email,campaignTitle,CampaignDescription,tags,startDate,endDate,ageGroup,lastDate,headerImgUrl,setError,setShowForm) => {
     console.log("from create camp",
     orgName,
     phoneNumber,
@@ -74,7 +74,7 @@ const createCampaign = async ( orgName,phoneNumber,email,campaignTitle,CampaignD
     setError("");
     try {
         console.log("i am here finally")
-        const response = await axios.post(
+         await axios.post(
             "https://aniresfr-backend.vercel.app/api/campaigns/",
             {
                 ngo_name,
@@ -90,7 +90,7 @@ const createCampaign = async ( orgName,phoneNumber,email,campaignTitle,CampaignD
                 headerImgUrl
             }
         );
-        console.log(response);
+        setShowForm(false);
     } catch (error) {
         if (error.response && error.response.data.error) {
             setError(error.response.data.error);
