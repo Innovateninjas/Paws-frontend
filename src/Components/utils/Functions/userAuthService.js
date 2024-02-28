@@ -11,7 +11,7 @@ import isValidPhoneNumber from "./phoneNumberValidator";
  * @param {Function} setButtonState - A function to set the state of the login button (idle/loading/success/error).
  * @returns {void}
  */
-export const login = async (email, password, setError, setButtonState) => {
+export const login = async (email, password, setError, setButtonState,userType) => {
     // Validate the email address
     if (!isValidEmail(email)) {
         setError("Enter a valid email address.");
@@ -35,9 +35,10 @@ export const login = async (email, password, setError, setButtonState) => {
         // Set button state to success and extract token from response
         setButtonState('success');
         const token = response.data.token;
-
+        console.log(response)
         // Save token to local storage and redirect user to home page
         localStorage.setItem("csrftoken", token);
+        localStorage.setItem("userType", userType);
         window.location.href = "/";
     } catch (error) {
         // Set button state to error and handle error message
@@ -96,6 +97,7 @@ export const registration = async (name, phone_number, email, password, setError
         setButtonState('success');
         const token = response.data.token;
         localStorage.setItem("csrftoken", token);
+        localStorage.setItem("userType", "user");
         window.location.href = "/";
     } catch (error) {
         // Set button state to error and handle error message

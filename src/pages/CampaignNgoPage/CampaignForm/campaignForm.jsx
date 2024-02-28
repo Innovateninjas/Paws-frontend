@@ -1,14 +1,16 @@
-
-import React, { useState } from "react";
+import React, { useState} from "react";
+import Cropper from "react-cropper";
+import "cropperjs/dist/cropper.css";
 import InputField from "../../../Components/InputsFields/bigInputs";
 import styles from "./campaign.module.css";
 import { FaPlus } from "react-icons/fa";
-import {rolesOptions} from './Roles';
-import isValidEmail from "../../../Components/utils/Functions/emailValidator";
-import isValidPhoneNumber from "../../../Components/utils/Functions/phoneNumberValidator";
 import Creatable from 'react-select/creatable';
+import { rolesOptions } from './Roles';
+import ImageCropper from "../../../Components/ImageCropper/Cropper";
+import createCampaign from "../createCampaign";
 
 const CampaignForm = ({ setShowForm }) => {
+    const [orgName,setOrgName] = useState("laxmi cheat fund"); // i will add option later for fetching the org name  from Ngocontext
     const [phoneNumber, setPhoneNumber] = useState("");
     const [email, setEmail] = useState("");
     const [campTitle, setCampTitle] = useState("");
@@ -19,22 +21,12 @@ const CampaignForm = ({ setShowForm }) => {
     const [endDate, setendDate] = useState("");
     const [restriction, setRestriction] = useState(0);
     const [lastDate, setlastDate] = useState("");
+    const [headerImgUrl, setheaderImgUrl] = useState("");
 
 
-     const campaign = async (phoneNumber, email, setError) => {
-        // Validate the email address
-        if (!isValidEmail(email)) {
-            setError("Enter a valid email address.");
-            return;
-        }
 
-        // Validate the phone number
-        if (!isValidPhoneNumber(phoneNumber)) {
-            setError("Enter a valid phone number.");
-            return;
-        }
-    };
-    
+        
+
     return (
         <div className={styles.container}>
             <h1 className={styles.heading}>Volunteer Now: Make Your Mark!</h1>
@@ -49,6 +41,7 @@ const CampaignForm = ({ setShowForm }) => {
                     placeholder="Campaign Title"
                     value={campTitle}
                     onChange={(e) => {
+                        setError("");
                         setCampTitle(e.target.value);
                     }}
                     required
@@ -60,6 +53,7 @@ const CampaignForm = ({ setShowForm }) => {
                     placeholder="Campaign Description"
                     value={campDes}
                     onChange={(e) => {
+                        setError("");
                         setcampDes(e.target.value);
                     }}
                     required
@@ -70,7 +64,7 @@ const CampaignForm = ({ setShowForm }) => {
                         ({
                             ...base,
                             width: '300px',
-                            boxShadow:"1px 1px 2px black",
+                            boxShadow: "1px 1px 2px black",
                             border: '1px solid #b6b5b5',
                             height: '46px',
                             borderRadius: '10px',
@@ -132,6 +126,7 @@ const CampaignForm = ({ setShowForm }) => {
                         placeholder="Start Date"
                         value={strtDate}
                         onChange={(e) => {
+                            setError("");
                             setstrtDate(e.target.value);
                         }}
                         required
@@ -146,6 +141,7 @@ const CampaignForm = ({ setShowForm }) => {
                         placeholder="End Date"
                         value={endDate}
                         onChange={(e) => {
+                            setError("");
                             setendDate(e.target.value);
                         }}
                         required
@@ -160,6 +156,7 @@ const CampaignForm = ({ setShowForm }) => {
                         placeholder="Deadline"
                         value={lastDate}
                         onChange={(e) => {
+                            setError("");
                             setlastDate(e.target.value);
                         }}
                         required
@@ -174,10 +171,11 @@ const CampaignForm = ({ setShowForm }) => {
                             id="thirteen"
                             name="age"
                             value="Thirteen Plus"
+                            checked={restriction === 13} // Added checked attribute
                             onChange={() => {
+                                setError("");
                                 setRestriction(13);
-                            }
-                        }
+                            }}
                         />
                         <label htmlFor="thirteen">
                             <img
@@ -193,10 +191,11 @@ const CampaignForm = ({ setShowForm }) => {
                             id="eighteen"
                             name="age"
                             value="Eighteen Plus"
-                            onChange={(e) => {
+                            checked={restriction === 18} // Added checked attribute
+                            onChange={() => {
+                                setError("");
                                 setRestriction(18);
-                            }
-                            }
+                            }}
                         />
                         <label htmlFor="eighteen">
                             <img
@@ -211,34 +210,63 @@ const CampaignForm = ({ setShowForm }) => {
                             className="radios"
                             id="all"
                             name="age"
-                            value="Everybody" 
-                            onChange={(e) => {
+                            value="Everybody"
+                            checked={restriction === 0} // Added checked attribute
+                            onChange={() => {
+                                setError("");
                                 setRestriction(0);
-                            }
-                        }
-                            />
+                            }}
+                        />
                         <label htmlFor="all">
                             <img className={styles.radioImage} src="./images/all.png" alt="" />
                         </label>
                     </div>
                 </div>
-            </fieldset>
 
-            <fieldset className={styles.fldset}>
-                <legend>Upload Images</legend>
-                <InputField
-                    margin="10px"
-                    boxShadow="1px 1px 2px black"
-                    type="file"
-                    required />
+
+
+
+
             </fieldset>
+            <ImageCropper
+                headerImgUrl={headerImgUrl}
+                setheaderImgUrl={setheaderImgUrl}
+            />
+
+
+
             <img src="./images/paw.png" alt="paw img" className={styles.paw2} />
             {error && <p className={styles.errtext}>{error}</p>}
             <button
                 className={styles.create}
                 onClick={async () => {
-                    campaign(phoneNumber, email, setError);
-                    setShowForm(false); // This line will hide the form after submission
+                    // console.log(
+                    //     orgName,
+                    //     phoneNumber,
+                    //     email,
+                    //     campTitle,
+                    //     campDes,
+                    //     tags,
+                    //     strtDate,
+                    //     endDate,
+                    //     restriction,
+                    //     lastDate,
+                    //     headerImgUrl
+                    // );
+                    createCampaign(orgName,
+                        phoneNumber, 
+                        email,
+                        campTitle,
+                        campDes,
+                        tags,
+                        strtDate,
+                        endDate,
+                        restriction,
+                        lastDate,
+                        headerImgUrl,
+                         setError
+                         );
+                    setShowForm(true); // This line will hide the form after submission
                 }}
             >
                 Create <FaPlus fontSize="18px" />

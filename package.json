@@ -23,6 +23,7 @@
     "react": "^18.2.0",
     "react-bootstrap-icons": "^1.10.3",
     "react-content-loader": "^6.2.1",
+    "react-cropper": "^2.3.3",
     "react-dom": "^18.2.0",
     "react-dropdown-select": "^4.11.2",
     "react-icons": "^5.0.1",
