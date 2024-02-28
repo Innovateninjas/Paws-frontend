@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import CampaignForm from "./CampaignForm/campaignForm"
-
 import CreateCampaignPage from "./CreateCampaign/createCampaignPage";
 function Campaign() {
   const [showForm, setShowForm] = useState(false);
-
   const toggleForm = () => {
     setShowForm(!showForm);
   };
@@ -25,7 +23,8 @@ function Campaign() {
     >
 
       {!showForm && <CreateCampaignPage onClick={toggleForm} />}
-      {showForm && <CampaignForm setShowForm={setShowForm} />}
+      {showForm && <CampaignForm 
+      setShowForm={setShowForm} />}
     </div>
   );
 }
