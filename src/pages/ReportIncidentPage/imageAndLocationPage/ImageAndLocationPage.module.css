@@ -9,6 +9,13 @@
     background: linear-gradient(to bottom, #adbd7f, #b1ddab);
     color: #000;
 }
+.errtext {
+  font-size: 1rem;
+  /* position: relative; */
+  z-index: 99;
+  top: 95%; /* Adjust as needed */
+  color: red;
+}
 
 .wrapper {
     display: flex;

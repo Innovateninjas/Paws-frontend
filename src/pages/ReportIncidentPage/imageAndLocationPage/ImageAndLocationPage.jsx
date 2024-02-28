@@ -5,10 +5,10 @@ import styles from "./ImageAndLocationPage.module.css";
 import MapSkeleton from "../../../Components/Skeletons/mapSkeleton";
 const LazyMap = React.lazy(() => import("../../../Components/MapComponent/map"));
 
-function ImageAndLocationPage({ formData, setFormData, handleChange, handleNextPage,errors}) {
+function ImageAndLocationPage({ formData,  handleChange, handleNextPage,errors}) {
   const [image, setImage] = useState(null);
-  const [ANimalType,setAnimalType] = useState(""); // State to store the detected animal type
-
+  const [AnimalType,setAnimalType] = useState(""); // State to store the detected animal type
+  
   const onChange = (imageList) => {
     handleImageChange(imageList, setImage, handleChange, setAnimalType);
   };
@@ -31,6 +31,7 @@ function ImageAndLocationPage({ formData, setFormData, handleChange, handleNextP
         ></textarea>
       </label>
       <br />
+      {errors && <p className={styles.errtext}>{errors.landmark || errors.image}</p>}
       <button type="button" onClick={handleNextPage} className={styles.next}>
         Next
       </button>
