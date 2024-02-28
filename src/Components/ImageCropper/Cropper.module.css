@@ -1,0 +1,12 @@
+.fldset {
+  border: 1px solid #7d7d7d;
+  border-radius: 10px;
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #343434;
+  padding: 12px;
+}
