@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Suspense } from "react";
+import React, { useState, useEffect, Suspense} from "react";
 import ImageUploader from "../../../Components/ImageUploader/ImageUploader";
 import { handleImageChange } from "./handleImageChange";
 import styles from "./ImageAndLocationPage.module.css";
