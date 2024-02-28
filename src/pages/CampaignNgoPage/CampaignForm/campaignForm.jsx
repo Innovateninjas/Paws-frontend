@@ -1,6 +1,7 @@
-import React, { useState} from "react";
+import React, { useState,useContext,useEffect} from "react";
 import "cropperjs/dist/cropper.css";
 import InputField from "../../../Components/InputsFields/bigInputs";
+import { NgoContext } from "./../../../contexts/NgoContext";
 import styles from "./campaign.module.css";
 import { FaPlus } from "react-icons/fa";
 import Creatable from 'react-select/creatable';
@@ -9,20 +10,26 @@ import ImageCropper from "../../../Components/ImageCropper/Cropper";
 import createCampaign from "../createCampaign";
 
 const CampaignForm = ({ setShowForm }) => {
-    const [orgName,setOrgName] = useState("laxmi cheat fund"); // i will add option later for fetching the org name  from Ngocontext
+    const { NgoData, loading, error } = useContext(NgoContext);
+
+    const [orgName,setOrgName] = useState("Ngo"); // i will add option later for fetching the org name  from Ngocontext
     const [phoneNumber, setPhoneNumber] = useState("");
     const [email, setEmail] = useState("");
     const [campTitle, setCampTitle] = useState("");
     const [campDes, setcampDes] = useState("");
     const [tags, setTags] = useState("");
-    const [error, setError] = useState("");
+    const [campaignError, setError] = useState("");
     const [strtDate, setstrtDate] = useState("");
     const [endDate, setendDate] = useState("");
-    const [ageGroup, setageGroup] = useState(0);
+    const [ageGroup, setageGroup] = useState("");
     const [lastDate, setlastDate] = useState("");
     const [headerImgUrl, setheaderImgUrl] = useState("");
-
-
+    useEffect(() => {
+        if (!loading && !error && NgoData) {
+            // Do something with NgoData after the promise is fulfilled
+            setOrgName(NgoData.name)
+        }
+    }, [NgoData, loading, error]);
 
         
 
@@ -210,10 +217,10 @@ const CampaignForm = ({ setShowForm }) => {
                             id="all"
                             name="age"
                             value="Everybody"
-                            checked={ageGroup === 0} // Added checked attribute
+                            checked={ageGroup === 1} // Added checked attribute
                             onChange={() => {
                                 setError("");
-                                setageGroup(0);
+                                setageGroup(1);
                             }}
                         />
                         <label htmlFor="all">
@@ -235,7 +242,7 @@ const CampaignForm = ({ setShowForm }) => {
 
 
             <img src="./images/paw.png" alt="paw img" className={styles.paw2} />
-            {error && <p className={styles.errtext}>{error}</p>}
+            {error && <p className={styles.errtext}>{campaignError}</p>}
             <button
                 className={styles.create}
                 onClick={async () => {

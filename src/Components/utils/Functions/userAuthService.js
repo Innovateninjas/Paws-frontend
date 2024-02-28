@@ -11,8 +11,9 @@ import isValidPhoneNumber from "./phoneNumberValidator";
  * @param {Function} setButtonState - A function to set the state of the login button (idle/loading/success/error).
  * @returns {void}
  */
-export const login = async (email, password, setError, setButtonState,userType) => {
+export const login = async (email, password, setError, setButtonState) => {
     // Validate the email address
+    let userType = "";
     if (!isValidEmail(email)) {
         setError("Enter a valid email address.");
         return;
@@ -35,7 +36,11 @@ export const login = async (email, password, setError, setButtonState,userType) 
         // Set button state to success and extract token from response
         setButtonState('success');
         const token = response.data.token;
-        console.log(response)
+        if(response.data.is_ngo){
+            userType = "ngo"
+        }else{
+            userType = "user"
+        }
         // Save token to local storage and redirect user to home page
         localStorage.setItem("csrftoken", token);
         localStorage.setItem("userType", userType);

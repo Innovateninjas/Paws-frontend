@@ -23,6 +23,7 @@ const ImageCropper = ({ headerImgUrl, setheaderImgUrl, aspectRatio = 4 / 3 }) =>
      */
     const getCropData = async () => {
         try {
+            setheaderImgUrl("wait")
             setcropdone(true);
             const cropper = cropperRef.current?.cropper;
             const canvas = cropper.getCroppedCanvas();

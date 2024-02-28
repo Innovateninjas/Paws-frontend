@@ -63,6 +63,14 @@ const createCampaign = async ( orgName,phoneNumber,email,campaignTitle,CampaignD
         setError("Last Date is required");
         return;
     }
+    if(headerImgUrl==="wait"){
+        setError("Please wait for the image to upload");
+        setTimeout(() => {
+            setError("");
+        }, 2000);
+
+        return;
+    }
     const ngo_name = orgName;
     const title = campaignTitle;
     const description = CampaignDescription;

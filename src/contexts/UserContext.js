@@ -4,6 +4,7 @@ import axios from 'axios';
 export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
+    
     const [userData, setUserData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -14,7 +15,7 @@ export const UserProvider = ({ children }) => {
         const fetchData = async () => {
             const csrftoken = localStorage.getItem('csrftoken');
             if (!csrftoken) {
-                setError('You are not logged in.');
+                setError('You are need be  logged in as a User.');
                 setLoading(false);
                 return;
             }
@@ -37,8 +38,12 @@ export const UserProvider = ({ children }) => {
                 }
             }
         };
-
-        fetchData();
+        if (localStorage.getItem("userType") === "ngo") {
+            return
+        }else{
+            fetchData();
+        
+        }
 
         return () => {
             isMounted = false;
