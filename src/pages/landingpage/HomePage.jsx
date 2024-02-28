@@ -1,13 +1,9 @@
 import Button from '../../Components/buttons/Bigbutton/bigButton';
 import { Link } from "react-router-dom";
-import { useEffect } from 'react';
 import styles from "./Homepage.module.css";
-import { fetchAndStoreUserDetails } from '../../Components/utils/Functions/FetchingStoringUserDetails';
 
 function LandingPage() {
-    useEffect(() => {
-        fetchAndStoreUserDetails();
-    }, [])
+
 
 
     return (

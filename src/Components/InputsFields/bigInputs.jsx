@@ -19,9 +19,9 @@ import styles from "./biginputs.module.css";
  */
 function InputField({
     name = "none",
-    placeholder,
-    type,
-    value,
+    placeholder="",
+    type="text",
+    value = "",
     onChange,
     required,
     backgroundColor,

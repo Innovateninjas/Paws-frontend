@@ -12,7 +12,8 @@ import Dashboard from './pages/dashboardPage/dashboard';
 import Donation from './pages/DonationPage/Donation';
 import NgoRegister from './pages/NgoRegistration/NgoRegister';
 import Campaign from './pages/CampaignNgoPage/campaignMain';
-
+import { UserProvider } from './contexts/UserContext';
+import { NgoProvider } from './contexts/NgoContext';
 /**
  * The main component of the application.
  * @returns {JSX.Element} The rendered App component.
@@ -21,6 +22,8 @@ function App() {
   return (
     <div>
       <Router>
+        <UserProvider>
+        <NgoProvider>
         <Navbar /> {/* Renders the Navbar component */}
         <Routes>
           <Route path="/" element={<LandingPage />} /> {/* Renders the LandingPage component */}
@@ -37,6 +40,8 @@ function App() {
           <Route path="/ngoregister" element={<NgoRegister />} /> {/* Renders the NGORegistration component */}
           <Route path="/createcampaign" element={<Campaign />} /> {/* Renders the CreateCampaign component */}
         </Routes>
+            </NgoProvider>
+        </UserProvider>
       </Router>
     </div>
   );

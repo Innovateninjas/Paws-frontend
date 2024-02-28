@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Suspense } from "react";
+import React, { useState, useEffect, Suspense} from "react";
 import ImageUploader from "../../../Components/ImageUploader/ImageUploader";
 import { handleImageChange } from "./handleImageChange";
 import styles from "./ImageAndLocationPage.module.css";
@@ -7,7 +7,6 @@ const LazyMap = React.lazy(() => import("../../../Components/MapComponent/map"))
 
 function ImageAndLocationPage({ formData, handleChange, handleNextPage }) {
   const [image, setImage] = useState(null);
-
   const onChange = (imageList) => {
     handleImageChange(imageList, setImage, handleChange);
   };
