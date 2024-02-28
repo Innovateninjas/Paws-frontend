@@ -1,0 +1,42 @@
+.heading {
+    text-decoration: none;
+    background-color: whitesmoke;
+    border-radius: 5px;
+    box-shadow: 1px 1px 2px black;
+    padding: 10px 5px;
+  }
+.conatiner{
+    position: relative;
+    display: flex;
+    width: 95%;
+    margin: auto;
+    justify-content: space-between;
+    padding: 15px;
+    border-bottom: 1px solid gray;
+    box-shadow: 1px 1px 2px black;
+    margin: 10px;
+    border-radius: 10px;
+}
+.contents{
+    width: 100%;
+}
+.smal{
+    color: teal;
+    font-size: 11px;
+}
+.butnContainer{
+    position: absolute;
+    right: 8px;
+    width: fit-content;
+    height: fit-content;
+}
+.btn{
+    outline: 0;
+    border: 0;
+    text-decoration:none ;
+    color: white;
+    background-color: grey;
+    border-radius: 20px;
+    padding: 10px 20px;
+    box-shadow: 2px 2px 2px black;
+}

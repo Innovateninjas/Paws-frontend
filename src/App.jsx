@@ -13,6 +13,8 @@ import Dashboard from './pages/dashboardPage/dashboard';
 import Donation from './pages/DonationPage/Donation';
 import NgoRegister from './pages/NgoRegistration/NgoRegister';
 import Campaign from './pages/CampaignNgoPage/campaignMain';
+import Volunteer from './pages/VolunteerNow/volunteer'
+import Blog from './pages/BlogPage/blog'
 
 /**
  * The main component of the application.
@@ -38,6 +40,8 @@ function App() {
           <Route path="/ngologin" element={<NgoRegister />} /> {/* Renders the NGORegistration component */}
           <Route path="/ngoregister" element={<NgoRegister />} /> {/* Renders the NGORegistration component */}
           <Route path="/createcampaign" element={<Campaign />} /> {/* Renders the CreateCampaign component */}
+          <Route path="/volunteer" element={<Volunteer />} /> {/* Renders the CreateCampaign component */}
+          <Route path="/blog/:campaignId" element={<Blog />} />
         </Routes>
       </Router>
     </div>
