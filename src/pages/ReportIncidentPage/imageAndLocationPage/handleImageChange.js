@@ -31,6 +31,7 @@ export const handleImageChange = async (imageList, setImage, handleChange, setAn
                 const topPrediction = data.predictions[0];
                 const animalType = topPrediction.tagName;
                 setAnimalType(animalType);
+                console.log(animalType)
             } else {
                 throw new Error("No predictions found.");
             }
