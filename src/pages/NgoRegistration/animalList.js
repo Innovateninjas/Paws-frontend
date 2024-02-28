@@ -1,4 +1,4 @@
-export const rolesOptions = [
+export const AnimalList = [
     { value: 1, label: 'Dog' },
     { value: 2, label: 'Cat' },
     { value: 3, label: 'Cow' },
