@@ -6,6 +6,7 @@ import AnimalDetailsPage from "./animalDetailspage/AnimalDetailsPage";
 import ContactInformationPage from "./contactInformationPage/ContactInformationPage";
 import SuccessPage from "../successPage/SuccessPage";
 
+
 function IncidentForm() {
   const [currentPage, setCurrentPage] = useState(1);
   const [formData, setFormData] = useState({
@@ -138,6 +139,12 @@ function IncidentForm() {
       case 1:
         if (!pageData.image) {
           pageErrors.image = "Image is required.";
+        }
+        if (!pageData.latitude || !pageData.longitude) {
+          pageErrors.latitude = "Location is required.Please enable location services in your browser.";
+        }
+        if (!pageData.landmark) {
+          pageErrors.landmark = "Landmark is required.";
         }
         break;
       case 2:
