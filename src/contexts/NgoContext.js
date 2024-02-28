@@ -28,7 +28,6 @@ export const NgoProvider = ({ children }) => {
                 });
                 if (isMounted) {
                     setNgoData(response.data);
-                    console.log(response.data);
                     setLoading(false);
                 }
             } catch (error) {
