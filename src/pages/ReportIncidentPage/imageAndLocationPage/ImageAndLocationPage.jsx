@@ -7,7 +7,7 @@ const LazyMap = React.lazy(() => import("../../../Components/MapComponent/map"))
 
 function ImageAndLocationPage({ formData, setFormData, handleChange, handleNextPage,errors}) {
   const [image, setImage] = useState(null);
-  const [setAnimalType] = useState(""); // State to store the detected animal type
+  const [ANimalType,setAnimalType] = useState(""); // State to store the detected animal type
 
   const onChange = (imageList) => {
     handleImageChange(imageList, setImage, handleChange, setAnimalType);
@@ -44,7 +44,6 @@ function LazyLoadedMap({ formData }) {
   useEffect(() => {
     const latitude = parseFloat(formData.latitude);
     const longitude = parseFloat(formData.longitude);
-
     if (!isNaN(latitude) && !isNaN(longitude)) {
       setCustomCenter([latitude, longitude]);
     }
