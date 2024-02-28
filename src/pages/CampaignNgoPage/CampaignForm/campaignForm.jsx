@@ -1,5 +1,4 @@
 import React, { useState} from "react";
-import Cropper from "react-cropper";
 import "cropperjs/dist/cropper.css";
 import InputField from "../../../Components/InputsFields/bigInputs";
 import styles from "./campaign.module.css";
@@ -19,7 +18,7 @@ const CampaignForm = ({ setShowForm }) => {
     const [error, setError] = useState("");
     const [strtDate, setstrtDate] = useState("");
     const [endDate, setendDate] = useState("");
-    const [restriction, setRestriction] = useState(0);
+    const [ageGroup, setageGroup] = useState(0);
     const [lastDate, setlastDate] = useState("");
     const [headerImgUrl, setheaderImgUrl] = useState("");
 
@@ -171,10 +170,10 @@ const CampaignForm = ({ setShowForm }) => {
                             id="thirteen"
                             name="age"
                             value="Thirteen Plus"
-                            checked={restriction === 13} // Added checked attribute
+                            checked={ageGroup === 13} // Added checked attribute
                             onChange={() => {
                                 setError("");
-                                setRestriction(13);
+                                setageGroup(13);
                             }}
                         />
                         <label htmlFor="thirteen">
@@ -191,10 +190,10 @@ const CampaignForm = ({ setShowForm }) => {
                             id="eighteen"
                             name="age"
                             value="Eighteen Plus"
-                            checked={restriction === 18} // Added checked attribute
+                            checked={ageGroup === 18} // Added checked attribute
                             onChange={() => {
                                 setError("");
-                                setRestriction(18);
+                                setageGroup(18);
                             }}
                         />
                         <label htmlFor="eighteen">
@@ -211,10 +210,10 @@ const CampaignForm = ({ setShowForm }) => {
                             id="all"
                             name="age"
                             value="Everybody"
-                            checked={restriction === 0} // Added checked attribute
+                            checked={ageGroup === 0} // Added checked attribute
                             onChange={() => {
                                 setError("");
-                                setRestriction(0);
+                                setageGroup(0);
                             }}
                         />
                         <label htmlFor="all">
@@ -249,7 +248,7 @@ const CampaignForm = ({ setShowForm }) => {
                     //     tags,
                     //     strtDate,
                     //     endDate,
-                    //     restriction,
+                    //     ageGroup,
                     //     lastDate,
                     //     headerImgUrl
                     // );
@@ -261,7 +260,7 @@ const CampaignForm = ({ setShowForm }) => {
                         tags,
                         strtDate,
                         endDate,
-                        restriction,
+                        ageGroup,
                         lastDate,
                         headerImgUrl,
                          setError
