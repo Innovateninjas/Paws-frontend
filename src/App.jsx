@@ -12,8 +12,14 @@ import Dashboard from './pages/dashboardPage/dashboard';
 import Donation from './pages/DonationPage/Donation';
 import NgoRegister from './pages/NgoRegistration/NgoRegister';
 import Campaign from './pages/CampaignNgoPage/campaignMain';
+// <<<<<<< HEAD
+import Volunteer from './pages/VolunteerNow/volunteer'
+import Blog from './pages/BlogPage/blog'
+
+
 import { UserProvider } from './contexts/UserContext';
 import { NgoProvider } from './contexts/NgoContext';
+// >>>>>>> 692d983c34e5392d2e589fb3238f541264a0201d
 /**
  * The main component of the application.
  * @returns {JSX.Element} The rendered App component.
@@ -39,6 +45,8 @@ function App() {
           <Route path="/ngologin" element={<NgoRegister />} /> {/* Renders the NGORegistration component */}
           <Route path="/ngoregister" element={<NgoRegister />} /> {/* Renders the NGORegistration component */}
           <Route path="/createcampaign" element={<Campaign />} /> {/* Renders the CreateCampaign component */}
+          <Route path="/volunteer" element={<Volunteer />} /> {/* Renders the CreateCampaign component */}
+          <Route path="/blog/:campaignId" element={<Blog />} />
         </Routes>
             </NgoProvider>
         </UserProvider>
