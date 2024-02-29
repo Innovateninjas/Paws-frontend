@@ -41,28 +41,36 @@ function IncidentForm() {
 
   const getUserLocation = () => {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(async (position) => {
-        const { latitude, longitude } = position.coords;
-        console.log(`Latitude: ${latitude}, Longitude: ${longitude}`); // Add this line
-
-        const response = await fetch(
-          `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyBBUSExqFtg19K7UZQ4LzGE7MygnoxibRo`
-        );
-        const data = await response.json();
-
-        if (data.results && data.results.length > 0) {
-          const address = data.results[0].formatted_address;
-
-          setFormData((prevData) => ({
-            ...prevData,
-            latitude,
-            longitude,
-            address, // Store the address in the form data
-          }));
-        } else {
-          console.log("No results found");
-        }
-      });
+      navigator.geolocation.getCurrentPosition(
+        async (position) => {
+          const { latitude, longitude } = position.coords;
+          console.log(`Latitude: ${latitude}, Longitude: ${longitude}`); // Add this line
+  
+          try {
+            const response = await fetch(
+              `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyBBUSExqFtg19K7UZQ4LzGE7MygnoxibRo`
+            );
+            const data = await response.json();
+            if (data.results && data.results.length > 0) {
+              const address = data.results[0].formatted_address;
+              setFormData((prevData) => ({
+                ...prevData,
+                latitude,
+                longitude,
+                address, // Store the address in the form data
+              }));
+            } else {
+              console.log("No results found");
+            }
+          } catch (error) {
+            console.error("Error fetching address:", error);
+          }
+        },
+        (error) => {
+          console.error("Error getting geolocation:", error);
+        },
+        { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 } // Options for high-accuracy positioning
+      );
     } else {
       console.log("Geolocation is not supported by this browser.");
     }

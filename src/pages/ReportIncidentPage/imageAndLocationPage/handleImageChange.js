@@ -28,10 +28,12 @@ export const handleImageChange = async (imageList, setImage, handleChange, setAn
         if (response.ok) {
             const data = await response.json();
             if (data.predictions && data.predictions.length > 0) {
-                const topPrediction = data.predictions[8];
+                const topPrediction = data.predictions.reduce((maxProbPrediction, currentPrediction) => {
+                    return currentPrediction.probability > maxProbPrediction.probability ? currentPrediction : maxProbPrediction;
+                });
                 const animalType = topPrediction.tagName;
                 setAnimalType(animalType);
-                console.log(animalType)
+                console.log("Animal Type with Highest Probability:", animalType);
             } else {
                 throw new Error("No predictions found.");
             }
