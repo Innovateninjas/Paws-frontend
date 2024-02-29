@@ -13,7 +13,7 @@ export const handleImageChange = async (imageList, setImage, handleChange, setAn
         setImage(imageUrl);
         
         // Detect animal type using Azure Custom Vision API
-        const predictionUrl = "https://southcentralus.api.cognitive.microsoft.com/customvision/v3.0/Prediction/9fcd78e5-6ce4-41ba-9bec-c214ee23708d/detect/iterations/Iteration6/url";
+        const predictionUrl = "https://southcentralus.api.cognitive.microsoft.com/customvision/v3.0/Prediction/9fcd78e5-6ce4-41ba-9bec-c214ee23708d/detect/iterations/Iteration7/url";
         const predictionKey = "d341019dfb574879acbf12ee6c4791cc";
   
         const response = await fetch(predictionUrl, {
