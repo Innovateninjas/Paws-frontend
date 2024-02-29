@@ -12,13 +12,11 @@ import Dashboard from './pages/dashboardPage/dashboard';
 import Donation from './pages/DonationPage/Donation';
 import NgoRegister from './pages/NgoRegistration/NgoRegister';
 import Campaign from './pages/CampaignNgoPage/campaignMain';
-// <<<<<<< HEAD
-import Volunteer from './pages/VolunteerNow/volunteer'
-import Blog from './pages/BlogPage/blog'
-
-
+import Campaignlist from './pages/Volunteer/campaignList/campaignList';
+import Campaignblog from './pages/Volunteer/campaign/campaignBlog';
 import { UserProvider } from './contexts/UserContext';
 import { NgoProvider } from './contexts/NgoContext';
+import Success from './pages/CampaignNgoPage/SuccessPage/Success';
 // >>>>>>> 692d983c34e5392d2e589fb3238f541264a0201d
 /**
  * The main component of the application.
@@ -45,8 +43,9 @@ function App() {
           <Route path="/ngologin" element={<NgoRegister />} /> {/* Renders the NGORegistration component */}
           <Route path="/ngoregister" element={<NgoRegister />} /> {/* Renders the NGORegistration component */}
           <Route path="/createcampaign" element={<Campaign />} /> {/* Renders the CreateCampaign component */}
-          <Route path="/volunteer" element={<Volunteer />} /> {/* Renders the CreateCampaign component */}
-          <Route path="/blog/:campaignId" element={<Blog />} />
+          <Route path="/campaignList" element={<Campaignlist />} /> {/* Renders the CreateCampaign component */}
+          <Route path="/campaignBlog/:campaignId" element={<Campaignblog />} />
+          <Route path="/created" element={<Success />} />
         </Routes>
             </NgoProvider>
         </UserProvider>
