@@ -15,7 +15,7 @@ const CreateCampaignPage = ({ onClick }) => {
                 </p>
             </h1>
             {/* Remove one onClick prop */}
-            <MButton text="Create Campaign" icon={FaPlus} onClick={onClick} />
+            <MButton text="Create Campaign"  onClick={onClick} />
             <img src="./images/paw.png" alt="paw img" className={styles.paw4} />
         </div>
     );
