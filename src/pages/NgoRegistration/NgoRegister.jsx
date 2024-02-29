@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import styles from "./NgoRegister.module.css";
 import InputField from "../../Components/InputsFields/bigInputs";
 import ReactiveButton from "reactive-button";
-// import Dropdown from "../../Components/dropDown/SimpleDropDown/select";
 import Creatable from 'react-select/creatable';
 import { registration } from "../../Components/utils/Functions/ngoAuthService";
 import LoginTextLink from "../../Components/LoginLinkText/LoginTextLink";
@@ -191,6 +190,12 @@ function NgoRegisterForm() {
         </>
         <LoginTextLink
           position={"relative"}
+        />
+        <LoginTextLink
+          position={"relative"}
+          text={"Not an Ngo ?"}
+          link={"/register"}
+          linkText={"Register Here!"}
         />
       </form>
       {error && <p className={styles.errtext}>{error}</p>}
