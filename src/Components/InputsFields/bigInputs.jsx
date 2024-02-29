@@ -27,6 +27,7 @@ function InputField({
     backgroundColor,
     outline,
     margin = "none",
+    min,
     boxShadow = "none"
 }) {
     // Apply styles dynamically based on props
@@ -50,7 +51,23 @@ function InputField({
                 name={name}
             />
         );
-    } else {
+    } 
+    else if (type === 'date') {
+        return (
+            <input
+                className={styles.inputArea}
+                type={type}
+                placeholder={placeholder}
+                value={value}
+                onChange={onChange}
+                required={required}
+                style={inputStyle}
+                name={name}
+                min={min}
+            />
+        );
+    }
+    else {
         return (
             <input
                 className={styles.input}
