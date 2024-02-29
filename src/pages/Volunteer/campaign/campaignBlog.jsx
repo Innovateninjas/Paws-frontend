@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
+import Skeleton from "..//..//..//Components/Skeletons/campaign";
 import { useParams } from "react-router-dom";
-import styles from "./blog.module.css";
-const Blog = () => {
-  const [id, setId] = useState();
+import styles from "./campaignBlog.module.css";
+const CampaignBlog = () => {
+  // const [id, setId] = useState();
   const { campaignId } = useParams();
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState();
   const [tag, setTag] = useState();
-  let allTag = null;
-  console.log(campaignId);
+  // console.log(campaignId);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -17,7 +17,7 @@ const Blog = () => {
         );
         const dataJson = await response.json();
 
-        setId(campaignId);
+        // setId(campaignId);
         setIsLoading(false);
         setData(dataJson);
         setTag(dataJson.tags);
@@ -26,12 +26,7 @@ const Blog = () => {
       }
     };
 
-    if (tag) {
-      allTag = tag.map((item, index) => (allTag = allTag + item + ","));
-    }
-
-    console.log(allTag);
-    // console.log(data.tags);
+   
     fetchData();
   }, []);
 
@@ -48,7 +43,7 @@ const Blog = () => {
             </small>
             <br />
             <h2 className={styles.head}>
-                <i>Description:</i>{" "}
+                <i>Description:</i>
               </h2>
             <div className={styles.conatiner}>
               
@@ -56,7 +51,7 @@ const Blog = () => {
               <br />
               <br />
               <p className={styles.details}>
-                <ul className={styles.ulist}>
+
                   <li className={styles.listItem}>
                     <b> Campaign starts on: </b>
 
@@ -64,30 +59,21 @@ const Blog = () => {
                   </li>
                   <li className={styles.listItem}>
                     <b> Last date for applications: </b>
-                    {data.application_deadline.split("T")[0]}{" "}
+                    {data.application_deadline.split("T")[0]}
                   </li>
                   <li className={styles.listItem}>
                     <b> Duration: </b>
-                    {data.start_date.split("T")[0]} to{" "}
-                    {data.end_date.split("T")[0]}{" "}
+                    {data.start_date.split("T")[0]} to
+                    {data.end_date.split("T")[0]}
                   </li>
                   <li className={styles.listItem}>
                     Open to all ages, especially <b>{data.age_group}</b> and up
                   </li>
-                  {/* <li className={styles.listItem}>
-                    <b>Key Roles: </b>
-                    <ul>
-                      {allTag.map((item, index) => (
-                        <li key={index}>{item}</li>
-                      ))}
-                    </ul>
-                  </li> */}
-                </ul>
               </p>
               <br />
               <p className={styles.details}>
-                For inquiries, contact us: <i>{data.phone_number}</i> or{" "}
-                <i>{data.email} </i>.{" "}
+                For inquiries, contact us: <i>{data.phone_number}</i> or
+                <i>{data.email} </i>
               </p>
 
               <img className={styles.imageStyle} src={data.image_link} alt="" />
@@ -96,7 +82,7 @@ const Blog = () => {
                 {data.tags &&
                   data.tags.map((item, index) => (
                     <span className={styles.tag} key={index}>
-                      {item} <br></br>{" "}
+                      {item} <br></br>
                     </span>
                   ))}
               </p>
@@ -104,9 +90,12 @@ const Blog = () => {
             </div>
           </>
         )}
+        {isLoading &&(
+<Skeleton  width={390} height={120}/>
+        )}
       </>
     </div>
   );
 };
 
-export default Blog;
+export default CampaignBlog;
