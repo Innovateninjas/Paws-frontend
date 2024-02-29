@@ -46,7 +46,7 @@ MButton.propTypes = {
     text: PropTypes.string.isRequired,
     /** Function to call when the button is clicked. */
     onClick: PropTypes.func.isRequired,
-    icon: PropTypes.element.isRequired, 
+    icon: PropTypes.element, 
     /** Custom styles to override default styles. */
     customstyle: PropTypes.object,
 };
