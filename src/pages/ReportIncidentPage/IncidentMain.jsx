@@ -69,7 +69,7 @@ function IncidentForm() {
         (error) => {
           console.error("Error getting geolocation:", error);
         },
-        { enableHighAccuracy: true, timeout: 5000, maximumAge: 0 } // Options for high-accuracy positioning
+        { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 } // Options for high-accuracy positioning
       );
     } else {
       console.log("Geolocation is not supported by this browser.");
