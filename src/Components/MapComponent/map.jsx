@@ -1,22 +1,25 @@
-import React from 'react';
+import React, { useState ,useEffect} from 'react';
 import PropTypes from 'prop-types';
-import { MapContainer, TileLayer } from 'react-leaflet';
+import { MapContainer, TileLayer } from 'react-leaflet'; // docs link https://react-leaflet.js.org/docs/start-introduction/
 import 'leaflet/dist/leaflet.css';
 
-/**
- * Renders a styled map using React Leaflet.
- * @param {Object} props - The props for the component.
- * @param {number} [props.zoom=13] - The zoom level of the map.
- * @param {number[]} [props.center=[22.5726, 88.3639]] - The center coordinates of the map in [latitude, longitude] format.
- * @returns {JSX.Element} A React component representing the  map.
- */
+const Map = ({ zoom = 13, customCenter }) => {
+    // Generate a unique key whenever customCenter changes
+    const [key, setKey] = useState(0);
 
-const Map = ({ zoom = 13, center = [22.5726, 88.3639] }) => {
+    // Update the key whenever customCenter changes
+    useEffect(() => {
+        setKey(prevKey => prevKey + 1);
+    }, [customCenter]);
+
     return (
         <div className="map-container">
             <MapContainer
-                center={center}
+                key={key}
+                center={customCenter}
                 zoom={zoom}
+                attributionControl={false}
+                preferCanvas={false}
                 style={{
                     width: '100%',
                     height: '16vh',
@@ -26,8 +29,8 @@ const Map = ({ zoom = 13, center = [22.5726, 88.3639] }) => {
                 }}
             >
                 <TileLayer
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                    attribution="paws"
+                    url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
+                    attribution="&copy; Pawss"
                 />
             </MapContainer>
         </div>
@@ -36,7 +39,7 @@ const Map = ({ zoom = 13, center = [22.5726, 88.3639] }) => {
 
 Map.propTypes = {
     zoom: PropTypes.number,
-    center: PropTypes.arrayOf(PropTypes.number),
+    customCenter: PropTypes.arrayOf(PropTypes.number),
 };
 
 export default Map;
