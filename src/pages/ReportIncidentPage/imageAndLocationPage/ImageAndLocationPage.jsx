@@ -40,7 +40,7 @@ function ImageAndLocationPage({ formData,  handleChange, handleNextPage,errors})
 }
 
 function LazyLoadedMap({ formData }) {
-  const [customCenter, setCustomCenter] = useState([22.5726, 88.3639]);
+  const [customCenter, setCustomCenter] = useState([22.5629, 88.3962]);
 
   useEffect(() => {
     const latitude = parseFloat(formData.latitude);
@@ -50,7 +50,7 @@ function LazyLoadedMap({ formData }) {
     }
   }, [formData.latitude, formData.longitude]);
 
-  return <LazyMap zoom={13} center={customCenter} />;
+  return <LazyMap zoom={18} customCenter={customCenter} />;
 }
 
 export default ImageAndLocationPage;
