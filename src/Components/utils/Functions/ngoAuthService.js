@@ -67,6 +67,7 @@ export const registration = async (orgName, phoneNumber, email, emergency, passw
         setButtonState('success');
         const token = response.data.token;
         localStorage.setItem("csrftoken", token);
+        localStorage.setItem("userType", "ngo");
         window.location.href = "/";
     } catch (error) {
         // Set button state to error and handle error message

@@ -2,7 +2,8 @@
 import React from "react";
 import { FaPlus } from "react-icons/fa";
 import styles from "./createCampaign.module.css";
-import MButton from "../../../Components/buttons/MediumButton/mButton"; 
+import MButton from "../../../Components/buttons/MediumButton/mButton";
+
 const CreateCampaignPage = ({ onClick }) => {
     return (
         <div className={styles.container}>
@@ -13,6 +14,7 @@ const CreateCampaignPage = ({ onClick }) => {
                     Protecting Paws,<br></br> Saving Lives
                 </p>
             </h1>
+            {/* Remove one onClick prop */}
             <MButton text="Create Campaign" icon={FaPlus} onClick={onClick} />
             <img src="./images/paw.png" alt="paw img" className={styles.paw4} />
         </div>

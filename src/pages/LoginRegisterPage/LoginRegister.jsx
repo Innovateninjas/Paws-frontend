@@ -80,10 +80,19 @@ function LoginRegisterForm() {
                     required
                 />
                 {!isLogin && (
+                    <>
                     <LoginTextLink
-                        bottomPosition={"-14%"}
-                    />
-                 )}
+                        bottomPosition={"-14%"} 
+                        />
+                        <LoginTextLink
+                            text={"Are you an NGO ?"}
+                            link={"/ngoregister"}
+                            linkText={"Register Here!"}
+                            bottomPosition={"-20%"}
+                            leftPosition={"7%"}
+                             />
+                            </>
+                )}
                 {!isLogin && (
                     <>
                         <div className={styles.wrap}>
@@ -97,7 +106,7 @@ function LoginRegisterForm() {
                                 successText="Logging In"
                                 errorText="Register"
                                 messageDuration={3000}
-                                
+
                                 onClick={
                                     async () => registration(name,
                                         phone_number,
