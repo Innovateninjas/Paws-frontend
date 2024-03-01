@@ -5,18 +5,17 @@ import styles from "./ImageAndLocationPage.module.css";
 import MapSkeleton from "../../../Components/Skeletons/mapSkeleton";
 const LazyMap = React.lazy(() => import("../../../Components/MapComponent/map"));
 
-function ImageAndLocationPage({ formData, handleChange, handleNextPage, errors, setErrors }) {
-  const [image, setImage] = useState(null);
+function ImageAndLocationPage({ formData, handleChange, handleNextPage, errors, setErrors, setFormData }) {
   const [AnimalType,setAnimalType] = useState(""); // State to store the detected animal type
   
   const onChange = (imageList) => {
-    handleImageChange(imageList, setImage, handleChange, setAnimalType, setErrors);
+    handleImageChange(imageList, handleChange, setAnimalType, setErrors, setFormData);
   };
 
   return (
     <div className={styles.container}>
       <h2>Upload Image and Location</h2>
-      <ImageUploader image={image} setImage={setImage} onChange={onChange} />
+      <ImageUploader formData={formData} setFormData={setFormData} onChange={onChange} />
       <Suspense fallback={<MapSkeleton />}>
         <LazyLoadedMap formData={formData} />
       </Suspense>
@@ -31,7 +30,7 @@ function ImageAndLocationPage({ formData, handleChange, handleNextPage, errors, 
         ></textarea>
       </label>
       <br />
-      {errors && <p className={styles.errtext}>{errors.landmark || errors.image || errors.imgUpLoading}</p>}
+      {errors && <p className={styles.errtext}>{errors.landmark || errors.image || errors.imgUpLoading||errors.latitude}</p>}
       <button type="button" onClick={handleNextPage} className={styles.next}>
         Next
       </button>

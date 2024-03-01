@@ -13,24 +13,29 @@ import styles from "./ImageUploader.module.css"; // Import styles for the compon
  * @param {Function} props.onChange - Function to handle changes when an image is uploaded.
  * @returns {JSX.Element} A React component representing the image uploader.
  */
-const ImageUploader = ({ image, setImage, onChange }) => {
+const ImageUploader = ({formData , setFormData, onChange }) => {
     return (
         <ImageUploading
-            value={[image]} // Pass the selected image as an array
+            value={[formData]} // Pass the selected image as an array
             onChange={onChange}
             dataURLKey="data_url"
         >
             {({ onImageUpload, isDragging, dragProps }) => (
                 <div className={styles.wrapper}>
-                    {image && (
+                    {formData.image && (
                         <div className={styles.imageItem}>
-                            <img src={image} alt="" className={styles.imagePreview} />
+                            <img src={formData.image} alt="" className={styles.imagePreview} />
                         </div>
                     )}
                     <div className={styles.buttons}>
-                        {image ? (
+                        {formData.image ? (
                             <div>
-                                <button className={styles.removeButton} onClick={() => setImage(null)}>
+                                <button className={styles.removeButton} onClick={() =>
+                                    setFormData((prevData) => ({
+                                        ...prevData,
+                                        image: null,
+                                    }))
+                                     }>
                                     <MdDelete />
                                     <span>Remove</span>
                                 </button>
@@ -60,8 +65,8 @@ const ImageUploader = ({ image, setImage, onChange }) => {
 };
 
 ImageUploader.propTypes = {
-    image: PropTypes.string,
-    setImage: PropTypes.func.isRequired,
+    // image: PropTypes.string,
+    // setImage: PropTypes.func.isRequired,
     onChange: PropTypes.func.isRequired,
 };
 
