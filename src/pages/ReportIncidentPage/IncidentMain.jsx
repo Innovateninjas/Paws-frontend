@@ -142,15 +142,22 @@ function IncidentForm() {
 
   const validatePage = (page) => {
     const pageData = formData;
+    console.log("Page Data:", pageData);
     const pageErrors = {};
 
     switch (page) {
       case 1:
         if (!pageData.image) {
           pageErrors.image = "Image is required.";
+          setTimeout(() => {
+            pageErrors.image = ""
+          }, 3000);
         }
         if (!pageData.latitude || !pageData.longitude) {
           pageErrors.latitude = "Location is required.Please enable location services in your browser.";
+          setTimeout(() => {
+            pageErrors.latitude = ""
+          },4000);
         }
         if (!pageData.landmark) {
           pageErrors.landmark = "Landmark is required.";
@@ -211,6 +218,7 @@ function IncidentForm() {
             handleChange={handleChange}
             handleNextPage={handleNextPage}
             setErrors= {setErrors}
+            setFormData={setFormData}
           />
         );
       case 2:
