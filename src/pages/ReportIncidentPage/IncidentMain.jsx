@@ -36,7 +36,8 @@ function IncidentForm() {
     longitude: "",
     landmark: "",
     status: "",
-    numberOfAnimals: "", // New field for the number of animals
+    numberOfAnimals: "", 
+    imgUpLoading :""
   });
 
   const getUserLocation = () => {
@@ -209,6 +210,7 @@ function IncidentForm() {
             errors={errors}
             handleChange={handleChange}
             handleNextPage={handleNextPage}
+            setErrors= {setErrors}
           />
         );
       case 2:
