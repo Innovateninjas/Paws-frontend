@@ -7,10 +7,15 @@ import { uploadImageToCloudinary } from "../../../Components/utils/Functions/ima
  * @param {function} handleChange - Function to handle change.
  * @param {function} setAnimalType - Function to set the detected animal type.
  */
-export const handleImageChange = async (imageList, setImage, handleChange, setAnimalType, setErrors) => {
-    try {
+export const handleImageChange = async (imageList,  handleChange, setAnimalType, setErrors, setFormData) => {
+    try {   
+        console.log(" i am here")
+        console.log("Image List:", imageList);
         const imageUrl = await uploadImageToCloudinary(imageList[0].file,setErrors);
-        setImage(imageUrl);
+        setFormData((prevData) => ({
+            ...prevData,
+            image: imageUrl,
+        }));
         
         // Detect animal type using Azure Custom Vision API
         const predictionUrl = "https://southcentralus.api.cognitive.microsoft.com/customvision/v3.0/Prediction/9fcd78e5-6ce4-41ba-9bec-c214ee23708d/detect/iterations/Iteration7/url";
@@ -24,7 +29,7 @@ export const handleImageChange = async (imageList, setImage, handleChange, setAn
             },
             body: JSON.stringify({ Url: imageUrl }),
         });
-  
+        
         if (response.ok) {
             const data = await response.json();
             if (data.predictions && data.predictions.length > 0) {
@@ -33,6 +38,10 @@ export const handleImageChange = async (imageList, setImage, handleChange, setAn
                 });
                 const animalType = topPrediction.tagName;
                 setAnimalType(animalType);
+                setFormData((prevData) => ({
+                    ...prevData,
+                    animal_type: animalType,
+                }));
                 console.log("Animal Type with Highest Probability:", animalType);
             } else {
                 throw new Error("No predictions found.");

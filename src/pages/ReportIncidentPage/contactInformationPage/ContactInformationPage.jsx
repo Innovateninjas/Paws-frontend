@@ -1,13 +1,11 @@
-import React, { useEffect, useCallback, useState } from "react";
-import axios from "axios";
+import React, { useContext, useEffect, useState } from "react";
 import Rodal from 'rodal';
 import 'rodal/lib/rodal.css';
-import checkLoginStatus from "../../../Components/utils/Functions/isLoggedIn";
+import { UserContext } from "../../../contexts/UserContext";
 import styles from "./ContactInformationPage.module.css"
-import InputField from "../../../Components/InputsFields/bigInputs"
+import InputField from "../../../Components/InputsFields/bigInputs";
 import { Watch } from "react-loader-spinner";
 
-const isLoggedIn = checkLoginStatus();
 function ContactInformationPage({
   formData,
   setFormData,
@@ -17,62 +15,26 @@ function ContactInformationPage({
   validatePage,
   handleNextPage,
 }) {
-  const [loaded, setLoaded] = useState(false);
+  const { userData, loading: userLoading } = useContext(UserContext); //renaming the loading property to userLoading
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
-  const fetchUserData = useCallback(async () => {
-    try {
-      const csrftoken = localStorage.getItem("csrftoken");
-      const response = await axios.get(
-        "https://aniresfr-backend.vercel.app/info/user/",
-        {
-          headers: {
-            Authorization: `Token ${csrftoken}`,
-          },
-          withCredentials: true,
-        }
-      );
-
-      if (response.status === 200) {
-        const userData = response.data;
-        setLoaded(true);
-        return userData;
-      } else {
-        console.error("Error fetching user information");
-      }
-    } catch (error) {
-      console.error("An error occurred:", error);
-    }
-  }, []);
-
   useEffect(() => {
-    const fetchData = async () => {
-      if (isLoggedIn) {
-        const userData = await fetchUserData();
-        setFormData((prevData) => ({
-          ...prevData,
-          user_name: userData.name,
-          user_phone: userData.phone_number,
-          user_email: userData.email,
-        }));
-      }
-    };
-
-    fetchData();
-  }, [fetchUserData, setFormData]);
-
-  // Update input values when formData changes
-
+    if (userData) {
+      // Update formData with userData if available
+      setFormData((prevData) => ({
+        ...prevData,
+        user_name: userData.name,
+        user_phone: userData.phone_number,
+        user_email: userData.email,
+      }));
+    }
+  }, [userData, setFormData]);
 
   return (
     <div className={styles.main}>
-      {isLoggedIn && !loaded && ( // Render only when isLoggedIn is true and loaded is false
+      {userLoading && ( // Render loading spinner while user data is loading
         <div className={styles.spinners_wrap}>
-          <h2 style={
-            { fontFamily: "cursive",
-            fontSize: "2rem",
-             }
-          } >Loading...</h2>
+          <h2 style={{ fontFamily: "cursive", fontSize: "2rem" }}>Loading...</h2>
           <Watch
             visible={true}
             height={80}
@@ -80,16 +42,13 @@ function ContactInformationPage({
             radius={40}
             color="#4fa94d"
             ariaLabel="watch-loading"
-
             wrapperClass={styles.spinner}
           />
         </div>
       )}
 
       <div className={styles.wrap}>
-
         <h1 className={styles.heading}>Contact Details</h1>
-        {/* Allow the user to fill in details manually if not logged in */}
         <label>
           Name:
           <InputField
@@ -146,7 +105,7 @@ function ContactInformationPage({
             className={styles.customButton}
             onClick={(e) => {
               if (validatePage()) {
-                handleNextPage(); // Call the handleNextPage function
+                handleNextPage();
                 handleSubmit(e);
               }
             }}
@@ -155,7 +114,7 @@ function ContactInformationPage({
           </button>
         </div>
       </div>
-      <Rodal visible={modalIsOpen} animation="zoom" showCloseButton closeMaskOnClick onClose={() => { setModalIsOpen(false) }} closeOnEsc className={styles.modal} width={350}	>
+      <Rodal visible={modalIsOpen} animation="zoom" showCloseButton closeMaskOnClick onClose={() => { setModalIsOpen(false) }} closeOnEsc className={styles.modal} width={350}>
         <p className={styles.modalText}>Your name, email, and phone number are essential for us to contact you and coordinate the rescue process effectively. Providing accurate information will help us rescue animals promptly and ensure their safety and well-being. Thank you for your cooperation.</p>
       </Rodal>
     </div>
