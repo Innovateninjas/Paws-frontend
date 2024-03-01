@@ -1,62 +1,54 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import { FiUser, FiMail, FiPhone } from 'react-icons/fi'; 
+import React, { useEffect, useState, useContext } from 'react';
+import { FiUser, FiMail, FiPhone } from 'react-icons/fi';
 import ProfileIcon from '../../Components/ProfileComponent/ProfileIcon';
 import styles from './UserPage.module.css';
 import Loader from '../../Components/loader/loader';
-import { Link } from 'react-router-dom'; 
+import { Link } from 'react-router-dom';
+import { UserContext } from '../../contexts/UserContext';
 
 function UserPage() {
-  const [userData, setUserData] = useState(null);
-
+  const [userDetails, setUserData] = useState(null);
+  const { userData, loading, error } = useContext(UserContext)
   useEffect(() => {
-    const csrftoken = localStorage.getItem('csrftoken');
-    const fetchData = async () => {
-      try {
-        const response = await axios.get('https://aniresfr-backend.vercel.app/info/user/', {
-          headers: {
-            'Authorization': `Token ${csrftoken}`,
-          },
-          withCredentials: true
-        });
-        setUserData(response.data);
-      } catch (error) {
-        console.error('Error fetching user data:', error.message);
-      }
-    };
+    if (!loading && !error && userData) {
+      setUserData(userData)
+    }
+  }, [userData, loading, error]);
 
-    fetchData();
-  }, []);
-  const csrftoken = localStorage.getItem('csrftoken');
-  if (!csrftoken){
-    return <h1>You Need to login first</h1>
+  if (error) {
+    return <h1>{error}</h1>
   }
 
-  if (!userData) {
-    
-    return <Loader visible/>;
+  if (loading) {
+    return <Loader visible />;
   }
+  if (userDetails) {
 
-  return (
-    <div className={styles.container}>
-      <div className={styles.profileContainer}>
-        <div className="wrap">
-          <ProfileIcon top={"20%"} borderVisible position={'absolute'} />
+    return (
+      <div className={styles.container}>
+        <div className={styles.profileContainer}>
+          <div className="wrap">
+            <ProfileIcon top={"20%"} borderVisible position={'absolute'} />
+          </div>
+        </div>
+        <div className={styles.userDetails}>
+          {/* Icon for Name */}
+          <p><FiUser /> <span className={styles.name}>{userDetails.name}</span></p>
+          {/* Icon for Email */}
+          <p><FiMail /> <span className={styles.email}>{userDetails.email}</span></p>
+          {/* Icon for Phone */}
+          <p><FiPhone /> <span className={styles.phone}>{userDetails.phone_number}</span></p>
+          {/* There are more details about the user present in userDetail object console log to seen them and show them in the ui  */}
+          <p>
+
+            <Link to="/view-reports">View Reports</Link> {/* Add this line */}
+          </p>
+          <br />
+          <p>level,coins, no of reports ,logout and more to add here </p>
         </div>
       </div>
-      <div className={styles.userDetails}>
-        {/* Icon for Name */}
-        <p><FiUser /> <span className={styles.name}>{userData.name}</span></p>
-        {/* Icon for Email */}
-        <p><FiMail /> <span className={styles.email}>{userData.email}</span></p>
-        {/* Icon for Phone */}
-        <p><FiPhone /> <span className={styles.phone}>{userData.phone_number}</span></p>
-        <p>
-        <Link to="/view-reports">View Reports</Link> {/* Add this line */}
-        </p>
-      </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default UserPage;
