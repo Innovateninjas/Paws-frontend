@@ -12,6 +12,7 @@
 .errtext {
   font-size: 1rem;
   /* position: relative; */
+  text-align: center;
   z-index: 99;
   top: 95%; /* Adjust as needed */
   color: red;

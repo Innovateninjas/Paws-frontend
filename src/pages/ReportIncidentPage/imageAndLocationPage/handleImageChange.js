@@ -7,15 +7,15 @@ import { uploadImageToCloudinary } from "../../../Components/utils/Functions/ima
  * @param {function} handleChange - Function to handle change.
  * @param {function} setAnimalType - Function to set the detected animal type.
  */
-export const handleImageChange = async (imageList, setImage, handleChange, setAnimalType) => {
+export const handleImageChange = async (imageList, setImage, handleChange, setAnimalType, setErrors) => {
     try {
-        const imageUrl = await uploadImageToCloudinary(imageList[0].file);
+        const imageUrl = await uploadImageToCloudinary(imageList[0].file,setErrors);
         setImage(imageUrl);
         
         // Detect animal type using Azure Custom Vision API
         const predictionUrl = "https://southcentralus.api.cognitive.microsoft.com/customvision/v3.0/Prediction/9fcd78e5-6ce4-41ba-9bec-c214ee23708d/detect/iterations/Iteration7/url";
         const predictionKey = "d341019dfb574879acbf12ee6c4791cc";
-  
+        
         const response = await fetch(predictionUrl, {
             method: "POST",
             headers: {

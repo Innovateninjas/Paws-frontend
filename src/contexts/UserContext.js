@@ -19,7 +19,10 @@ export const UserProvider = ({ children }) => {
                 setLoading(false);
                 return;
             }
-
+            const userType = localStorage.getItem('userType');
+            if (userType === "ngo") {
+                return
+            }
             try {
                 const response = await axios.get('https://aniresfr-backend.vercel.app/info/user/', {
                     headers: {
