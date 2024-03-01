@@ -13,7 +13,6 @@ import isValidPhoneNumber from "./phoneNumberValidator";
  */
 export const login = async (email, password, setError, setButtonState) => {
     // Validate the email address
-    let userType = "";
     if (!isValidEmail(email)) {
         setError("Enter a valid email address.");
         return;
@@ -36,11 +35,8 @@ export const login = async (email, password, setError, setButtonState) => {
         // Set button state to success and extract token from response
         setButtonState('success');
         const token = response.data.token;
-        if(response.data.is_ngo){
-            userType = "ngo"
-        }else{
-            userType = "user"
-        }
+        const userType = response.data.is_ngo ? "ngo" : "user";
+
         // Save token to local storage and redirect user to home page
         localStorage.setItem("csrftoken", token);
         localStorage.setItem("userType", userType);
@@ -50,12 +46,13 @@ export const login = async (email, password, setError, setButtonState) => {
         setButtonState("error");
         if (error.response && error.response.data.error) {
             setError(error.response.data.error);
+        } else if (error.message === 'Network Error') {
+            setError("Network error.Please check your internet connection.");
         } else {
             setError("An error occurred while logging in.");
         }
     }
 };
-
 
 /**
  * Performs a registration request to the backend server.
@@ -109,9 +106,10 @@ export const registration = async (name, phone_number, email, password, setError
         setButtonState('error');
         if (error.response && error.response.data.error) {
             setError(error.response.data.error);
+        } else if (error.message === 'Network Error') {
+            setError("Network error.Please check your internet connection.");
         } else {
             setError("An error occurred while registering.");
         }
     }
 };
-

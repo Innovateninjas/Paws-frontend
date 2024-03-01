@@ -19,6 +19,10 @@ export const NgoProvider = ({ children }) => {
                 return;
             }
 
+            const userType = localStorage.getItem('userType');
+            if (userType==="user"){
+                return
+            }
             try {
                 const response = await axios.get('https://aniresfr-backend.vercel.app/info/ngo', {
                     headers: {
