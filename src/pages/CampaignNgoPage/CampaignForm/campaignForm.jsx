@@ -8,6 +8,7 @@ import Creatable from 'react-select/creatable';
 import { rolesOptions } from './Roles';
 import ImageCropper from "../../../Components/ImageCropper/Cropper";
 import createCampaign from "../createCampaign";
+import { disableDate } from "./dateDisable"
 
 const CampaignForm = ({ setShowForm }) => {
     const { NgoData, loading, error } = useContext(NgoContext);
@@ -30,49 +31,6 @@ const CampaignForm = ({ setShowForm }) => {
             setOrgName(NgoData.name)
         }
     }, [NgoData, loading, error]);
-
-    const disableDate = () => {
-        const today = new Date();
-        let dd = today.getDate() + 1; 
-        let mm = today.getMonth() + 1; 
-        let yyyy = today.getFullYear();
-        // Handle February (month 2)
-        if (mm === 2) {
-            if ((yyyy % 4 === 0 && yyyy % 100 !== 0) || yyyy % 400 === 0) {
-                if (dd > 29) {
-                    dd = 1; 
-                    mm++; 
-                }
-            } else {
-                if (dd > 28) {
-                    dd = 1; 
-                    mm++; 
-                }
-            }
-        }
-        // Handle months with 30 days
-        else if ([4, 6, 9, 11].includes(mm)) {
-            if (dd > 30) {
-                dd = 1; 
-                mm++; 
-            }
-        }
-        // Handle months with 31 days
-        else {
-            if (dd > 31) {
-                dd = 1;
-                mm++;
-            }
-        }
-        // Handle transition to new year
-        if (mm === 13) {
-            mm = 1; 
-            yyyy++; 
-        }
-        return `${yyyy}-${mm.toString().padStart(2, '0')}-${dd.toString().padStart(2, '0')}`;
-    };
-    
-
     return (
         <div className={styles.container}>
             <h1 className={styles.heading}>Volunteer Now: Make Your Mark!</h1>
@@ -171,7 +129,7 @@ const CampaignForm = ({ setShowForm }) => {
                         type="date"
                         placeholder="Start Date"
                         value={strtDate}
-                        min= {disableDate()}
+                        min= {disableDate}
                         onChange={(e) => {
                             setError("");
                             setstrtDate(e.target.value);
@@ -187,7 +145,7 @@ const CampaignForm = ({ setShowForm }) => {
                         type="date"
                         placeholder="End Date"
                         value={endDate}
-                        min= {disableDate()}
+                        min= {disableDate}
                         onChange={(e) => {
                             setError("");
                             setendDate(e.target.value);
@@ -203,7 +161,7 @@ const CampaignForm = ({ setShowForm }) => {
                         type="date"
                         placeholder="Deadline"
                         value={lastDate}
-                        min= {disableDate()}
+                        min= {disableDate}
                         onChange={(e) => {
                             setError("");
                             setlastDate(e.target.value);

@@ -11,7 +11,7 @@ const Campaign = ({ width , height, ...props }) => (
     foregroundColor="#e3e1e1"
     {...props}
   >
-    <rect x="0" y="5"  rx="20" ry="20" width={width} height={height}>
+    <rect x="0" y="5"  rx="30" ry="30" width={width} height={height}>
       <animate attributeName="fill" dur="3s" repeatCount="indefinite" />
     </rect>
    
@@ -21,13 +21,13 @@ const Campaign = ({ width , height, ...props }) => (
   <BulletList />
   <ContentLoader
     speed={1}
-    width={width}
-    height={500}
+    width={350}
+    height={300}
     backgroundColor="#f5f2f2"
     foregroundColor="#e3e1e1"
     {...props}
   >
-    <rect x="0" y="5"  rx="20" ry="20" width={width} height={500}>
+    <rect x="0" y="5"  rx="20" ry="20" width={350} height={300}>
       <animate attributeName="fill" dur="3s" repeatCount="indefinite" />
     </rect>
    
