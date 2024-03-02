@@ -1,9 +1,12 @@
 .heading {
   text-decoration: none;
-  background-color: whitesmoke;
+  background-color: rgb(209, 209, 209);
   border-radius: 5px;
   box-shadow: 1px 1px 2px black;
-  padding: 15px 5px;
+  padding: 10px 5px;
+  width: 370px;
+  margin: auto;
+  margin-top: 20px;
 }
 .head {
   padding: 10px;
@@ -14,13 +17,15 @@
 }
 .conatiner {
   max-width: 100%;
-  padding: 5px 10px;
+  padding: 5px 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: left;
   justify-content: center;
   overflow-x: hidden;
+  margin-bottom: 30px;
+
 }
 .details {
   font-weight: normal !important ;
@@ -70,4 +75,12 @@
   margin-top: 0.675rem;
   font-size: 19px;
   font-weight: 700;
+}
+.skeltonContainer{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 10px;
 }
