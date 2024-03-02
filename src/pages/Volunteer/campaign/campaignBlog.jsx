@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Skeleton from "..//..//..//Components/Skeletons/campaign";
 import { useParams } from "react-router-dom";
 import styles from "./campaignBlog.module.css";
+import axios from "axios";
 const CampaignBlog = () => {
   // const [id, setId] = useState();
   const { campaignId } = useParams();
@@ -12,10 +13,12 @@ const CampaignBlog = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(
+        const response = await axios.get(
           `https://aniresfr-backend.vercel.app/api/campaigns/${campaignId}`
         );
-        const dataJson = await response.json();
+
+        // Extract data from the response
+        const dataJson = response.data;
 
         // setId(campaignId);
         setIsLoading(false);
@@ -28,7 +31,7 @@ const CampaignBlog = () => {
 
    
     fetchData();
-  }, []);
+  }, [campaignId]);
 
   return (
     <div>
@@ -72,8 +75,7 @@ const CampaignBlog = () => {
               </p>
               <br />
               <p className={styles.details}>
-                For inquiries, contact us: <i>{data.phone_number}</i> or
-                <i>{data.email} </i>
+                For inquiries, contact us: <i> <u>{data.phone_number}</u> </i> or<i> <u>{data.email}</u>  </i>
               </p>
 
               <img className={styles.imageStyle} src={data.image_link} alt="" />
@@ -91,7 +93,10 @@ const CampaignBlog = () => {
           </>
         )}
         {isLoading &&(
-<Skeleton  width={390} height={120}/>
+          <div className={styles.skeltonContainer}>
+          <Skeleton  width={370} height={120}/>
+          </div>
+
         )}
       </>
     </div>
