@@ -23,7 +23,6 @@ function UserPage() {
     return <Loader visible />;
   }
   if (userDetails) {
-
     return (
       <div className={styles.container}>
         <div className={styles.profileContainer}>
