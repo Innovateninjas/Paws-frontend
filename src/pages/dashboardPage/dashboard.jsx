@@ -1,35 +1,33 @@
+// Dashboard.jsx
 import React, { useState, useEffect } from 'react';
 import styles from './dashboard.module.css';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { handleStatusChange } from '../../Components/utils/Functions/statusUpdater';
+import CardItem from './CardComponent/Card';
+import DashboardSkeleton from '../../Components/Skeletons/dashboard';
+import axios from 'axios';
 
 function Dashboard() {
   const [reports, setReports] = useState([]);
   const [statusOptions] = useState(['Received', 'In Progress', 'Rescued']);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchReports = async () => {
       try {
-        const response = await fetch('https://aniresfr-backend.vercel.app/api/animals');
-        const data = await response.json();
-        // Add 'expanded' property to each report object
+        const response = await axios.get('https://aniresfr-backend.vercel.app/api/animals');
+        const data = response.data;
         const updatedReports = data.map((report) => ({
           ...report,
           expanded: false,
         }));
         setReports(updatedReports);
+        setIsLoading(false);
       } catch (error) {
         console.error('Error fetching reports:', error);
       }
     };
 
-    // Fetch reports initially
     fetchReports();
-    // Set up interval to fetch reports every 10 seconds
-  }, []); // Empty dependency array to run effect only once on mount
+  }, []);
 
   const toggleExpand = (index) => {
     const updatedReports = [...reports];
@@ -41,154 +39,29 @@ function Dashboard() {
     <div className={styles.masterContainer}>
       <h2 style={{ textAlign: 'center', marginBottom: '20px' }}>NGO Dashboard</h2>
 
-      {reports.map((report, index) => (
-        <Card
-        key={report.id}
-        className={`${styles.card} ${report.expanded ? styles.expanded : ''}`}
-        style={{ // Apply inline styles for customization
-          position: 'relative',
-          backgroundColor: '#F0F0F0', // Change background color
-          borderRadius: '15px', // Adjust border radius 
-          boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)', // Add box shadow
-          marginBottom: '20px', // Add some space between cards
-          cursor: 'pointer', // Change cursor on hover
-          opacity:'0.9',
-          transition: 'transform 0.3s', // Add transition effect
-          '&:hover': { // Apply styles on hover
-           
-            boxShadow: '10px 10px 10px solid black', // Adjust box shadow on hover
-          },
-        }}
-      >
-          <CardContent >
-            {/* Show image initially */}
-            <img src={report.image} alt={report.description} className={styles.incidentImage} />
-            <Typography gutterBottom variant="h5" component="div">
-              <span style={{
-                display: "inline-block",
-                fontWeight: "semiBold",
-                // paddingLeft: "30px",
-                fontSize: window.innerWidth <= 768 ? "20px" : "30px",
-                textAlign: "center"
-              }}>Animal Type:</span>
-              <span style={{
-                display: "inline-block",
-                fontSize: "20px"
-              }}>
-                {report.animal_type}
-              </span>
-            </Typography>
+      {isLoading ? (
+        // Render loading skeleton when isLoading is true
+        <div>
 
-            <Typography
-              variant="body1"
-              color="text.primary"
-              style={{
-                fontSize: window.innerWidth <= 768 ? '14px' : '20px',
-              }}>
-              {/* Change location to a hyperlink */}
-              <a
-                href={`https://www.google.com/maps/search/?api=1&query=${report.latitude},${report.longitude}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ color: 'blue', textDecoration: 'underline' }} // Style hyperlink
-              >
-                Click here to get directions
-              </a>
-            </Typography>
-            <Typography
-              variant="body1"
-              color="text.primary"
-              style={{
-                fontSize: window.innerWidth <= 768 ? '14px' : '20px'
-              }}>
-              Landmark: {report.landmark}
-            </Typography>
-
-            {report.expanded && (
-              <>
-                <Typography
-                  variant="body1"
-                  color="text.primary"
-                  style={{
-                    fontSize: window.innerWidth <= 768 ? '14px' : '20px'
-                  }}>
-                  Description: {report.description}
-                </Typography>
-
-                <Typography
-                  variant="body1"
-                  color="text.primary"
-                  style={{
-                    fontSize: window.innerWidth <= 768 ? '14px' : '20px',
-                  }}>
-                  Condition: {report.condition}
-                </Typography>
-
-                <Typography
-                  variant="body1"
-                  color="text.primary"
-                  style={{
-                    fontSize: window.innerWidth <= 768 ? '14px' : '20px'
-                  }}>
-                  Name: {report.user_name}
-                </Typography>
-
-                <Typography
-                  variant="body1"
-                  color="text.primary"
-                  style={{
-                    fontSize: window.innerWidth <= 768 ? '14px' : '20px'
-                  }}>
-                  Phone Number: {report.user_phone}
-                </Typography>
-
-                <Typography
-                  variant="body1"
-                  color="text.primary"
-                  style={{
-                    fontSize: window.innerWidth <= 768 ? '14px' : '20px'
-                  }}>
-                  Email: {report.user_email}
-                </Typography>
-
-                <Typography
-                  variant="body1"
-                  color="text.primary"
-                  style={{
-                    fontSize: window.innerWidth <= 768 ? '14px' : '20px', paddingLeft: '0px'
-                  }}>
-                  Status:
-                  <select
-                    value={report.status || ''}
-                    onChange={(e) => handleStatusChange(report.id, e.target.value, setReports)} // Pass setReports to the function
-                    className={styles.select}
-                  >
-                    <option value="" disabled>
-                      Select Status
-                    </option>
-                    {statusOptions.map((status) => (
-                      <option key={status} value={status}>
-                        {status}
-                      </option>
-                    ))}
-                  </select>
-                </Typography>
-              </>
-            )}
-          </CardContent>
-          <div className={styles.expandIcon} >
-            <ExpandMoreIcon
-              onClick={() => toggleExpand(index)}
-              className={styles.expandIcon}
-              style={{
-                position: 'absolute',
-                bottom: '10px',
-                right: '10px'
-              }} />
-          </div>
-        </Card>
-      ))}
-
+          <DashboardSkeleton />
+          <DashboardSkeleton />
+          <DashboardSkeleton />
+          <DashboardSkeleton />
+          <DashboardSkeleton />
+        </div>
+      ) : (
+        // Render CardItem components when isLoading is false
+        reports.map((report, index) => (
+          <CardItem
+            key={report.id}
+            report={report}
+            index={index}
+            statusOptions={statusOptions}
+            toggleExpand={toggleExpand}
+            setReports={setReports}
+          />
+        ))
+      )}
     </div>
   );
 }

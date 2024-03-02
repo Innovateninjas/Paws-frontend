@@ -1,0 +1,70 @@
+/* dashboard.module.css */
+
+
+.incidentImage {
+    width: 100% !important;
+    height: 250px;
+    /* margin-right: 10px; */
+    /* margin-left: 10px; */
+    border-radius: 15px;
+    object-fit: cover;
+    object-position: center;
+    border: 1px solid rgb(23, 20, 20);
+}
+
+.select {
+    margin-left: 10px;
+    /* padding: 5px; */
+    border-radius: 10px;
+    box-shadow: 1px 1px 2px black;
+}
+
+
+.label {
+    font-size: 1.5rem !important;
+    text-shadow: 0.11px 0.1px 0.5px #2d2d2d;
+}
+
+
+
+.card:hover {
+    opacity: 1 !important;
+    /* Adjust this value to your needs */
+    box-shadow: 5px 10px 10px rgba(0, 0, 0, 0.5) !important;
+}
+
+
+.expanded {
+    height: auto;
+}
+
+/* Media query for mobile devices */
+
+@media (max-width: 600px) {
+    .masterContainer {
+        flex-direction: column;
+        /* Change to column layout on mobile */
+        align-items: center;
+        /* Center cards vertically */
+        background-size: cover;
+    }
+
+    .incidentBox {
+        width: 80%;
+        /* Full width on mobile */
+        max-width: 200px;
+        /* Set maximum width for readability */
+    }
+
+    .card {
+        width: 90%;
+        /* Adjust as needed */
+        margin: 0 auto;
+    }
+
+    .incidentImage {
+        width: 90%;
+        /* Full width on mobile */
+    }
+
+}
