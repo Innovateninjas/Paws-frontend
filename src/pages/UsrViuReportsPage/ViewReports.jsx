@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styles from './ViewReports.module.css';
 import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 
 function ViewReports() {
