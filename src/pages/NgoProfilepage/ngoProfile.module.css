@@ -1,0 +1,40 @@
+.profile{
+    display: flex;
+    align-items: center;
+    /* border: 2px solid red; */
+    justify-content: space-between;
+   border-bottom: 0.1px solid #dadada;
+   /* box-shadow: 1px 1px 3px black; */
+   padding-bottom: 10px;
+}
+.profile img{
+    box-shadow: 2px 2px 5px black;
+    border-radius: 50%;
+}
+.username{
+    width: 60%;
+    font-size: 2rem;
+}
+.text{
+    /* color: red; */
+    font-weight: normal;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.container{
+    margin: auto;
+    margin-top: 20px;
+    border-radius: 20px;
+    width: fit-content;
+    padding: 20px;
+    box-shadow: 1px 1px 3px black;
+}
+.details{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 10px;
+}

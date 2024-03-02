@@ -1,7 +1,8 @@
 .errtext {
     position: absolute;
-    top: 72%; /* Adjust as needed */
+    top: 89%; /* Adjust as needed */
     color: red;
+    font-size: 14px;
 }
 input {
     width: 300px;
