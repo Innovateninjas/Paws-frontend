@@ -7,6 +7,7 @@ import LoginRegisterForm from './pages/LoginRegisterPage/LoginRegister';
 import ViewReports from './pages/UsrViuReportsPage/ViewReports'
 import Navbar from './Components/navbar/Navbar';
 import UserPage from './pages/UserProfilePage/UserPage';
+import NgoPage from './pages/NgoProfilepage/ngoProfile'
 import Logout from './Components/utils/Functions/Logout';
 import Dashboard from './pages/dashboardPage/dashboard';
 import Donation from './pages/DonationPage/Donation';
@@ -37,6 +38,7 @@ function App() {
           <Route path="/login" element={<LoginRegisterForm />} /> {/* Renders the LoginRegisterForm component */}
           <Route path="/register" element={<LoginRegisterForm />} /> {/* Renders the LoginRegisterForm component */}
           <Route path="/user" element={<UserPage />} /> {/* Renders the UserPage component */}
+          <Route path="/ngo" element={<NgoPage />} /> {/* Renders the NgoPage component */}
           <Route path="/logout" element={<Logout />} /> {/* Renders the Logout component */}
           <Route path="*" element={<h1>404 NOT FOUND</h1>} /> {/* Renders a 404 NOT FOUND message */}
           <Route path="/dashboard" element={<Dashboard />} /> {/* Renders the Dashboard component */}

@@ -33,7 +33,7 @@ const CampaignForm = ({ setShowForm }) => {
     }, [NgoData, loading, error]);
     return (
         <div className={styles.container}>
-            <h1 className={styles.heading}>Volunteer Now: Make Your Mark!</h1>
+            {/* <h1 className={styles.heading}>Volunteer Now: Make Your Mark!</h1> */}
             <img src="./images/paw.png" alt="paw img" className={styles.paw1} />
 
             <fieldset className={styles.fldset}>
