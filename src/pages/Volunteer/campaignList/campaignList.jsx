@@ -2,19 +2,17 @@ import React, { useState, useEffect } from "react";
 import styles from "./campaignList.module.css";
 import { Link } from "react-router-dom";
 import Skeleton from "..//..//..//Components/Skeletons/campList";
-
+import axios from "axios";
 const Campaignlist = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState();
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(
+        const response = await axios.get(
           "https://aniresfr-backend.vercel.app/api/campaigns"
         );
-        const dataJson = await response.json();
-        // console.log(dataJson);
-        setData(dataJson);
+        setData(response.data);
         setIsLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -32,6 +30,7 @@ const Campaignlist = () => {
             Volunteer Now,<br></br> Make Your Mark!
           </h1>
           {data.map((item, index) => (
+            <div className={styles.heroContainer}>
             <div key={index} className={styles.conatiner}>
               <div className={styles.contents}>
                 <p>{item.title}</p>
@@ -42,23 +41,27 @@ const Campaignlist = () => {
               </div>
               <div className={styles.butnContainer}>
                 <Link to={`/campaignBlog/${index + 1}`} className={styles.btn}>
-                  Apply Now
+                  Apply
                 </Link>
               </div>
+            </div>
             </div>
           ))}
         </>
       )}
       {isLoading && (
         <>
-          <Skeleton width={390} height={150} />
-          <Skeleton width={380} height={85} />
-          <Skeleton width={380} height={85} />
-          <Skeleton width={380} height={85} />
-          <Skeleton width={380} height={85} />
-          <Skeleton width={380} height={85} />
-          <Skeleton width={380} height={85} />
-          <Skeleton width={380} height={85} />
+        <div className={styles.skeltonContainer}>
+        <Skeleton width="calc(100vw - 20px)" height={150} />
+          <Skeleton width="calc(100vw - 40px)" height={100} />
+          <Skeleton width="calc(100vw - 40px)" height={100} />
+          <Skeleton width="calc(100vw - 40px)" height={100} />
+          <Skeleton width="calc(100vw - 40px)" height={100} />
+          <Skeleton width="calc(100vw - 40px)" height={100} />
+          <Skeleton width="calc(100vw - 40px)" height={100} />
+          <Skeleton width="calc(100vw - 40px)" height={100} />
+        </div>
+         
         </>
       )}
     </>
