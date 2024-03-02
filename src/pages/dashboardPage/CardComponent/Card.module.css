@@ -1,18 +1,5 @@
 /* dashboard.module.css */
 
-.masterContainer {
-    background-color: #727171;
-    display: flex;
-    flex-wrap: wrap;
-    /* Allow cards to wrap to the next line */
-    justify-content: center;
-    /* Center cards horizontally */
-    align-items: flex-start;
-    /* Align cards to the top */
-    padding: 0.3rem;
-    gap: 1px;
-
-}
 
 .incidentImage {
     width: 100% !important;
