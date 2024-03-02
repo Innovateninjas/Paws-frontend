@@ -43,6 +43,7 @@
   align-items: center;
   position: relative;
   z-index: 0;
+  margin-bottom: 80px;
 }
 
 .labl {

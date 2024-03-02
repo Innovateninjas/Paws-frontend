@@ -8,7 +8,7 @@ const CampaignBlog = () => {
   const { campaignId } = useParams();
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState();
-  const [tag, setTag] = useState();
+  const [age, setAge] = useState();
   // console.log(campaignId);
   useEffect(() => {
     const fetchData = async () => {
@@ -23,7 +23,7 @@ const CampaignBlog = () => {
         // setId(campaignId);
         setIsLoading(false);
         setData(dataJson);
-        setTag(dataJson.tags);
+        setAge(dataJson.age_group);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -32,7 +32,17 @@ const CampaignBlog = () => {
    
     fetchData();
   }, [campaignId]);
-
+  
+  const ageAccess=()=>{
+    if(age===0){
+      return "Open to All Age Groups";
+        }
+        else{
+          return (age+ "+");
+        }
+  }
+ 
+  
   return (
     <div>
       <>
@@ -70,7 +80,7 @@ const CampaignBlog = () => {
                     {data.end_date.split("T")[0]}
                   </li>
                   <li className={styles.listItem}>
-                    Open to all ages, especially <b>{data.age_group}</b> and up
+                  Age Accessibility: <b>{ageAccess()}</b> 
                   </li>
               </p>
               <br />
