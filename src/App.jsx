@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import 'react-tooltip/dist/react-tooltip.css'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import IncidentForm from './pages/ReportIncidentPage/IncidentMain';
 import LandingPage from './pages/landingpage/HomePage';
