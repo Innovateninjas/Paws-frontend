@@ -1,12 +1,49 @@
-// AnimalDetailsPage.js
+import React, { useEffect, useState } from "react";
+import styles from "./AnimalDetailsPage.module.css";
+import { Tooltip } from 'react-tooltip';
+function AnimalDetailsPage({ formData, errors, handleChange, handleBackPage, handleNextPage }) {
+  const [isDog, setIsDog] = useState(false);
+  const [isCat, setIsCat] = useState(false);
+  const [isCattle, setIsCattle] = useState(false);
+  const [isOther, setIsOther] = useState(false);
+  const [key, setKey] = useState(0);
+  useEffect(() => {
+    setKey(prev=>prev+1);
+    if (formData.animal_type === "dog") {
+      setIsDog(true);
+    }
+    else if (formData.animal_type === "cat") {
+      setIsCat(true);
+    }
+    else if (formData.animal_type === "cattle") {
+      setIsCattle(true);
+    }
+    else if (formData.animal_type === "other") {
+      setIsOther(true);
+    }
+  }, [formData])
+  
+  setTimeout(() => {
+    const elements = document.querySelectorAll('.show-tooltip');
+    setKey(prev=>prev+1);
+    elements.forEach(element => {
+      element.classList.remove('show-tooltip');
+    });
+  }, 3000);
 
-import React from "react";
-import styles from "./AnimalDetailsPage.module.css";;
-function AnimalDetailsPage({ formData, errors, handleChange,handleBackPage, handleNextPage }) {
+
+
   return (
+
     // A MASTER CONTAINER
     <div className={styles.masterContainer}>
       <h1> Describe The Issue</h1>
+      <Tooltip
+        key={key}
+        anchorSelect=".show-tooltip"
+        isOpen={formData}
+      />
+
 
       {/* USED RADIO INPUT INSTEAD OF SELECT TAG */}
       <div>
@@ -14,33 +51,66 @@ function AnimalDetailsPage({ formData, errors, handleChange,handleBackPage, hand
         <label ><p> Animal Type:</p></label>
         <div className={styles.container}>
 
-          <div>
-            <input type="radio" id="dog" name="animal_type" value="Dog" checked={formData.animal_type === 'Dog'} onChange={handleChange} hidden />
+          <div className={isDog ? 'show-tooltip': ''}
+            data-tooltip-html="<b>Predicted<br>To be a dog</b>"
+          >
+            <input
+              type="radio"
+              id="dog"
+              name="animal_type"
+              value="dog"
+              checked={formData.animal_type === 'dog'}
+              onChange={handleChange}
+              hidden />
             <label htmlFor="dog">
               <img src="./images/dog.jpg" alt="" />
             </label>
           </div>
-          <div>
-            <input type="radio" id="cat" name="animal_type" value="Cat" checked={formData.animal_type === 'Cat'} onChange={handleChange} hidden />
+          <div className={isCat ? 'show-tooltip' : ''}
+            data-tooltip-html="<b>Predicted<br>To be a Cat</b>"
+          >
+            <input type="radio"
+              id="cat"
+              name="animal_type"
+              value="cat"
+              checked={formData.animal_type === 'cat'}
+              onChange={handleChange}
+              hidden />
+
             <label htmlFor="cat">
               <img src="./images/cat.jpg" alt="" />
             </label>
           </div>
-          <div>
-            <input type="radio" id="cattle" name="animal_type" value="Cattle" checked={formData.animal_type === 'Cattle'} onChange={handleChange} hidden />
+          <div className={isCattle ? 'show-tooltip' : ''}
+            data-tooltip-html="<b>Predicted<br>To be a Cattle</b>">
+            <input type="radio"
+              id="cattle"
+              name="animal_type"
+              value="cattle"
+              checked={formData.animal_type === 'cattle'}
+              onChange={handleChange}
+              hidden />
             <label htmlFor="cattle">
               <img src="./images/cow.jpg" alt="" />
             </label>
           </div>
-          <div>
-            <input type="radio" id="other" name="animal_type" value="Other" checked={formData.animal_type === 'Other'} onChange={handleChange} hidden />
+          <div className={isOther ? 'show-tooltip' : ''}
+            data-tooltip-html="<b>Predicted<br>To be a Other</b>">
+            <input 
+            type="radio" 
+            id="other" 
+            name="animal_type" 
+            value="other"
+             checked={formData.animal_type === 'other'} 
+             onChange={handleChange} 
+             hidden />
             <label htmlFor="other">
               <img src="./images/more.jpg" alt="" />
             </label>
           </div>
         </div>
-        {/* OPTION:OTHERS */}
-        {formData.animal_type === "Other" && (
+        {/* OPTION:otherS */}
+        {formData.animal_type === "other" && (
           <label className={styles.specify}>
             Please specify:
             <input type="text" name="otherAnimalType" onChange={handleChange} />
@@ -105,12 +175,12 @@ function AnimalDetailsPage({ formData, errors, handleChange,handleBackPage, hand
       {/* DESCRIBE SEVERITY */}
       <div>
 
-          <p>Describe Severity:</p> 
+        <p>Describe Severity:</p>
         <label className={styles.wrapSeverity}>
 
 
 
-        
+
           <div className={styles.severity}>
             <input type="radio" id="urgent" name="condition" value="Urgent" checked={formData.condition === 'Urgent'} onChange={handleChange} />
             <label htmlFor="urgent">
@@ -130,7 +200,7 @@ function AnimalDetailsPage({ formData, errors, handleChange,handleBackPage, hand
             </label>
           </div>
           {/* Changed "div" tag to "small" tag and className="error" to  className={styles.error} */}
-          
+
         </label>
         <small className={styles.error}>{errors.condition}</small>
       </div>
