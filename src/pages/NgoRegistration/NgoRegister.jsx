@@ -9,7 +9,7 @@ import getUserLocation from "../../Components/utils/Functions/getLocationData";
 import { AnimalList } from "./animalList";
 import { Link } from "react-router-dom";
 
-// import { shadow } from "@cloudinary/url-gen/actions/effect";
+// import { shadow } from "@cloudinary/url-gen/actions/effect";]
 function NgoRegisterForm() {
 
   const customButtonStyle = {
