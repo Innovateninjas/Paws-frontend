@@ -11,15 +11,3 @@ body {
     box-sizing: border-box;
 }
 
-
-.incident-box {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 10px;
-    list-style-type: none;
-}
-
-.incident-box img {
-    width: 100%;
-    height: auto;
-}

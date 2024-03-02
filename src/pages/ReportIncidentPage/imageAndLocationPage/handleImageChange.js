@@ -9,8 +9,6 @@ import { uploadImageToCloudinary } from "../../../Components/utils/Functions/ima
  */
 export const handleImageChange = async (imageList,  handleChange, setAnimalType, setErrors, setFormData) => {
     try {   
-        console.log(" i am here")
-        console.log("Image List:", imageList);
         const imageUrl = await uploadImageToCloudinary(imageList[0].file,setErrors);
         setFormData((prevData) => ({
             ...prevData,
