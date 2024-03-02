@@ -8,6 +8,8 @@
   align-items: flex-start; /* Align cards to the top */
   padding: 0.3rem;
   gap: 1px;
+  height: fit-content;
+  min-height: 100vh;
   
 }
 
