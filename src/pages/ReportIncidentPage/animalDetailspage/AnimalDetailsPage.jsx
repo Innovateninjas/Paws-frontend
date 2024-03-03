@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./AnimalDetailsPage.module.css";
+import 'react-tooltip/dist/react-tooltip.css'
 import { Tooltip } from 'react-tooltip';
 function AnimalDetailsPage({ formData, errors, handleChange, handleBackPage, handleNextPage }) {
   const [isDog, setIsDog] = useState(false);
@@ -29,7 +30,7 @@ function AnimalDetailsPage({ formData, errors, handleChange, handleBackPage, han
     elements.forEach(element => {
       element.classList.remove('show-tooltip');
     });
-  }, 3000);
+  }, 4000);
 
 
 
@@ -42,6 +43,7 @@ function AnimalDetailsPage({ formData, errors, handleChange, handleBackPage, han
         key={key}
         anchorSelect=".show-tooltip"
         isOpen={formData}
+        disableStyleInjection={true}
       />
 
 
