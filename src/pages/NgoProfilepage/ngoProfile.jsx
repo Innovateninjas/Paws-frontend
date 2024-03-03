@@ -10,9 +10,12 @@ import { NgoContext } from "../../contexts/NgoContext";
 const NgoProfile = () => {
   const [userDetails, setUserData] = useState(null);
   const { NgoData, loading, error } = useContext(NgoContext);
+  const [animals_supported, setAnimal] = useState();
   useEffect(() => {
+    console.log(NgoData);
     if (!loading && !error && NgoData) {
       setUserData(NgoData);
+      setAnimal(NgoData.animals_supported);
     }
   }, [NgoData, loading, error]);
   if (error) {
@@ -28,7 +31,7 @@ const NgoProfile = () => {
         <div className={styles.container}>
   <div className={styles.profile}>
     <ProfileIcon top={"35px"} left={"50px"}></ProfileIcon>
-    <p className={styles.username}><b>NgoName</b></p>
+    <p className={styles.username}><b>{userDetails.name}</b></p>
   </div>
   <div className={styles.details}>
     <p className={styles.text}><b>Contact Details:</b></p>
@@ -46,7 +49,7 @@ const NgoProfile = () => {
       <span> {userDetails.emergency_contact_number}</span>
     </li>
     <p className={styles.text}>
-      <b><TbReportSearch /></b> Number of Reports:
+      <b> Number of Reports:</b>
       <span>{userDetails.no_received_reports}</span>
     </p>
     <p className={styles.text}>
@@ -59,7 +62,15 @@ const NgoProfile = () => {
     </p>
     <p className={styles.text}>
       <b>Animal Supported:</b>
-      <span>{userDetails.animals_supported}</span>
+      {animals_supported && animals_supported.map((element, index) => (
+  <span key={index}>
+    {element}
+    {index !== animals_supported.length - 1 && ','}
+  </span>
+))}
+
+
+      {/* <span>{userDetails.animals_supported}</span> */}
     </p>
   </div>
 </div>

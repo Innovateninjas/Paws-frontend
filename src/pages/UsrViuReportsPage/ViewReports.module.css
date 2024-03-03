@@ -52,6 +52,14 @@
     flex-wrap: wrap;
     justify-content: space-between;
   }
+  .noReport {
+    font-size: 18px;
+    color: #555; /* Adjust the color as needed */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
   
   
   @media (max-width: 768px) {
