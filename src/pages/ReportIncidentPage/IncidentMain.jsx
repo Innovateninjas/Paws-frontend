@@ -6,7 +6,6 @@ import AnimalDetailsPage from "./animalDetailspage/AnimalDetailsPage";
 import ContactInformationPage from "./contactInformationPage/ContactInformationPage";
 import SuccessPage from "../successPage/SuccessPage";
 
-
 function IncidentForm() {
   const [currentPage, setCurrentPage] = useState(1);
   const [formData, setFormData] = useState({
@@ -83,7 +82,6 @@ function IncidentForm() {
   }, []);
   const handleChange = async (e) => {
     const { name, value } = e.target;
-    console.log("Name:", name, "Value:", value);
     
       if(name === "predictedAnimal") { // 
         setFormData((prevData) => ({
@@ -118,6 +116,7 @@ function IncidentForm() {
     if (e) {
       e.preventDefault();
     }
+    delete formData.predictedAnimal;
     console.log("Submitting form:", formData);
 
     try {

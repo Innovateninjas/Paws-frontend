@@ -32,7 +32,7 @@ h1 {
     box-shadow: 2px 2px 5px black;
 }
 .container input[type="radio"]:checked + label img {
-    border: 4px solid #232d34;
+    border: 4px solid #c3db7a;
 }
 
 .container {
