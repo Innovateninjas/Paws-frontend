@@ -38,7 +38,7 @@ export const handleImageChange = async (imageList,  handleChange, setAnimalType,
                 setAnimalType(animalType);
                 setFormData((prevData) => ({
                     ...prevData,
-                    animal_type: animalType,
+                    predictedAnimal: animalType,
                 }));
                 console.log("Animal Type with Highest Probability:", animalType);
             } else {
