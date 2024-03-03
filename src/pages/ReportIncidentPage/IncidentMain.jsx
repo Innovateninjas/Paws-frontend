@@ -135,6 +135,8 @@ function IncidentForm() {
   };
 
   const handleNextPage = () => {
+    const date = new Date();
+    console.log(date);
     if (validatePage(currentPage)) {
       setCurrentPage((prevPage) => prevPage + 1);
     }
