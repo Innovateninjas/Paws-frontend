@@ -30,8 +30,8 @@ const Campaignlist = () => {
             Volunteer Now,<br></br> Make Your Mark!
           </h1>
           {data.map((item, index) => (
-            <div className={styles.heroContainer}>
-            <div key={index} className={styles.conatiner}>
+            <div key={index} className={styles.heroContainer}>
+            <div  className={styles.conatiner}>
               <div className={styles.contents}>
                 <p>{item.title}</p>
                 {/* DURATION */}
