@@ -36,6 +36,12 @@ export const handleImageChange = async (imageList,  handleChange, setAnimalType,
                 });
                 const animalType = topPrediction.tagName;
                 setAnimalType(animalType);
+                handleChange({
+                    target: {
+                        name: "predictedAnimal",
+                        value: animalType
+                    }
+                });
                 setFormData((prevData) => ({
                     ...prevData,
                     predictedAnimal: animalType,
