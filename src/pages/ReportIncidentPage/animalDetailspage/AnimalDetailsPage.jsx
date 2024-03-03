@@ -9,16 +9,16 @@ function AnimalDetailsPage({ formData, errors, handleChange, handleBackPage, han
   const [key, setKey] = useState(0);
   useEffect(() => {
     setKey(prev=>prev+1);
-    if (formData.animal_type === "dog") {
+    if (formData.predictedAnimal === "dog") {
       setIsDog(true);
     }
-    else if (formData.animal_type === "cat") {
+    else if (formData.predictedAnimal === "cat") {
       setIsCat(true);
     }
-    else if (formData.animal_type === "cattle") {
+    else if (formData.predictedAnimal === "cattle") {
       setIsCattle(true);
     }
-    else if (formData.animal_type === "other") {
+    else if (formData.predictedAnimal === "other") {
       setIsOther(true);
     }
   }, [formData])
@@ -57,9 +57,9 @@ function AnimalDetailsPage({ formData, errors, handleChange, handleBackPage, han
             <input
               type="radio"
               id="dog"
-              name="animal_type"
+              name="predictedAnimal"
               value="dog"
-              checked={formData.animal_type === 'dog'}
+              checked={formData.predictedAnimal === 'dog'||formData.animal_type==="dog"}
               onChange={handleChange}
               hidden />
             <label htmlFor="dog">
@@ -71,9 +71,9 @@ function AnimalDetailsPage({ formData, errors, handleChange, handleBackPage, han
           >
             <input type="radio"
               id="cat"
-              name="animal_type"
+              name="predictedAnimal"
               value="cat"
-              checked={formData.animal_type === 'cat'}
+              checked={formData.predictedAnimal === 'cat'||formData.animal_type==="cat"}
               onChange={handleChange}
               hidden />
 
@@ -85,9 +85,9 @@ function AnimalDetailsPage({ formData, errors, handleChange, handleBackPage, han
             data-tooltip-html="<b>Predicted<br>To be a Cattle</b>">
             <input type="radio"
               id="cattle"
-              name="animal_type"
+              name="predictedAnimal"
               value="cattle"
-              checked={formData.animal_type === 'cattle'}
+              checked={formData.predictedAnimal === 'cattle'||formData.animal_type==="cattle"}
               onChange={handleChange}
               hidden />
             <label htmlFor="cattle">
@@ -99,9 +99,9 @@ function AnimalDetailsPage({ formData, errors, handleChange, handleBackPage, han
             <input 
             type="radio" 
             id="other" 
-            name="animal_type" 
+            name="predictedAnimal" 
             value="other"
-             checked={formData.animal_type === 'other'} 
+             checked={formData.predictedAnimal === 'other'||formData.animal_type==="other"} 
              onChange={handleChange} 
              hidden />
             <label htmlFor="other">
@@ -110,7 +110,7 @@ function AnimalDetailsPage({ formData, errors, handleChange, handleBackPage, han
           </div>
         </div>
         {/* OPTION:otherS */}
-        {formData.animal_type === "other" && (
+        {formData.predictedAnimal === "other" && (
           <label className={styles.specify}>
             Please specify:
             <input type="text" name="otherAnimalType" onChange={handleChange} />

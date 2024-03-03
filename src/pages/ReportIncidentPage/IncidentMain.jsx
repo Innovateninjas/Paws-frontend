@@ -14,6 +14,7 @@ function IncidentForm() {
     user_email: "",
     user_phone: "",
     animal_type: "",
+    predictedAnimal:"",
     description: "",
     condition: "",
     image: null, // Change to null for correct file handling
@@ -80,14 +81,22 @@ function IncidentForm() {
   useEffect(() => {
     getUserLocation();
   }, []);
-
   const handleChange = async (e) => {
     const { name, value } = e.target;
-
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+    console.log("Name:", name, "Value:", value);
+    
+      if(name === "predictedAnimal") { // 
+        setFormData((prevData) => ({
+          ...prevData,
+          predictedAnimal:"",
+          animal_type: value,
+        }));
+    }else{
+      setFormData((prevData) => ({
+        ...prevData,
+        [name]: value,
+      }));
+    }
 
     setErrors((prevErrors) => ({
       ...prevErrors,
