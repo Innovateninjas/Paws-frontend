@@ -53,8 +53,8 @@ const CardItem = ({ report, index, statusOptions, toggleExpand, setReports }) =>
             href={`https://www.google.com/maps/search/?api=1&query=${report.latitude},${report.longitude}`}
             target="_blank"
             rel="noopener noreferrer"
-            style={{ color: 'blue', textDecoration: 'underline' }} >
-            Click here to get directions
+            style={{ color: 'blue' }} >
+            <b>Click here to get directions</b>
           </a>
         </Typography>
         <Typography
@@ -63,7 +63,7 @@ const CardItem = ({ report, index, statusOptions, toggleExpand, setReports }) =>
           style={{
             fontSize: window.innerWidth <= 768 ? '14px' : '20px'
           }}>
-          Landmark: {report.landmark}
+          Landmark : {report.landmark}
         </Typography>
 
         {report.expanded && (
@@ -74,7 +74,7 @@ const CardItem = ({ report, index, statusOptions, toggleExpand, setReports }) =>
               style={{
                 fontSize: window.innerWidth <= 768 ? '14px' : '20px'
               }}>
-              Description: {report.description}
+              Description :  {report.description}
             </Typography>
 
             <Typography
@@ -83,7 +83,7 @@ const CardItem = ({ report, index, statusOptions, toggleExpand, setReports }) =>
               style={{
                 fontSize: window.innerWidth <= 768 ? '14px' : '20px',
               }}>
-              Condition: {report.condition}
+              Condition : {report.condition}
             </Typography>
 
             <Typography
@@ -92,7 +92,7 @@ const CardItem = ({ report, index, statusOptions, toggleExpand, setReports }) =>
               style={{
                 fontSize: window.innerWidth <= 768 ? '14px' : '20px'
               }}>
-              Name: {report.user_name}
+              Name : {report.user_name}
             </Typography>
 
             <Typography
@@ -101,7 +101,7 @@ const CardItem = ({ report, index, statusOptions, toggleExpand, setReports }) =>
               style={{
                 fontSize: window.innerWidth <= 768 ? '14px' : '20px'
               }}>
-              Phone Number: {report.user_phone}
+              Phone Number : {report.user_phone}
             </Typography>
 
             <Typography
@@ -110,7 +110,15 @@ const CardItem = ({ report, index, statusOptions, toggleExpand, setReports }) =>
               style={{
                 fontSize: window.innerWidth <= 768 ? '14px' : '20px'
               }}>
-              Email: {report.user_email}
+              Email : {report.user_email}
+            </Typography>
+            <Typography
+              variant="body1"
+              color="text.primary"
+              style={{
+                fontSize: window.innerWidth <= 768 ? '14px' : '20px'
+              }}>
+              Reported At : {report.reported_time}
             </Typography>
 
             <Typography

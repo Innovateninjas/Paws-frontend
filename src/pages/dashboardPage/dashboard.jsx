@@ -17,6 +17,15 @@ function Dashboard() {
         const data = response.data;
         const updatedReports = data.map((report) => ({
           ...report,
+          reported_time: new Date(report.reported_time).toLocaleString('en-US', {
+            year: 'numeric',
+            month: 'short',
+            day: '2-digit',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: true,
+          }),
           expanded: false,
         }));
         setReports(updatedReports);
