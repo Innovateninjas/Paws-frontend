@@ -36,11 +36,15 @@ export const login = async (email, password, setError, setButtonState) => {
         setButtonState('success');
         const token = response.data.token;
         const userType = response.data.is_ngo ? "ngo" : "user";
-
+        if(userType === "ngo"){
+            window.location.href = "/dashboard";
+        }
+        else{
+            window.location.href = "/";
+        }
         // Save token to local storage and redirect user to home page
         localStorage.setItem("csrftoken", token);
         localStorage.setItem("userType", userType);
-        window.location.href = "/";
     } catch (error) {
         // Set button state to error and handle error message
         setButtonState("error");
