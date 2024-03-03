@@ -1,27 +1,30 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useContext } from "react";
+import axios from "axios";
 import isValidPhoneNumber from "../../Components/utils/Functions/phoneNumberValidator";
 import isValidEmail from "../../Components/utils/Functions/emailValidator";
 import ImageAndLocationPage from "./imageAndLocationPage/ImageAndLocationPage";
 import AnimalDetailsPage from "./animalDetailspage/AnimalDetailsPage";
 import ContactInformationPage from "./contactInformationPage/ContactInformationPage";
 import SuccessPage from "../successPage/SuccessPage";
-
+import { UserContext } from "../../contexts/UserContext";
 function IncidentForm() {
+  const { userData } = useContext(UserContext);
   const [currentPage, setCurrentPage] = useState(1);
+  const [Submitted,setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     user_name: "",
     user_email: "",
     user_phone: "",
     animal_type: "",
-    predictedAnimal:"",
+    predictedAnimal: "",
     description: "",
     condition: "",
-    image: null, // Change to null for correct file handling
+    image: null,
     latitude: "",
     longitude: "",
-    landmark: "", // @rishicds add proper landmark
-    status: "Received", // @rishicds add proper status
-    numberOfAnimals: "", // New field for the number of animals
+    landmark: "",
+    status: "Received",
+    numberOfAnimals: "",
   });
 
   const [errors, setErrors] = useState({
@@ -36,17 +39,45 @@ function IncidentForm() {
     longitude: "",
     landmark: "",
     status: "",
-    numberOfAnimals: "", 
-    imgUpLoading :""
+    numberOfAnimals: "",
+    imgUpLoading: "",
   });
+
+  useEffect(() => {
+    async function increment(no_reports) {
+      const csrftoken = localStorage.getItem('csrftoken');
+      try {
+        const response = await axios.put(
+          'https://aniresfr-backend.vercel.app/info/user/',
+          {
+            no_reports: no_reports + 1,
+          },
+          {
+            headers: {
+              'Authorization': `Token ${csrftoken}`,
+            },
+            withCredentials: true,
+          }
+        );
+        console.log(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    if(userData){
+      increment(userData.no_reports);
+    }else{
+      return;
+    }
+
+  }, [Submitted,userData]);
 
   const getUserLocation = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         async (position) => {
           const { latitude, longitude } = position.coords;
-          console.log(`Latitude: ${latitude}, Longitude: ${longitude}`); // Add this line
-  
+
           try {
             const response = await fetch(
               `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyBBUSExqFtg19K7UZQ4LzGE7MygnoxibRo`
@@ -58,7 +89,7 @@ function IncidentForm() {
                 ...prevData,
                 latitude,
                 longitude,
-                address, // Store the address in the form data
+                address,
               }));
             } else {
               console.log("No results found");
@@ -70,7 +101,7 @@ function IncidentForm() {
         (error) => {
           console.error("Error getting geolocation:", error);
         },
-        { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 } // Options for high-accuracy positioning
+        { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
       );
     } else {
       console.log("Geolocation is not supported by this browser.");
@@ -80,16 +111,17 @@ function IncidentForm() {
   useEffect(() => {
     getUserLocation();
   }, []);
-  const handleChange = async (e) => {
+
+  const handleChange = (e) => {
     const { name, value } = e.target;
-    
-      if(name === "predictedAnimal") { // 
-        setFormData((prevData) => ({
-          ...prevData,
-          predictedAnimal:"",
-          animal_type: value,
-        }));
-    }else{
+
+    if (name === "predictedAnimal") {
+      setFormData((prevData) => ({
+        ...prevData,
+        predictedAnimal: "",
+        animal_type: value,
+      }));
+    } else {
       setFormData((prevData) => ({
         ...prevData,
         [name]: value,
@@ -98,11 +130,13 @@ function IncidentForm() {
 
     setErrors((prevErrors) => ({
       ...prevErrors,
-      [name]: "", // Clear the error when the user starts typing
+      [name]: "",
     }));
   };
 
   const handleNextPage = () => {
+    const date = new Date();
+    console.log(date);
     if (validatePage(currentPage)) {
       setCurrentPage((prevPage) => prevPage + 1);
     }
@@ -121,7 +155,6 @@ function IncidentForm() {
 
     try {
       if (validateForm()) {
-        // Send the form data with the Cloudinary URL to the backend
         const response = await fetch(
           "https://aniresfr-backend.vercel.app/api/animals/",
           {
@@ -134,9 +167,10 @@ function IncidentForm() {
         );
 
         if (response.ok) {
+          setSubmitted(true);
           const data = await response.json();
           console.log("Success:", data);
-          setCurrentPage(4); // Assuming 4 is the index for the success page
+          setCurrentPage(4);
         } else {
           console.error("Error:", response.statusText);
         }
@@ -150,22 +184,16 @@ function IncidentForm() {
 
   const validatePage = (page) => {
     const pageData = formData;
-    console.log("Page Data:", pageData);
     const pageErrors = {};
 
     switch (page) {
       case 1:
         if (!pageData.image) {
           pageErrors.image = "Image is required.";
-          setTimeout(() => {
-            pageErrors.image = ""
-          }, 3000);
         }
         if (!pageData.latitude || !pageData.longitude) {
-          pageErrors.latitude = "Location is required.Please enable location services in your browser.";
-          setTimeout(() => {
-            pageErrors.latitude = ""
-          },4000);
+          pageErrors.latitude =
+            "Location is required. Please enable location services in your browser.";
         }
         if (!pageData.landmark) {
           pageErrors.landmark = "Landmark is required.";
@@ -206,15 +234,10 @@ function IncidentForm() {
   };
 
   const validateForm = () => {
-    return Object.keys(formData).every((field) => {
-      if (field === "userLocation") {
-        return true; // No need to validate userLocation
-      }
-      return formData[field] !== "";
-    });
+    return Object.keys(formData).every(
+      (field) => formData[field] !== "" && field !== "userLocation"
+    );
   };
-
-  // Function to upload image to Cloudinary
 
   const renderPage = () => {
     switch (currentPage) {
@@ -225,7 +248,7 @@ function IncidentForm() {
             errors={errors}
             handleChange={handleChange}
             handleNextPage={handleNextPage}
-            setErrors= {setErrors}
+            setErrors={setErrors}
             setFormData={setFormData}
           />
         );
@@ -236,7 +259,7 @@ function IncidentForm() {
             errors={errors}
             handleChange={handleChange}
             handleNextPage={handleNextPage}
-            handleBackPage={handleBackPage} // Pass handleBackPage to AnimalDetailsPage
+            handleBackPage={handleBackPage}
           />
         );
       case 3:
