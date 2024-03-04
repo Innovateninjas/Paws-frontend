@@ -4,33 +4,29 @@ import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
 import Viewreports from "..//..//Components/Skeletons/view-reports"
 import { UserContext } from '../../contexts/UserContext';
+import axios from 'axios';
 function ViewReports() {
   // Fetch and store the reports data from your backend or any source
-  const { userData, loading, error } = useContext(UserContext);
+  const { userData} = useContext(UserContext);
   const [reports, setReports] = useState([]);
   const [length, setLength] = useState([]);
   const [isLoading, setIsLoading] = useState(true); 
   useEffect(() => {
     const fetchReports = async () => {
-      // console.log(userData);
       try {
-        const response = await fetch(`https://aniresfr-backend.vercel.app/api/animals`); // Replace with your actual API endpoint
-        const data = await response.json();
-        if(userData){
-          const filteredReports = data.filter(element => element.user_email === userData.email);
-          setReports(filteredReports);
-          if(reports){
-            setLength(reports.length)
-          }
+        if (userData) {
+          const url=`https://aniresfr-backend.vercel.app/api/animals/?user_email=${userData.email}`
+          const response = await axios.get(url);
+          const data = response.data;
+          setReports(data);
           setIsLoading(false);
         }
-      }
-       catch (error) {
+      } catch (error) {
         console.error('Error fetching reports:', error);
       }
-    };     
+    };
     fetchReports();
-  }, [userData, loading, error]);
+  }, [userData]);
   return (
 <>
 {
@@ -60,16 +56,31 @@ function ViewReports() {
               }}
             >
               <img src={report.image} alt={report.description} className={styles.incidentImage} />
+              {console.log(reports.reported_time)}
               <Typography gutterBottom variant="h4" component="div">
                 <span style={{ display: "inline-block", fontWeight: "bold", paddingLeft: "30px", paddingTop: "5px", fontSize: window.innerWidth <= 768 ? "20px" : "30px", textAlign: "center" }}>Animal Type:</span>
                 <span style={{ display: "inline-block", fontSize: "25px" }}>{report.animal_type}</span>
               </Typography>
               <Typography variant="body1" color="text.primary" style={{ fontSize: window.innerWidth <= 768 ? '14px' : '20px', paddingLeft: '15px' }}>
+                       Description: {report.description}
+                </Typography>
+              <Typography variant="body1" color="text.primary" style={{ fontSize: window.innerWidth <= 768 ? '14px' : '20px', paddingLeft: '15px' }}>
                 Address - {report.latitude}, {report.longitude}
-              </Typography>
+              </Typography>                
               <Typography variant="body1" color="text.primary" style={{ fontSize: window.innerWidth <= 768 ? '14px' : '20px', paddingLeft: '15px' }}>
                 Landmark: {report.landmark}
               </Typography>
+              <Typography variant="body1" color="text.primary" style={{ fontSize: window.innerWidth <= 768 ? '14px' : '20px', paddingLeft: '15px' }}>
+                       Reported At: {new Date(report.reported_time).toLocaleString('en-US', {
+                          year: 'numeric',
+                          month: 'short',
+                          day: '2-digit',
+                          hour: '2-digit',
+                          minute: '2-digit',
+                          second: '2-digit',
+                          hour12: true,
+                        })}
+                </Typography>
               <Typography variant="body1" color="text.primary" style={{ fontSize: window.innerWidth <= 768 ? '14px' : '20px', paddingLeft: '15px' }}>
                 Condition: {report.condition}
               </Typography>
