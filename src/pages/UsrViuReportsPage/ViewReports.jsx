@@ -9,7 +9,6 @@ function ViewReports() {
   // Fetch and store the reports data from your backend or any source
   const { userData} = useContext(UserContext);
   const [reports, setReports] = useState([]);
-  const [length, setLength] = useState([]);
   const [isLoading, setIsLoading] = useState(true); 
   useEffect(() => {
     const fetchReports = async () => {
