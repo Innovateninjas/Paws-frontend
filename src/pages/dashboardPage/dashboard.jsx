@@ -15,6 +15,7 @@ function Dashboard() {
       try {
         const response = await axios.get('https://aniresfr-backend.vercel.app/api/animals');
         const data = response.data;
+        console.log(data);
         const updatedReports = data.map((report) => ({
           ...report,
           reported_time: new Date(report.reported_time).toLocaleString('en-US', {
