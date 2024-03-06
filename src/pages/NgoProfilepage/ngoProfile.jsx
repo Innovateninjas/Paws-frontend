@@ -11,7 +11,6 @@ const NgoProfile = () => {
   const { NgoData, loading, error } = useContext(NgoContext);
   const [animals_supported, setAnimal] = useState();
   useEffect(() => {
-    console.log(NgoData);
     if (!loading && !error && NgoData) {
       setUserData(NgoData);
       setAnimal(NgoData.animals_supported);
@@ -20,7 +19,6 @@ const NgoProfile = () => {
   if (error) {
     return <h1>{error}</h1>;
   }
-  console.log(userDetails);
   if (loading) {
     return <Loader visible />;
   }
