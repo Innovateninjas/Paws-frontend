@@ -17,7 +17,7 @@ function Dashboard() {
       try {
         if (NgoData) {
           const response = await axios.get(
-            `https://aniresfr-backend.vercel.app/api/animals/?assigned_to=voa@gmail.com`
+            `https://aniresfr-backend.vercel.app/api/animals/?assigned_to=${NgoData.email}`
           );
           const data = response.data;
           setLength(data.length);
