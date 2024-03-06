@@ -15,6 +15,7 @@ input {
     display: flex;
     justify-content: center;
     z-index: 0;
+    margin-bottom: 100px;
 }
 form {
     position: absolute;
@@ -34,5 +35,6 @@ form {
 .paw2 {
     position: relative;
     top: 60%;
+    right: 18%;
     z-index: -1;
 }
