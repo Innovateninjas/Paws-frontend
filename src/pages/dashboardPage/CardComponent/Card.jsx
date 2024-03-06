@@ -85,6 +85,15 @@ const CardItem = ({ report, index, statusOptions, toggleExpand, setReports }) =>
               }}>
               Condition : {report.condition}
             </Typography>
+            
+            <Typography
+              variant="body1"
+              color="text.primary"
+              style={{
+                fontSize: window.innerWidth <= 768 ? '14px' : '20px',
+              }}>
+             Number of Animals :{report.numberOfAnimals}
+            </Typography>
 
             <Typography
               variant="body1"
