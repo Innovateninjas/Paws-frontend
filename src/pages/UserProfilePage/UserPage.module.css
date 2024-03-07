@@ -1,4 +1,3 @@
-/* UserPage.module.css */
 
 .container {
   display: flex;
@@ -13,18 +12,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #fff; /* White background for profile section */
-  border-radius: 10px; /* Rounded corners */
+  background-color: #dbd1d1; /* White background for profile section */
+  border-radius: 25px; /* Rounded corners */
   padding: 20px;
   margin-bottom: 20px;
   /* Added styles to stretch the width */
   width: 100%; /* Set width to 100% */
   max-width: 700px; /* Optional: Set a maximum width if needed */
+  height: 40%; /* Set height to 100% */
 }
 
 .profilepic {
-  width: 100px;
-  height: 100px; /* Circle for profile picture *//* Prevent image overflow */
+  width: 50px;
+  height: 150px; /* Circle for profile picture *//* Prevent image overflow */
   margin-bottom: 10px;
 }
 
@@ -36,8 +36,8 @@
   display: flex;
   align-items: center;
   margin-bottom: 5px;
-  font-size: 16px;
-  color: #333; /* Dark gray text color */
+  font-size: 22px;
+  color: #7c7474; /* Dark gray text color */
 }
 
 .username span,
@@ -54,7 +54,7 @@
 .levels .fa-award,
 .coins .fa-dollar-sign {
   color: #666; /* Light gray icon color */
-  font-size: 18px;
+  font-size: 20px;
   margin-right: 5px;
 }
 
@@ -63,6 +63,7 @@
   flex-direction: column;
   align-items: center;
   /* Removed width: 100% as it's not needed here */
+
 }
 
 .userDetails a {
@@ -74,15 +75,29 @@
 .userDetails a:hover {
   color: #007bff; /* Blue color on hover */
 }
+.userDetailsContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #dbd1d1; /* White background for profile section */
+  border-radius: 25px; /* Rounded corners */
+  padding: 20px;
+  margin-bottom: 20px;
+  /* Added styles to stretch the width */
+   /* Set width to 100% */
+  width: 350px; /* Optional: Set a maximum width if needed */
+  height: 60%; /* Set height to 100% */
+}
 .button {
-  background-color: #fff; /* White background */
-  border: 1px solid #ccc; /* Gray border */
-  border-radius: 5px; /* Rounded corners */
+  background-color: #cac7c7; /* White background */
+  border-radius: 15px; /* Rounded corners */
   padding: 10px 20px; /* Padding for spacing */
+  box-shadow: 0 0 2px 2px #6d6d6d;
   margin-bottom: 10px;
   cursor: pointer; /* Indicate clickable behavior */
   text-decoration: none; /* Remove underline from links */
   color: #333; /* Dark gray text color */
+  font-size: medium;
   font-weight: bold; /* Bold text for emphasis */
   display: inline-block; /* Display buttons side-by-side */
 }
