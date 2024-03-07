@@ -1,37 +1,107 @@
-/* UserPage.module.css */
 
 .container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 98vh; /* Use full viewport height */
-  overflow: hidden;
-}
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    background-color: #F2F2F2; /* Light gray background */
+    padding: 20px;
+  }
+  
+  .profileContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #dbd1d1; /* White background for profile section */
+    border-radius: 25px; /* Rounded corners */
+    padding: 20px;
+    margin-bottom: 20px;
+    /* Added styles to stretch the width */
+    width: 100%; /* Set width to 100% */
+    max-width: 700px; /* Optional: Set a maximum width if needed */
+    height: 40%; /* Set height to 100% */
+  }
 
-.profileContainer {
-  width: 100vw;
-  height: 20vh; /* Set the height to 20% for the gradient */
-  background: linear-gradient(to bottom, #91baff, #205fff);
-  margin-bottom: 43px;
-}
+  .profilepic {
+    width: 50px;
+    height: 150px; /* Circle for profile picture *//* Prevent image overflow */
+    margin-bottom: 10px;
+  }
+  
+  .username,
+  .email,
+  .phone,
+  .levels,
+  .coins {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    font-size: 25px;
+    color: #7c7474; /* Dark gray text color */
+  }
 
-.userDetails {
-  padding: 20px;
-  width: 98%;
-  display: flex;
-  flex-direction: column;
-}
+  .username span,
+  .email span,
+  .phone span,
+  .levels span,
+  .coins span {
+    margin-left: 5px;
+  }
+  
+  .username .fa-user,
+  .email .fa-mail,
+  .phone .fa-phone,
+  .levels .fa-award,
+  .coins .fa-dollar-sign {
+    color: #666; /* Light gray icon color */
+    font-size: 25px;
+    margin-right: 5px;
+  }
 
-/* Different styles for each field */
-.name {
-  color: #333; /* Change the color for the name */
-  font-weight: bold; /* Apply bold font weight */
-}
+  .userDetails {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Removed width: 100% as it's not needed here */
+  
+  }
 
-.email {
-  color: #007bff; /* Change the color for the email */
-}
-
-.phone {
-  color: #28a745; /* Change the color for the phone */
-}
+  .userDetails a {
+    text-decoration: none; /* Remove underline from links */
+    color: #333; /* Dark gray text color */
+    margin-bottom: 10px;
+  }
+  
+  .userDetails a:hover {
+    color: #007bff; /* Blue color on hover */
+  }
+  .userDetailsContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #dbd1d1; /* White background for profile section */
+    border-radius: 25px; /* Rounded corners */
+    padding: 20px;
+    margin-bottom: 20px;
+    /* Added styles to stretch the width */
+     /* Set width to 100% */
+    width: 350px; /* Optional: Set a maximum width if needed */
+    height: 60%; /* Set height to 100% */
+  }
+  .button {
+    background-color: #cac7c7; /* White background */
+    border-radius: 15px; /* Rounded corners */
+    padding: 10px 20px; /* Padding for spacing */
+    box-shadow: 0 0 2px 2px #6d6d6d;
+    margin-bottom: 10px;
+    cursor: pointer; /* Indicate clickable behavior */
+    text-decoration: none; /* Remove underline from links */
+    color: #333; /* Dark gray text color */
+    font-size: medium;
+    font-weight: bold; /* Bold text for emphasis */
+    display: inline-block; /* Display buttons side-by-side */
+  }
+  
+  .button:hover {
+    background-color: #f2f2f2; /* Light gray background on hover */
+  }
