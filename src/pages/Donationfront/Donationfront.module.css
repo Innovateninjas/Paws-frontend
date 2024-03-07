@@ -2,12 +2,15 @@
     margin: 0;
     padding: 0%;
 }
+.body{
+    height: 150vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
+}
 .hero {
-    height: 100%;
-    width: 100%;
-    padding-bottom: 160px;
-    background-color: #40ff10;
+    padding-bottom: 80px;
 }
 
 .formBox {
