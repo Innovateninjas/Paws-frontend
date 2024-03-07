@@ -59,7 +59,7 @@ const Navbar = () => {
           [
             <BottomNavigationAction key="home" component={Link} to="/" icon={<FaHome size={24} />} />,
             <BottomNavigationAction key="profile" component={Link} to="/user" icon={<FaUser size={24} />} />,
-            <BottomNavigationAction key="donation" component={Link} to="/donation" icon={<FaDonate size={24} />} />,
+            <BottomNavigationAction key="donation" component={Link} to="/donationfront" icon={<FaDonate size={24} />} />,
             <BottomNavigationAction key="campaignList" component={Link} to="/campaignList" icon={<MdPeople size={24} />} />,
           ]
         ) : csrftoken && userType === "ngo" ? (
