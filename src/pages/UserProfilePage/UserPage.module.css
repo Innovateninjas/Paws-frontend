@@ -4,34 +4,89 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 98vh; /* Use full viewport height */
-  overflow: hidden;
+  height: 100vh;
+  background-color: #F2F2F2; /* Light gray background */
+  padding: 20px;
 }
 
 .profileContainer {
-  width: 100vw;
-  height: 20vh; /* Set the height to 20% for the gradient */
-  background: linear-gradient(to bottom, #91baff, #205fff);
-  margin-bottom: 43px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff; /* White background for profile section */
+  border-radius: 10px; /* Rounded corners */
+  padding: 20px;
+  margin-bottom: 20px;
+  /* Added styles to stretch the width */
+  width: 100%; /* Set width to 100% */
+  max-width: 700px; /* Optional: Set a maximum width if needed */
+}
+
+.profilepic {
+  width: 100px;
+  height: 100px; /* Circle for profile picture *//* Prevent image overflow */
+  margin-bottom: 10px;
+}
+
+.username,
+.email,
+.phone,
+.levels,
+.coins {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  font-size: 16px;
+  color: #333; /* Dark gray text color */
+}
+
+.username span,
+.email span,
+.phone span,
+.levels span,
+.coins span {
+  margin-left: 5px;
+}
+
+.username .fa-user,
+.email .fa-mail,
+.phone .fa-phone,
+.levels .fa-award,
+.coins .fa-dollar-sign {
+  color: #666; /* Light gray icon color */
+  font-size: 18px;
+  margin-right: 5px;
 }
 
 .userDetails {
-  padding: 20px;
-  width: 98%;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  /* Removed width: 100% as it's not needed here */
 }
 
-/* Different styles for each field */
-.name {
-  color: #333; /* Change the color for the name */
-  font-weight: bold; /* Apply bold font weight */
+.userDetails a {
+  text-decoration: none; /* Remove underline from links */
+  color: #333; /* Dark gray text color */
+  margin-bottom: 10px;
 }
 
-.email {
-  color: #007bff; /* Change the color for the email */
+.userDetails a:hover {
+  color: #007bff; /* Blue color on hover */
+}
+.button {
+  background-color: #fff; /* White background */
+  border: 1px solid #ccc; /* Gray border */
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px 20px; /* Padding for spacing */
+  margin-bottom: 10px;
+  cursor: pointer; /* Indicate clickable behavior */
+  text-decoration: none; /* Remove underline from links */
+  color: #333; /* Dark gray text color */
+  font-weight: bold; /* Bold text for emphasis */
+  display: inline-block; /* Display buttons side-by-side */
 }
 
-.phone {
-  color: #28a745; /* Change the color for the phone */
+.button:hover {
+  background-color: #f2f2f2; /* Light gray background on hover */
 }
