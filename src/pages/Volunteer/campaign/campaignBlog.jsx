@@ -98,7 +98,7 @@ const CampaignBlog = () => {
                     </span>
                   ))}
               </p>
-              <button className={styles.btn}>Apply</button>
+              <button className={styles.btn}>Show Interest</button>
             </div>
           </>
         )}

@@ -15,7 +15,7 @@ input {
     display: flex;
     justify-content: center;
     z-index: 0;
-    margin-bottom: 100px;
+    margin-bottom: 200px;
 }
 form {
     position: absolute;

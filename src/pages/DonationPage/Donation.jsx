@@ -22,7 +22,7 @@ function Donation() {
             <button >500 rupees</button>
           </div>
           <h2>OR</h2>
-          <label className={styles.amt} for="password">Custom Amount</label>
+          <label className={styles.amt} htmlFor="password">Custom Amount</label>
           <div className={styles.gap}>
             <input type="number" id="amount" name="rupees" placeholder="Enter custom amount..." required></input>
           </div>
