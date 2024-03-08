@@ -9,7 +9,12 @@ function AnimalDetailsPage({ formData, errors, handleChange, handleBackPage, han
   const [isOther, setIsOther] = useState(false);
   const [key, setKey] = useState(0);
   useEffect(() => {
-    setKey(prev=>prev+1);
+    setKey(prev => prev + 1); 
+  }, []);
+
+
+  useEffect(() => {
+    
     if (formData.predictedAnimal === "dog") {
       setIsDog(true);
     }
@@ -22,7 +27,8 @@ function AnimalDetailsPage({ formData, errors, handleChange, handleBackPage, han
     else if (formData.predictedAnimal === "other") {
       setIsOther(true);
     }
-  }, [formData])
+    
+  }, [formData.predictedAnimal])
   
   setTimeout(() => {
     const elements = document.querySelectorAll('.show-tooltip');
@@ -131,7 +137,7 @@ function AnimalDetailsPage({ formData, errors, handleChange, handleBackPage, han
                 type="radio"
                 name="numberOfAnimals"
                 value="One"
-                checked={formData.numberOfAnimals === "One"}
+                checked={formData.numberOfAnimals === "One" || formData.predictedNumberOfAnimals==="one"}
                 onChange={handleChange}
               />
 
@@ -141,7 +147,7 @@ function AnimalDetailsPage({ formData, errors, handleChange, handleBackPage, han
                 type="radio"
                 name="numberOfAnimals"
                 value="Two"
-                checked={formData.numberOfAnimals === "Two"}
+                checked={formData.numberOfAnimals === "Two" || formData.predictedNumberOfAnimals==="two"}
                 onChange={handleChange}
               />
 
@@ -153,7 +159,7 @@ function AnimalDetailsPage({ formData, errors, handleChange, handleBackPage, han
                 type="radio"
                 name="numberOfAnimals"
                 value="More"
-                checked={formData.numberOfAnimals === "More"}
+                checked={formData.numberOfAnimals === "More" || formData.predictedNumberOfAnimals==="more"}
                 onChange={handleChange}
               />
 
@@ -168,7 +174,13 @@ function AnimalDetailsPage({ formData, errors, handleChange, handleBackPage, han
         <label className={styles.description}>
           <p>Describe what Happened:</p>
 
-          <textarea name="description" value={formData.description} onChange={handleChange} rows={4} placeholder="Describe here"></textarea>
+          <textarea
+           name="description" 
+           value={formData.description || formData.predictedDescription}
+            onChange={handleChange} 
+            rows={4}
+             placeholder="Describe here">
+             </textarea>
           {/* Changed "div" tag to "small" tag and className="error" to  className={styles.error} */}
         </label>
         <small className={styles.error}>{errors.description}</small>

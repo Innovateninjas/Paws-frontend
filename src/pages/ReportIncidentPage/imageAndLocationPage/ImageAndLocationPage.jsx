@@ -6,10 +6,10 @@ import MapSkeleton from "../../../Components/Skeletons/mapSkeleton";
 const LazyMap = React.lazy(() => import("../../../Components/MapComponent/map"));
 
 function ImageAndLocationPage({ formData, handleChange, handleNextPage, errors, setErrors, setFormData }) {
-  const [AnimalType,setAnimalType] = useState(""); // State to store the detected animal type
+  
   
   const onChange = (imageList) => {
-    handleImageChange(imageList, handleChange, setAnimalType, setErrors, setFormData);
+    handleImageChange( imageList, handleChange,  setErrors, setFormData);
   };
 
   return (

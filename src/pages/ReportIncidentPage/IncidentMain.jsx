@@ -17,6 +17,8 @@ function IncidentForm() {
     user_phone: "",
     animal_type: "",
     predictedAnimal: "",
+    predictedNumberOfAnimals: "",
+    predictedDescription: "",
     description: "",
     condition: "",
     image: null,
@@ -64,7 +66,7 @@ function IncidentForm() {
         console.error(error);
       }
     }
-    if(userData){
+    if(Submitted){
       increment(userData.no_reports);
     }else{
       return;
@@ -121,7 +123,22 @@ function IncidentForm() {
         predictedAnimal: "",
         animal_type: value,
       }));
-    } else {
+    }
+    else if (name === "numberOfAnimals") {
+      setFormData((prevData) => ({
+        ...prevData,
+        predictedNumberOfAnimals:"",
+        numberOfAnimals: value,
+      }));
+    }
+    else if (name === "description") {
+      setFormData((prevData) => ({
+        ...prevData,
+        predictedDescription:"",
+        description: value,
+      }));
+    }
+     else {
       setFormData((prevData) => ({
         ...prevData,
         [name]: value,
@@ -135,8 +152,6 @@ function IncidentForm() {
   };
 
   const handleNextPage = () => {
-    const date = new Date();
-    console.log(date);
     if (validatePage(currentPage)) {
       setCurrentPage((prevPage) => prevPage + 1);
     }
@@ -151,6 +166,8 @@ function IncidentForm() {
       e.preventDefault();
     }
     delete formData.predictedAnimal;
+    delete formData.predictedNumberOfAnimals;
+    delete formData.predictedDescription;
     console.log("Submitting form:", formData);
 
     try {
@@ -185,7 +202,6 @@ function IncidentForm() {
   const validatePage = (page) => {
     const pageData = formData;
     const pageErrors = {};
-
     switch (page) {
       case 1:
         if (!pageData.image) {
