@@ -40,12 +40,8 @@ export const Donationfront = () => {
     <div>
       <div className={styles.hero}>
         <div className={styles.formBox}>
-      <div className={styles.image}>
-        <img src="./images/Donation.png" alt=''></img>
-        </div>
           <div className={styles.boxbutton}>
             <div className={styles.buttonBox}>
-
               <div
                 id='btn'
                 className={styles.btn}
@@ -58,7 +54,7 @@ export const Donationfront = () => {
                 className={`${styles.togglebtn} ${donationType === 'us' ? styles.active : ''}`}
                 onClick={() => handleToggleClick('us')}
               >
-                Donate to Us
+                Donate to US
               </button>
               <button
                 type='button'
@@ -72,7 +68,7 @@ export const Donationfront = () => {
           {showContent && (
             <div className={donationType === 'us' ? styles.usText : styles.ngoText}>
               <p className={styles.paragraph}>
-                {donationType === 'us' ? 'Donate to us' : 'Donate to your CHOICE OF NGO :'}
+                {donationType === 'us' ? 'Donate to us' : 'Donate to your CHOICE OF NGO'}
                 <br />
                 {donationType === 'us' && 'To help us save our little friends!'}
               </p>
