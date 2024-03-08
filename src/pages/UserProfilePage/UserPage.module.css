@@ -18,13 +18,13 @@
   margin-bottom: 20px;
   /* Added styles to stretch the width */
   width: 100%; /* Set width to 100% */
-  max-width: 700px; /* Optional: Set a maximum width if needed */
+  max-width: 600px; /* Optional: Set a maximum width if needed */
   height: 40%; /* Set height to 100% */
 }
 
 .profilepic {
   width: 50px;
-  height: 150px; /* Circle for profile picture *//* Prevent image overflow */
+  height: 75px; /* Circle for profile picture *//* Prevent image overflow */
   margin-bottom: 10px;
 }
 
