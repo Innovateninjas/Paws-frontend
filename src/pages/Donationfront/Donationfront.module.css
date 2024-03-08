@@ -9,18 +9,11 @@
     align-items: center;
 
 }
-.hero {
-    padding-bottom: 80px;
-}
 
 .formBox {
     width: 390px;
-    height: 740px;
-    margin: 6% auto;
-    background-color: #9ece85;
-    border: 6px solid rgb(0, 0, 0);
-    border-radius: 10px;
-    padding: 1px;
+    height: 844px;
+    background-color: #63ea36;
 }
 
 .buttonBox {
@@ -60,23 +53,22 @@
     position: relative;
     width: 280px;
     transition: 0.5s;
-    padding-top: 150px;
+    padding-top: 120px;
     padding-left: 40px;
 }
 
 .paragraph {
     width: 100%;
-    padding: 10px 0;
-    margin: 5px 0;
+    margin-right: 6px;
     border-left: 0;
     border-top: 0;
-    border-right: 0;
     border-bottom: 6px solid #000000;
     outline: none;
     background: transparent;
     font-weight: bold;
-    padding-left: 15px;
+    padding-left: 40px;
     font-size: 30px;
+    padding-top: 5px;
     color: white;
 }
 
@@ -87,7 +79,6 @@
     display: block;
     margin: auto;
     background: linear-gradient(to right,  #79f917, #297a06);
-    border: 4px solid black;
     outline: none;
     border-radius: 30px;
     font-size: 20px;
@@ -97,21 +88,21 @@
 
 .donateBtn {
     padding-top: 30px;
-    padding-left: 20px;
+    padding-left: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 .boxbutton{
     padding-right: 30px;
-    padding-left: 15px;
-    padding-top: 40px;
+    padding-left: 30px;
+    padding-top: 115px;
 }
 .ngoText select {
     width: 100%;
     padding: 10px;
     margin-top: 10px;
-    border: 4px solid #3fe80b;
+    border: 4px solid #317a1b;
     border-radius: 8px;
     background-color: #fff;
     color: #555;
@@ -119,12 +110,13 @@
     text-transform: capitalize;
     outline: none;
     transition: border-color 0.3s;
+    padding-left: 30px;
 }
 .ngoText select:focus {
-    border-color: #40ff10; /* Change the color to your preference */
+    border-color: #3b9c22; /* Change the color to your preference */
 }
 .togglebtn.active {
-    background: linear-gradient(to right, #79f917, #3ec106);
+    background: linear-gradient(to right, #83ff23, #34a105);
 }
 .lin{
     text-decoration: none;
@@ -133,3 +125,43 @@
     font-weight: bolder;
     font-size: 20px;
 }
+.formBox img{
+    z-index: 3;
+    position: absolute;
+    top: -45px;
+    left: 22px;
+    width: 90%;
+    object-fit: contain;
+    height: 100px;
+} @media (max-width: 400px) {
+    .formBox img {
+        top: 34px;
+        left: 3px;
+        width: 100%;
+    }
+}
+.image{
+    position: relative;
+}
+
+@keyframes glow {
+    0% {
+      color: #fff; /* Start color (white) */
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff; /* Initial shadow */
+    }
+    50% {
+      color: #6b962f; /* Middle color (yellow) */
+      text-shadow: 0 0 20px #68992f, 0 0 30px #5f992c, 0 0 40px #61952d; /* Intermediate shadow */
+    }
+    100% {
+      color: #fff; /* End color (white) */
+      text-shadow: 0 0 10px #8cdd3a, 0 0 20px #a3e029, 0 0 30px #b4ec31; /* Final shadow */
+    }
+  }
+  
+  .paragraph {
+    /* Your existing styles... */
+    animation: glow 6s infinite alternate; /* Apply the glow animation */
+  }
+  
+
