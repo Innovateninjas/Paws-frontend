@@ -27,8 +27,8 @@ const Campaignlist = () => {
       {!isLoading && (
         <>
           <h1 className={styles.heading}>
-            Volunteer Now,<br></br> Make Your Mark!
-          </h1>
+            Volunteer Now,<br></br> Make Your Mark!</h1>
+          <div className={styles.masterContainer}>
           {data.map((item, index) => (
             <div key={index} className={styles.heroContainer}>
             <div  className={styles.conatiner}>
@@ -36,17 +36,18 @@ const Campaignlist = () => {
                 <p>{item.title}</p>
                 {/* DURATION */}
                 <small className={styles.smal}>Duration: {(new Date(item.end_date.split('T')[0])- new Date(item.start_date.split('T')[0]))/ (1000 * 60 * 60 * 24)} Days</small>
-                <br />
-                {/* <small className={styles.smal}>Roles: {item.tags}</small> */}
+                <p className={styles.description}>{item.description.slice(0,100)} <Link to={`/campaignBlog/${item.campaign_id}`} className={styles.btn}>Learn More...</Link></p>
               </div>
-              <div className={styles.butnContainer}>
-                <Link to={`/campaignBlog/${index + 1}`} className={styles.btn}>
-                  Apply
+              {/* <div className={styles.butnContainer}>
+                <Link to={`/campaignBlog/${item.campaign_id}`} className={styles.btn}>
+
+                  Learn More...
                 </Link>
-              </div>
+              </div> */}
             </div>
             </div>
           ))}
+          </div>
         </>
       )}
       {isLoading && (
