@@ -15,6 +15,9 @@
     justify-content: center;
     align-items: center;
   }
+  .masterContainer{
+    margin-bottom: 60px;
+  }
 .conatiner{
     display: flex;
     width: 90%;
@@ -29,29 +32,22 @@
 }
 .contents{
     display: flex;
-  justify-content: center;
+    justify-content: center;
     flex-direction: column;
     flex-wrap: wrap;
-    width: 70%;
+    gap: 5px;
+    /* width: 70%; */
 }
 .smal{
     color: teal;
-    font-size: 11px;
+    font-size: 14px;
+    margin-top: 5px;
 }
-.butnContainer{
-    width: fit-content;
-    height: fit-content;
+.description{
+  font-size: 12px;
+  font-weight: normal;
 }
-.btn{
-    outline: 0;
-    border: 0;
-    text-decoration:none ;
-    color: white;
-    background-color: grey;
-    border-radius: 20px;
-    padding: 10px 20px;
-    box-shadow: 2px 2px 2px black;
-}
+
 .skeltonContainer{
     display: flex;
     flex-direction: column;

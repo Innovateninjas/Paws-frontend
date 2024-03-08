@@ -10,11 +10,14 @@ export const Donationfront = () => {
   const [donationType, setDonationType] = useState('us');
   const [showContent, setShowContent] = useState(true);
   const [ngoNames, setNgoNames] = useState([]);
+  const [animationKey, setAnimationKey] = useState(0);
+
   
   const handleToggleClick = (type) => {
     setDonationType(type);
     setShowContent(true);
     setTheme(type === 'us' ? { startColor: '#ff105f', endColor: '#ffad06' } : { startColor: '#00bcd4', endColor: '#ff5722' });
+    setAnimationKey((prevKey) => prevKey + 1);
   };
 
   useEffect(() => {
@@ -23,7 +26,6 @@ export const Donationfront = () => {
         const response = await fetch('https://aniresfr-backend.vercel.app/ngo');
         if (response.ok) {
           const data = await response.json();
-          console.log("ngo names :", data);
           setNgoNames(data); // Assuming the response is an array of objects with a 'name' property
         } else {
           console.error('Failed to fetch NGO names');
@@ -40,15 +42,13 @@ export const Donationfront = () => {
     <div>
       <div className={styles.hero}>
         <div className={styles.formBox}>
+        <div className={styles.imgContainer}>
+      <img src="./images/Donation.png" alt=''></img>
+      <h2 className={styles.heading}> <span className={styles.someThing}>HELP US BRIGHTEN THEIR LIVES!</span></h2>
+      </div>
           <div className={styles.boxbutton}>
             <div className={styles.buttonBox}>
-              <div
-                id='btn'
-                className={styles.btn}
-                style={{
-                  background: `linear-gradient(to right, ${theme.startColor}, ${theme.endColor})`,
-                }}
-              ></div>
+         
               <button
                 type='button'
                 className={`${styles.togglebtn} ${donationType === 'us' ? styles.active : ''}`}
@@ -66,12 +66,13 @@ export const Donationfront = () => {
             </div>
           </div>
           {showContent && (
+            <>
+            <div className={styles.textContainer}>
             <div className={donationType === 'us' ? styles.usText : styles.ngoText}>
-              <p className={styles.paragraph}>
-                {donationType === 'us' ? 'Donate to us' : 'Donate to your CHOICE OF NGO'}
-                <br />
+            <div className={styles.paragraph} >
+            <p key={donationType} className={styles.common}> Make a Donation</p>
                 {donationType === 'us' && 'To help us save our little friends!'}
-              </p>
+                {donationType !== 'us' && 'Choose an NGO and donate to make a difference.'} </div>
               {donationType === 'ngo' && (
                 <select>
                   <option>Choose an NGO</option>
@@ -91,6 +92,8 @@ export const Donationfront = () => {
                 </button>
               </div>
             </div>
+</div>
+ </>
           )}
         </div>
       </div>

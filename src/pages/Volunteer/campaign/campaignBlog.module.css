@@ -25,7 +25,6 @@
   justify-content: center;
   overflow-x: hidden;
   margin-bottom: 30px;
-
 }
 .details {
   font-weight: normal !important ;
@@ -33,12 +32,12 @@
   text-align: left;
 }
 .imageStyle {
-  width: 100%;
+  width: 90%;
+  max-width: 100%;
+  /* height: fit-content !important; */
   border-radius: 10px;
-  object-fit: cover;
   object-position: center;
-  /* border-bottom: 2px solid grey; */
-  box-shadow: 1px 1px 2px black, -1px -1px 2px black;
+  border: 2px solid grey;
   margin-top: 10px;
 }
 
@@ -55,23 +54,22 @@
   gap: 5px;
 }
 .tag {
-  background-color: rgb(237, 237, 237);
-  margin: 5px 20px;
+  background-color: rgb(241, 241, 241);
   padding: 2px 5px;
   border-radius: 20px;
-  box-shadow: 1px 1px 2px black, -1px -1px 2px black;
+  border: 1px ridge #dadada;
 }
 .btn {
   font-size: 1.5rem;
   align-self: center;
   outline: 0;
   text-decoration: none;
-  color: white;
+  color: black;
   border-radius: 20px;
   border-radius: 14px;
-  background: #333333;
+  background-color: rgb(209, 209, 209);
   box-shadow: 2px 2px 2px black;
-  padding: 10px 85px;
+  padding: 10px 75px;
   margin-top: 0.675rem;
   font-size: 19px;
   font-weight: 700;
