@@ -8,13 +8,13 @@ import { uploadImageToCloudinary } from "../../../Components/utils/Functions/ima
  * @param {function} setErrors - Function to set errors.
  * @param {function} setFormData - Function to set form data.
  */
-export const handleImageChange = async (imageList, handleChange, setAnimalType, setErrors, setFormData) => {
+export const handleImageChange = async (imageList, handleChange ,setErrors, setFormData) => {
     try {
         const imageUrl = await uploadImageToCloudinary(imageList[0].file, setErrors);
-        setFormData((prevData) => ({
-            ...prevData,
-            image: imageUrl,
-        }));
+
+        let animalType = null;
+        let numberOfAnimals = 0;
+        let injuryTypes = [];
 
         // Detect animal type using Azure Custom Vision API
         const predictionUrlAnimal = "https://southcentralus.api.cognitive.microsoft.com/customvision/v3.0/Prediction/9fcd78e5-6ce4-41ba-9bec-c214ee23708d/detect/iterations/Iteration7/url";
@@ -33,33 +33,21 @@ export const handleImageChange = async (imageList, handleChange, setAnimalType, 
             const animalData = await animalResponse.json();
             if (animalData.predictions && animalData.predictions.length > 0) {
                 const topAnimalPredictions = animalData.predictions.sort((a, b) => b.probability - a.probability).slice(0, 4); // Sort predictions by probability and take the top 4
-                let numberOfAnimals = 0;
                 topAnimalPredictions.forEach(prediction => {
                     if (prediction.probability > 0.5) {
                         numberOfAnimals++;
-                        console.log("Animal Type with Probability over 80%:", prediction.tagName);
+                        if (!animalType) {
+                            animalType = prediction.tagName;
+                            handleChange({
+                                target: {
+                                    name: "predictedAnimal",
+                                    value: animalType
+                                }
+                            });
+                        }
                     }
                 });
-                if (numberOfAnimals > 0) {
-                    handleChange({
-                        target: {
-                            name: "predictedAnimal",
-                            value: topAnimalPredictions[0].tagName // Set the predicted animal to the most probable one
-                        }
-                    });
-                    setFormData((prevData) => ({
-                        ...prevData,
-                        predictedAnimal: topAnimalPredictions[0].tagName,
-                    }));
-                    console.log("Total Number of Animals:", numberOfAnimals);
-                } else {
-                    console.log("No animals detected with probability over 50%.");
-                }
-            } else {
-                console.log("No animal predictions found.");
             }
-        } else {
-            throw new Error(`Error detecting animal type: ${animalResponse.status} - ${animalResponse.statusText}`);
         }
 
         // Detect injury using Azure Custom Vision API
@@ -79,32 +67,50 @@ export const handleImageChange = async (imageList, handleChange, setAnimalType, 
             const injuryData = await injuryResponse.json();
             if (injuryData.predictions && injuryData.predictions.length > 0) {
                 const topInjuryPredictions = injuryData.predictions.sort((a, b) => b.probability - a.probability).slice(0, 4); // Sort predictions by probability and take the top 4
-                let numberOfInjuries = 0;
-                topInjuryPredictions.forEach(prediction => {
-                    if (prediction.probability > 0.5) {
-                        numberOfInjuries++;
-                        console.log("Injury Type with Probability over 50%:", prediction.tagName);
-                    }
-                });
-                if (numberOfInjuries > 0) {
-                    console.log("Total Number of Injuries:", numberOfInjuries);
-                } else {
-                    console.log("No injuries detected with probability over 50%.");
-                }
-            } else {
-                console.log("No injury predictions found.");
+                injuryTypes = topInjuryPredictions.filter(prediction => prediction.probability > 0.5).map(prediction => prediction.tagName);
             }
-        } else {
-            throw new Error(`Error detecting injury: ${injuryResponse.status} - ${injuryResponse.statusText}`);
         }
-
+        let animalsString;
+        if (numberOfAnimals === 1) {
+            animalsString = "one";
+        } else if (numberOfAnimals === 2) {
+            animalsString = "two";
+        } else if (numberOfAnimals >= 3) {
+            animalsString = "more";
+        }
+        else {
+            animalsString = "";
+        }
+        handleChange({
+            target: {
+                name: "numberOfAnimals",
+                value: animalsString
+            }
+        });
+        handleChange({
+            target: {
+                name: "description",
+                value: injuryTypes[0]
+            }
+        });
         handleChange({
             target: {
                 name: "image",
                 value: imageUrl
             }
         });
+
+        // Update form data after all data is fetched
+        setFormData(prevData => ({
+            ...prevData,
+            image: imageUrl,
+            predictedAnimal: animalType,
+            predictedNumberOfAnimals:animalsString,
+            predictedDescription: injuryTypes[0],
+        }));
+      
     } catch (error) {
         console.error('Error handling image change:', error);
     }
 };
+

@@ -20,7 +20,7 @@ const Navbar = () => {
       const isBottom = window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight;
       const isAlwaysVisiblePage = [
         '/user',
-        '/donation',
+        '/donationfront',
         '/',
         '/report-incident',
         '/stats',
@@ -43,7 +43,7 @@ const Navbar = () => {
 
   // Update the value state when location changes
   useEffect(() => {
-    const paths = ['/', '/user', '/donation', '/campaignList'];
+    const paths = ['/', '/user', '/donationfront', '/campaignList'];
     setValue(paths.indexOf(location.pathname));
   }, [location.pathname]);
 
@@ -59,7 +59,7 @@ const Navbar = () => {
           [
             <BottomNavigationAction key="home" component={Link} to="/" icon={<FaHome size={24} />} />,
             <BottomNavigationAction key="profile" component={Link} to="/user" icon={<FaUser size={24} />} />,
-            <BottomNavigationAction key="donation" component={Link} to="/donationfront" icon={<FaDonate size={24} />} />,
+            <BottomNavigationAction key="donationfront" component={Link} to="/donationfront" icon={<FaDonate size={24} />} />,
             <BottomNavigationAction key="campaignList" component={Link} to="/campaignList" icon={<MdPeople size={24} />} />,
           ]
         ) : csrftoken && userType === "ngo" ? (
