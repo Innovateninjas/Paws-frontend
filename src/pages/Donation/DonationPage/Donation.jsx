@@ -1,12 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from "./Donation.module.css";
 
 function Donation() {
+  const [customAmount, setCustomAmount] = useState(""); // State to store custom amount
+
   // Function to handle donation button click
   const handleDonate = (amount) => {
     // Replace 'your_upi_id' with your actual UPI ID
     const upiLink = `upi://pay?pa=rishipaulstudy@okhdfcbank&pn=Rishi%20Paul&am=${amount}&cu=INR`;
     window.location.href = upiLink;
+  };
+
+  // Function to handle custom amount input change
+  const handleCustomAmountChange = (event) => {
+    setCustomAmount(event.target.value);
+  };
+
+  // Function to handle custom amount donate button click
+  const handleCustomAmountDonate = () => {
+    if (customAmount !== "") {
+      handleDonate(customAmount);
+    }
   };
 
   return (
@@ -28,10 +42,11 @@ function Donation() {
             <h2>OR</h2>
             <label className={styles.amt} htmlFor="password">Custom Amount</label>
             <div className={styles.gap}>
-              <input type="number" id="amount" name="rupees" placeholder="Enter custom amount..." required></input>
+              <input type="number" id="amount" name="rupees" placeholder="Enter custom amount..." value={customAmount} onChange={handleCustomAmountChange} required />
             </div>
             <div className={styles.donatebtn}>
-              <button className={styles.dont}>Donate now!</button>
+              {/* On click, call handleCustomAmountDonate function */}
+              <button className={styles.dont} onClick={handleCustomAmountDonate}>Donate now!</button>
             </div>
           </div>
         </div>
