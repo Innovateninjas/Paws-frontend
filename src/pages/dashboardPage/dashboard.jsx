@@ -19,7 +19,7 @@ function Dashboard() {
           const response = await axios.get(
             `https://aniresfr-backend.vercel.app/api/animals/?assigned_to=${NgoData.email}`
           );
-          const data = response.data;
+          const data = response.data.reverse();
           setLength(data.length);
           const updatedReports = data.map((report) => ({
             ...report,
