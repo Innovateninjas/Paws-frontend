@@ -3,10 +3,7 @@ import styles from './Donationfront.module.css';
 import { Link } from 'react-router-dom';
 
 export const Donationfront = () => {
-  const [theme, setTheme] = useState({
-    startColor: '#ff105f',
-    endColor: '#ffad06',
-  });
+  
   const [donationType, setDonationType] = useState('us');
   const [showContent, setShowContent] = useState(true);
   const [ngoNames, setNgoNames] = useState([]);
@@ -16,7 +13,6 @@ export const Donationfront = () => {
   const handleToggleClick = (type) => {
     setDonationType(type);
     setShowContent(true);
-    setTheme(type === 'us' ? { startColor: '#ff105f', endColor: '#ffad06' } : { startColor: '#00bcd4', endColor: '#ff5722' });
     setAnimationKey((prevKey) => prevKey + 1);
   };
 

@@ -39,7 +39,7 @@ function ImageAndLocationPage({ formData, handleChange, handleNextPage, errors, 
 }
 
 function LazyLoadedMap({ formData }) {
-  const [customCenter, setCustomCenter] = useState([22.5629, 88.3962]);
+  const [customCenter, setCustomCenter] = useState([22.55950,88.39644]);
 
   useEffect(() => {
     const latitude = parseFloat(formData.latitude);
