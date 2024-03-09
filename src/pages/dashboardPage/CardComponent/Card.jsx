@@ -92,7 +92,7 @@ const CardItem = ({ report, index, statusOptions, toggleExpand, setReports }) =>
               style={{
                 fontSize: window.innerWidth <= 768 ? '14px' : '20px',
               }}>
-             Number of Animals :{report.numberOfAnimals}
+             Number of Animals : {report.numberOfAnimals==="More"|| report.numberOfAnimals==="more"? "More than two":`${report.numberOfAnimals}`}
             </Typography>
 
             <Typography

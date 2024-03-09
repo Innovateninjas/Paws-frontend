@@ -16,8 +16,6 @@
 .incidentImage {
   width: 100% !important; 
   height: 250px; 
-  /* margin-right: 10px; */
-  /* margin-left: 10px; */
   border-radius: 15px; 
   object-fit:cover;
   object-position: center;
@@ -26,7 +24,6 @@
 
 .select {
   margin-left: 10px;
-  /* padding: 5px; */
   border-radius: 10px;
   box-shadow: 1px 1px 2px black;
 }
