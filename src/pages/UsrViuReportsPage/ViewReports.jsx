@@ -18,7 +18,7 @@ function ViewReports() {
         if (userData) {
           const url = `https://aniresfr-backend.vercel.app/api/animals/?user_email=${userData.email}`;
           const response = await axios.get(url);
-          const data = response.data;
+          const data = response.data.reverse();
           setReports(data);
           setIsLoading(false);
         }
