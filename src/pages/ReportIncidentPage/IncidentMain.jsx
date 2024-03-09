@@ -1,4 +1,4 @@
-import React, { useState, useEffect,useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import isValidPhoneNumber from "../../Components/utils/Functions/phoneNumberValidator";
 import isValidEmail from "../../Components/utils/Functions/emailValidator";
@@ -10,7 +10,7 @@ import { UserContext } from "../../contexts/UserContext";
 function IncidentForm() {
   const { userData } = useContext(UserContext);
   const [currentPage, setCurrentPage] = useState(1);
-  const [Submitted,setSubmitted] = useState(false);
+  const [Submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     user_name: "",
     user_email: "",
@@ -19,6 +19,7 @@ function IncidentForm() {
     predictedAnimal: "",
     predictedNumberOfAnimals: "",
     predictedDescription: "",
+    otherAnimalType: "",
     description: "",
     condition: "",
     image: null,
@@ -66,13 +67,13 @@ function IncidentForm() {
         console.error(error);
       }
     }
-    if(Submitted){
+    if (Submitted) {
       increment(userData.no_reports);
-    }else{
+    } else {
       return;
     }
 
-  }, [Submitted,userData]);
+  }, [Submitted, userData]);
 
   const getUserLocation = () => {
     if (navigator.geolocation) {
@@ -124,21 +125,27 @@ function IncidentForm() {
         animal_type: value,
       }));
     }
+    else if (name === "otherAnimalType") {
+      setFormData((prevData) => ({
+        ...prevData,
+        otherAnimalType: value,
+      }));
+    }
     else if (name === "numberOfAnimals") {
       setFormData((prevData) => ({
         ...prevData,
-        predictedNumberOfAnimals:"",
+        predictedNumberOfAnimals: "",
         numberOfAnimals: value,
       }));
     }
     else if (name === "description") {
       setFormData((prevData) => ({
         ...prevData,
-        predictedDescription:"",
+        predictedDescription: "",
         description: value,
       }));
     }
-     else {
+    else {
       setFormData((prevData) => ({
         ...prevData,
         [name]: value,
@@ -165,9 +172,14 @@ function IncidentForm() {
     if (e) {
       e.preventDefault();
     }
+    if (formData.animal_type === "other") {
+      formData.animal_type = formData.otherAnimalType;
+    }
+    delete formData.otherAnimalType;
     delete formData.predictedAnimal;
     delete formData.predictedNumberOfAnimals;
     delete formData.predictedDescription;
+
     console.log("Submitting form:", formData);
 
     try {

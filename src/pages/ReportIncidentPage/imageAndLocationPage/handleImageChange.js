@@ -11,7 +11,13 @@ import { uploadImageToCloudinary } from "../../../Components/utils/Functions/ima
 export const handleImageChange = async (imageList, handleChange ,setErrors, setFormData) => {
     try {
         const imageUrl = await uploadImageToCloudinary(imageList[0].file, setErrors);
-
+        handleChange({
+            target: {
+                name: "image",
+                value: imageUrl
+            }
+        });
+        
         let animalType = null;
         let numberOfAnimals = 0;
         let injuryTypes = [];
