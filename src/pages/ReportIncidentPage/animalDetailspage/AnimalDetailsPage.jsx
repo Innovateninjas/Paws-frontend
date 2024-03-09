@@ -6,7 +6,6 @@ function AnimalDetailsPage({ formData, errors, handleChange, handleBackPage, han
   const [isDog, setIsDog] = useState(false);
   const [isCat, setIsCat] = useState(false);
   const [isCattle, setIsCattle] = useState(false);
-  const [isOther, setIsOther] = useState(false);
   const [key, setKey] = useState(0);
   useEffect(() => {
     setKey(prev => prev + 1); 
@@ -23,9 +22,6 @@ function AnimalDetailsPage({ formData, errors, handleChange, handleBackPage, han
     }
     else if (formData.predictedAnimal === "cattle") {
       setIsCattle(true);
-    }
-    else if (formData.predictedAnimal === "other") {
-      setIsOther(true);
     }
     
   }, [formData.predictedAnimal])
@@ -102,14 +98,13 @@ function AnimalDetailsPage({ formData, errors, handleChange, handleBackPage, han
               <img src="./images/cow.jpg" alt="" />
             </label>
           </div>
-          <div className={isOther ? 'show-tooltip' : ''}
-            data-tooltip-html="<b>Predicted<br>To be a Other</b>">
+          <div >
             <input 
             type="radio" 
             id="other" 
             name="predictedAnimal" 
             value="other"
-             checked={formData.predictedAnimal === 'other'||formData.animal_type==="other"} 
+             checked={formData.animal_type==="other"} 
              onChange={handleChange} 
              hidden />
             <label htmlFor="other">
@@ -118,7 +113,7 @@ function AnimalDetailsPage({ formData, errors, handleChange, handleBackPage, han
           </div>
         </div>
         {/* OPTION:otherS */}
-        {formData.predictedAnimal === "other" && (
+        {formData.animal_type === "other" && (
           <label className={styles.specify}>
             Please specify:
             <input type="text" name="otherAnimalType" onChange={handleChange} />
