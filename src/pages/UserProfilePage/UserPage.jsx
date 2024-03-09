@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { FiUser, FiMail, FiPhone, FiDollarSign, FiAward } from 'react-icons/fi';
+import { FiUser, FiMail, FiPhone, FiDollarSign, FiAward,FiActivity } from 'react-icons/fi';
 
 import styles from './UserPage.module.css';
 import Loader from '../../Components/loader/loader';
@@ -19,6 +19,9 @@ function UserPage() {
       setUserData(userData);
     }
   }, [userData, loading, error]);
+  useEffect(() => {
+    console.log(userDetails); // log userDetails to the console
+  }, [userDetails]);
 
   if (error) {
     return <h1>{error}</h1>;
@@ -41,6 +44,7 @@ function UserPage() {
         <p className={styles.username}><FiUser /> <span className={styles.name}>{userDetails.name}</span></p>
             <p className={styles.email}><FiMail /> <span className={styles.email}>{userDetails.email}</span></p>
             <p className={styles.phone}><FiPhone /> <span className={styles.phone}>{userDetails.phone_number}</span></p>
+            
           
           {/* There are more details about the user present in userDetail object console log to seen them and show them in the ui  */}
           <div>
@@ -53,6 +57,7 @@ function UserPage() {
             borderRadius: '10px',
             border:'1px solid black' }}></progress>
           </div>
+          <p className={styles.phone}><FiActivity /> <span className={styles.phone}>No of Reports: {userDetails.no_reports}</span></p>
           
           {/* User Coins */}
           <p className={styles.coins} style={{ color: '#D4AF37' }}><FiDollarSign /> <span className={styles.coins}style={{ color: '#D4AF37' }}>Coins: {userDetails.coins}</span></p>
