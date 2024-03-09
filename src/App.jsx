@@ -11,7 +11,7 @@ import UserPage from './pages/UserProfilePage/UserPage';
 import NgoPage from './pages/NgoProfilepage/ngoProfile'
 import Logout from './Components/utils/Functions/Logout';
 import Dashboard from './pages/dashboardPage/dashboard';
-import Donation from './pages/DonationPage/Donation';
+import Donation from './pages/Donation/DonationPage/Donation';
 import NgoRegister from './pages/NgoRegistration/NgoRegister';
 import Campaign from './pages/CampaignNgoPage/campaignMain';
 import Campaignlist from './pages/Volunteer/campaignList/campaignList';
@@ -21,7 +21,7 @@ import { UserProvider } from './contexts/UserContext';
 import { NgoProvider } from './contexts/NgoContext';
 import Success from './pages/CampaignNgoPage/SuccessPage/Success';
 import NgoProfile from './pages/NgoProfilepage/ngoProfile';
-import { Donationfront } from './pages/Donationfront/Donationfront';
+import { Donationfront } from './pages/Donation/Donationfront/Donationfront';
 /**
  * The main component of the application.
  * @returns {JSX.Element} The rendered App component.
