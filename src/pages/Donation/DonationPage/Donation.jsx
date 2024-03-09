@@ -6,7 +6,7 @@ function Donation() {
 
   // Function to handle donation button click
   const handleDonate = (amount) => {
-    const upiLink = `upi://pay?pa=rishipaulstudy@okhdfcbank&pn=Rishi%20Paul&am=${amount}&cu=INR`;
+    const upiLink = `upi://pay?pa=rishipaulstudy@okhdfcbank&pn=Rishi%20Paul&am=${amount}&cu=INR&aid=uGICAgMCerK_8eg`;
     window.location.href = upiLink;
   };
   // Function to handle custom amount input change
