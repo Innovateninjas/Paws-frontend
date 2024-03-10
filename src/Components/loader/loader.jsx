@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Watch } from 'react-loader-spinner';
+import { MagnifyingGlass } from 'react-loader-spinner';
 import styles from './loader.module.css';
 
 /**
@@ -19,7 +19,7 @@ function Loader({ visible, height = 80, width = 80, radius = 40, color = "#4fa94
     return (
         <div className={`${styles.spinnerContainer} ${wrapperClass}`}>
             <h2 className={styles.loadingText}>Loading...</h2>
-            <Watch
+            <MagnifyingGlass
                 visible={visible}
                 height={height}
                 width={width}
