@@ -1,10 +1,10 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect, useMemo } from 'react';
 import axios from 'axios';
 
 export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
-    
+
     const [userData, setUserData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -21,7 +21,7 @@ export const UserProvider = ({ children }) => {
             }
             const userType = localStorage.getItem('userType');
             if (userType === "ngo") {
-                return
+                return;
             }
             try {
                 const response = await axios.get('https://aniresfr-backend.vercel.app/info/user/', {
@@ -41,11 +41,8 @@ export const UserProvider = ({ children }) => {
                 }
             }
         };
-        if (localStorage.getItem("userType") === "ngo") {
-            return
-        }else{
+        if (localStorage.getItem("userType") !== "ngo") {
             fetchData();
-        
         }
 
         return () => {
@@ -53,8 +50,11 @@ export const UserProvider = ({ children }) => {
         };
     }, []);
 
+    // Memoize the context value to prevent unnecessary re-renders
+    const contextValue = useMemo(() => ({ userData, loading, error }), [userData, loading, error]);
+
     return (
-        <UserContext.Provider value={{ userData, loading, error }}>
+        <UserContext.Provider value={contextValue}>
             {children}
         </UserContext.Provider>
     );
