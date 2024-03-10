@@ -4,7 +4,7 @@ import axios from 'axios';
 export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
-    
+
     const [userData, setUserData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -43,9 +43,9 @@ export const UserProvider = ({ children }) => {
         };
         if (localStorage.getItem("userType") === "ngo") {
             return
-        }else{
+        } else {
             fetchData();
-        
+
         }
 
         return () => {
