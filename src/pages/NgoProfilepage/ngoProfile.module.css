@@ -1,10 +1,7 @@
 .profile{
     display: flex;
     align-items: center;
-    /* border: 2px solid red; */
     justify-content: space-between;
-   /* border-bottom: 0.1px solid #dadada; */
-   /* box-shadow: 1px 1px 3px black; */
    padding-bottom: 10px;
 }
 .profile img{
@@ -16,7 +13,6 @@
     font-size: 1.5rem;
 }
 .text{
-    /* color: red; */
     font-weight: normal;
     font-size: 0.9rem;
     display: flex;
@@ -44,4 +40,28 @@
     flex-direction: column;
     justify-content: space-around;  
     gap: 10px;
+}
+.btnContainer{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+.button {
+    margin: auto;
+    background-color: #c6c6c6; 
+    border-radius: 15px; 
+    padding: 10px 20px; 
+    margin-top: 20px;
+    border: 0;
+    outline: 0;
+    box-shadow: 1px 2px 4px  black;
+    /* margin-bottom: 10px; */
+    width: fit-content;
+  }
+  .button a{
+    text-decoration: none !important;
+    color: black; 
+    font-weight: 800;   
+    font-size: 20px;
+    width: 100px;
 }

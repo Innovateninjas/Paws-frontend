@@ -3,7 +3,7 @@ import {FiMail } from "react-icons/fi";
 import ProfileIcon from "../../Components/ProfileComponent/ProfileIcon";
 import styles from "./ngoProfile.module.css";
 import Loader from "../../Components/loader/loader";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { NgoContext } from "../../contexts/NgoContext";
 
 const NgoProfile = () => {
@@ -68,7 +68,11 @@ const NgoProfile = () => {
     </p>
   </div>
 </div>
-
+<div className={styles.btnContainer}>
+<button className={styles.button}>
+    <Link to="/logout" className={styles.link}> Logout</Link>
+    </button>
+    </div>
       </>
     );
   }

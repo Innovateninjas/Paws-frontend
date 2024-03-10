@@ -9,7 +9,7 @@ import { UserContext } from '../../contexts/UserContext';
 function UserPage() {
   const [userDetails, setUserData] = useState(null);
   const { userData, loading, error } = useContext(UserContext);
-  const profileIconSource = "./images/profile_icon.png";
+  const profileIconSource = "./images/download.png";
 
   function ProfileIcon({ style }) {
     return <img src={profileIconSource} style={style} alt="Profile Icon"/>;
@@ -36,13 +36,13 @@ function UserPage() {
         <div className={styles.profileContainer}>
           <div className="wrap">
             {/* Profile picture */}
-            <div className={styles.profilepic}><ProfileIcon style={{ marginLeft: '-100px',marginTop: '20px',boxShadow: '3px 3px 5px 6px gray', border: '1.5px solid gray', borderRadius: '50%', width: '250px', height: '250px' }} /></div>        
+            <div className={styles.profilepic}><ProfileIcon style={{ margin: 'auto',marginTop: '20px',boxShadow: '1px 2px 2px black', borderRadius: '50%', width: '250px', height: '250px', objectFit: 'cover', border:'5px ridge black' }} /></div>        
             </div>
         </div>
         <div className={styles.userDetails}>
         <div className={styles.userDetailsContainer}>
         <p className={styles.username}><FiUser /> <span className={styles.name}>{userDetails.name}</span></p>
-            <p className={styles.email}><FiMail /> <span className={styles.email}>{userDetails.email}</span></p>
+            <p className={styles.email}><FiMail fontSize='22px' />{userDetails.email}</p>
             <p className={styles.phone}><FiPhone /> <span className={styles.phone}>{userDetails.phone_number}</span></p>
             
           
@@ -54,21 +54,26 @@ function UserPage() {
             height: '20px',
             color: 'black',
             backgroundColor: '#f3f3f3',
+            overflow:'hidden',
             borderRadius: '10px',
             border:'1px solid black' }}></progress>
           </div>
           <p className={styles.phone}><FiActivity /> <span className={styles.phone}>No of Reports: {userDetails.no_reports}</span></p>
           
           {/* User Coins */}
-          <p className={styles.coins} style={{ color: '#D4AF37' }}><FiDollarSign /> <span className={styles.coins}style={{ color: '#D4AF37' }}>Coins: {userDetails.coins}</span></p>
-          <button className={styles.button} style={{ marginTop: '30px' }}>
+          <p className={styles.coins} style={{ color: '#DFC200' }}><FiDollarSign /> <span className={styles.coins}style={{ color: '#DFC200' }}>Coins: {userDetails.coins}</span></p>
+
+         
+          <br />
+        </div>
+        <div className={styles.btnContainer}>
+          <button className={styles.button}>
           <Link to="/view-reports">My Reports</Link>
         </button>
         <button className={styles.button}>
           <Link to="/logout">Logout</Link>
         </button>
-          <br />
-        </div>
+         </div>
       </div>
       </div>
     );

@@ -4,40 +4,34 @@
   flex-direction: column;
   align-items: center;
   height: 100vh;
-  background-color: #F2F2F2; /* Light gray background */
-  padding: 20px;
+  background-color: #F2F2F2; 
+  padding:10px  20px;
 }
 
 .profileContainer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #dbd1d1; /* White background for profile section */
-  border-radius: 25px; /* Rounded corners */
-  padding: 20px;
-  margin-bottom: 20px;
-  /* Added styles to stretch the width */
-  width: 100%; /* Set width to 100% */
-  max-width: 600px; /* Optional: Set a maximum width if needed */
-  height: 40%; /* Set height to 100% */
+  border-radius: 25px; 
+  width: 100%;
+  max-width: fit-content; 
 }
-
-.profilepic {
-  width: 50px;
-  height: 75px; /* Circle for profile picture *//* Prevent image overflow */
-  margin-bottom: 10px;
+.profilepic{
+width: fit-content;
+height: fit-content;
+padding: 10px;
 }
-
 .username,
 .email,
 .phone,
 .levels,
 .coins {
   display: flex;
+  justify-content: left;
   align-items: center;
   margin-bottom: 5px;
   font-size: 22px;
-  color: #7c7474; /* Dark gray text color */
+  gap: 5px;
 }
 
 .username span,
@@ -48,60 +42,45 @@
   margin-left: 5px;
 }
 
-.username .fa-user,
-.email .fa-mail,
-.phone .fa-phone,
-.levels .fa-award,
-.coins .fa-dollar-sign {
-  color: #666; /* Light gray icon color */
-  font-size: 20px;
-  margin-right: 5px;
-}
-
 .userDetails {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* Removed width: 100% as it's not needed here */
-
 }
 
 .userDetails a {
   text-decoration: none; /* Remove underline from links */
   color: #333; /* Dark gray text color */
-  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: bold;
 }
 
-.userDetails a:hover {
-  color: #007bff; /* Blue color on hover */
-}
 .userDetailsContainer{
   display: flex;
   flex-direction: column;
-  align-items: center;
-  background-color: #dbd1d1; /* White background for profile section */
   border-radius: 25px; /* Rounded corners */
   padding: 20px;
   margin-bottom: 20px;
-  /* Added styles to stretch the width */
-   /* Set width to 100% */
-  width: 350px; /* Optional: Set a maximum width if needed */
-  height: 65%; /* Set height to 100% */
+  height: fit-content;
+ width: fit-content;
+ background-color: #e0e0e0; 
+ box-shadow:1px 2px 2px black ;
+}
+.btnContainer{
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 80px;
 }
 .button {
-  background-color: #cac7c7; /* White background */
-  border-radius: 15px; /* Rounded corners */
-  padding: 10px 20px; /* Padding for spacing */
-  box-shadow: 0 0 2px 2px #6d6d6d;
-  margin-bottom: 10px;
-  cursor: pointer; /* Indicate clickable behavior */
-  text-decoration: none; /* Remove underline from links */
-  color: #333; /* Dark gray text color */
-  font-size: medium;
-  font-weight: bold; /* Bold text for emphasis */
-  display: inline-block; /* Display buttons side-by-side */
-}
+  outline: 0;
+  border: 0;
+  background-color: #cac7c7; 
+  width: fit-content;
+  height: fit-content;/* White background */
+  border-radius: 20px; /* Rounded corners */
+  padding: 15px 20px; /* Padding for spacing */
+  box-shadow:1px 2px 2px black;
 
-.button:hover {
-  background-color: #f2f2f2; /* Light gray background on hover */
 }
