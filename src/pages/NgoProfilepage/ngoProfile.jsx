@@ -46,7 +46,7 @@ const NgoProfile = () => {
       <span> {userDetails.emergency_contact_number}</span>
     </li>
     <p className={styles.text}>
-      <b> Number of Reports:</b>
+      <b> Reports Recived:</b>
       <span>{userDetails.no_received_reports}</span>
     </p>
     <p className={styles.text}>
