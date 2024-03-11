@@ -9,7 +9,7 @@ import { UserContext } from '../../contexts/UserContext';
 function UserPage() {
   const [userDetails, setUserData] = useState(null);
   const { userData, loading, error } = useContext(UserContext);
-  const profileIconSource = "./images/download.png";
+  const profileIconSource = "./images/profile_icon.png";
 
   function ProfileIcon({ style }) {
     return <img src={profileIconSource} style={style} alt="Profile Icon"/>;
