@@ -26,6 +26,7 @@ const Map = ({ zoom = 13, customCenter }) => {
                     borderRadius: '10px',
                     border: "3px solid #0a6d06",
                     boxShadow: '0px 6px 12px rgba(0, 0, 0, 0.1)',
+                    zIndex:1,
                 }}
             >
                 <TileLayer

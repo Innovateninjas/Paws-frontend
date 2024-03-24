@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import ImageUploading from 'react-images-uploading';
-import { MdDelete } from 'react-icons/md';
 import { Camera, CameraReels } from 'react-bootstrap-icons';
 import styles from "./ImageUploader.module.css"; // Import styles for the component
 
@@ -9,7 +8,6 @@ const ImageUploader = ({ formData, setFormData, onChange }) => {
     const [cameraActive, setCameraActive] = useState(false);
     const [cameraFacingMode, setCameraFacingMode] = useState('user'); // 'user' for front camera, 'environment' for back camera
     const videoRef = useRef(null);
-    const canvasRef = useRef(null);
 
     useEffect(() => {
         if (cameraActive) {
@@ -60,56 +58,55 @@ const ImageUploader = ({ formData, setFormData, onChange }) => {
     };
 
     const captureImage = () => {
-        const context = canvasRef.current.getContext('2d');
-        context.drawImage(videoRef.current, 0, 0, canvasRef.current.width, canvasRef.current.height);
-        const imageData = canvasRef.current.toDataURL('image/png');
+        const canvas = document.createElement('canvas');
+        canvas.width = videoRef.current.videoWidth;
+        canvas.height = videoRef.current.videoHeight;
+        const context = canvas.getContext('2d');
+        context.drawImage(videoRef.current, 0, 0);
+        const imageData = canvas.toDataURL('image/png');
         setFormData({ ...formData, image: imageData });
         setCameraActive(false);
     };
 
     return (
-        <div className={styles.wrapper}>
-            {cameraActive ? (
-                <div className={styles.cameraContainer}>
-                    <video ref={videoRef} className={styles.camera} />
-                    <canvas ref={canvasRef} className={styles.hiddenCanvas} width={640} height={480} />
-                    <div className={styles.cameraControls}>
-                        <button className={styles.captureButton} onClick={captureImage}>Capture</button>
-                        <button className={styles.switchCameraButton} onClick={toggleCameraFacingMode}>
-                            {cameraFacingMode === 'user' ? <CameraReels /> : <Camera />}
+        <div className="relative z-50"> {/* Set z-index to 50 */}
+            <ImageUploading
+                value={[formData]}
+                onChange={onChange}
+                dataURLKey="data_url"
+            >
+                {({ onImageUpload, isDragging, dragProps }) => (
+                    <div className="flex flex-col items-center">
+                        <div className="w-32 h-32 bg-gray-200 flex justify-center items-center rounded-full mb-4">
+                            {formData.image ? (
+                                <img src={formData.image} alt="Uploaded" className="w-full h-full object-cover rounded-full" />
+                            ) : (
+                                <Camera className="text-gray-400 h-12 w-12" />
+                            )}
+                        </div>
+                        <button
+                            className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded ${isDragging && 'opacity-50'}`}
+                            onClick={handleCameraCapture}
+                            {...dragProps}
+                        >
+                            {isDragging ? 'Uploading...' : 'Take Photo'}
                         </button>
                     </div>
+                )}
+            </ImageUploading>
+
+            {cameraActive && (
+                <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75">
+                    <div className="bg-white p-4 rounded-lg shadow-lg">
+                        <video ref={videoRef} className="w-full h-full" style={{ height: '50vh' }} />
+                        <div className="flex justify-center mt-4">
+                            <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 border border-green-700 rounded mr-2" onClick={captureImage}>Capture</button>
+                            <button className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 border border-gray-700 rounded" onClick={toggleCameraFacingMode}>
+                                {cameraFacingMode === 'user' ? <CameraReels /> : <Camera />}
+                            </button>
+                        </div>
+                    </div>
                 </div>
-            ) : (
-                <ImageUploading
-                    value={[formData]}
-                    onChange={onChange}
-                    dataURLKey="data_url"
-                >
-                    {({ onImageUpload, isDragging, dragProps }) => (
-                        <>
-                            <div className={styles.imagePreviewContainer}>
-                                {formData.image && (
-                                    <div className={styles.imageItem}>
-                                        <img src={formData.image} alt="" className={styles.imagePreview} />
-                                    </div>
-                                )}
-                            </div>
-                            <div className={styles.buttons}>
-                                <button
-                                    className={`${styles.imageUploadButton} ${isDragging && styles.dragging}`}
-                                    onClick={handleCameraCapture}
-                                    {...dragProps}
-                                >
-                                    <div className={styles.addbtn}>
-                                        <Camera className={styles.icon} />
-                                        <span>Add Image</span>
-                                    </div>
-                                </button>
-                            </div>
-                        </>
-                    )}
-                </ImageUploading>
             )}
         </div>
     );
