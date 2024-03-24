@@ -109,7 +109,7 @@ const ImageUploader = ({ formData, setFormData, onChange }) => {
                 </div>
             )}
         </div>
-    );
+    ); 
 };
 
 ImageUploader.propTypes = {
@@ -119,3 +119,4 @@ ImageUploader.propTypes = {
 };
 
 export default ImageUploader;
+
