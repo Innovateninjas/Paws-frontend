@@ -45,20 +45,21 @@
   position: relative;
   z-index: 0;
 }
-input {
+/* input {
   margin: 10px;
-  /* box-shadow: -1px -1px 2px black;*/
   box-shadow: 1px 1px 2px black;
-}
+} */
+/* PORE DEKHBO */
 .labl {
   font-size: 18px;
   font-weight: 500 !important;
 }
 /* RADIO INPUTS */
-input[type="radio"] {
+/* input[type="radio"] {
   box-shadow: none;
   width: 20px;
-}
+} */
+/* PORE DEKHBO */
 .radioImage {
   border-radius: 50%;
   width: 60px !important;
