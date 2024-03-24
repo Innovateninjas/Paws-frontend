@@ -9,7 +9,6 @@ const CreateCampaignPage = ({ onClick }) => {
         <div className={styles.container}>
             <img src="./images/paw.png" alt="paw img" className={styles.paw3} />
             <h1 className={styles.heading1}>
-                {" "}
                 <p className={styles.slogan}>
                     Protecting Paws,<br></br> Saving Lives
                 </p>
