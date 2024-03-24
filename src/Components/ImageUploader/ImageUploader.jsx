@@ -54,6 +54,17 @@ const ImageUploader = ({ formData, setFormData, onChange }) => {
         setCameraActive(false);
     };
 
+    const handleImageUpload = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = () => {
+                setFormData({ ...formData, image: reader.result });
+            };
+            reader.readAsDataURL(file);
+        }
+    };
+
     return (
         <div className={styles.wrapper}>
             {cameraActive ? (
@@ -83,15 +94,29 @@ const ImageUploader = ({ formData, setFormData, onChange }) => {
                                 )}
                             </div>
                             <div className={styles.buttons}>
+                                <input
+                                    type="file"
+                                    accept="image/*"
+                                    className={styles.hiddenInput}
+                                    onChange={handleImageUpload}
+                                />
                                 <button
                                     className={`${styles.imageUploadButton} ${isDragging && styles.dragging}`}
-                                    onClick={handleCameraCapture}
+                                    onClick={() => document.getElementById('imageInput').click()}
                                     {...dragProps}
                                 >
                                     <div className={styles.addbtn}>
                                         <Camera className={styles.icon} />
                                         <span>Add Image</span>
                                     </div>
+                                </button>
+                                <button
+                                    id="imageInput"
+                                    type="button"
+                                    className={styles.hiddenButton}
+                                    onClick={() => document.getElementById('imageInput').click()}
+                                >
+                                    Pick from Device
                                 </button>
                             </div>
                         </>
