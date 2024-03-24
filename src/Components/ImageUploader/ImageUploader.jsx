@@ -1,72 +1,110 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import ImageUploading from 'react-images-uploading';
 import { MdDelete } from 'react-icons/md';
-import { Camera } from 'react-bootstrap-icons';
+import { Camera, CameraReels } from 'react-bootstrap-icons';
 import styles from "./ImageUploader.module.css"; // Import styles for the component
 
-/**
- * Image uploader component for uploading and displaying images.
- * @param {Object} props - The props for the component.
- * @param {string} props.image - The URL of the currently selected image.
- * @param {Function} props.setImage - Function to set the selected image.
- * @param {Function} props.onChange - Function to handle changes when an image is uploaded.
- * @returns {JSX.Element} A React component representing the image uploader.
- */
-const ImageUploader = ({formData , setFormData, onChange }) => {
+const ImageUploader = ({ formData, setFormData, onChange }) => {
+    const [cameraActive, setCameraActive] = useState(false);
+    const [cameraFacingMode, setCameraFacingMode] = useState('user'); // 'user' for front camera, 'environment' for back camera
+    const videoRef = useRef(null);
+    const canvasRef = useRef(null);
+
+    const handleCameraCapture = () => {
+        setCameraActive(true);
+        startCamera();
+    };
+
+    const toggleCameraFacingMode = () => {
+        setCameraFacingMode(prevMode => (prevMode === 'user' ? 'environment' : 'user'));
+        startCamera();
+    };
+
+    const startCamera = () => {
+        navigator.mediaDevices.getUserMedia({ video: { facingMode: cameraFacingMode } })
+            .then(stream => {
+                videoRef.current.srcObject = stream;
+                videoRef.current.play();
+            })
+            .catch(error => {
+                console.error('Error accessing camera:', error);
+            });
+    };
+
+    const stopCamera = () => {
+        if (videoRef.current.srcObject) {
+            const stream = videoRef.current.srcObject;
+            const tracks = stream.getTracks();
+
+            tracks.forEach(track => {
+                track.stop();
+            });
+
+            videoRef.current.srcObject = null;
+        }
+    };
+
+    const captureImage = () => {
+        const context = canvasRef.current.getContext('2d');
+        context.drawImage(videoRef.current, 0, 0, canvasRef.current.width, canvasRef.current.height);
+        const imageData = canvasRef.current.toDataURL('image/png');
+        setFormData({ ...formData, image: imageData });
+        stopCamera();
+        setCameraActive(false);
+    };
+
     return (
-        <ImageUploading
-            value={[formData]} // Pass the selected image as an array
-            onChange={onChange}
-            dataURLKey="data_url"
-        >
-            {({ onImageUpload, isDragging, dragProps }) => (
-                <div className={styles.wrapper}>
-                    {formData.image && (
-                        <div className={styles.imageItem}>
-                            <img src={formData.image} alt="" className={styles.imagePreview} />
-                        </div>
-                    )}
-                    <div className={styles.buttons}>
-                        {formData.image ? (
-                            <div>
-                                <button className={styles.removeButton} onClick={() =>
-                                    setFormData((prevData) => ({
-                                        ...prevData,
-                                        image: null,
-                                    }))
-                                     }>
-                                    <MdDelete />
-                                    <span>Remove</span>
-                                </button>
-                            </div>
-                        ) : (
-                            <>
-                                <div className={styles.Uploadarea}>
-                                    <button
-                                        className={`${styles.imageUploadButton} ${isDragging && styles.dragging}`}
-                                        onClick={onImageUpload}
-                                        {...dragProps}
-                                    >
-                                        <div className='styles.addbtn'>
-                                            <Camera className={styles.icon} />
-                                            <span> </span>
-                                            <span>Add Image</span>
-                                        </div>
-                                    </button>
-                                </div>
-                            </>
-                        )}
+        <div className={styles.wrapper}>
+            {cameraActive ? (
+                <div className={styles.cameraContainer}>
+                    <video ref={videoRef} className={styles.camera} />
+                    <canvas ref={canvasRef} className={styles.hiddenCanvas} width={640} height={480} />
+                    <div className={styles.cameraControls}>
+                        <button className={styles.captureButton} onClick={captureImage}>Capture</button>
+                        <button className={styles.switchCameraButton} onClick={toggleCameraFacingMode}>
+                            {cameraFacingMode === 'user' ? <CameraReels /> : <Camera />}
+                        </button>
                     </div>
                 </div>
+            ) : (
+                <ImageUploading
+                    value={[formData]}
+                    onChange={onChange}
+                    dataURLKey="data_url"
+                >
+                    {({ onImageUpload, isDragging, dragProps }) => (
+                        <>
+                            <div className={styles.imagePreviewContainer}>
+                                {formData.image && (
+                                    <div className={styles.imageItem}>
+                                        <img src={formData.image} alt="" className={styles.imagePreview} />
+                                    </div>
+                                )}
+                            </div>
+                            <div className={styles.buttons}>
+                                <button
+                                    className={`${styles.imageUploadButton} ${isDragging && styles.dragging}`}
+                                    onClick={handleCameraCapture}
+                                    {...dragProps}
+                                >
+                                    <div className={styles.addbtn}>
+                                        <Camera className={styles.icon} />
+                                        <span>Add Image</span>
+                                    </div>
+                                </button>
+                            </div>
+                        </>
+                    )}
+                </ImageUploading>
             )}
-        </ImageUploading>
+        </div>
     );
 };
 
 ImageUploader.propTypes = {
-    // image: PropTypes.string,
-    // setImage: PropTypes.func.isRequired,
+    formData: PropTypes.object.isRequired,
+    setFormData: PropTypes.func.isRequired,
     onChange: PropTypes.func.isRequired,
 };
 
