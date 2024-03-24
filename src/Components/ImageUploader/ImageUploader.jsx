@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import ImageUploading from 'react-images-uploading';
 import { MdDelete } from 'react-icons/md';
@@ -11,21 +11,35 @@ const ImageUploader = ({ formData, setFormData, onChange }) => {
     const videoRef = useRef(null);
     const canvasRef = useRef(null);
 
+    useEffect(() => {
+        if (cameraActive) {
+            startCamera();
+        } else {
+            stopCamera();
+        }
+
+        return () => {
+            stopCamera();
+        };
+    }, [cameraActive]);
+
     const handleCameraCapture = () => {
         setCameraActive(true);
-        startCamera();
     };
 
     const toggleCameraFacingMode = () => {
         setCameraFacingMode(prevMode => (prevMode === 'user' ? 'environment' : 'user'));
+        stopCamera();
         startCamera();
     };
 
     const startCamera = () => {
         navigator.mediaDevices.getUserMedia({ video: { facingMode: cameraFacingMode } })
             .then(stream => {
-                videoRef.current.srcObject = stream;
-                videoRef.current.play();
+                if (videoRef.current) {
+                    videoRef.current.srcObject = stream;
+                    videoRef.current.play();
+                }
             })
             .catch(error => {
                 console.error('Error accessing camera:', error);
@@ -33,7 +47,7 @@ const ImageUploader = ({ formData, setFormData, onChange }) => {
     };
 
     const stopCamera = () => {
-        if (videoRef.current.srcObject) {
+        if (videoRef.current && videoRef.current.srcObject) {
             const stream = videoRef.current.srcObject;
             const tracks = stream.getTracks();
 
@@ -50,19 +64,7 @@ const ImageUploader = ({ formData, setFormData, onChange }) => {
         context.drawImage(videoRef.current, 0, 0, canvasRef.current.width, canvasRef.current.height);
         const imageData = canvasRef.current.toDataURL('image/png');
         setFormData({ ...formData, image: imageData });
-        stopCamera();
         setCameraActive(false);
-    };
-
-    const handleImageUpload = (e) => {
-        const file = e.target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = () => {
-                setFormData({ ...formData, image: reader.result });
-            };
-            reader.readAsDataURL(file);
-        }
     };
 
     return (
@@ -94,29 +96,15 @@ const ImageUploader = ({ formData, setFormData, onChange }) => {
                                 )}
                             </div>
                             <div className={styles.buttons}>
-                                <input
-                                    type="file"
-                                    accept="image/*"
-                                    className={styles.hiddenInput}
-                                    onChange={handleImageUpload}
-                                />
                                 <button
                                     className={`${styles.imageUploadButton} ${isDragging && styles.dragging}`}
-                                    onClick={() => document.getElementById('imageInput').click()}
+                                    onClick={handleCameraCapture}
                                     {...dragProps}
                                 >
                                     <div className={styles.addbtn}>
                                         <Camera className={styles.icon} />
                                         <span>Add Image</span>
                                     </div>
-                                </button>
-                                <button
-                                    id="imageInput"
-                                    type="button"
-                                    className={styles.hiddenButton}
-                                    onClick={() => document.getElementById('imageInput').click()}
-                                >
-                                    Pick from Device
                                 </button>
                             </div>
                         </>
