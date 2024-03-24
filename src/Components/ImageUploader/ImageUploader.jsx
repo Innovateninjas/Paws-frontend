@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import ImageUploading from 'react-images-uploading';
 import { Camera, CameraReels } from 'react-bootstrap-icons';
 import styles from "./ImageUploader.module.css"; // Import styles for the component
+import { uploadImageToCloudinary } from '../utils/Functions/imageUploader'; // Import the function to upload images to Cloudinary
 
 const ImageUploader = ({ formData, setFormData, onChange }) => {
     const [cameraActive, setCameraActive] = useState(false);
@@ -57,15 +58,35 @@ const ImageUploader = ({ formData, setFormData, onChange }) => {
         }
     };
 
-    const captureImage = () => {
+    const captureImage = async () => {
         const canvas = document.createElement('canvas');
         canvas.width = videoRef.current.videoWidth;
         canvas.height = videoRef.current.videoHeight;
         const context = canvas.getContext('2d');
         context.drawImage(videoRef.current, 0, 0);
         const imageData = canvas.toDataURL('image/png');
-        setFormData({ ...formData, image: imageData });
-        setCameraActive(false);
+
+        try {
+            const imageUrl = await uploadImageToCloudinary(dataURLtoFile(imageData, 'image.png'));
+            setFormData({ ...formData, image: imageUrl });
+            setCameraActive(false);
+        } catch (error) {
+            console.error('Error uploading image to Cloudinary:', error);
+            // Handle error here
+        }
+    };
+
+    // Convert data URL to File object
+    const dataURLtoFile = (dataUrl, filename) => {
+        const arr = dataUrl.split(',');
+        const mime = arr[0].match(/:(.*?);/)[1];
+        const bstr = atob(arr[1]);
+        let n = bstr.length;
+        const u8arr = new Uint8Array(n);
+        while (n--) {
+            u8arr[n] = bstr.charCodeAt(n);
+        }
+        return new File([u8arr], filename, { type: mime });
     };
 
     return (
@@ -119,4 +140,3 @@ ImageUploader.propTypes = {
 };
 
 export default ImageUploader;
-
