@@ -183,8 +183,8 @@ function AnimalDetailsPage({
         disableStyleInjection={true}
       />
       {/* USED RADIO INPUT INSTEAD OF SELECT TAG */}
-      <div className="relative z-[3] flex flex-col gap-5 mb-20">
-      <div className="p-[10px] flex flex-col gap-[10px] rounded-3xl border  bg-opacity-60 bg-slate-300 shadow-custom">
+      <div className="relative z-[3] flex flex-col gap-5 mb-20  ">
+      <div className="p-[10px] flex flex-col gap-[10px] rounded-3xl border  bg-opacity-60 bg-slate-300  ">
  
 
           <label>
@@ -193,7 +193,7 @@ function AnimalDetailsPage({
               Animal Type:
             </p>
           </label>
-          <div className="flex gap-[10px] justify-evenly overflow-x-auto scrollbar-hidden">
+          <div className="flex gap-[10px] justify-evenly overflow-x-auto scrollbar-hidden z-[20]">
             <div
               className={isDog ? "show-tooltip" : ""}
               data-tooltip-html="<b>Predicted<br>To be a dog</b>"
@@ -211,7 +211,7 @@ function AnimalDetailsPage({
                 hidden
               />
               <label htmlFor="dog">
-                <img className="rounded-full w-[72px] h-[72px] mb-2 object-cover object-center shadow-custom" src="./images/dog.jpg" alt="" />
+                <img className="rounded-full w-[72px] h-[72px] mb-2 object-cover object-center " src="./images/dog.jpg" alt="" />
               </label>
             </div>
             <div
@@ -232,7 +232,7 @@ function AnimalDetailsPage({
               />
 
               <label htmlFor="cat">
-                <img className="rounded-full w-[72px] h-[72px] mb-2 object-cover object-center shadow-custom" src="./images/cat.jpg" alt="" />
+                <img className="rounded-full w-[72px] h-[72px] mb-2 object-cover object-center" src="./images/cat.jpg" alt="" />
               </label>
             </div>
             <div
@@ -252,7 +252,7 @@ function AnimalDetailsPage({
                 hidden
               />
               <label htmlFor="cattle">
-                <img className="rounded-full w-[72px] h-[72px] object-cover mb-2 object-center shadow-custom" src="./images/cow.jpg" alt="" />
+                <img className="rounded-full w-[72px] h-[72px] object-cover mb-2 object-center " src="./images/cow.jpg" alt="" />
               </label>
             </div>
             <div>
@@ -266,7 +266,7 @@ function AnimalDetailsPage({
                 hidden
               />
               <label htmlFor="other">
-                <img className="rounded-full w-[72px] h-[72px] mb-2 object-cover object-center shadow-custom" src="./images/more.jpg" alt="" />
+                <img className="rounded-full w-[72px] h-[72px] mb-2 object-cover object-center " src="./images/more.jpg" alt="" />
               </label>
             </div>
           </div>
@@ -285,7 +285,7 @@ function AnimalDetailsPage({
           )}
         </div>
         {/* HOW MANY ANIMALS */}
-        <div className="p-2 flex flex-col gap-2 rounded-[30px] bg-opacity-60 bg-lime-300 shadow-custom">
+        <div className="p-2 flex flex-col gap-2 rounded-[30px] bg-opacity-60 bg-lime-300 ">
           <label>
             <p className="font-extrabold  text-indigo-900 pl-5 text-[1.4rem] leading-normal tracking-wider">
               {" "}
@@ -341,7 +341,7 @@ function AnimalDetailsPage({
         </div>
 
         {/* DESCRIBE WHAT  HAPPENED */}
-        <div className="flex flex-col justify-center  rounded-[30px] p-[10px] bg-gradient-to-b from-gradient-start via-gradient-middle to-gradient-end space-y-5 border-0 shadow-custom">
+        <div className="flex flex-col justify-center  rounded-[30px] p-[10px] bg-gradient-to-b from-gradient-start via-gradient-middle to-gradient-end space-y-5 border-0">
           <label>
             <p className="font-extrabold  text-indigo-900 pl-5 text-[1.4rem] leading-normal tracking-[0.02rem]">
               Describe what Happened:
@@ -361,7 +361,7 @@ function AnimalDetailsPage({
         </div>
 
         {/* DESCRIBE SEVERITY */}
-        <div className="flex flex-col justify-center rounded-3xl gap-[10px] p-[10px] bg-opacity-60 bg-white border border-solid border-gray-400 border-opacity-60 shadow-custom">
+        <div className="flex flex-col justify-center rounded-3xl gap-[10px] p-[10px] bg-opacity-60 bg-white border border-solid border-gray-400 border-opacity-60 ">
           <label>
             {" "}
             <p className="font-extrabold  text-indigo-900 pl-5 text-[1.4rem] leading-normal tracking-wider">
@@ -423,14 +423,14 @@ function AnimalDetailsPage({
           {/* ADD AN EVENT AHNDLER FOR BACK BUTTON */}
           <button
             type="button"
-            className="text-base text-gray-800 bg-slate-200 focus:outline-none rounded-full px-10 py-4 bg-opacity-80 font-semibold shadow-custom"
+            className="text-base text-gray-800 bg-slate-200 focus:outline-none rounded-full px-10 py-4 bg-opacity-80 font-semibold "
             onClick={handleBackPage}
           >
             Back
           </button>
           <button
             type="button"
-            className="text-base text-gray-800 bg-gradient-to-b from-indigo-300 to-indigo-800 focus:outline-none rounded-[30px] px-10 py-4 bg-opacity-20 font-semibold shadow-custom"
+            className="text-base text-gray-800 bg-gradient-to-b from-indigo-300 to-indigo-800 focus:outline-none rounded-[30px] px-10 py-4 bg-opacity-20 font-semibold "
             onClick={handleNextPage}
           >
             Next
