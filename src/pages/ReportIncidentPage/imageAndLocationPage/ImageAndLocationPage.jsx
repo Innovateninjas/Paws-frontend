@@ -22,8 +22,7 @@ function ImageAndLocationPage({
   };
 
   return (
-    // bg-gradient-to-b from-green-200 to-lime-300 relative z-10 w-full p-4 flex flex-col gap-5 justify-center overflow-x-hidden
-    <div className="relative bg-gradient-to-b from-green-200 to-lime-300 z-[30] h-fit w-full flex flex-col gap-3 justify-center items-center overflow-x-hidden">
+    <div className="relative z-[3] h-fit w-full flex flex-col gap-3 justify-center items-center overflow-x-hidden">
       <Background />
       <h1 className=" mt-5 text-center pb-1 z-[3] text-indigo-900 font-bold tracking-wide text-[2em] underline">
         Upload Image and Location
