@@ -61,7 +61,7 @@ function AnimalDetailsPage({
               Animal Type:
             </p>
           </label>
-          <div className="flex gap-[10px] justify-evenly overflow-x-scroll scrollbar-hidden z-[20]">
+          <div className="flex overflow-x-auto gap-4 scrollbar-hide z-[20]">
             <div
               className={isDog ? "show-tooltip" : ""}
               data-tooltip-html="<b>Predicted<br>To be a dog</b>"
@@ -79,7 +79,9 @@ function AnimalDetailsPage({
                 hidden
               />
               <label htmlFor="dog">
-                <img className="rounded-full w-[72px] h-[72px] mb-2 object-cover object-center " src="./images/dog.jpg" alt="" />
+              <div className=" w-[72px] h-[72px] relative mb-[8px] ">
+                <img className="rounded-[50%] w-full  h-full object-cover object-center" src="./images/dog.jpg" alt="" />
+                </div>
               </label>
             </div>
             <div
@@ -100,7 +102,9 @@ function AnimalDetailsPage({
               />
 
               <label htmlFor="cat">
-                <img className="rounded-full w-[72px] h-[72px] mb-2 object-cover object-center" src="./images/cat.jpg" alt="" />
+              <div className=" w-[72px] h-[72px] relative mb-[8px] ">
+                <img className="rounded-[50%] w-full  h-full object-cover object-center " src="./images/cat.jpg" alt="" />
+                </div>
               </label>
             </div>
             <div
@@ -120,7 +124,9 @@ function AnimalDetailsPage({
                 hidden
               />
               <label htmlFor="cattle">
-                <img className="rounded-full w-[72px] h-[72px] object-cover mb-2 object-center " src="./images/cow.jpg" alt="" />
+              <div className=" w-[72px] h-[72px] mb-[8px] relative ">
+                <img className="rounded-[50%] w-full  h-full object-cover object-center  " src="./images/cow.jpg" alt="" />
+                </div>
               </label>
             </div>
             
@@ -135,7 +141,9 @@ function AnimalDetailsPage({
                 hidden
               />
               <label htmlFor="other">
-                <img className="rounded-full w-[72px] h-[72px] mb-2 object-cover object-center " src="./images/more.jpg" alt="" />
+              <div className=" w-[72px] h-[72px] relative mb-[8px]">
+                <img className="rounded-[50%] w-full  h-full object-cover object-center " src="./images/more.jpg" alt="" />
+                </div>
               </label>
             </div>
           </div>
