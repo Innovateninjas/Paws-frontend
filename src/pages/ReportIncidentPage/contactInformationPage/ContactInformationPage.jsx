@@ -34,12 +34,16 @@ function ContactInformationPage({
   <div className="h-screen w-screen">
     <Background />
     <div className="flex flex-col justify-center items-center relative">
-      <div className="mt-24 relative w-full h-full flex flex-col items-center">
-        <h1 className="font-baijam text-2xl font-black mb-5 text-purple-950 drop-shadow-md">CONTACT DETAILS</h1>
-        <div className="bg-white">
-        <label>
+      <div className="mt-24 relative w-full h-full flex flex-col items-center ">
+        <h1 className="text-center mt-[20px] pb-1 z-[3] text-indigo-900 font-bold tracking-wide text-[1.6em] underline">CONTACT DETAILS</h1>
+
+     <div className="bg-slate-200 w-[90%]  p-5 rounded-3xl bg-opacity-45 backdrop-blur-[6px]">
+<div>
+        <label className="font-extrabold pl-3 text-xl">
           Name:
+          </label>
           <InputField
+           className=" h-[60px] rounded-[30px] p-4 w-[100%] outline-0 bg-opacity-80 bg-[#65D33C]"
             type="text"
             name="user_name"
             placeholder="Name"
@@ -50,37 +54,39 @@ function ContactInformationPage({
             outline={true}
           />
           <div className="error">{errors.first_name}</div>
-        </label>
+          </div>
         <br />
+        <div>
         <label>
-          Phone Number:
+          Phone Number:</label>
           <InputField
+ className=" h-[60px] rounded-[30px] p-4 w-[100%] outline-0 bg-opacity-80 bg-[#A15ECF]"
             type="tel"
             name="user_phone"
             placeholder="Phone Number"
             value={formData.user_phone}
             onChange={handleChange}
             required={true}
-            backgroundColor={"#D9D9D9"}
+            // backgroundColor={"#D9D9D9"}
             outline={true}
           />
           <div className="error">{errors.last_name}</div>
-        </label>
+          </div>
         <br />
+        <div>
         <label>
-          Email:
+          Email: </label>
           <InputField
+ className=" h-[60px] rounded-[30px] p-4 w-[100%] outline-0 bg-opacity-80 bg-[#7096F5]  "
             type="email"
             name="user_email"
             placeholder="Email"
             value={formData.user_email}
             onChange={handleChange}
             required={true}
-            backgroundColor={"#D9D9D9"}
-            outline={true}
           />
           <div className="error">{errors.username}</div>
-        </label>
+</div>
         <br />
         </div>
         <p className="text-breeSerif font-medium text-center w-9/10 mx-auto text-blue-900 cursor-pointer underline" onClick={() => setModalIsOpen(true)}>Learn why we need that data</p>
