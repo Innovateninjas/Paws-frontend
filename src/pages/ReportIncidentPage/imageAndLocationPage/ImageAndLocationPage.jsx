@@ -32,7 +32,7 @@ function ImageAndLocationPage({
         setFormData={setFormData}
         onChange={onChange}
       />
-      <div className="w-[23rem]  z-[30] bg-green-800 rounded-3xl bg-opacity-35 backdrop-blur-[5px]">
+      <div className="w-[23rem]  z-[30] bg-[#009C27] rounded-3xl bg-opacity-45 backdrop-blur-[7px]">
       
       <div className=" flex-col justify-center items-center gap-6 p-4  ">
      <div className="w-full h-[200px] flex pb-5">
@@ -43,7 +43,7 @@ function ImageAndLocationPage({
       
       <div className="w-[23rem]  z-[30] justify-center items-center flex flex-col justify-items-center">
         <label>
-          <p className="text-base  pb-3 ">
+          <p className="text-base w-[90%] pb-3 ">
             Address: {formData.address ? formData.address : "loading.."}
           </p>
           <textarea
