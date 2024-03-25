@@ -95,6 +95,8 @@ const ImageUploader = ({ formData, setFormData, onChange }) => {
             try {
                 const imageUrl = await uploadImageToCloudinary(dataURLtoFile(imageData, 'image.png'));
                 setFormData({ ...formData, image: imageUrl });
+                // Call the onChange function after the image is uploaded
+                onChange(imageList);
             } catch (error) {
                 console.error('Error uploading image to Cloudinary:', error);
                 // Handle error here
