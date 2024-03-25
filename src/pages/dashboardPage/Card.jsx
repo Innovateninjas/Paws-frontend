@@ -108,7 +108,7 @@ const CardItem = ({ report, index, statusOptions, toggleExpand, setReports }) =>
       <div  >
         <ExpandMoreIcon
           onClick={() => toggleExpand(index)}
-          className="absolute bottom-2 right-3"
+          className={`absolute bottom-2 right-3 ${report.expanded ? 'rotate-180' : ''}`}
           />
       </div>
     </Card>
