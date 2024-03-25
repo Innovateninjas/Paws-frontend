@@ -31,13 +31,13 @@ function ContactInformationPage({
   }, [userData, setFormData]);
 
   return (
-  <div className="h-screen w-screen">
+  <div className="h-screen w-screen font-breeSerif">
     <Background />
-    <div className="flex flex-col justify-center items-center relative">
-      <div className="mt-24 relative w-full h-full flex flex-col items-center ">
-        <h1 className="text-center mt-[20px] pb-1 z-[3] text-indigo-900 font-bold tracking-wide text-[1.6em] underline">CONTACT DETAILS</h1>
+    <div className=" flex flex-col justify-center items-center relative">
+      <div className="mt-24 relative w-full h-screen gap-[20px] flex flex-col items-center ">
+        <h1 className="text-center mt-[20px] pb-1 z-[3] text-[#0B0553DE] font-black tracking-wide text-[1.6em] underline">CONTACT DETAILS</h1>
 
-     <div className="bg-slate-200 w-[90%] mt-[10px]  p-5 rounded-3xl bg-opacity-45 backdrop-blur-[6px] flex flex-col justify-evenly">
+     <div className="bg-slate-100 w-[90%] p-5 rounded-3xl bg-opacity-50 backdrop-blur-[6px] flex flex-col justify-evenly">
    <div className="flex flex-col gap-[10px]">
         <label className="font-extrabold text-[#0B0553DE] pl-3 text-xl">
           Name :
@@ -89,9 +89,9 @@ function ContactInformationPage({
 </div>
         </div>
         <p className="text-breeSerif font-medium text-center w-9/10 mx-auto text-blue-900 cursor-pointer underline" onClick={() => setModalIsOpen(true)}>Learn why we need that data</p>
-        <div className="flex justify-between w-full">
+        <div className="flex justify-evenly  w-full">
           <Button text="Back" clas="bg-blue-900 text-white" onClick={() => {console.log('Clicked on Back');}}/>
-          <Button text="Submit" clas="bg-blue-900 text-white" onClick={(e) => {
+          <Button text="Submit" clas=" bg-gradient-to-b from-indigo-300 to-indigo-800 text-baloo" onClick={(e) => {
             if (validatePage()) {
               handleNextPage();
               handleSubmit(e);
