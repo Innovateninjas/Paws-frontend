@@ -2,9 +2,9 @@ import React, { useContext, useEffect, useState } from "react";
 import Rodal from 'rodal';
 import 'rodal/lib/rodal.css';
 import { UserContext } from "../../../contexts/UserContext";
-import styles from "./ContactInformationPage.module.css"
 import InputField from "../../../Components/InputsFields/bigInputs";
-import { Watch } from "react-loader-spinner";
+import Background from "../../../Components/backgroundComponent/Background";
+import Button from "../../../Components/tailwindButton/Button";
 
 function ContactInformationPage({
   formData,
@@ -31,24 +31,12 @@ function ContactInformationPage({
   }, [userData, setFormData]);
 
   return (
-    <div className={styles.main}>
-      {userLoading && ( // Render loading spinner while user data is loading
-        <div className={styles.spinners_wrap}>
-          <h2 style={{ fontFamily: "cursive", fontSize: "2rem" }}>Loading...</h2>
-          <Watch
-            visible={true}
-            height={80}
-            width={80}
-            radius={40}
-            color="#4fa94d"
-            ariaLabel="watch-loading"
-            wrapperClass={styles.spinner}
-          />
-        </div>
-      )}
-
-      <div className={styles.wrap}>
-        <h1 className={styles.heading}>Contact Details</h1>
+  <div className="h-screen w-screen">
+    <Background />
+    <div className="flex flex-col justify-center items-center relative">
+      <div className="mt-24 relative w-full h-full flex flex-col items-center">
+        <h1 className="font-baijam text-2xl font-black mb-5 text-purple-950 drop-shadow-md">CONTACT DETAILS</h1>
+        <div className="bg-white">
         <label>
           Name:
           <InputField
@@ -94,30 +82,30 @@ function ContactInformationPage({
           <div className="error">{errors.username}</div>
         </label>
         <br />
-        <p className={styles.para} onClick={() => setModalIsOpen(true)}>Learn why we need that data</p>
-        <div className={styles.buttons}>
-          <button
-            className={styles.customButton}
-          >
-            Back
-          </button>
-          <button
-            className={styles.customButton}
-            onClick={(e) => {
-              if (validatePage()) {
-                handleNextPage();
-                handleSubmit(e);
-              }
-            }}
-          >
-            Submit
-          </button>
+        </div>
+        <p className="text-breeSerif font-medium text-center w-9/10 mx-auto text-blue-900 cursor-pointer underline" onClick={() => setModalIsOpen(true)}>Learn why we need that data</p>
+        <div className="flex justify-between w-full">
+          <Button text="Back" clas="bg-blue-900 text-white" onClick={() => {console.log('Clicked on Back');}}/>
+          <Button text="Submit" clas="bg-blue-900 text-white" onClick={(e) => {
+            if (validatePage()) {
+              handleNextPage();
+              handleSubmit(e);
+            }
+          }}/>
         </div>
       </div>
-      <Rodal visible={modalIsOpen} animation="zoom" showCloseButton closeMaskOnClick onClose={() => { setModalIsOpen(false) }} closeOnEsc className={styles.modal} width={350}>
-        <p className={styles.modalText}>Your name, email, and phone number are essential for us to contact you and coordinate the rescue process effectively. Providing accurate information will help us rescue animals promptly and ensure their safety and well-being. Thank you for your cooperation.</p>
+      <Rodal visible={modalIsOpen} 
+        animation="zoom" 
+        showCloseButton 
+        closeMaskOnClick 
+        onClose={() => { setModalIsOpen(false) }} 
+        closeOnEsc 
+        className="bg-black bg-opacity-60 backdrop-blur-md" 
+        width={320} height={290} >
+        <p className="font-breeSerif text-xl font-normal text-balance">Your name, email, and phone number are essential for us to contact you and coordinate the rescue process effectively. Providing accurate information will help us rescue animals promptly and ensure their safety and well-being. Thank you for your cooperation.</p>
       </Rodal>
     </div>
+  </div>
   );
 }
 
