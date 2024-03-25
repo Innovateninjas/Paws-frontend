@@ -39,9 +39,9 @@ function AnimalDetailsPage({
 
   return (
     // A MASTER CONTAINER
-    <div className=" bg-gradient-to-b from-green-200 to-lime-300 relative z-10 w-full p-4 flex flex-col gap-5 justify-center overflow-x-hidden">
+    <div >
     <Background/>
-      <h1 className="text-center pb-1 z-[3] text-indigo-900 font-bold tracking-wide text-[2em] underline">
+      <h1 className="text-center mt-[20px] pb-1 z-[3] text-indigo-900 font-bold tracking-wide text-[2em] underline">
         Describe The Issue
       </h1>
       <Tooltip
@@ -51,7 +51,7 @@ function AnimalDetailsPage({
         disableStyleInjection={true}
       />
       {/* contentsContainer */}
-      <div className="relative z-[3] flex flex-col gap-5 mb-20  ">
+      <div className="relative z-[3] flex flex-col p-4 gap-5 mb-20  ">
       <div className="p-[10px] flex flex-col gap-[10px] rounded-3xl   bg-opacity-60 bg-slate-300 overflowX-scroll ">
  
 

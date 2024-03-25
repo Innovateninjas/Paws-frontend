@@ -3,7 +3,7 @@ import React from 'react'
 const Background = () => {
   return (
     
-   <div className="z-2">
+    <div className="z-[-2] p-4 h-screen bg-gradient-to-b from-green-200 to-lime-300 fixed top-0 w-full ">
     <div className="absolute top-0 left-[-10%] w-1/2 z-0">
       <svg
         width="355"
