@@ -18,7 +18,6 @@ module.exports = {
         bayon: ['Bayon', 'sans-serif'], 
         breeSerif: ['BreeSerif', 'sans-serif'], 
         ChauPhilomeneOne: ['Chau Philomene One', 'sans-serif'],
-        Candle: ['Candal', 'sans-serif'],
       },
       boxShadow: {
         custom: '1px 1px 2px black',

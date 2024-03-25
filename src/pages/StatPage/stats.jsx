@@ -2,9 +2,8 @@ import React from 'react'
 
 const Stats = () => {
   return (
-    <div>
-      <h1>coming soon..</h1>
-        <h1> stats page for ngo </h1>
+    <div className="fixed top-0 left-0 w-screen h-screen bg-gradient-to-b from-dashboard-gradient-top to-dashboard-gradient-bottom z-0">
+      
     </div>
   )
 }
