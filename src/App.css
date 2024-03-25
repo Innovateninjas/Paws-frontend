@@ -24,11 +24,6 @@ body {
 }
 
 @font-face {
-    font-family: 'Candal';
-    src: url('../public//fonts/Candal.ttf') format('truetype');
-}
-
-@font-face {
     font-family: 'Bai Jamjuree';
     src: url('../public//fonts/BaiJamjuree.ttf') format('truetype');
 }
