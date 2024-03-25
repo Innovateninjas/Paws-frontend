@@ -2,7 +2,6 @@
 import React from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { handleStatusChange } from '../../../Components/utils/Functions/statusUpdater';
 import styles from './Card.module.css';
@@ -11,41 +10,41 @@ const CardItem = ({ report, index, statusOptions, toggleExpand, setReports }) =>
   return (
     <Card
       key={report.id}
-      className={`${styles.card} ${report.expanded ? styles.expanded : ''}`}
-      style={{ // Apply inline styles for customization
+      className={`shadow-dashBoardCardShadow   ${report.expanded ? styles.expanded : ''}`}
+      style={{ 
+        display: 'flex',
+        flexDirection: 'column',
         position: 'relative',
-        backgroundColor: '#F0F0F0', // Change background color
-        borderRadius: '15px', // Adjust border radius 
-        boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)', // Add box shadow
-        marginBottom: '20px', // Add some space between cards
-        cursor: 'pointer', // Change cursor on hover
-        opacity: '0.9',
-        transition: 'transform 0.3s', // Add transition effect
-        '&:hover': { // Apply styles on hover
-          boxShadow: '10px 10px 10px solid black', // Adjust box shadow on hover
-        },
+        border: '1px solid #75757575', 
+        backgroundImage: 'linear-gradient(to bottom ,#1E85E420,#1E85E440)',
+        borderRadius: '15px', 
+        marginBottom: '30px', 
+        cursor: 'pointer', 
+        opacity: '0.8',
+        transition: 'transform 0.3s', 
+        boxShadow: '0px 28.052980422973633px 28.052980422973633px 0px #1E85E426',
       }}
     >
       <CardContent >
-        <img src={report.image} alt={report.description} className={styles.incidentImage} />
-        <Typography gutterBottom variant="h5" component="div">
-          <span style={{
-            display: "inline-block",
-            fontWeight: "semiBold",
-            fontSize: window.innerWidth <= 768 ? "20px" : "30px",
-            textAlign: "center"
-          }}>Animal Type:</span>
-          <span style={{
-            display: "inline-block",
-            fontSize: "20px"
-          }}>
+        <div className="flex justify-center " >
+    <img
+      src={report.image}
+      alt={report.description}
+      className="h-[12.5rem] w-[18.3rem] rounded-[17px] object-cover object-center shadow-dashBoardCardImageShadow mb-4"
+    />
+  </div>
+        <p >
+          <span 
+           className="text-center  text-[25px] font-breeSerif "
+          >Animal Type : </span>
+
+          <span
+          className='text-center text-[25px] font-breeSerif'>
             {report.animal_type}
           </span>
-        </Typography>
+        </p>
 
-        <Typography
-          variant="body1"
-          color="text.primary"
+        <p
           style={{
             fontSize: window.innerWidth <= 768 ? '14px' : '20px',
           }}>
@@ -53,89 +52,44 @@ const CardItem = ({ report, index, statusOptions, toggleExpand, setReports }) =>
             href={`https://www.google.com/maps/search/?api=1&query=${report.latitude},${report.longitude}`}
             target="_blank"
             rel="noopener noreferrer"
-            style={{ color: 'blue' }} >
+            className='text-[#40025D] underline text-[15px] leading-relaxed ' >
             <b>Click here to get directions</b>
           </a>
-        </Typography>
-        <Typography
-          variant="body1"
-          color="text.primary"
-          style={{
-            fontSize: window.innerWidth <= 768 ? '14px' : '20px'
-          }}>
+        </p>
+        <p className="text-[#0B0553F5] font-ChauPhilomeneOne leading-relaxed text-[17px]">
           Landmark : {report.landmark}
-        </Typography>
+        </p>
 
         {report.expanded && (
           <>
-            <Typography
-              variant="body1"
-              color="text.primary"
-              style={{
-                fontSize: window.innerWidth <= 768 ? '14px' : '20px'
-              }}>
+            <p className="text-[#0B0553F5] font-ChauPhilomeneOne leading-relaxed text-[17px]" >
               Description :  {report.description}
-            </Typography>
+            </p >
 
-            <Typography
-              variant="body1"
-              color="text.primary"
-              style={{
-                fontSize: window.innerWidth <= 768 ? '14px' : '20px',
-              }}>
+            <p className="text-[#0B0553F5] font-ChauPhilomeneOne leading-relaxed text-[17px]">
               Condition : {report.condition}
-            </Typography>
-            
-            <Typography
-              variant="body1"
-              color="text.primary"
-              style={{
-                fontSize: window.innerWidth <= 768 ? '14px' : '20px',
-              }}>
+            </p>
+            <p className="text-[#0B0553F5] font-ChauPhilomeneOne leading-relaxed text-[17px]">
              Number of Animals : {report.numberOfAnimals==="More"|| report.numberOfAnimals==="more"? "More than two":`${report.numberOfAnimals}`}
-            </Typography>
+            </p>
 
-            <Typography
-              variant="body1"
-              color="text.primary"
-              style={{
-                fontSize: window.innerWidth <= 768 ? '14px' : '20px'
-              }}>
+            <p className="text-[#0B0553F5] font-ChauPhilomeneOne leading-relaxed text-[17px]">
               Name : {report.user_name}
-            </Typography>
+            </p>
 
-            <Typography
-              variant="body1"
-              color="text.primary"
-              style={{
-                fontSize: window.innerWidth <= 768 ? '14px' : '20px'
-              }}>
+            <p className="text-[#0B0553F5] font-ChauPhilomeneOne leading-relaxed text-[17px]">
               Phone Number : {report.user_phone}
-            </Typography>
+            </p>
 
-            <Typography
-              variant="body1"
-              color="text.primary"
-              style={{
-                fontSize: window.innerWidth <= 768 ? '14px' : '20px'
-              }}>
+            <p className="text-[#0B0553F5] font-ChauPhilomeneOne leading-relaxed text-[17px]">
               Email : {report.user_email}
-            </Typography>
-            <Typography
-              variant="body1"
-              color="text.primary"
-              style={{
-                fontSize: window.innerWidth <= 768 ? '14px' : '20px'
-              }}>
+            </p>
+            <p className="text-[#0B0553F5] font-ChauPhilomeneOne leading-relaxed text-[17px]">
               Reported At : {report.reported_time}
-            </Typography>
+            </p>
+            
 
-            <Typography
-              variant="body1"
-              color="text.primary"
-              style={{
-                fontSize: window.innerWidth <= 768 ? '14px' : '20px', paddingLeft: '0px'
-              }}>
+            <p className="text-[#0B0553F5] font-ChauPhilomeneOne leading-relaxed text-[17px]">
               Status:
               <select
                 value={report.status || ''}
@@ -151,7 +105,7 @@ const CardItem = ({ report, index, statusOptions, toggleExpand, setReports }) =>
                   </option>
                 ))}
               </select>
-            </Typography>
+            </p>
           </>
         )}
       </CardContent>
