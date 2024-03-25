@@ -68,7 +68,7 @@ function Dashboard() {
         </h2>
 
         {/* Render loading skeleton or report cards */}
-        {true ? (
+        {isLoading ? (
           // Loading Skeletons
           <div>
             <DashboardSkeleton />
