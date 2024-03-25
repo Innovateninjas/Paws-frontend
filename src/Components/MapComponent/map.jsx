@@ -13,21 +13,14 @@ const Map = ({ zoom = 13, customCenter }) => {
     }, [customCenter]);
 
     return (
-        <div className="map-container">
-            <MapContainer
+        <div className="map-container w-full h-full">
+            <MapContainer className='w-[335px] h-full flex flex-col items-center justify-center rounded-lg'
                 key={key}
                 center={customCenter}
                 zoom={zoom}
                 attributionControl={false}
                 preferCanvas={false}
-                style={{
-                    width: '100%',
-                    height: '16vh',
-                    borderRadius: '10px',
-                    border: "3px solid #0a6d06",
-                    boxShadow: '0px 6px 12px rgba(0, 0, 0, 0.1)',
-                    zIndex:1,
-                }}
+                
             >
                 <TileLayer
                     url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
