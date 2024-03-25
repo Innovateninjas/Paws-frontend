@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import CardItem from "./CardComponent/Card";
+import CardItem from "./Card";
 import DashboardSkeleton from "../../Components/Skeletons/dashboard";
 import { NgoContext } from "../../contexts/NgoContext";
 import axios from "axios";

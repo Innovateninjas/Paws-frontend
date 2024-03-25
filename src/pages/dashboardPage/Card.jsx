@@ -3,14 +3,13 @@ import React from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { handleStatusChange } from '../../../Components/utils/Functions/statusUpdater';
-import styles from './Card.module.css';
+import { handleStatusChange } from '../../Components/utils/Functions/statusUpdater';
 
 const CardItem = ({ report, index, statusOptions, toggleExpand, setReports }) => {
   return (
     <Card
       key={report.id}
-      className={`shadow-dashBoardCardShadow   ${report.expanded ? styles.expanded : ''}`}
+      className={`shadow-dashBoardCardShadow   ${report.expanded ? 'h-auto' : ''}`}
       style={{ 
         display: 'flex',
         flexDirection: 'column',
@@ -44,10 +43,7 @@ const CardItem = ({ report, index, statusOptions, toggleExpand, setReports }) =>
           </span>
         </p>
 
-        <p
-          style={{
-            fontSize: window.innerWidth <= 768 ? '14px' : '20px',
-          }}>
+        <p >
           <a
             href={`https://www.google.com/maps/search/?api=1&query=${report.latitude},${report.longitude}`}
             target="_blank"
@@ -94,7 +90,7 @@ const CardItem = ({ report, index, statusOptions, toggleExpand, setReports }) =>
               <select
                 value={report.status || ''}
                 onChange={(e) => handleStatusChange(report.id, e.target.value, setReports)}
-                className={styles.select}
+                className="mx-4 rounded-lg shadow"
               >
                 <option value="" disabled>
                   Select Status
@@ -109,15 +105,11 @@ const CardItem = ({ report, index, statusOptions, toggleExpand, setReports }) =>
           </>
         )}
       </CardContent>
-      <div className={styles.expandIcon} >
+      <div  >
         <ExpandMoreIcon
           onClick={() => toggleExpand(index)}
-          className={styles.expandIcon}
-          style={{
-            position: 'absolute',
-            bottom: '10px',
-            right: '10px'
-          }} />
+          className="absolute bottom-2 right-3"
+          />
       </div>
     </Card>
   );
