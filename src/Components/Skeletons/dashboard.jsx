@@ -11,10 +11,10 @@ const DashboardSkeleton = props => (
         foregroundColor="#ffffff" // Set foreground color to white for better contrast
         {...props}
     >
-        <rect x="43" y="3" rx="15" ry="15" width="310" height="200" /> {/* Adjust x position */}
-        <rect x="43" y="210" rx="10" ry="10" width="200" height="20" /> {/* Adjust x position */}
-        <rect x="43" y="235" rx="10" ry="10" width="249" height="20" /> {/* Adjust x position */}
-        <rect x="43" y="262" rx="10" ry="10" width="284" height="20" /> {/* Adjust x position */}
+        <rect x="4" y="3" rx="15" ry="15" width="344" height="200" /> 
+        <rect x="7" y="210" rx="10" ry="10" width="220" height="20" /> 
+        <rect x="7" y="262" rx="10" ry="10" width="304" height="20" /> 
+        <rect x="7" y="235" rx="10" ry="10" width="249" height="20" /> 
     </ContentLoader>
 )
 
