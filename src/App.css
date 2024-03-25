@@ -27,3 +27,13 @@ body {
     font-family: 'Candal';
     src: url('../public//fonts/Candal.ttf') format('truetype');
 }
+
+@font-face {
+    font-family: 'Bai Jamjuree';
+    src: url('../public//fonts/BaiJamjuree.ttf') format('truetype');
+}
+
+.rodal-dialog {
+    background: linear-gradient(0deg, #c1dcf6 0%, #cce1f7 10%, #caeaee 100% ) !important;
+    border-radius: 1.5rem !important;
+}
