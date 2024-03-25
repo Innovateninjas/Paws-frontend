@@ -9,7 +9,7 @@ const CardItem = ({ report, index, statusOptions, toggleExpand, setReports }) =>
   return (
     <Card
       key={report.id}
-      className={`shadow-dashBoardCardShadow   ${report.expanded ? 'h-auto' : ''}`}
+      className={`shadow-dashBoardCardShadow  ${report.expanded ? 'h-auto' : ''}`}
       style={{ 
         display: 'flex',
         flexDirection: 'column',
@@ -19,17 +19,17 @@ const CardItem = ({ report, index, statusOptions, toggleExpand, setReports }) =>
         borderRadius: '15px', 
         marginBottom: '30px', 
         cursor: 'pointer', 
-        opacity: '0.8',
+        opacity: '0.97',
         transition: 'transform 0.3s', 
         boxShadow: '0px 28.052980422973633px 28.052980422973633px 0px #1E85E426',
       }}
     >
       <CardContent >
-        <div className="flex justify-center " >
+        <div className="flex justify-center  " >
     <img
       src={report.image}
       alt={report.description}
-      className="h-[12.5rem] w-[18.3rem] rounded-[17px] object-cover object-center shadow-dashBoardCardImageShadow mb-4"
+      className="h-[12.5rem] w-[18.3rem] rounded-[17px] object-cover object-center shadow-dashBoardCardImageShadow mb-4 "
     />
   </div>
         <p >
@@ -108,7 +108,7 @@ const CardItem = ({ report, index, statusOptions, toggleExpand, setReports }) =>
       <div  >
         <ExpandMoreIcon
           onClick={() => toggleExpand(index)}
-          className="absolute bottom-2 right-3"
+          className={`absolute bottom-2 right-3 ${report.expanded ? 'rotate-180' : ''}`}
           />
       </div>
     </Card>

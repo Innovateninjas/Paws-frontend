@@ -23,7 +23,3 @@ body {
     src: url('../public//fonts/ChauPhilomeneOne-Regular.ttf') format('truetype');
 }
 
-@font-face {
-    font-family: 'Candal';
-    src: url('../public//fonts/Candal.ttf') format('truetype');
-}
