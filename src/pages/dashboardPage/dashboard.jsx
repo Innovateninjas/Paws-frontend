@@ -57,7 +57,11 @@ function Dashboard() {
 
   return (
     <>
-      <div className="bg-gradient-to-b from-dashboard-gradient-top to-dashboard-gradient-bottom w-screen min-h-screen p-5 flex flex-col">
+      {/* Gradient background */}
+      <div className="fixed top-0 left-0 w-screen h-screen bg-gradient-to-b from-dashboard-gradient-top to-dashboard-gradient-bottom z-0"></div>
+
+      {/* Dashboard content */}
+      <div className="relative z-10 w-screen min-h-screen p-5 flex flex-col overflow-y-auto">
         {/* NGO Dashboard Title */}
         <h2 className="mb-5 mt-3 mx-auto text-5xl font-bayon line-heigh-[6.9rem] text-[#40025D] tracking-widest">
           NGO Dashboard
@@ -91,6 +95,7 @@ function Dashboard() {
         )}
       </div>
     </>
+
   );
 }
 
