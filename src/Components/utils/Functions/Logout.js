@@ -16,7 +16,6 @@ function Logout() {
     .then(() => {
       localStorage.clear(); // clears both userData and csrf token at once 
       navigate('/');
-      window.location.reload();
     })
     .catch((error) => {
       console.error(error);

@@ -1,25 +1,25 @@
+import axios from 'axios';
 
 export const handleStatusChange = async (reportId, newStatus, setReports) => {
     try {
-        console.log('reportId:', reportId);
-        const response = await fetch(`https://aniresfr-backend.vercel.app/api/animals/${reportId}/`, {
-            method: 'PATCH',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ status: newStatus }),
+        const currentTime = new Date().toISOString().replace(/Z$/, '');
+        const formattedTime = currentTime + 'Z';
+
+        const response = await axios.patch(`https://aniresfr-backend.vercel.app/api/animals/${reportId}/`, {
+            status: newStatus,
+            response_time: formattedTime
         });
 
-        if (response.ok) {
+        if (response.status === 200) {
             setReports((prevReports) =>
                 prevReports.map((report) =>
-                    report.id === reportId ? { ...report, status: newStatus } : report
+                    report.id === reportId ? { ...report, status: newStatus, response_time: formattedTime } : report
                 )
             );
         } else {
             console.error('Error updating status:', response.statusText);
         }
     } catch (error) {
-        console.error('Error updating status:', error);
+        console.error('Error updating status:', error.message);
     }
 };
