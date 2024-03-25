@@ -1,17 +1,18 @@
-// Dashboard.jsx
 import React, { useState, useEffect, useContext } from "react";
-import styles from "./dashboard.module.css";
-import CardItem from "./CardComponent/Card";
+import CardItem from "./Card";
 import DashboardSkeleton from "../../Components/Skeletons/dashboard";
 import { NgoContext } from "../../contexts/NgoContext";
 import axios from "axios";
 
 function Dashboard() {
+  
   const { NgoData } = useContext(NgoContext);
   const [reports, setReports] = useState([]);
   const [length, setLength] = useState();
   const [statusOptions] = useState(["Received", "In Progress", "Rescued"]);
   const [isLoading, setIsLoading] = useState(true);
+
+  // Fetch reports from the API
   useEffect(() => {
     const fetchReports = async () => {
       try {
@@ -47,6 +48,7 @@ function Dashboard() {
     fetchReports();
   }, [NgoData]);
 
+  // Function to toggle report card expansion
   const toggleExpand = (index) => {
     const updatedReports = [...reports];
     updatedReports[index].expanded = !updatedReports[index].expanded;
@@ -55,13 +57,15 @@ function Dashboard() {
 
   return (
     <>
-      <div className={styles.masterContainer}>
-        <h2 style={{ textAlign: "center", marginBottom: "20px", fontSize: "35px"  }}>
+      <div className="bg-gradient-to-b from-dashboard-gradient-top to-dashboard-gradient-bottom w-screen min-h-screen p-5 flex flex-col">
+        {/* NGO Dashboard Title */}
+        <h2 className="mb-5 mt-3 mx-auto text-5xl font-bayon line-heigh-[6.9rem] text-[#40025D] tracking-widest">
           NGO Dashboard
         </h2>
 
+        {/* Render loading skeleton or report cards */}
         {isLoading ? (
-          // Render loading skeleton when isLoading is true
+          // Loading Skeletons
           <div>
             <DashboardSkeleton />
             <DashboardSkeleton />
@@ -69,10 +73,11 @@ function Dashboard() {
             <DashboardSkeleton />
             <DashboardSkeleton />
           </div>
-        ) : (length === 0 ? (
-          <p style={{ fontSize: "13px" }}>NO REPORTS UPLOADED YET.</p>
+        ) : length === 0 ? (
+          // No reports assigned message
+          <p className="text-2xl text-center font-bayon tracking-widest mt-[15rem]">NO REPORTS ASSIGNED YET.</p>
         ) : (
-          // Render CardItem components when isLoading is false
+          // Render report cards
           reports.map((report, index) => (
             <CardItem
               key={report.id}
@@ -83,7 +88,7 @@ function Dashboard() {
               setReports={setReports}
             />
           ))
-        ))}
+        )}
       </div>
     </>
   );

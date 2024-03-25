@@ -33,7 +33,8 @@
     "react-tooltip": "^5.26.3",
     "reactive-button": "^1.3.15",
     "rodal": "^2.1.0",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "webpack": "^5.91.0"
   },
   "scripts": {
     "start": "react-scripts start",
