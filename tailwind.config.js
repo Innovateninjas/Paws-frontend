@@ -29,5 +29,8 @@ module.exports = {
   },
   plugins: [
   ],
+  corePlugins: {
+    scrollbarHide: true,
+  },
 }
 
