@@ -111,7 +111,7 @@ const ImageUploader = ({ formData, setFormData, onChange }) => {
             >
                 {({ onImageUpload, isDragging, dragProps }) => (
                     <div className="relative flex flex-col items-center p-5 rounded-8xl ">
-                    <div className="w-[23rem] h-[15rem] bg-white flex justify-center items-center p-4 rounded-3xl bg-opacity-65 backdrop-blur-md ">
+                    <div className="w-[23rem] h-[15rem] bg-white bg-opacity-30 flex justify-center border-1 items-center p-4 rounded-3xl  backdrop-blur-[6px] ">
                         {formData.image ? (
                             <img src={formData.image} alt="Uploaded" className="w-full h-full object-cover rounded-lg" />
                         ) : (
