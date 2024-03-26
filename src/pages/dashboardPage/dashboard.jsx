@@ -3,58 +3,62 @@ import CardItem from "./Card";
 import DashboardSkeleton from "../../Components/Skeletons/dashboard";
 import { NgoContext } from "../../contexts/NgoContext";
 import axios from "axios";
+import { onMessage } from "firebase/messaging";
+import { messaging } from '../../firebase';
 
 function Dashboard() {
   const { NgoData } = useContext(NgoContext);
   const [reports, setReports] = useState([]);
   const [length, setLength] = useState();
-  const [prevLength, setPrevLength] = useState(0); 
   const [statusOptions] = useState(["Received", "In Progress", "Rescued"]);
   const [isLoading, setIsLoading] = useState(true);
 
-  
-
-  // useEffect to fetch reports initially and set up interval for periodic fetching
   useEffect(() => {
-  const fetchReports = async () => {
-    try {
-      if (NgoData) {
-        const response = await axios.get(
-          `https://aniresfr-backend.vercel.app/api/animals/?assigned_to=${NgoData.email}`
-        );
-        const data = response.data;
-        const newDataLength = data.length;
-        setLength(newDataLength);
-        if (newDataLength > prevLength) {
-          const newReports = data.map((report) => ({
+    const fetchReports = async () => {
+      try {
+        if (NgoData) {
+          const response = await axios.get(
+            `https://aniresfr-backend.vercel.app/api/animals/?assigned_to=${NgoData.email}`
+          );
+          const data = response.data.reverse();
+          setLength(data.length);
+          const updatedReports = data.map((report) => ({
             ...report,
-            reported_time: new Date(report.reported_time).toLocaleString("en-US", {
-              year: "numeric",
-              month: "short",
-              day: "2-digit",
-              hour: "2-digit",
-              minute: "2-digit",
-              second: "2-digit",
-              hour12: true,
-            }),
+            reported_time: new Date(report.reported_time).toLocaleString(
+              "en-US",
+              {
+                year: "numeric",
+                month: "short",
+                day: "2-digit",
+                hour: "2-digit",
+                minute: "2-digit",
+                second: "2-digit",
+                hour12: true,
+              }
+            ),
             expanded: false,
           }));
-          setReports((prevReports) => [...prevReports, ...newReports]);
+          setReports(updatedReports);
           setIsLoading(false);
         }
-        setPrevLength(newDataLength);
+      } catch (error) {
+        console.error("Error fetching reports:", error);
       }
-    } catch (error) {
-      console.error("Error fetching reports:", error);
-    }
-  };
-  
-  fetchReports();
-  
-  // const interval = setInterval(fetchReports, 10000); // Fetch reports every 30 minutes
+    };
+    fetchReports();
 
-  // return () => clearInterval(interval);
-}, [NgoData, prevLength]);
+
+    const unsubscribe = onMessage(messaging, async (payload) => {
+      console.log("Background message received:", payload);
+      // Fetch reports again when a new report is added
+      await fetchReports();
+    });
+
+    // Clean up function
+    return () => {
+      unsubscribe();
+    };
+  }, [NgoData]);
 
   // Function to toggle report card expansion
   const toggleExpand = (index) => {
@@ -101,8 +105,8 @@ function Dashboard() {
             />
           ))
         )}
-         <div className="bottom-0 h-32 right-0 p-5">
-      </div>
+        <div className="bottom-0 h-32 right-0 p-5">
+        </div>
       </div>
     </>
   );
