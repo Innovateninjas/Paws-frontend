@@ -33,7 +33,7 @@ function ImageAndLocationPage({
         onChange={onChange}
       />
       <div className="w-[23rem]  z-[30] bg-white rounded-3xl bg-opacity-57 backdrop-blur-[5px] shadow-lg ring-1 ring-gray-300">
-      
+
       <div className=" flex-col justify-center items-center gap-6 p-4   ">
      <div className="w-full h-[200px] flex pb-5">
           <Suspense fallback={<MapSkeleton />}>

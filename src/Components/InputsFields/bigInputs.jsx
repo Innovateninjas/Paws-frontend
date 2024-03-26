@@ -24,30 +24,27 @@ function InputField({
     value = "",
     onChange,
     required,
-    backgroundColor,
-    outline,
-    margin = "none",
+    className,
     min,
-    boxShadow = "none"
 }) {
     // Apply styles dynamically based on props
-    const inputStyle = {
-        backgroundColor: backgroundColor || 'white', // Default background color to white if not provided
-        outline: outline ? '1px solid black' : 'none', // Apply outline style if outline prop is true
-        margin: margin,
-        boxShadow: boxShadow
-    };
+    // const inputStyle = {
+    //     backgroundColor: backgroundColor || 'white', 
+    //     outline: outline ? '1px solid black' : 'none', 
+    //     margin: margin,
+    //     boxShadow: boxShadow
+    // };
 
     if (type === 'textarea') {
         return (
             <textarea
-                className={styles.inputArea}
+                className={className}
                 type={type}
                 placeholder={placeholder}
                 value={value}
                 onChange={onChange}
                 required={required}
-                style={inputStyle}
+               
                 name={name}
             />
         );
@@ -55,13 +52,12 @@ function InputField({
     else if (type === 'date') {
         return (
             <input
-                className={styles.inputArea}
+                className={className}
                 type={type}
                 placeholder={placeholder}
                 value={value}
                 onChange={onChange}
                 required={required}
-                style={inputStyle}
                 name={name}
                 min={min}
             />
@@ -70,13 +66,12 @@ function InputField({
     else {
         return (
             <input
-                className={styles.input}
+                className={className}
                 type={type}
                 placeholder={placeholder}
                 value={value}
                 onChange={onChange}
                 required={required}
-                style={inputStyle}
                 name={name}
             />
         );

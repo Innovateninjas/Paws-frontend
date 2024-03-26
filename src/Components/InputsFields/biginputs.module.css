@@ -1,5 +1,5 @@
 /* InputField.module.css */
-.input {
+/* .input {
   display: flex;
   height: 46px;
   padding: 10px 17px;
@@ -18,7 +18,7 @@
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-}
+} */
 
 .inputArea {
   display: flex;
