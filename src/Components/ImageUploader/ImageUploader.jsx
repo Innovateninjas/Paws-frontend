@@ -6,7 +6,7 @@ import { uploadImageToCloudinary } from '../utils/Functions/imageUploader'; // I
 
 const ImageUploader = ({ formData, setFormData, onChange }) => {
     const [cameraActive, setCameraActive] = useState(false);
-    const [cameraFacingMode, setCameraFacingMode] = useState('user'); // 'user' for front camera, 'environment' for back camera
+    const [cameraFacingMode, setCameraFacingMode] = useState('environment'); // 'user' for front camera, 'environment' for back camera
     const videoRef = useRef(null);
 
     useEffect(() => {
