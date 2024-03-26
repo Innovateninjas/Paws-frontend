@@ -45,6 +45,7 @@ function NgoRegisterForm() {
           <h1>Join Us Today</h1>
           {/* NAME */}
           <InputField
+            className="flex h-16 w-72 items-center justify-center px-4 py-0.5 border border-gray-400 bg-gray-300 shadow-md m-0.5 rounded-2xl text-black text-lg"
             type="text"
             placeholder="Enter Your NGO's Name"
             value={orgName}
@@ -56,6 +57,7 @@ function NgoRegisterForm() {
           />
           {/* PHONE NUMBER */}
           <InputField
+            className="flex h-16 w-72 items-center justify-center px-4 py-0.5 border border-gray-400 bg-gray-300 shadow-md m-0.5 rounded-2xl text-black text-lg"
             type="number"
             placeholder="Phone Number"
             value={phoneNumber}
@@ -67,6 +69,7 @@ function NgoRegisterForm() {
           />
           {/* EMAIL */}
           <InputField
+            className="flex h-16 w-72 items-center justify-center px-4 py-0.5 border border-gray-400 bg-gray-300 shadow-md m-0.5 rounded-2xl text-black text-lg"
             type="email"
             placeholder="Email"
             value={email}
@@ -78,6 +81,7 @@ function NgoRegisterForm() {
           />
           {/* PASSWORD */}
           <InputField
+            className="flex h-16 w-72 items-center justify-center px-4 py-0.5 border border-gray-400 bg-gray-300 shadow-md m-0.5 rounded-2xl text-black text-lg"
             type="password"
             placeholder="Password"
             value={password}
@@ -90,6 +94,7 @@ function NgoRegisterForm() {
           {/* LOCATION */}
 
           <InputField
+            className="flex h-16 w-72 items-center justify-center px-4 py-0.5 border border-gray-400 bg-gray-300 shadow-md m-0.5 rounded-2xl text-black text-lg"
             type="text"
             placeholder="Address"
             value={lcation}
@@ -100,21 +105,7 @@ function NgoRegisterForm() {
           />
 
           <Creatable
-            styles={{
-              control: base =>
-              ({
-                ...base,
-                width: '300px',
-                border: '1px solid #b6b5b5',
-                height: '46px',
-                borderRadius: '10px',
-                padding: '10px 17px',
-                marginTop: '0.675rem',
-                fontSize: '19px',
-                fontWeight: '700'
-              })
-            }
-            }
+            className="flex h-16 w-72 items-center justify-center px-4 py-0.5 border border-gray-400 bg-gray-300 shadow-md m-0.5 rounded-2xl text-black text-lg"
             isMulti={true}
             placeholder="Animal Supported"
             options={AnimalList}
@@ -127,6 +118,7 @@ function NgoRegisterForm() {
           />
           {/* EMERGENCY CONTACT NUMBER */}
           <InputField
+            className="flex h-16 w-72 items-center justify-center px-4 py-0.5 border border-gray-400 bg-gray-300 shadow-md m-0.5 rounded-2xl text-black text-lg"
             type="number"
             placeholder="Emergency Contact Number"
             value={emergency}
@@ -137,6 +129,7 @@ function NgoRegisterForm() {
           />
           {/* WEBSITE LINK  */}
           <InputField
+            className="flex h-16 w-72 items-center justify-center px-4 py-0.5 border border-gray-400 bg-gray-300 shadow-md m-0.5 rounded-2xl text-black text-lg"
             type="text"
             placeholder="Website Link(optional)"
             value={websiteLink}
