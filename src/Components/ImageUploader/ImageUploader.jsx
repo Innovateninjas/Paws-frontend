@@ -113,14 +113,14 @@ const ImageUploader = ({ formData, setFormData, onChange }) => {
             >
                 {({ onImageUpload, isDragging, dragProps }) => (
                     <div className="relative flex flex-col items-center p-5 rounded-8xl ">
-                    <div className="w-[23rem] h-[15rem] bg-white bg-opacity-57  shadow-lg ring-1 ring-gray-300 flex justify-center border-1 items-center p-4 rounded-3xl  backdrop-blur-[6px] ">
+                    <div className={`w-[23rem] h-[15rem] bg-white bg-opacity-57 shadow-lg ring-1 ring-gray-300 flex justify-center border-1 items-center p-4 rounded-3xl backdrop-blur-[6px] ${formData.image && 'mb-10'}`}>
                         {formData.image ? (
-                            <img src={formData.image} alt="Uploaded" className="w-full h-full object-cover rounded-lg" />
+                            <img src={formData.image} alt="Uploaded" className="w-full h-full object-cover rounded-lg animate-fade-in" />
                         ) : (
                             <Camera className="text-gray-400 h-12 w-12" />
                         )}
                     </div>
-                    <div className="absolute bottom-0 flex justify-center space-x-4">
+                    <div className={`absolute bottom-0 flex justify-center space-x-4 transition-all duration-700 ease-in-out transform ${formData.image ? 'translate-y-1 delay-100' : 'delay-0'}`}>
                         <button
                             className={`text-base mt-3 text-white bg-gradient-to-b from-blue-300 to-blue-800 focus:outline-none rounded-[30px] px-5 py-4 bg-opacity-20 font-semibold ${isDragging && 'opacity-50'}`}
                             onClick={handleCameraCapture}
@@ -141,16 +141,22 @@ const ImageUploader = ({ formData, setFormData, onChange }) => {
 
             {cameraActive && (
                 <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75">
-                    <div className="bg-white p-4 rounded-lg shadow-lg">
-                        <video ref={videoRef} className="w-full h-full" style={{ height: '50vh' }} />
-                        <div className="flex justify-center mt-4">
-                            <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 border border-green-700 rounded mr-2" onClick={captureImage}>Capture</button>
-                            <button className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 border border-gray-700 rounded" onClick={toggleCameraFacingMode}>
-                                {cameraFacingMode === 'user' ? <CameraReels /> : <Camera />}
-                            </button>
-                        </div>
+                <div className="w-full h-[29rem]  z-[30] bg-white rounded-3xl bg-opacity-57 backdrop-blur-[5px] shadow-lg ring-1 ring-gray-300">
+                <button 
+                        className="absolute top-0 right-0 text-base mt-3 text-white bg-gradient-to-b from-red-300 to-red-500 focus:outline-none rounded-[30px] mr-3 px-5 py-3 bg-opacity-20 font-semibold" 
+                        onClick={() => setCameraActive(false)}
+                    >
+                        X
+                    </button>
+                    <video ref={videoRef} className="w-full mt-[4rem] " style={{ height: "20rem"}} />
+                    <div className="flex justify-center mt-1">
+                        <button className="text-base mt-3 text-white bg-gradient-to-b from-blue-300 to-emerald-500 focus:outline-none rounded-[30px] mr-3 px-3 py-4 bg-opacity-20 font-semibold" onClick={captureImage}>Capture</button>
+                        <button className="text-base mt-3 text-white bg-gradient-to-b from-blue-300 to-emerald-500 focus:outline-none rounded-[30px] px-5 py-4 bg-opacity-20 font-semibold" onClick={toggleCameraFacingMode}>
+                            {cameraFacingMode === 'environment' ? <CameraReels /> : <Camera />}
+                        </button>
                     </div>
                 </div>
+            </div>
             )}
         </div>
     );

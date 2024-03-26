@@ -29,8 +29,26 @@ module.exports = {
       opacity: {
         '57': '0.57',
       },
+      transitionDelay: {
+          '0': '0ms',
+          '2000': '2000ms',
+        },
+      keyframes: {
+          'fade-in': {
+            '0%': { opacity: 0 },
+            '100%': { opacity: 1 },
+          }
+        },
+        animation: {
+          'fade-in': 'fade-in 0.5s ease-out',
+        }
+      }
     },
-  },
+    variants: {
+      extend: {
+        transitionDelay: ['hover', 'focus'],
+      },
+},
   plugins: [
   ],
   corePlugins: {

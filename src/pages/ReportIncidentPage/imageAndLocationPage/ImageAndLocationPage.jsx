@@ -24,7 +24,7 @@ function ImageAndLocationPage({
   return (
     <div className="relative z-[3] h-fit w-full flex flex-col gap-3 justify-center items-center overflow-x-hidden">
       <Background />
-      <h1 className=" mt-5 text-center pb-1 z-[3] text-indigo-900 font-bold tracking-wide text-[2em] underline">
+      <h1 className=" mt-5 text-center pb-1 pl-2 pr-2 z-[3] text-indigo-900 font-bold tracking-wide text-[1.5em] underline">
         Upload Image and Location
       </h1>
       <ImageUploader
@@ -43,7 +43,7 @@ function ImageAndLocationPage({
       
       <div className="w-[23rem]  z-[30] justify-center items-center flex flex-col justify-items-center">
         <label>
-          <p className="text-base  font-semibold pb-3 pr-1 text-indigo-900 border-1">
+          <p className="text-base  font-semibold pb-3 pr-5 text-indigo-900 border-1 overflow-wrap break-word">
             Address: {formData.address ? formData.address : "loading.."}
           </p>
           <textarea
