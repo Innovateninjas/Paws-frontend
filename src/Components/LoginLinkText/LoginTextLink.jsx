@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import styles from "./LoginTextLink.module.css";
 
 /**
  * A component representing a text link for logging in.
@@ -16,7 +15,7 @@ import styles from "./LoginTextLink.module.css";
 function LoginTextLink({ text, link, linkText, position, topPosition, bottomPosition ,leftPosition, rightPosition}) {
     return (
         <p
-            className={styles.text}
+            className="absolute text-gray-700 text-[16px] font-bold"
             style={{
                 position: position || "absolute",
                 top: topPosition,
@@ -26,7 +25,7 @@ function LoginTextLink({ text, link, linkText, position, topPosition, bottomPosi
             }}
         >
             {text || "Already have an account?"}
-            <Link to={link || "/login"} className={styles.LoginNow}>
+            <Link to={link || "/login"} className="text-blue-700 text-sm font-medium underline inline-block mx-1">
                 {linkText || "Login now!"}
             </Link>
         </p>
