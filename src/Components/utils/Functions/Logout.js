@@ -7,19 +7,25 @@ function Logout() {
 
   useEffect(() => {
     const csrftoken = localStorage.getItem("csrftoken");
+    if (!csrftoken) {
+      return;
+    }
+
     axios.post('https://aniresfr-backend.vercel.app/logout/', {}, {
       headers: {
-          'Authorization': `Token ${csrftoken}`,
+        'Authorization': `Token ${csrftoken}`,
       },
       withCredentials: true
     })
-    .then(() => {
-      localStorage.clear(); // clears both userData and csrf token at once 
-      navigate('/');
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+      .then(() => {
+        navigate('/');
+      })
+      .catch((error) => {
+        console.error(error);
+      })
+      .finally(() => {
+        localStorage.clear(); // clears both userData and csrf token at once 
+      });
   }, [navigate]);
 
   return null;
