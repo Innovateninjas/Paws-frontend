@@ -113,7 +113,7 @@ const ImageUploader = ({ formData, setFormData, onChange }) => {
             >
                 {({ onImageUpload, isDragging, dragProps }) => (
                     <div className="relative flex flex-col items-center p-5 rounded-8xl ">
-                    <div className="w-[23rem] h-[15rem] bg-white bg-opacity-30 flex justify-center border-1 items-center p-4 rounded-3xl  backdrop-blur-[6px] ">
+                    <div className="w-[23rem] h-[15rem] bg-white bg-opacity-57  shadow-lg ring-1 ring-gray-300 flex justify-center border-1 items-center p-4 rounded-3xl  backdrop-blur-[6px] ">
                         {formData.image ? (
                             <img src={formData.image} alt="Uploaded" className="w-full h-full object-cover rounded-lg" />
                         ) : (
@@ -122,14 +122,14 @@ const ImageUploader = ({ formData, setFormData, onChange }) => {
                     </div>
                     <div className="absolute bottom-0 flex justify-center space-x-4">
                         <button
-                            className={`text-base mt-3 text-white bg-gradient-to-b from-emerald-300 to-emerald-800 focus:outline-none rounded-[30px] px-5 py-4 bg-opacity-20 font-semibold ${isDragging && 'opacity-50'}`}
+                            className={`text-base mt-3 text-white bg-gradient-to-b from-blue-300 to-blue-800 focus:outline-none rounded-[30px] px-5 py-4 bg-opacity-20 font-semibold ${isDragging && 'opacity-50'}`}
                             onClick={handleCameraCapture}
                             {...dragProps}
                         >
                             {isDragging ? 'Uploading...' : 'Take Photo'}
                         </button>
                         <button
-                            className="text-base mt-3 text-white bg-gradient-to-b from-emerald-300 to-emerald-800 focus:outline-none rounded-[30px] px-5 py-4 bg-opacity-20 font-semibold"
+                            className="text-base mt-3 text-white bg-gradient-to-b from-blue-300 to-emerald-500 focus:outline-none rounded-[30px] px-5 py-4 bg-opacity-20 font-semibold"
                             onClick={onImageUpload}
                         >
                             Add Photo

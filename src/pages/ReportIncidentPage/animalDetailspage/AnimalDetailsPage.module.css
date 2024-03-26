@@ -1,15 +1,8 @@
-
-.contentsContainer {
-  position: relative;
-  z-index: 3;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  margin-bottom: 100px;
-  
+::-webkit-scrollbar{
+  display: none;
 }
  input[type="radio"]:checked + label img {
-  border: 4px solid #c3db7a;
+  border: 2px solid #c3db7a;
   border: 8.12px solid rgba(255, 255, 255, 1);
   box-shadow: 6px 5px 2px 2px rgba(0, 0, 0, 0.2);
 }
