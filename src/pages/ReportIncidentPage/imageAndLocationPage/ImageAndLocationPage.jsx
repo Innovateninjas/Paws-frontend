@@ -41,11 +41,12 @@ function ImageAndLocationPage({
           </Suspense>
         </div>
       
-      <div className="w-[23rem]  z-[30] justify-center items-center flex flex-col justify-items-center">
+      <div className=" z-[30] justify-center flex flex-col justify-items-center gap-3">
         <label>
-          <p className="text-base  font-semibold pb-3 pr-5 text-indigo-900 border-1 overflow-wrap break-word">
+          <p className="text-base font-semibold pr-5 text-indigo-900 border-1 overflow-wrap break-word">
             Address: {formData.address ? formData.address : "loading.."}
           </p>
+          </label>
           <textarea
             className="w-[21rem] flex items-center justify-center text-[1rem] p-2 rounded-3xl"
             name="landmark"
@@ -54,7 +55,7 @@ function ImageAndLocationPage({
             rows={1}
             placeholder="Enter a landmark"
           ></textarea>
-        </label>
+        
       </div>
       </div>
 </div>
