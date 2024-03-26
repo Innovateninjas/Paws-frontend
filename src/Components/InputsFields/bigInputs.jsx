@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import styles from "./biginputs.module.css";
 
 /**
  * InputField component for text input.
@@ -27,13 +26,6 @@ function InputField({
     className,
     min,
 }) {
-    // Apply styles dynamically based on props
-    // const inputStyle = {
-    //     backgroundColor: backgroundColor || 'white', 
-    //     outline: outline ? '1px solid black' : 'none', 
-    //     margin: margin,
-    //     boxShadow: boxShadow
-    // };
 
     if (type === 'textarea') {
         return (
@@ -86,7 +78,7 @@ InputField.propTypes = {
     /** The type of input field (e.g., "text", "password"). */
     type: PropTypes.string.isRequired,
     /** The value of the input field. */
-    value: PropTypes.string.isRequired,
+    //value: PropTypes.string.isRequired,
     /** Function to call when the input value changes. */
     onChange: PropTypes.func.isRequired,
     /** Whether the input field is required. */
@@ -105,11 +97,11 @@ InputField.defaultProps = {
     /** The default value of the name attribute. */
     name: "none",
     /** The default value of the outline prop. */
-    outline: false,
-    /** The default value of the margin prop. */
-    margin: "none",
-    /** The default value of the boxShadow prop. */
-    boxShadow: "none"
+    //outline: false,
+    ///** The default value of the margin prop. */
+    //margin: "none",
+    ///** The default value of the boxShadow prop. */
+    //boxShadow: "none"
 };
 
 export default InputField;

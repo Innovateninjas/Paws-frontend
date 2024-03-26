@@ -37,6 +37,7 @@ function LoginRegisterForm() {
                     <>
                         <h1 className={styles.heading}>Create account</h1>
                         <InputField
+                            className="flex h-16 w-72 items-center justify-center px-4 py-2 border border-gray-400 bg-gray-300 shadow-md m-0.5 rounded-2xl text-black text-lg"
                             type="text"
                             placeholder="Full Name"
                             value={name}
@@ -47,6 +48,7 @@ function LoginRegisterForm() {
                             required
                         />
                         <InputField
+                            className="flex h-16 w-72 items-center justify-center px-4 py-2 border border-gray-400 bg-gray-300 shadow-md m-0.5 rounded-2xl text-black text-lg"
                             type="tel"
                             placeholder="Phone Number"
                             value={phone_number}
@@ -60,6 +62,7 @@ function LoginRegisterForm() {
                 )}
                 {isLogin && <h1 className={styles.heading}> Welcome Back</h1>}
                 <InputField
+                    className="flex h-16 w-72 items-center justify-center px-4 py-2 border border-gray-400 bg-gray-300 shadow-md m-0.5 rounded-2xl text-black text-lg"
                     type="email"
                     placeholder="Email"
                     value={email}
@@ -70,6 +73,7 @@ function LoginRegisterForm() {
                     required
                 />
                 <InputField
+                    className="flex h-16 w-72 items-center justify-center px-4 py-2 border border-gray-400 bg-gray-300 shadow-md m-0.5 rounded-2xl text-black text-lg"
                     type="password"
                     placeholder="Password"
                     value={password}
