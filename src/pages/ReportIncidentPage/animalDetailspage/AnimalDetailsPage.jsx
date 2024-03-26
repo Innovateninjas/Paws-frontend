@@ -52,16 +52,14 @@ function AnimalDetailsPage({
       />
       {/* contentsContainer */}
       <div className="relative z-[3] flex flex-col p-4 gap-5 mb-20  ">
-      <div className="p-[10px] flex flex-col gap-[10px] rounded-3xl   bg-opacity-60 bg-slate-300 overflowX-scroll ">
- 
-
+      <div className=" p-[10px] border-1 flex flex-col gap-[10px] rounded-3xl shadow-lg ring-1 ring-gray-300 bg-opacity-57 bg-white overflowX-scroll backdrop-blur-[6px]">
           <label>
             <p className="font-extrabold  text-indigo-900 pl-5 text-[1.4rem] leading-normal tracking-wider overflow-scroll">
               {" "}
               Animal Type:
             </p>
           </label>
-          <div className="flex overflow-x-auto gap-4 scrollbar-hide z-[20]">
+          <div className="flex overflow-x-auto gap-4 scrollbar-hide z-[5]">
             <div
               className={isDog ? "show-tooltip" : ""}
               data-tooltip-html="<b>Predicted<br>To be a dog</b>"
@@ -161,7 +159,8 @@ function AnimalDetailsPage({
           )}
         </div>
         {/* HOW MANY ANIMALS */}
-        <div className="p-2 flex flex-col gap-2 rounded-[30px] bg-opacity-60 bg-lime-300 ">
+        
+        <div className="bg-white bg-opacity-57 shadow-lg ring-1 ring-gray-300 flex flex-col gap-2 justify-center border-1 p-4 rounded-3xl backdrop-blur-[6px]">
           <label>
             <p className="font-extrabold  text-indigo-900 pl-5 text-[1.4rem] leading-normal tracking-wider">
               {" "}
@@ -173,7 +172,7 @@ function AnimalDetailsPage({
               <p>One</p>
               <input
                 type="radio"
-                className="w-[35px] h-[35px] "
+                className="w-9 h-9 "
                 name="numberOfAnimals"
                 value="One"
                 checked={
@@ -188,7 +187,7 @@ function AnimalDetailsPage({
 
               <input
                 type="radio"
-                className="w-[35px] h-[35px]"
+                className="w-9 h-9"
                 name="numberOfAnimals"
                 value="Two"
                 checked={
@@ -201,7 +200,7 @@ function AnimalDetailsPage({
             <label className="flex flex-col items-center justify-center text-lg font-medium">
               <p>More</p>
               <input
-                className="w-[35px] h-[35px]"
+                className="w-9 h-9"
                 type="radio"
                 name="numberOfAnimals"
                 value="More"
@@ -216,27 +215,25 @@ function AnimalDetailsPage({
           <small></small>
         </div>
         {/* DESCRIBE WHAT  HAPPENED */}
-        <div className="flex flex-col justify-center  rounded-[30px] p-[10px] bg-gradient-to-b from-gradient-start via-gradient-middle to-gradient-end space-y-5 border-0">
+        <div className="bg-white bg-opacity-57 shadow-lg ring-1 ring-gray-300 flex flex-col justify-center border-1 gap-2 p-5 rounded-3xl backdrop-blur-[6px]">
           <label>
-            <p className="font-extrabold  text-indigo-900 pl-5 text-[1.4rem] leading-normal tracking-[0.02rem]">
+            <p className="font-extrabold  text-indigo-900 pl-5 text-[1.3rem] leading-normal tracking-[0.02rem]">
               Describe what Happened:
             </p>
           </label>
           <textarea
-            className="p-2 m-auto rounded-[10px] border-0 outline-none text-gray-800 w-[90%] h-16 "
+            className="pt-3 pl-2  m-auto rounded-[10px] border-0 outline-none text-gray-800 w-[90%] h-12 "
             name="description"
             value={formData.description || formData.predictedDescription}
             onChange={handleChange}
             rows={4}
             placeholder="Describe here"
           ></textarea>
-          {/* Changed "div" tag to "small" tag and className="error" to  className={styles.error} */}
-
           <small className="text-sm text-red-500">{errors.description}</small>
         </div>
 
         {/* DESCRIBE SEVERITY */}
-        <div className="flex flex-col justify-center rounded-3xl gap-[10px] p-[10px] bg-opacity-60 bg-white border border-solid border-gray-400 border-opacity-60 ">
+        <div className="bg-white bg-opacity-57 shadow-lg ring-1 ring-gray-300 flex flex-col gap-2 justify-center border-1 p-5 rounded-3xl backdrop-blur-[6px]">
           <label>
             {" "}
             <p className="font-extrabold  text-indigo-900 pl-5 text-[1.4rem] leading-normal tracking-wider">
@@ -287,16 +284,14 @@ function AnimalDetailsPage({
                 Normal
               </label>
             </div>
-            {/* Changed "div" tag to "small" tag and className="error" to  className={styles.error} */}
           </label>
           <small className="text-sm text-red-500">{errors.condition}</small>
         </div>
-        
 
         {/* BUTTONS */}
         <div className="mt-4 w-full flex flex-wrap justify-evenly gap-4">
-            <Button text="Back" clas="bg-slate-200"  onClick={handleBackPage}/>
-          <Button text="Next" clas="bg-gradient-to-b from-indigo-300 to-indigo-800"  onClick={handleNextPage}/>
+            <Button text="Back" clas=" text-base text-white focus:outline-none rounded-[30px] shadow-buttonShadow font-semibold bg-gradient-to-b from-green-300 to-green-800"  onClick={handleBackPage}/>
+          <Button text="Next" clas="text-base  text-white bg-gradient-to-b from-blue-300 to-blue-800 shadow-buttonShadow focus:outline-none rounded-[30px]  bg-opacity-20 font-semibold"  onClick={handleNextPage}/>
         </div>
       </div>
     </div>
