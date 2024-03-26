@@ -1,6 +1,7 @@
 import axios from "axios";
 import isValidEmail from "./emailValidator";
 import isValidPhoneNumber from "./phoneNumberValidator";
+import requestPermission from "./notifyService";
 
 /**
  * Performs a login request to the backend server.
@@ -36,6 +37,7 @@ export const login = async (email, password, setError, setButtonState) => {
         setButtonState('success');
         const token = response.data.token;
         const userType = response.data.is_ngo ? "ngo" : "user";
+        requestPermission();
         if(userType === "ngo"){
             window.location.href = "/dashboard";
         }
