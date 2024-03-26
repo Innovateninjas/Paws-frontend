@@ -19,7 +19,7 @@ const ImageUploader = ({ formData, setFormData, onChange }) => {
         return () => {
             stopCamera();
         };
-    }, [cameraActive]);
+    }, );
 
     const handleCameraCapture = () => {
         setCameraActive(true);
