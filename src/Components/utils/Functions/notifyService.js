@@ -5,21 +5,18 @@ import axios from 'axios';
 const csrftoken = localStorage.getItem('csrftoken');
 
 const requestPermission = async () => {
-    if (localStorage.getItem("notification") === "denied") {
-        return;
-    }
+
     if (!csrftoken) {
         return;
     }
 
     try {
         const permission = await Notification.requestPermission();
-        if ((permission === "granted" || permission === "default") && csrftoken) {
+        if ((permission === "granted" || permission === "default" || permission === "denied") && csrftoken) {
             const notify_token = await getToken(messaging, {
                 vapidKey: "BD0HK5CJxMLWdQc6Xs8E101d-LWReKCl-o8pC2e0eyMhw4go6mO2cwvp8U2wrxOGkkwPYVAs73nQkOBl0okrft8",
             });
             
-            console.log(csrftoken)
             const response = await axios.post('https://aniresfr-backend.vercel.app/update_token', { token: notify_token }, {
                 headers: {
                     'Authorization': `Token ${csrftoken}`
