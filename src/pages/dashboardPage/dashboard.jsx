@@ -51,9 +51,9 @@ function Dashboard() {
   
   fetchReports();
   
-  const interval = setInterval(fetchReports, 10000); // Fetch reports every 30 minutes
+  // const interval = setInterval(fetchReports, 10000); // Fetch reports every 30 minutes
 
-  return () => clearInterval(interval);
+  // return () => clearInterval(interval);
 }, [NgoData, prevLength]);
 
   // Function to toggle report card expansion

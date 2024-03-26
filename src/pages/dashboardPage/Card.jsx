@@ -19,7 +19,7 @@ const CardItem = ({ report, index, statusOptions, toggleExpand, setReports }) =>
         borderRadius: '15px', 
         marginBottom: '30px', 
         cursor: 'pointer', 
-        opacity: '0.97',
+        opacity: '0.95',
         transition: 'transform 0.3s', 
         boxShadow: '0px 28.052980422973633px 28.052980422973633px 0px #1E85E426',
       }}
