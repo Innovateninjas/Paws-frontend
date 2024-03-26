@@ -296,6 +296,7 @@ function IncidentForm() {
             formData={formData}
             setFormData={setFormData}
             errors={errors}
+            handleBackPage={handleBackPage}
             handleChange={handleChange}
             handleNextPage={handleNextPage}
             handleSubmit={handleSubmit}
