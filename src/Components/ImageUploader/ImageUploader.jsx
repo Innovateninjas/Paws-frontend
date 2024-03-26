@@ -152,7 +152,7 @@ const ImageUploader = ({ formData, setFormData, onChange }) => {
                     <div className="flex justify-center mt-1">
                         <button className="text-base mt-3 text-white bg-gradient-to-b from-blue-300 to-emerald-500 focus:outline-none rounded-[30px] mr-3 px-3 py-4 bg-opacity-20 font-semibold" onClick={captureImage}>Capture</button>
                         <button className="text-base mt-3 text-white bg-gradient-to-b from-blue-300 to-emerald-500 focus:outline-none rounded-[30px] px-5 py-4 bg-opacity-20 font-semibold" onClick={toggleCameraFacingMode}>
-                            {cameraFacingMode === 'environment' ? <CameraReels /> : <Camera />}
+                            {cameraFacingMode === 'user' ? <CameraReels /> : <Camera />}
                         </button>
                     </div>
                 </div>
