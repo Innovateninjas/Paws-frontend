@@ -1,4 +1,4 @@
-import React from 'react';
+import React ,{useEffect} from 'react';
 import './App.css';
 import 'react-tooltip/dist/react-tooltip.css'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -22,11 +22,20 @@ import { NgoProvider } from './contexts/NgoContext';
 import Success from './pages/CampaignNgoPage/SuccessPage/Success';
 import NgoProfile from './pages/NgoProfilepage/ngoProfile';
 import { Donationfront } from './pages/Donation/Donationfront/Donationfront';
+import requestPermission from './Components/utils/Functions/notifyService';
 /**
  * The main component of the application.
  * @returns {JSX.Element} The rendered App component.
  */
 function App() {
+
+  useEffect(() => {
+    // Req user for notification permission
+    requestPermission();
+  }, []);
+
+
+
   return (
     <div>
       <Router>
