@@ -59,7 +59,7 @@ function AnimalDetailsPage({
               Animal Type:
             </p>
           </label>
-          <div className="flex overflow-x-auto gap-4 scrollbar-hide z-[20]">
+          <div className="flex overflow-x-auto gap-4 scrollbar-hide z-[5]">
             <div
               className={isDog ? "show-tooltip" : ""}
               data-tooltip-html="<b>Predicted<br>To be a dog</b>"
