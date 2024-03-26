@@ -32,9 +32,9 @@ function ImageAndLocationPage({
         setFormData={setFormData}
         onChange={onChange}
       />
-      <div className="w-[23rem]  z-[30] bg-green-800 rounded-3xl bg-opacity-35 backdrop-blur-[5px]">
+      <div className="w-[23rem]  z-[30] bg-white rounded-3xl bg-opacity-57 backdrop-blur-[5px] shadow-lg ring-1 ring-gray-300">
       
-      <div className=" flex-col justify-center items-center gap-6 p-4  ">
+      <div className=" flex-col justify-center items-center gap-6 p-4   ">
      <div className="w-full h-[200px] flex pb-5">
           <Suspense fallback={<MapSkeleton />}>
             <LazyLoadedMap formData={formData} />
@@ -43,7 +43,7 @@ function ImageAndLocationPage({
       
       <div className="w-[23rem]  z-[30] justify-center items-center flex flex-col justify-items-center">
         <label>
-          <p className="text-base  pb-3 ">
+          <p className="text-base  font-semibold pb-3 pr-1 text-indigo-900 border-1">
             Address: {formData.address ? formData.address : "loading.."}
           </p>
           <textarea
@@ -66,7 +66,10 @@ function ImageAndLocationPage({
             errors.latitude}
         </p>
       )}
-          <Button text="Next" clas="mb-24  bg-gradient-to-b from-indigo-300 to-indigo-800"  onClick={handleNextPage}/>
+          <Button 
+            text="Next" 
+            clas="mb-24 px-16 py-4 bg-gradient-to-b from-green-300 to-green-800 text-white shadow-lg" 
+            onClick={handleNextPage}/>
     </div>
   );
 }
