@@ -19,7 +19,7 @@ import styles from "./biginputs.module.css";
  */
 function InputField({
     name = "none",
-    // placeholder="",
+    placeholder="",
     type="text",
     value = "",
     onChange,
@@ -40,10 +40,11 @@ function InputField({
             <textarea
                 className={className}
                 type={type}
-                // placeholder={placeholder}
+                placeholder={placeholder}
                 value={value}
                 onChange={onChange}
-                required={required}   
+                required={required}
+               
                 name={name}
             />
         );
@@ -53,7 +54,7 @@ function InputField({
             <input
                 className={className}
                 type={type}
-                // placeholder={placeholder}
+                placeholder={placeholder}
                 value={value}
                 onChange={onChange}
                 required={required}
@@ -67,7 +68,7 @@ function InputField({
             <input
                 className={className}
                 type={type}
-                // placeholder={placeholder}
+                placeholder={placeholder}
                 value={value}
                 onChange={onChange}
                 required={required}
@@ -80,9 +81,9 @@ function InputField({
 InputField.propTypes = {
     /** The name attribute of the input field. */
     name: PropTypes.string,
-
-    // placeholder: PropTypes.string.isRequired,
-
+    /** The placeholder text for the input field. */
+    placeholder: PropTypes.string.isRequired,
+    /** The type of input field (e.g., "text", "password"). */
     type: PropTypes.string.isRequired,
     /** The value of the input field. */
     value: PropTypes.string.isRequired,
@@ -90,21 +91,25 @@ InputField.propTypes = {
     onChange: PropTypes.func.isRequired,
     /** Whether the input field is required. */
     required: PropTypes.bool,
-    // backgroundColor: PropTypes.string,
-    // outline: PropTypes.bool,
-    // margin: PropTypes.string,
-    // boxShadow: PropTypes.string
+    /** The background color of the input field. */
+    backgroundColor: PropTypes.string,
+    /** Whether to display an outline around the input field. */
+    outline: PropTypes.bool,
+    /** The margin of the input field. */
+    margin: PropTypes.string,
+    /** The box shadow of the input field. */
+    boxShadow: PropTypes.string
 };
 
 InputField.defaultProps = {
     /** The default value of the name attribute. */
     name: "none",
-    // /** The default value of the outline prop. */
-    // outline: false,
-    // /** The default value of the margin prop. */
-    // margin: "none",
-    // /** The default value of the boxShadow prop. */
-    // boxShadow: "none"
+    /** The default value of the outline prop. */
+    outline: false,
+    /** The default value of the margin prop. */
+    margin: "none",
+    /** The default value of the boxShadow prop. */
+    boxShadow: "none"
 };
 
 export default InputField;

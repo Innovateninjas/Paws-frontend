@@ -23,7 +23,6 @@ module.exports = {
       },
       boxShadow: {
         custom: '1px 1px 2px black',
-        // contactInfoInputFieldShadow: '0px 30px 30px 0px #1E85E426k',
         dashBoardCardShadow: '0px 28.052980422973633px 0px #1E85E426, 0px 28.052980422973633px 0px #1E85E426',
         dashBoardCardImageShadow: '3.847223997116089px 4.946430683135986px 14.289689064025879px 0px #00000040',
       },

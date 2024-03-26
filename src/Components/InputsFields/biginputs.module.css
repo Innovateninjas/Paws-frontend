@@ -20,7 +20,7 @@
   line-height: normal;
 } */
 
-/* .inputArea {
+.inputArea {
   display: flex;
   height: 80px;
   width: 300px;
@@ -43,4 +43,4 @@
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-} */
+}
