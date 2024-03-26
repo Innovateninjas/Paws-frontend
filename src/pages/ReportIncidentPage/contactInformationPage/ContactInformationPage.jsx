@@ -16,7 +16,7 @@ function ContactInformationPage({
   validatePage,
   handleNextPage,
 }) {
-  const { userData, loading: userLoading } = useContext(UserContext); //renaming the loading property to userLoading
+  const { userData} = useContext(UserContext);
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   useEffect(() => {
