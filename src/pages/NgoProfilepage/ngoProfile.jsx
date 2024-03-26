@@ -2,7 +2,6 @@ import React, { useEffect, useState, useContext } from "react";
 import {FiMail } from "react-icons/fi";
 import ProfileIcon from "../../Components/ProfileComponent/ProfileIcon";
 import styles from "./ngoProfile.module.css";
-import Loader from "../../Components/loader/loader";
 import { Link } from "react-router-dom";
 import { NgoContext } from "../../contexts/NgoContext";
 
@@ -18,9 +17,6 @@ const NgoProfile = () => {
   }, [NgoData, loading, error]);
   if (error) {
     return <h1>{error}</h1>;
-  }
-  if (loading) {
-    return <Loader visible />;
   }
   if (userDetails) {
     return (
