@@ -22,7 +22,6 @@ import { NgoProvider } from './contexts/NgoContext';
 import Success from './pages/CampaignNgoPage/SuccessPage/Success';
 import NgoProfile from './pages/NgoProfilepage/ngoProfile';
 import { Donationfront } from './pages/Donation/Donationfront/Donationfront';
-import ContactInformationPage from './pages/ReportIncidentPage/contactInformationPage/ContactInformationPage';
 /**
  * The main component of the application.
  * @returns {JSX.Element} The rendered App component.
@@ -55,7 +54,6 @@ function App() {
           <Route path="/created" element={<Success />} />
           <Route path="/ngoProfile" element={<NgoProfile />} />
           <Route path="/donationfront" element={<Donationfront />} />
-          <Route path="/bal" element={<ContactInformationPage />} />
         </Routes>
             </NgoProvider>
         </UserProvider>
