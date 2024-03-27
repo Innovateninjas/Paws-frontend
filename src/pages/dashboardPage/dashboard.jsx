@@ -17,8 +17,9 @@ function Dashboard() {
     const fetchReports = async () => {
       try {
         if (NgoData) {
+          const url = process.env.REACT_APP_BACKEND_URL;
           const response = await axios.get(
-            `https://aniresfr-backend.vercel.app/api/animals/?assigned_to=${NgoData.email}`
+            `${url}/api/animals/?assigned_to=${NgoData.email}`
           );
           const data = response.data.reverse();
           setLength(data.length);

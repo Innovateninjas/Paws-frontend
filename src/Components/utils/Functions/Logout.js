@@ -11,7 +11,8 @@ function Logout() {
       return;
     }
 
-    axios.post('https://aniresfr-backend.vercel.app/logout/', {}, {
+    const url = process.env.REACT_APP_BACKEND_URL;
+    axios.post(`${url}/logout/`, {}, {
       headers: {
         'Authorization': `Token ${csrftoken}`,
       },
