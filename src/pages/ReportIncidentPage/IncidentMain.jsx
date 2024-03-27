@@ -8,7 +8,6 @@ import ContactInformationPage from "./contactInformationPage/ContactInformationP
 import SuccessPage from "../successPage/SuccessPage";
 import { UserContext } from "../../contexts/UserContext";
 function IncidentForm() {
-  const url = process.env.REACT_APP_BACKEND_URL;
   const { userData } = useContext(UserContext);
   const [currentPage, setCurrentPage] = useState(1);
   const [Submitted, setSubmitted] = useState(false);
@@ -49,6 +48,7 @@ function IncidentForm() {
 
   useEffect(() => {
     async function increment(no_reports) {
+      const url = process.env.REACT_APP_BACKEND_URL;
       const csrftoken = localStorage.getItem('csrftoken');
       try {
         const response = await axios.put(
@@ -152,7 +152,7 @@ function IncidentForm() {
         [name]: value,
       }));
     }
-
+    
     setErrors((prevErrors) => ({
       ...prevErrors,
       [name]: "",
@@ -185,6 +185,7 @@ function IncidentForm() {
 
     try {
       if (validateForm()) {
+        const url = process.env.REACT_APP_BACKEND_URL;
         const response = await fetch(
           `${url}/api/animals/`,
           {
