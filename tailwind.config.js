@@ -13,6 +13,7 @@ module.exports = {
         'dashboard-gradient-bottom': 'rgba(6, 240, 255, 1)',
         'dashboard-card-gradient-bottom': 'rgba(117, 117, 117, 0.46)',
         'dashboard-card-report-gradient':'rgba(203, 199, 199, 0.77)',
+        'stone': '#7D9189',
       },
       fontFamily: {
         bayon: ['Bayon', 'sans-serif'], 
