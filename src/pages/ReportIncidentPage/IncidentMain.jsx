@@ -8,6 +8,7 @@ import ContactInformationPage from "./contactInformationPage/ContactInformationP
 import SuccessPage from "../successPage/SuccessPage";
 import { UserContext } from "../../contexts/UserContext";
 function IncidentForm() {
+  const url = process.env.REACT_APP_BACKEND_URL;
   const { userData } = useContext(UserContext);
   const [currentPage, setCurrentPage] = useState(1);
   const [Submitted, setSubmitted] = useState(false);
@@ -51,7 +52,7 @@ function IncidentForm() {
       const csrftoken = localStorage.getItem('csrftoken');
       try {
         const response = await axios.put(
-          'https://aniresfr-backend.vercel.app/info/user/',
+          `${url}/info/user/`,
           {
             no_reports: no_reports + 1,
           },
@@ -185,7 +186,7 @@ function IncidentForm() {
     try {
       if (validateForm()) {
         const response = await fetch(
-          "https://aniresfr-backend.vercel.app/api/animals/",
+          `${url}/api/animals/`,
           {
             method: "POST",
             headers: {

@@ -42,13 +42,14 @@ export const registration = async (orgName, phoneNumber, email, emergency, passw
         return;
     }
     try {
+        
         // Clear any previous error message and set button state to loading
         setError("");
         setButtonState('loading');
-
+        const url = process.env.REACT_APP_BACKEND_URL;
         // Send a POST request to the registration endpoint with user data
         const response = await axios.post(
-            "https://aniresfr-backend.vercel.app/register/ngo",
+            `${url}/register/ngo`,
             {
                 name: orgName,
                 phone_number: phoneNumber,

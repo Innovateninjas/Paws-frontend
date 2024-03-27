@@ -19,7 +19,8 @@ export const Donationfront = () => {
   useEffect(() => {
     const fetchNgoNames = async () => {
       try {
-        const response = await fetch('https://aniresfr-backend.vercel.app/ngo');
+        const url = process.env.REACT_APP_BACKEND_URL;
+        const response = await fetch(`${url}/ngo`);
         if (response.ok) {
           const data = await response.json();
           setNgoNames(data); // Assuming the response is an array of objects with a 'name' property
