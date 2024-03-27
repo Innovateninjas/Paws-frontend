@@ -27,6 +27,11 @@ body {
     font-family: 'Bai Jamjuree';
     src: url('../public//fonts/BaiJamjuree.ttf') format('truetype');
 }
+@font-face {
+    font-family: 'Calistoga';
+    src: url('../public//fonts/Calistoga-Regular.ttf') format('truetype');
+}
+
 
 .rodal-dialog {
     background: linear-gradient(0deg, #c1dcf6 0%, #cce1f7 10%, #caeaee 100% ) !important;

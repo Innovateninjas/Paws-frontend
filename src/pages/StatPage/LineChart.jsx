@@ -75,7 +75,7 @@ const LineChart = ({data}) => {
         labels: dates,
         datasets: [
             {
-                label: 'Number of Reports per Day',
+                label: 'Number of Reports',
                 data: counts,
                 borderColor: '#40025D',
                 tension: 0.5,
