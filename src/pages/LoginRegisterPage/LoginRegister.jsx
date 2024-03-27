@@ -39,11 +39,11 @@ function LoginRegisterForm() {
     <>    
     
     <Background/>
- <div className="min-h-screen flex items-center">
+ <div className="min-h-screen">
       <form className="flex gap-[20px] items-center justify-center flex-col">
         {!isLogin && (
           <>
-            <h1 className="text-center pb-1 pl-2 pr-2 z-[3] text-indigo-900 font-bold text-[2.5em] underline">Create account</h1>
+            <h1 className=" mt-[60px] text-center pb-1 pl-2 pr-2 z-[3] text-indigo-900 font-bold text-[2.5em] underline">Create account</h1>
             <InputField
               className="placeholder-stone h-16 mt-5 bg-opacity-45 backdrop-blur-[6px] w-80 px-4 py-2 items-center outline-0 rounded-[30px] text-black text-lg bg-white shadow-dashBoardCardImageShadow"
               type="text"
@@ -68,7 +68,8 @@ function LoginRegisterForm() {
             />
           </>
         )}
-        {isLogin && <h1 className=" mt-[50px] text-center pb-1 pl-2 pr-2 z-[3] text-indigo-900 font-bold tracking-wide text-[2.5em] underline "> Welcome Back</h1>}
+        {isLogin && 
+        <h1 className=" mt-[60px] text-center pb-1 pl-2 pr-2 z-[3] text-indigo-900 font-bold tracking-wide text-[2.5em] underline "> Welcome Back</h1>}
         <InputField
           className="placeholder-stone h-16 mt-5 bg-opacity-45 backdrop-blur-[6px] w-80 px-4 py-2 items-center outline-0 rounded-[30px] text-black text-lg bg-white shadow-dashBoardCardImageShadow"
           type="email"
