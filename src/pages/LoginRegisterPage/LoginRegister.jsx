@@ -40,12 +40,12 @@ function LoginRegisterForm() {
     
     <Background/>
  <div className="min-h-screen flex items-center">
-      <form className="mt-5 flex items-center justify-center flex-col">
+      <form className="flex gap-[20px] items-center justify-center flex-col">
         {!isLogin && (
           <>
             <h1 className="text-center pb-1 pl-2 pr-2 z-[3] text-indigo-900 font-bold text-[2.5em] underline">Create account</h1>
             <InputField
-              className="flex placeholder-stone h-16 mt-5 bg-opacity-45 backdrop-blur-[6px] w-80 px-4 py-2 items-center outline-0 flex-shrink-0 rounded-[30px] text-black text-lg bg-white shadow-dashBoardCardImageShadow"
+              className="placeholder-stone h-16 mt-5 bg-opacity-45 backdrop-blur-[6px] w-80 px-4 py-2 items-center outline-0 rounded-[30px] text-black text-lg bg-white shadow-dashBoardCardImageShadow"
               type="text"
               placeholder="Full Name"
               value={name}
@@ -56,7 +56,7 @@ function LoginRegisterForm() {
               required
             />
             <InputField
-              className="flex placeholder-stone h-16 mt-5 bg-opacity-45 backdrop-blur-[6px] w-80 px-4 py-2 items-center outline-0 flex-shrink-0 rounded-[30px] text-black text-lg bg-white shadow-dashBoardCardImageShadow"
+              className="placeholder-stone h-16 mt-5 bg-opacity-45 backdrop-blur-[6px] w-80 px-4 py-2 items-center outline-0 rounded-[30px] text-black text-lg bg-white shadow-dashBoardCardImageShadow"
               type="tel"
               placeholder="Phone Number"
               value={phone_number}
@@ -70,7 +70,7 @@ function LoginRegisterForm() {
         )}
         {isLogin && <h1 className=" mt-[50px] text-center pb-1 pl-2 pr-2 z-[3] text-indigo-900 font-bold tracking-wide text-[2.5em] underline "> Welcome Back</h1>}
         <InputField
-          className="flex text-semibold placeholder-stone h-16 mt-5 bg-opacity-45 backdrop-blur-[6px] w-80 px-4 py-2 items-center outline-0 flex-shrink-0 rounded-[30px] text-black text-lg bg-white shadow-dashBoardCardImageShadow"
+          className="placeholder-stone h-16 mt-5 bg-opacity-45 backdrop-blur-[6px] w-80 px-4 py-2 items-center outline-0 rounded-[30px] text-black text-lg bg-white shadow-dashBoardCardImageShadow"
           type="email"
           placeholder="Email"
           value={email}
@@ -81,7 +81,7 @@ function LoginRegisterForm() {
           required
         />
         <InputField
-          className="flex text-semibold placeholder-stone mt-5 h-16 w-80 items-center bg-opacity-45 backdrop-blur-[6px] justify-center px-4 py-2 bg-white outline-0 m-0.5 shadow-dashBoardCardImageShadow rounded-[30px] text-black text-lg"
+          className="placeholder-stone h-16 mt-5 bg-opacity-45 backdrop-blur-[6px] w-80 px-4 py-2 items-center outline-0 rounded-[30px] text-black text-lg bg-white shadow-dashBoardCardImageShadow"
           type="password"
           placeholder="Password"
           value={password}
@@ -145,7 +145,7 @@ function LoginRegisterForm() {
           </div>
         )}
       </form>
-      {error && <p className="absolute w-screen bottom-[35%] tracking-wide text-red-500 font-semibold text-center">{error}</p>}
+      {error && <p className="absolute w-screen bottom-[29%] tracking-wide text-red-500 font-semibold text-center">{error}</p>}
 </div>
     </>
 

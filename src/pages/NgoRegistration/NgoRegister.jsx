@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import styles from "./NgoRegister.module.css";
 import InputField from "../../Components/InputsFields/bigInputs";
 import ReactiveButton from "reactive-button";
 import Creatable from 'react-select/creatable';
@@ -7,18 +6,22 @@ import { registration } from "../../Components/utils/Functions/ngoAuthService";
 import LoginTextLink from "../../Components/LoginLinkText/LoginTextLink";
 import getUserLocation from "../../Components/utils/Functions/getLocationData";
 import { AnimalList } from "./animalList";
+import Background from "../../Components/backgroundComponent/Background";
 
 // import { shadow } from "@cloudinary/url-gen/actions/effect";]
 function NgoRegisterForm() {
 
   const customButtonStyle = {
-    borderRadius: "14px",
-    background: "#333333",
-    boxShadow: "2px 2px 2px black",
-    padding: "10px 85px",
+    borderRadius: "40px",
+    background: "linear-gradient(to bottom, #48bb78, #2f855a)",
+    padding: "20px 40px",
     marginTop: "0.675rem",
     fontSize: "19px",
     fontWeight: "700",
+    boxShadow: "rgb(38, 57, 77) 0px 15px 30px -10px",
+    letterSpacing: "0.2em",
+    width:"fit-content",
+    margin:"auto"
   };
 
   const [orgName, setFullName] = useState("");
@@ -38,14 +41,14 @@ function NgoRegisterForm() {
   }, []);
 
   return (
-    <div className={styles.container}>
-      <img src="./images/paw.png" alt="paw img" className={styles.paw1} />
-      <form className={styles.ngoForm}>
+    <div className="h-full pt-9 w-screen flex items-center justify-center mb-[200px]">
+    <Background/>
+      <form className="flex gap-[20px] items-center justify-center flex-col">
         <>
-          <h1>Join Us Today</h1>
+          <h1 className="text-center pb-1 pl-2 pr-2 z-[3] text-indigo-900 font-bold text-[2.5em] underline">Join Us Today</h1>
           {/* NAME */}
           <InputField
-            className="flex h-16 w-72 items-center justify-center px-4 py-0.5 border border-gray-400 bg-gray-300 shadow-md m-0.5 rounded-2xl text-black text-lg"
+            className="placeholder-stone h-16 bg-opacity-45 backdrop-blur-[6px] w-80 px-4 py-2 items-center outline-0 rounded-[30px] text-black text-lg bg-white shadow-dashBoardCardImageShadow"
             type="text"
             placeholder="Enter Your NGO's Name"
             value={orgName}
@@ -57,7 +60,7 @@ function NgoRegisterForm() {
           />
           {/* PHONE NUMBER */}
           <InputField
-            className="flex h-16 w-72 items-center justify-center px-4 py-0.5 border border-gray-400 bg-gray-300 shadow-md m-0.5 rounded-2xl text-black text-lg"
+            className="placeholder-stone h-16 bg-opacity-45 backdrop-blur-[6px] w-80 px-4 py-2 items-center outline-0 rounded-[30px] text-black text-lg bg-white shadow-dashBoardCardImageShadow"
             type="number"
             placeholder="Phone Number"
             value={phoneNumber}
@@ -69,7 +72,7 @@ function NgoRegisterForm() {
           />
           {/* EMAIL */}
           <InputField
-            className="flex h-16 w-72 items-center justify-center px-4 py-0.5 border border-gray-400 bg-gray-300 shadow-md m-0.5 rounded-2xl text-black text-lg"
+            className="placeholder-stone h-16 bg-opacity-45 backdrop-blur-[6px] w-80 px-4 py-2 items-center outline-0 rounded-[30px] text-black text-lg bg-white shadow-dashBoardCardImageShadow"
             type="email"
             placeholder="Email"
             value={email}
@@ -81,7 +84,7 @@ function NgoRegisterForm() {
           />
           {/* PASSWORD */}
           <InputField
-            className="flex h-16 w-72 items-center justify-center px-4 py-0.5 border border-gray-400 bg-gray-300 shadow-md m-0.5 rounded-2xl text-black text-lg"
+            className="placeholder-stone h-16 bg-opacity-45 backdrop-blur-[6px] w-80 px-4 py-2 items-center outline-0 rounded-[30px] text-black text-lg bg-white shadow-dashBoardCardImageShadow"
             type="password"
             placeholder="Password"
             value={password}
@@ -94,7 +97,7 @@ function NgoRegisterForm() {
           {/* LOCATION */}
 
           <InputField
-            className="flex h-16 w-72 items-center justify-center px-4 py-0.5 border border-gray-400 bg-gray-300 shadow-md m-0.5 rounded-2xl text-black text-lg"
+            className="placeholder-stone h-16 bg-opacity-45 backdrop-blur-[6px] w-80 px-4 py-2 items-center outline-0 rounded-[30px] text-black text-lg bg-white shadow-dashBoardCardImageShadow"
             type="text"
             placeholder="Address"
             value={lcation}
@@ -105,7 +108,7 @@ function NgoRegisterForm() {
           />
 
           <Creatable
-            className="flex h-16 w-72 items-center justify-center px-4 py-0.5 border border-gray-400 bg-gray-300 shadow-md m-0.5 rounded-2xl text-black text-lg"
+            className="placeholder-stone flex justify-center z-20 h-16 bg-opacity-45 w-80 px-4 py-2 items-center outline-0 rounded-[30px] text-black text-lg bg-white shadow-dashBoardCardImageShadow"
             isMulti={true}
             placeholder="Animal Supported"
             options={AnimalList}
@@ -118,7 +121,7 @@ function NgoRegisterForm() {
           />
           {/* EMERGENCY CONTACT NUMBER */}
           <InputField
-            className="flex h-16 w-72 items-center justify-center px-4 py-0.5 border border-gray-400 bg-gray-300 shadow-md m-0.5 rounded-2xl text-black text-lg"
+            className="placeholder-stone h-16 bg-opacity-45 backdrop-blur-[6px] w-80 px-4 py-2 items-center outline-0 rounded-[30px] text-black text-lg bg-white shadow-dashBoardCardImageShadow"
             type="number"
             placeholder="Emergency Contact Number"
             value={emergency}
@@ -129,7 +132,7 @@ function NgoRegisterForm() {
           />
           {/* WEBSITE LINK  */}
           <InputField
-            className="flex h-16 w-72 items-center justify-center px-4 py-0.5 border border-gray-400 bg-gray-300 shadow-md m-0.5 rounded-2xl text-black text-lg"
+            className="placeholder-stone h-16 bg-opacity-45 backdrop-blur-[6px] w-80 px-4 py-2 items-center outline-0 rounded-[30px] text-black text-lg bg-white shadow-dashBoardCardImageShadow"
             type="text"
             placeholder="Website Link(optional)"
             value={websiteLink}
@@ -141,7 +144,7 @@ function NgoRegisterForm() {
           />
         </>
         <>
-          <div className={styles.btn}>
+          <div className="w-screen h-[70px] mt-5 flex justify-center">
             <ReactiveButton
               style={customButtonStyle}
               buttonState={state}
@@ -151,17 +154,17 @@ function NgoRegisterForm() {
               errorText="Register"
               messageDuration={3000}
               onClick={async () => {
-                console.log(
-                  orgName,
-                  phoneNumber,
-                  email,
-                  emergency,
-                  password,
-                  animalSupported,
-                  lcation,
-                  websiteLink,
-                  latitude,
-                  longitude);           
+                // console.log(
+                //   orgName,
+                //   phoneNumber,
+                //   email,
+                //   emergency,
+                //   password,
+                //   animalSupported,
+                //   lcation,
+                //   websiteLink,
+                //   latitude,
+                //   longitude);           
                 registration(
                   orgName,
                   phoneNumber,
@@ -181,18 +184,17 @@ function NgoRegisterForm() {
             />
           </div>
         </>
+        <div className="w-screen h-fit flex flex-col mt-3 gap-2 items-center">
         <LoginTextLink
-          position={"relative"}
         />
         <LoginTextLink
-          position={"relative"}
           text={"Not an Ngo ?"}
           link={"/register"}
           linkText={"Register Here!"}
         />
+        </div>
       </form>
-      {error && <p className={styles.errtext}>{error}</p>}
-      <img src="./images/paw.png" alt="paw img" className={styles.paw2} />
+      {error && <p className="absolute bottom-[4%] tracking-wide text-red-500 font-semibold text-center">{error}</p>}
     </div>
   );
 }
