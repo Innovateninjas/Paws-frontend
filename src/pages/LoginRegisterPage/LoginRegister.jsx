@@ -39,11 +39,11 @@ function LoginRegisterForm() {
     <>    
     
     <Background/>
-    <div className="relative z-60  h-screen w-screen flex justify-center items-center  overflow-hidden">
-      <form className="absolute top-4 flex items-center flex-col">
+ <div className="min-h-screen flex items-center">
+      <form className="mt-5 flex items-center justify-center flex-col">
         {!isLogin && (
           <>
-            <h1 className=" mt-[70px] text-center pb-1 pl-2 pr-2 z-[3] text-indigo-900 font-bold text-[2.5em] underline">Create account</h1>
+            <h1 className="text-center pb-1 pl-2 pr-2 z-[3] text-indigo-900 font-bold text-[2.5em] underline">Create account</h1>
             <InputField
               className="flex placeholder-stone h-16 mt-5 bg-opacity-45 backdrop-blur-[6px] w-80 px-4 py-2 items-center outline-0 flex-shrink-0 rounded-[30px] text-black text-lg bg-white shadow-dashBoardCardImageShadow"
               type="text"
@@ -91,23 +91,10 @@ function LoginRegisterForm() {
           }}
           required
         />
+        
         {!isLogin && (
           <>
-          <div className="w-screen h-fit flex mt-3 justify-center">
-            <LoginTextLink bottomPosition={"-14%"} />
-            <LoginTextLink
-              text={"Are you an NGO ?"}
-              link={"/ngoregister"}
-              linkText={"Register Here!"}
-              bottomPosition={"-20%"}
-            //   leftPosition={"7%"}
-            />
-            </div>
-          </>
-        )}
-        {!isLogin && (
-          <>
-            <div className="w-screen mt-5 h-fit flex justify-center">
+            <div className="w-screen h-[70px] mt-5 flex justify-center">
               <ReactiveButton
                 style={customButtonStyle}
                 buttonState={state}
@@ -130,6 +117,18 @@ function LoginRegisterForm() {
             </div>
           </>
         )}
+        {!isLogin && (
+          <>
+          <div className="w-screen h-fit flex flex-col mt-3 gap-2 items-center">
+            <LoginTextLink />
+            <LoginTextLink
+              text={"Are you an NGO ?"}
+              link={"/ngoregister"}
+              linkText={"Register Here!"}
+            />
+            </div>
+          </>
+        )}
         {isLogin && (
           <div className="w-screen mt-5 h-fit flex justify-center">
           <ReactiveButton
@@ -146,9 +145,8 @@ function LoginRegisterForm() {
           </div>
         )}
       </form>
-
-      {error && <p className="absolute bottom-[38%] text-red-500 font-semibold text-center">{error}</p>}
-    </div>
+      {error && <p className="absolute w-screen bottom-[35%] tracking-wide text-red-500 font-semibold text-center">{error}</p>}
+</div>
     </>
 
   );

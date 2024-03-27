@@ -14,16 +14,8 @@ import { Link } from "react-router-dom";
  */
 function LoginTextLink({ text, link, linkText, position, topPosition, bottomPosition ,leftPosition, rightPosition}) {
     return (
-        <p
-            className="absolute text-gray-700 text-[16px] font-bold"
-            style={{
-                position: position || "absolute",
-                top: topPosition,
-                bottom: bottomPosition,
-                left: leftPosition,
-                right: rightPosition,
-            }}
-        >
+        <p className="text-gray-700 text-[16px] font-bold">
+        
             {text || "Already have an account?"}
             <Link to={link || "/login"} className="text-blue-700 text-sm font-medium underline inline-block mx-1">
                 {linkText || "Login now!"}
