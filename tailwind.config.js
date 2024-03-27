@@ -20,7 +20,8 @@ module.exports = {
         breeSerif: ['BreeSerif', 'sans-serif'], 
         ChauPhilomeneOne: ['Chau Philomene One', 'sans-serif'],
         baijam: ['Bai Jamjuree', 'sans-serif'],
-        baloo:['Baloo', 'sans-serif']
+        baloo:['Baloo', 'sans-serif'],
+        Calistoga : ['Calistoga', 'sans-serif'],
       },
       boxShadow: {
 
