@@ -1,11 +1,19 @@
-import React from 'react'
+import React from 'react';
+import Background from '../../Components/backgroundComponent/Background';
+import LineChart from './chart'; // Assuming LineChart component is in the same directory
 
-const Stats = () => {
+function Stats() {
+
+  
   return (
-    <div className="fixed top-0 left-0 w-screen h-screen bg-gradient-to-b from-dashboard-gradient-top to-dashboard-gradient-bottom z-0">
-      
+    <div>
+      <Background />
+      <div className='flex flex-col justify-center items-center '>
+        <h1 className='text-4xl text-[#40025D] leading-relaxed tracking-[8px] bold mt-5 font-bayon'>STATISTICS</h1>
+      </div>
+      <LineChart  />
     </div>
-  )
+  );
 }
 
 export default Stats;
