@@ -48,10 +48,11 @@ function IncidentForm() {
 
   useEffect(() => {
     async function increment(no_reports) {
+      const url = process.env.REACT_APP_BACKEND_URL;
       const csrftoken = localStorage.getItem('csrftoken');
       try {
         const response = await axios.put(
-          'https://aniresfr-backend.vercel.app/info/user/',
+          `${url}/info/user/`,
           {
             no_reports: no_reports + 1,
           },
@@ -151,7 +152,7 @@ function IncidentForm() {
         [name]: value,
       }));
     }
-
+    
     setErrors((prevErrors) => ({
       ...prevErrors,
       [name]: "",
@@ -184,8 +185,9 @@ function IncidentForm() {
 
     try {
       if (validateForm()) {
+        const url = process.env.REACT_APP_BACKEND_URL;
         const response = await fetch(
-          "https://aniresfr-backend.vercel.app/api/animals/",
+          `${url}/api/animals/`,
           {
             method: "POST",
             headers: {

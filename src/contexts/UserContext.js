@@ -24,7 +24,8 @@ export const UserProvider = ({ children }) => {
                 return
             }
             try {
-                const response = await axios.get('https://aniresfr-backend.vercel.app/info/user/', {
+                const url = process.env.REACT_APP_BACKEND_URL;
+                const response = await axios.get(`${url}/info/user/`, {
                     headers: {
                         'Authorization': `Token ${csrftoken}`,
                     },

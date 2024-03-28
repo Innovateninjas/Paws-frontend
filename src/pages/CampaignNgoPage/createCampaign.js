@@ -81,9 +81,10 @@ const createCampaign = async ( orgName,phoneNumber,email,campaignTitle,CampaignD
     const age_group = ageGroup;
     setError("");
     try {
+        const url = process.env.REACT_APP_BACKEND_URL;
         console.log("i am here finally")
          await axios.post(
-            "https://aniresfr-backend.vercel.app/api/campaigns/",
+            `${url}/api/campaigns/`,
             {
                 ngo_name,
                 phone_number,

@@ -13,8 +13,9 @@ const CampaignBlog = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        const url = process.env.REACT_APP_BACKEND_URL;
         const response = await axios.get(
-          `https://aniresfr-backend.vercel.app/api/campaigns/${campaignId}`
+          `${url}/api/campaigns/${campaignId}`
         );
 
         // Extract data from the response

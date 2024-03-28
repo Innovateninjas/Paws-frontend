@@ -24,7 +24,8 @@ export const NgoProvider = ({ children }) => {
                 return
             }
             try {
-                const response = await axios.get('https://aniresfr-backend.vercel.app/info/ngo', {
+                const url = process.env.REACT_APP_BACKEND_URL;
+                const response = await axios.get(`${url}/info/ngo`, {
                     headers: {
                         'Authorization': `Token ${csrftoken}`,
                     },
