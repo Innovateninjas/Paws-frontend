@@ -34,7 +34,7 @@ function ImageAndLocationPage({
     }).catch((error) => {
       console.error(error);
     });
-    }, 30000);
+    }, 20000);
     
     setTimerId(id);
     
