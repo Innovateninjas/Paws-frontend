@@ -44,7 +44,7 @@ const Map = ({ zoom = 13, customCenter }) => {
                 {location && (
                     <Marker position={location}>
                         <Popup>
-                            The animal is here!
+                        The animal is here!~
                         </Popup>
                     </Marker>
                 )}
