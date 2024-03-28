@@ -13,6 +13,12 @@ module.exports = {
         'dashboard-gradient-bottom': 'rgba(6, 240, 255, 1)',
         'dashboard-card-gradient-bottom': 'rgba(117, 117, 117, 0.46)',
         'dashboard-card-report-gradient':'rgba(203, 199, 199, 0.77)',
+        'campaign-input-top': 'rgba(252, 178, 231, 0.68)',
+        'campaign-input-middle': 'rgba(252, 174, 242, 0.68)',
+        'campaign-input-bottom': 'rgba(242, 117, 237,0.68)',
+        // 'input-container': 'rgba(255, 255, 255, 0.5)', // Transparent white
+        // // 'input-container-green': 'rgba(84, 200, 180, 0.5)', // Transparent sea green
+        // 'input-container-blue': 'rgba(70, 130, 180, 0.8)', // Transparent steel blue
         'stone': '#7D9189',
       },
       fontFamily: {

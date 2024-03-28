@@ -38,9 +38,10 @@ const ImageCropper = ({ headerImgUrl, setheaderImgUrl, aspectRatio = 4 / 3 }) =>
     };
 
     return (
-        <fieldset className={styles.fldset}>
-            <legend>Upload Images</legend>
+        <fieldset className="bg-white p-6 gap-[5px] rounded-[30px] bg-opacity-57 backdrop-blur-[5px] shadow-dashBoardCardImageShadow flex flex-col">
+            <label className="text-[1.6rem] font-extrabold underline uppercase tracking-wider">Upload Images</label>
             <input
+            className="text-[#0B0553DE] h-16 bg-opacity-45 backdrop-blur-[6px] w-[300px] px-4 py-[13px] items-center outline-0 rounded-[30px] text-lg bg-gradient-to-b from-campaign-input-top via-campaign-input-middle to-campaign-input-bottom shadow-dashBoardCardImageShadow"
                 type="file"
                 accept="image/png, image/jpeg, image/jpg"
                 onChange={(e) => {
