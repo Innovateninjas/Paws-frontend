@@ -23,6 +23,7 @@ import Success from './pages/CampaignNgoPage/SuccessPage/Success';
 import NgoProfile from './pages/NgoProfilepage/ngoProfile';
 import { Donationfront } from './pages/Donation/Donationfront/Donationfront';
 import requestPermission from './Components/utils/Functions/notifyService';
+import TeamPage from './pages/TeamPage/team';
 /**
  * The main component of the application.
  * @returns {JSX.Element} The rendered App component.
@@ -63,6 +64,7 @@ function App() {
           <Route path="/created" element={<Success />} />
           <Route path="/ngoProfile" element={<NgoProfile />} />
           <Route path="/donationfront" element={<Donationfront />} />
+          <Route path="/team" element={<TeamPage />} />
         </Routes>
             </NgoProvider>
         </UserProvider>
