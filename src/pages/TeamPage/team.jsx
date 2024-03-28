@@ -1,5 +1,4 @@
 import React from 'react';
-import Background from "../../../src/Components/backgroundComponent/Background";
 
 const TeamPage = () => {
   // Sample team data
@@ -18,10 +17,10 @@ const TeamPage = () => {
         name: "Arnab Mondal",
         position: "Frontend Developer",
         image: "https://media.licdn.com/dms/image/D5603AQF1SG1K-VPsTg/profile-displayphoto-shrink_800_800/0/1699975516118?e=1717027200&v=beta&t=ZLzBL-4382gD16CTtZhR9aEEz6El5CBF8L_ImUUVz3w",
-        featureText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        featureText: "it's not a bug; it's an undocumented feature",
         socialLinks: {
-          linkedin: "https://www.twitter.com",
-          github: "https://www.facebook.com"
+          linkedin: "https://in.linkedin.com/in/arnab-mondal-117616278",
+          github: "https://github.com/codewarnab"
         }
     },
     {
