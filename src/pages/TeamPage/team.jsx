@@ -9,8 +9,8 @@ const TeamPage = () => {
       image: "https://media.licdn.com/dms/image/D5603AQH5Pdev9HMjdw/profile-displayphoto-shrink_800_800/0/1702138868459?e=1717027200&v=beta&t=67GlMCnOOMNe-dqJ5YfbeY3dgaGjQA1j935ImKW3Dyc",
       featureText: "Tests in Production, because who needs that silly staging environment anyway?",
       socialLinks: {
-        linkedin: "https://www.twitter.com",
-        github: "https://www.facebook.com"
+        linkedin: "https://www.linkedin.com/in/rishi-paul04/",
+        github: "https://github.com/rishicds"
       }
     },
     {
@@ -26,11 +26,11 @@ const TeamPage = () => {
     {
         name: "Debayudh Basu",
         position: "Payments Developer",
-        image: "https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/expert2.png",
-        featureText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        image: "https://media.licdn.com/dms/image/D5603AQE3L9nP5ZM_vg/profile-displayphoto-shrink_800_800/0/1708620931019?e=1717027200&v=beta&t=mJwwcnkLJNBYUAa4vzFqXGe0C4TVOAwD5iD9eJih0lY",
+        featureText: "Who needs cocaine when you can sniff HTTPs requests",
         socialLinks: {
-          linkedin: "https://www.twitter.com",
-          github: "https://www.facebook.com"
+          linkedin: "https://www.linkedin.com/in/debayudh-basu-5280562b2/",
+          github: "https://github.com/debayudh07"
         }
     },
     {
@@ -39,28 +39,28 @@ const TeamPage = () => {
         image: "https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/expert2.png",
         featureText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         socialLinks: {
-          linkedin: "https://www.twitter.com",
-          github: "https://www.facebook.com"
+          linkedin: "https://www.linkedin.com/in/shreya-shaw/",
+          github: "https://github.com/shreyashaw05"
         }
     },
     {
         name: "Anirban Majumdar",
         position: "Backend Developer",
-        image: "https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/expert2.png",
-        featureText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        image: "https://media.licdn.com/dms/image/D5635AQGuer7LhHbXKg/profile-framedphoto-shrink_800_800/0/1711286412806?e=1712250000&v=beta&t=U6ethcPj0_pGQ98kCi-BrG39Vy5JBXsLK_Rdlfwq9lU",
+        featureText: "It all starts with 0 or it's an error",
         socialLinks: {
-          linkedin: "https://www.twitter.com",
-          github: "https://www.facebook.com"
+          linkedin: "https://www.linkedin.com/in/anirbanmajumder0/",
+          github: "https://github.com/anirbanmajumder0"
         }
     },
     {
         name: "Chandrima Ghosh",
         position: "Designer",
-        image: "https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/expert2.png",
-        featureText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        image: "https://media.licdn.com/dms/image/D5603AQGQNKUH0VzDMQ/profile-displayphoto-shrink_800_800/0/1698230927367?e=1717027200&v=beta&t=7y20D_MiqLSOFHBFg-hdvxYBqnrUOiiXdIGfBCXa4qk",
+        featureText: "Engineering the world differently.",
         socialLinks: {
-          linkedin: "https://www.twitter.com",
-          github: "https://www.facebook.com"
+          linkedin: "https://www.linkedin.com/in/chandrima-ghosh-476231295/",
+          github: "https://github.com/chandrima25"
         }
     }
     // Add more team members as needed
