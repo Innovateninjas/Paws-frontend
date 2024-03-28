@@ -16,8 +16,8 @@ function ViewReports() {
     const fetchReports = async () => {
       try {
         if (userData) {
-          const url = `https://aniresfr-backend.vercel.app/api/animals/?user_email=${userData.email}`;
-          const response = await axios.get(url);
+          const url = process.env.REACT_APP_BACKEND_URL;
+          const response = await axios.get(`${url}/api/animals/?user_email=${userData.email}`);
           const data = response.data.reverse();
           setReports(data);
           setIsLoading(false);
@@ -52,7 +52,7 @@ function ViewReports() {
 
   const fetchNGOData = async (email) => {
     try {
-      const response = await axios.get(`https://aniresfr-backend.vercel.app/ngo?email=${email}`);
+      const response = await axios.get(`https://paws-backend.azurewebsites.net/ngo?email=${email}`);
       return response.data;
     } catch (error) {
       console.error('Error fetching NGO data:', error);

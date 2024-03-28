@@ -5,7 +5,7 @@ export const handleStatusChange = async (reportId, newStatus, setReports) => {
         const currentTime = new Date().toISOString().replace(/Z$/, '');
         const formattedTime = currentTime + 'Z';
 
-        const response = await axios.patch(`https://aniresfr-backend.vercel.app/api/animals/${reportId}/`, {
+        const response = await axios.patch(`https://paws-backend.azurewebsites.net/api/animals/${reportId}/`, {
             status: newStatus,
             response_time: formattedTime
         });

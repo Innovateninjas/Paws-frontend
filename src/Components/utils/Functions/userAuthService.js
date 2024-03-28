@@ -23,10 +23,10 @@ export const login = async (email, password, setError, setButtonState) => {
         // Clear any previous error message and set button state to loading
         setError("");
         setButtonState('loading');
-
+        const url = process.env.REACT_APP_BACKEND_URL;
         // Send a POST request to the login endpoint with email and password
         const response = await axios.post(
-            "https://aniresfr-backend.vercel.app/login/",
+            `${url}/login/`,
             {
                 email,
                 password
@@ -89,10 +89,10 @@ export const registration = async (name, phone_number, email, password, setError
         // Clear any previous error message and set button state to loading
         setError("");
         setButtonState('loading');
-
+        const url = process.env.REACT_APP_BACKEND_URL;
         // Send a POST request to the registration endpoint with user data
         const response = await axios.post(
-            "https://aniresfr-backend.vercel.app/register/user",
+            `${url}/register/user`,
             {
                 name,
                 phone_number,

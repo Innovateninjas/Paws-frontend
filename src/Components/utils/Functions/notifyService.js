@@ -13,11 +13,12 @@ const requestPermission = async () => {
     try {
         const permission = await Notification.requestPermission();
         if ((permission === "granted" || permission === "default" || permission === "denied") && csrftoken) {
+            const vapidKey = process.env.REACT_APP_VAPID;
             const notify_token = await getToken(messaging, {
-                vapidKey: "BD0HK5CJxMLWdQc6Xs8E101d-LWReKCl-o8pC2e0eyMhw4go6mO2cwvp8U2wrxOGkkwPYVAs73nQkOBl0okrft8",
+                vapidKey: vapidKey,
             });
-            
-            const response = await axios.post('https://aniresfr-backend.vercel.app/update_token', { token: notify_token }, {
+            const url = process.env.REACT_APP_BACKEND_URL;
+            const response = await axios.post(`${url}/update_token`, { token: notify_token }, {
                 headers: {
                     'Authorization': `Token ${csrftoken}`
                 },
