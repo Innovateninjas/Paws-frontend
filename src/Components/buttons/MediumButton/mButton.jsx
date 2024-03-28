@@ -12,24 +12,20 @@ import PropTypes from "prop-types";
 const MButton = ({ text, icon,onClick, customstyle }) => {
     // Merge default styles with custom styles if provided
     const defaultStyles = {
-        position: "absolute",
-        top: "50%",
-        left: "50%",
-        transform: "translate(-50%, -50%)",
-        borderRadius: "14px",
-        background: "#333333",
+        // position: "absolute",
+        // top: "50%",
+        // left: "50%",
+        // transform: "translate(-50%, -50%)",
+        borderRadius: "40px",
+        background: 'linear-gradient(180deg, rgba(200, 135, 251, 0.94) 0%, rgba(241, 159, 254, 0.54) 100%)',
         boxShadow: "2px 3px 4px black",
-        padding: "20px 0",
-        display: "flex",
-        alignItems: "center",
-        gap: "5px",
-        justifyContent: "center",
+        padding: "20px 10px",
         marginTop: "0.675rem",
         fontSize: "24px",
+        backdropFilter: "blur(10px)",
         fontWeight: "700",
-        border: "2px solid #7d7d7d",
         outline: "0",
-        color: "white",
+        color: "#021E4E",
         width: "250px",
         ...customstyle, // Merge custom styles
     };
