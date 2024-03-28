@@ -2,7 +2,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import ImageUploading from 'react-images-uploading';
 import { Camera, CameraReels } from 'react-bootstrap-icons'; // Import styles for the component
-import { uploadImageToCloudinary } from '../utils/Functions/imageUploader'; // Import the function to upload images to Cloudinary
+import { uploadImageToCloudinary } from '../utils/Functions/imageUploader';
+import { CSSTransition } from 'react-transition-group'; // Import the function to upload images to Cloudinary
 
 const ImageUploader = ({ formData, setFormData, onChange }) => {
     const [cameraActive, setCameraActive] = useState(false);
@@ -140,9 +141,15 @@ const ImageUploader = ({ formData, setFormData, onChange }) => {
             </ImageUploading>
 
             {cameraActive && (
-                <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75">
-                <div className="w-full h-[29rem]  z-[30] bg-white rounded-3xl bg-opacity-57 backdrop-blur-[5px] shadow-lg ring-1 ring-gray-300">
-                <button 
+            <CSSTransition
+                in={cameraActive}
+                timeout={300}
+                classNames="zoom"
+                unmountOnExit
+            >
+            <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 animate-zoom-in">
+                <div className="w-full h-[29rem] z-[30] bg-white rounded-3xl bg-opacity-57 backdrop-blur-[5px] shadow-lg ring-1 ring-gray-300 animate-zoom-in">
+                    <button 
                         className="absolute top-0 right-0 text-base mt-3 text-white bg-gradient-to-b from-red-300 to-red-500 focus:outline-none rounded-[30px] mr-3 px-5 py-3 bg-opacity-20 font-semibold" 
                         onClick={() => setCameraActive(false)}
                     >
@@ -157,7 +164,8 @@ const ImageUploader = ({ formData, setFormData, onChange }) => {
                     </div>
                 </div>
             </div>
-            )}
+        </CSSTransition>
+    )}
         </div>
     );
 };
