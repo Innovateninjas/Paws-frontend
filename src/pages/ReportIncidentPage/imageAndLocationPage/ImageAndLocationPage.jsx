@@ -34,7 +34,7 @@ function ImageAndLocationPage({
     }).catch((error) => {
       console.error(error);
     });
-    }, 30000);
+    }, 20000);
     
     setTimerId(id);
     
@@ -83,7 +83,7 @@ function ImageAndLocationPage({
           <div className="absolute bottom-3 w-full  flex items-center justify-center"
           >
             <a
-              href={`sms:${nearestNgo ? nearestNgo.phone_number : ''}?&body=Hello,%0A%0AI'm%20reporting%20an%20urgent%20animal%20rescue%20situation%20that%20needs%20immediate%20attention:%0A%0A- Description:%20[Data%20to%20describe%20what%20happened]%0A- Animal%20Type:%20[Species]%0A- Severity:%20[Urgency%20level]%0A- Location:%20https://www.google.com/maps/search/?api=1&query=${formData.latitude},${formData.longitude}%0A%0APlease%20let%20me%20know%20if%20you%20need%20further%20details%20or%20assistance.%0A%0AThank%20you,%0A`}
+              href={`sms:${nearestNgo ? nearestNgo.phone_number : ''}?&body=Hello,%0A%0AI'm%20reporting%20an%20urgent%20animal%20rescue%20situation%20that%20needs%20immediate%20attention:%0A%0A- Description:%20[Data%20to%20describe%20what%20happened]%0A- Animal%20Type:%20[Species]%0A- Severity:%20[Urgency%20level]%0A- Location:%20${formData.address ? formData.address: "[Enter%20Your%20Address]"}%0A%0APlease%20let%20me%20know%20if%20you%20need%20further%20details%20or%20assistance.%0A%0AThank%20you,%0A`}
               className="px-4 py-4 bg-gradient-to-b tracking-wider rounded-2xl from-green-300 to-green-800 text-white shadow-lg"
             >
               Send Message Directly
