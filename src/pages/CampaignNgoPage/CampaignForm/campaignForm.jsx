@@ -2,13 +2,14 @@ import React, { useState,useContext,useEffect} from "react";
 import "cropperjs/dist/cropper.css";
 import InputField from "../../../Components/InputsFields/bigInputs";
 import { NgoContext } from "./../../../contexts/NgoContext";
-import styles from "./campaign.module.css";
+// import styles from "./campaign.module.css";
 import { FaPlus } from "react-icons/fa";
 import Creatable from 'react-select/creatable';
 import { rolesOptions } from './Roles';
 import ImageCropper from "../../../Components/ImageCropper/Cropper";
 import createCampaign from "../createCampaign";
 import { disableDate } from "./dateDisable"
+import Background from "../../../Components/backgroundComponent/Background";
 
 const CampaignForm = ({ setShowForm }) => {
     const { NgoData, loading, error } = useContext(NgoContext);
@@ -32,15 +33,13 @@ const CampaignForm = ({ setShowForm }) => {
         }
     }, [NgoData, loading, error]);
     return (
-        <div className={styles.container}>
-            {/* <h1 className={styles.heading}>Volunteer Now: Make Your Mark!</h1> */}
-            <img src="./images/paw.png" alt="paw img" className={styles.paw1} />
-
-            <fieldset className={styles.fldset}>
-                <legend>Decsription</legend>
+        <>
+        <div className="text-[#0B0553DE] min-h-screen overflow-x-hidden mx-auto flex flex-col gap-[30px] items-center mb-60">
+        <Background/>
+            <fieldset className="mt-14 bg-white p-6 gap-[20px] rounded-[30px] bg-opacity-57 backdrop-blur-[5px] shadow-dashBoardCardImageShadow flex flex-col" >
+               <label className="text-[1.6rem] font-extrabold underline tracking-wider uppercase">Description</label>
                 <InputField
-                    margin="10px"
-                    boxShadow="1px 1px 2px black"
+                className="placeholder-stone h-16 bg-opacity-45 backdrop-blur-[6px] w-[300px]  px-4 leading-[px] items-center outline-0 rounded-[30px] text-black text-lg bg-gradient-to-b from-campaign-input-top via-campaign-input-middle to-campaign-input-bottom shadow-dashBoardCardImageShadow"
                     type="text"
                     placeholder="Campaign Title"
                     value={campTitle}
@@ -51,8 +50,7 @@ const CampaignForm = ({ setShowForm }) => {
                     required
                 />
                 <InputField
-                    boxShadow="1px 1px 2px black"
-                    margin="10px"
+                className="placeholder-stone h-[120px] bg-opacity-45 backdrop-blur-[6px] w-[300px]  px-4 leading-[120px]  outline-0 rounded-[30px] text-lg  bg-gradient-to-b from-campaign-input-top via-campaign-input-middle to-campaign-input-bottom shadow-dashBoardCardImageShadow"
                     type="textarea"
                     placeholder="Campaign Description"
                     value={campDes}
@@ -67,21 +65,19 @@ const CampaignForm = ({ setShowForm }) => {
                         control: base =>
                         ({
                             ...base,
+                            height: "4rem",
                             width: '300px',
-                            boxShadow: "1px 1px 2px black",
-                            border: '1px solid #b6b5b5',
-                            height: '46px',
-                            borderRadius: '10px',
-                            padding: '10px 17px',
-                            marginTop: '0.675rem',
+                            backgroundImage: "linear-gradient(to bottom, rgba(252, 178, 231, 0.68), rgba(252, 174, 242, 0.68),rgba(242, 117, 237,0.68))",
+                            boxShadow: "3.847223997116089px 4.946430683135986px 14.289689064025879px 0px #00000040",
+                            borderRadius: '30px',
+                            padding: '0.5rem 1rem',
                             fontSize: '16px',
-                            marginLeft: '10px',
-                            // fontWeight: '700'
+                            backdropFilter: "blur(6px)",
                         })
                     }
                     }
                     isMulti={true}
-                    placeholder="enter tags"
+                    placeholder="Enter tags"
                     options={rolesOptions}
                     onChange={(selectedOptions) => {
                         const tags = selectedOptions.map(option => option.label);
@@ -91,11 +87,10 @@ const CampaignForm = ({ setShowForm }) => {
                     }
                 />
             </fieldset>
-            <fieldset className={styles.fldset}>
-                <legend>Contact Details</legend>
+            <fieldset className="bg-white p-6 gap-[20px] rounded-[30px] bg-opacity-57 backdrop-blur-[5px] shadow-dashBoardCardImageShadow flex flex-col">
+            <label className="text-[1.6rem] uppercase font-extrabold underline tracking-wider">Upload Images</label>
                 <InputField
-                    margin="10px"
-                    boxShadow="1px 1px 2px black"
+                className="h-16 bg-opacity-45 backdrop-blur-[6px] w-[300px] px-4 leading-[px] items-center outline-0 rounded-[30px] text-lg bg-gradient-to-b from-campaign-input-top via-campaign-input-middle to-campaign-input-bottom shadow-dashBoardCardImageShadow"
                     type="tel"
                     placeholder="Phone Number"
                     value={phoneNumber}
@@ -106,8 +101,7 @@ const CampaignForm = ({ setShowForm }) => {
                     required
                 />
                 <InputField
-                    margin="10px"
-                    boxShadow="1px 1px 2px black"
+                className="h-16 bg-opacity-45 backdrop-blur-[6px] w-[300px] px-4 leading-[px] items-center outline-0 rounded-[30px] text-lg bg-gradient-to-b from-campaign-input-top via-campaign-input-middle to-campaign-input-bottom shadow-dashBoardCardImageShadow"
                     type="email"
                     placeholder="Email"
                     value={email}
@@ -117,17 +111,14 @@ const CampaignForm = ({ setShowForm }) => {
                     }}
                     required
                 />
-            </fieldset>
-
-            <fieldset className={styles.fldset}>
-                <legend>Duration</legend>
-                <div className={styles.dates}>
-                    <label className={styles.labl}>Start Date:</label>
+            </fieldset> 
+            <fieldset className="bg-white p-6 gap-[20px] rounded-[30px] bg-opacity-57 backdrop-blur-[5px] shadow-dashBoardCardImageShadow flex flex-col">
+                <label className="text-[1.6rem] uppercase font-extrabold underline tracking-wider">Duration</label>
+                <div className="flex flex-col gap-[4px]">
+                    <label className="text-[1.2rem] font-bold">Start Date:</label>
                     <InputField
-                        margin="10px"
-                        boxShadow="1px 1px 2px black"
+                        className="text-stone h-16 bg-opacity-45 backdrop-blur-[6px] w-[300px] px-4 leading-[px] items-center outline-0 rounded-[30px] text-lg bg-gradient-to-b from-campaign-input-top via-campaign-input-middle to-campaign-input-bottom shadow-dashBoardCardImageShadow"
                         type="date"
-                        placeholder="Start Date"
                         value={strtDate}
                         min= {disableDate}
                         onChange={(e) => {
@@ -136,14 +127,13 @@ const CampaignForm = ({ setShowForm }) => {
                         }}
                         required
                     />
+                    
                 </div>
-                <div className={styles.dates}>
-                    <label className={styles.labl}>End Date:</label>
+                <div className="flex flex-col gap-[4px]">
+                    <label className="text-[1.2rem] font-bold">End Date:</label>
                     <InputField
-                        margin="10px"
-                        boxShadow="1px 1px 2px black"
+                        className="h-16 bg-opacity-45 backdrop-blur-[6px] w-[300px] px-4 leading-[px] items-center outline-0 rounded-[30px] text-lg bg-gradient-to-b from-campaign-input-top via-campaign-input-middle to-campaign-input-bottom shadow-dashBoardCardImageShadow"
                         type="date"
-                        placeholder="End Date"
                         value={endDate}
                         min= {disableDate}
                         onChange={(e) => {
@@ -153,13 +143,11 @@ const CampaignForm = ({ setShowForm }) => {
                         required
                     />
                 </div>
-                <div className={styles.dates}>
-                    <label className={styles.labl}>Application Deadline:</label>
+                <div className="flex flex-col gap-[4px]">
+                    <label className="text-[1.2rem] font-bold">Application Deadline:</label>
                     <InputField
-                        margin="10px"
-                        boxShadow="1px 1px 2px black"
+                        className="text-stone h-16 bg-opacity-45 backdrop-blur-[6px] w-[300px] px-4 leading-[px] items-center outline-0 rounded-[30px] text-lg bg-gradient-to-b from-campaign-input-top via-campaign-input-middle to-campaign-input-bottom shadow-dashBoardCardImageShadow"
                         type="date"
-                        placeholder="Deadline"
                         value={lastDate}
                         min= {disableDate}
                         onChange={(e) => {
@@ -169,11 +157,15 @@ const CampaignForm = ({ setShowForm }) => {
                         required
                     />
                 </div>
-                <label className={styles.labl}> Age Group:</label>
-                <div className={styles.radioContainer}>
-                    <div className={styles.radioInput}>
+                <div className="flex flex-col gap-[4px]">
+                <label className="text-[1.2rem] font-bold"> Age Group:</label>
+                <div className="bg-opacity-45 backdrop-blur-[6px] w-[300px] px-4 p-3 leading-[px] items-center outline-0 rounded-[30px] text-lg bg-gradient-to-b from-campaign-input-top via-campaign-input-middle to-campaign-input-bottom shadow-dashBoardCardImageShadow border-1 flex justify-evenly ring-1 ring-gray-300 bg-white overflowX-scroll">
+                    <div className="flex  justify-center flex-col gap-[5px] items-center">
+                    <label className="text-[1.2rem] font-semibold" htmlFor="thirteen">
+                            13
+                        </label>
                         <input
-                            className="radios"
+                            className="w-9 h-9"
                             type="radio"
                             id="thirteen"
                             name="age"
@@ -184,16 +176,14 @@ const CampaignForm = ({ setShowForm }) => {
                                 setageGroup(13);
                             }}
                         />
-                        <label htmlFor="thirteen">
-                            <img
-                                className={styles.radioImage}
-                                src="./images/13.png"
-                                alt=""
-                            />
-                        </label>
+                        
                     </div>
-                    <div className={styles.radioInput}>
-                        <input className="radios"
+                    <div className="flex justify-center flex-col gap-[5px] items-center">
+                       
+                       <label className="text-[1.2rem] font-semibold" htmlFor="eighteen">
+                            18+
+                        </label>
+                        <input className="w-9 h-9"
                             type="radio"
                             id="eighteen"
                             name="age"
@@ -204,17 +194,14 @@ const CampaignForm = ({ setShowForm }) => {
                                 setageGroup(18);
                             }}
                         />
-                        <label htmlFor="eighteen">
-                            <img
-                                className={styles.radioImage}
-                                src="./images/18+.png"
-                                alt=""
-                            />
-                        </label>
+                        
                     </div>
-                    <div className={styles.radioInput}>
+                    <div className="flex flex-col justify-center gap-[5px] items-center">
+                        <label className="text-[1.2rem] font-semibold" htmlFor="all">
+                             All Age
+                        </label>
                         <input type="radio"
-                            className="radios"
+                            className="w-9 h-9"
                             id="all"
                             name="age"
                             value="Everybody"
@@ -224,12 +211,10 @@ const CampaignForm = ({ setShowForm }) => {
                                 setageGroup(1);
                             }}
                         />
-                        <label htmlFor="all">
-                            <img className={styles.radioImage} src="./images/all.png" alt="" />
-                        </label>
+                        
                     </div>
                 </div>
-
+            </div>
 
 
 
@@ -239,27 +224,23 @@ const CampaignForm = ({ setShowForm }) => {
                 headerImgUrl={headerImgUrl}
                 setheaderImgUrl={setheaderImgUrl}
             />
-
-
-
-            <img src="./images/paw.png" alt="paw img" className={styles.paw2} />
-            {error && <p className={styles.errtext}>{campaignError}</p>}
+            {error && <p className="text-red-500 text-base relative top-95%">{campaignError}</p>}
             <button
-                className={styles.create}
+                className="text-white flex gap-[10px] items-center focus:outline-none rounded-[30px] shadow-buttonShadow font-semibold bg-gradient-to-b from-green-300 text-2xl to-green-800 py-5 px-10"
                 onClick={async () => {
-                    console.log(
-                        orgName,
-                        phoneNumber,
-                        email,
-                        campTitle,
-                        campDes,
-                        tags,
-                        strtDate,
-                        endDate,
-                        ageGroup,
-                        lastDate,
-                        headerImgUrl
-                    );
+                    // console.log(
+                    //     orgName,
+                    //     phoneNumber,
+                    //     email,
+                    //     campTitle,
+                    //     campDes,
+                    //     tags,
+                    //     strtDate,
+                    //     endDate,
+                    //     ageGroup,
+                    //     lastDate,
+                    //     headerImgUrl
+                    // );
                     createCampaign(orgName,
                         phoneNumber, 
                         email,
@@ -279,6 +260,7 @@ const CampaignForm = ({ setShowForm }) => {
                 Create <FaPlus fontSize="18px" />
             </button>
         </div>
+        </>
     );
 };
 
