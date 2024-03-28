@@ -23,8 +23,8 @@ export const handleImageChange = async (imageList, handleChange ,setErrors, setF
         let injuryTypes = [];
 
         // Detect animal type using Azure Custom Vision API
-        const predictionUrlAnimal = "https://southcentralus.api.cognitive.microsoft.com/customvision/v3.0/Prediction/9fcd78e5-6ce4-41ba-9bec-c214ee23708d/detect/iterations/Iteration7/url";
-        const predictionKeyAnimal = "d341019dfb574879acbf12ee6c4791cc";
+        const predictionUrlAnimal = process.env.REACT_APP_PREDICTION_URL_ANIMAL;
+        const predictionKeyAnimal = process.env.REACT_APP_PREDICTION_KEY_ANIMAL;
 
         const animalResponse = await fetch(predictionUrlAnimal, {
             method: "POST",
@@ -57,8 +57,8 @@ export const handleImageChange = async (imageList, handleChange ,setErrors, setF
         }
 
         // Detect injury using Azure Custom Vision API
-        const predictionUrlInjury = "https://southcentralus.api.cognitive.microsoft.com/customvision/v3.0/Prediction/57c89ddd-318e-4d12-a1b3-f04a4e5c1647/classify/iterations/Iteration3/url";
-        const predictionKeyInjury = "d341019dfb574879acbf12ee6c4791cc";
+        const predictionUrlInjury = process.env.REACT_APP_PREDICTION_URL_INJURY;
+        const predictionKeyInjury = process.env.REACT_APP_PREDICTION_KEY_INJURY;
 
         const injuryResponse = await fetch(predictionUrlInjury, {
             method: "POST",

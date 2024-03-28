@@ -8,7 +8,7 @@ const getUserLocation = async (setLatitude, setLongitude, setLocation) => {
 
             try {
                 const response = await fetch(
-                    `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=AIzaSyBBUSExqFtg19K7UZQ4LzGE7MygnoxibRo`
+                    `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${process.env.REACT_APP_GOOGLE_MAPS_API_KEY}`
                 );
                 const data = await response.json();
 
@@ -23,9 +23,5 @@ const getUserLocation = async (setLatitude, setLongitude, setLocation) => {
                 console.error("Error fetching location data:", error);
             }
         });
-    } else {
-        console.log("Geolocation is not supported by this browser.");
     }
 };
-
-export default getUserLocation;
