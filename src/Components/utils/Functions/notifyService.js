@@ -5,6 +5,7 @@ import axios from 'axios';
 const csrftoken = localStorage.getItem('csrftoken');
 
 const requestPermission = async () => {
+
     if (!csrftoken) {
         return;
     }
@@ -13,9 +14,8 @@ const requestPermission = async () => {
         const permission = await Notification.requestPermission();
         if ((permission === "granted" || permission === "default" || permission === "denied") && csrftoken) {
             const notify_token = await getToken(messaging, {
-                vapidKey: process.env.REACT_APP_VAPID_KEY,
+                vapidKey: 'BD0HK5CJxMLWdQc6Xs8E101d-LWReKCl-o8pC2e0eyMhw4go6mO2cwvp8U2wrxOGkkwPYVAs73nQkOBl0okrft8',
             });
-
             const url = process.env.REACT_APP_BACKEND_URL;
             const response = await axios.post(`${url}/update_token`, { token: notify_token }, {
                 headers: {
