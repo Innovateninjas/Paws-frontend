@@ -2,7 +2,6 @@ import React, { useState,useContext,useEffect} from "react";
 import "cropperjs/dist/cropper.css";
 import InputField from "../../../Components/InputsFields/bigInputs";
 import { NgoContext } from "./../../../contexts/NgoContext";
-// import styles from "./campaign.module.css";
 import { FaPlus } from "react-icons/fa";
 import Creatable from 'react-select/creatable';
 import { rolesOptions } from './Roles';
@@ -10,7 +9,6 @@ import ImageCropper from "../../../Components/ImageCropper/Cropper";
 import createCampaign from "../createCampaign";
 import disableDate  from "./dateDisable"
 import Background from "../../../Components/backgroundComponent/Background";
- 
 const CampaignForm = ({ setShowForm }) => {
     const { NgoData, loading, error } = useContext(NgoContext);
     const [orgName,setOrgName] = useState("Ngo"); // i will add option later for fetching the org name  from Ngocontext
@@ -34,9 +32,10 @@ const CampaignForm = ({ setShowForm }) => {
     }, [NgoData, loading, error]);
     return (
         <>
-        <div className="text-[#0B0553DE] min-h-screen py-12 overflow-x-hidden mx-auto flex flex-col gap-[30px] items-center mb-60">
         <Background/>
-            <fieldset className="mt-10 bg-white p-6 gap-[20px] rounded-[30px] bg-opacity-57 backdrop-blur-[5px] shadow-dashBoardCardImageShadow flex flex-col" >
+        <div className="text-[#0B0553DE] min-h-screen py-12 overflow-x-hidden mx-auto flex flex-col gap-[30px] items-center mb-[120px]">
+        
+            <fieldset className="bg-white p-6 gap-[20px] rounded-[30px] bg-opacity-30 backdrop-blur-[5px] shadow-dashBoardCardImageShadow flex flex-col" >
                <label className="text-[1.6rem] font-extrabold underline tracking-wider uppercase">Description</label>
                 <InputField
                 className="placeholder-stone h-16 bg-opacity-45 backdrop-blur-[6px] w-[300px]  px-4 leading-[px] items-center outline-0 rounded-[30px] text-black text-lg bg-gradient-to-b from-campaign-input-top via-campaign-input-middle to-campaign-input-bottom shadow-dashBoardCardImageShadow"
@@ -87,8 +86,8 @@ const CampaignForm = ({ setShowForm }) => {
                     }
                 />
             </fieldset>
-            <fieldset className="bg-white p-6 gap-[20px] rounded-[30px] bg-opacity-57 backdrop-blur-[5px] shadow-dashBoardCardImageShadow flex flex-col">
-            <label className="text-[1.6rem] uppercase font-extrabold underline tracking-wider">Upload Images</label>
+            <fieldset className="bg-white p-6 gap-[20px] rounded-[30px] bg-opacity-30 backdrop-blur-[5px] shadow-dashBoardCardImageShadow flex flex-col">
+            <label className="text-[1.6rem] uppercase font-extrabold underline tracking-wider">Contact details</label>
                 <InputField
                 className="h-16 bg-opacity-45 backdrop-blur-[6px] w-[300px] px-4 leading-[px] items-center outline-0 rounded-[30px] text-lg bg-gradient-to-b from-campaign-input-top via-campaign-input-middle to-campaign-input-bottom shadow-dashBoardCardImageShadow"
                     type="tel"
@@ -112,7 +111,7 @@ const CampaignForm = ({ setShowForm }) => {
                     required
                 />
             </fieldset> 
-            <fieldset className="bg-white p-6 gap-[20px] rounded-[30px] bg-opacity-57 backdrop-blur-[5px] shadow-dashBoardCardImageShadow flex flex-col">
+            <fieldset className="bg-white p-6 gap-[20px] rounded-[30px] bg-opacity-30 backdrop-blur-[5px] shadow-dashBoardCardImageShadow flex flex-col">
                 <label className="text-[1.6rem] uppercase font-extrabold underline tracking-wider">Duration</label>
                 <div className="flex flex-col gap-[4px]">
                     <label className="text-[1.2rem] font-bold">Start Date:</label>
@@ -132,7 +131,7 @@ const CampaignForm = ({ setShowForm }) => {
                 <div className="flex flex-col gap-[4px]">
                     <label className="text-[1.2rem] font-bold">End Date:</label>
                     <InputField
-                        className="h-16 bg-opacity-45 backdrop-blur-[6px] w-[300px] px-4 leading-[px] items-center outline-0 rounded-[30px] text-lg bg-gradient-to-b from-campaign-input-top via-campaign-input-middle to-campaign-input-bottom shadow-dashBoardCardImageShadow"
+                        className="text-stone h-16 bg-opacity-45 backdrop-blur-[6px] w-[300px] px-4 leading-[px] items-center outline-0 rounded-[30px] text-lg bg-gradient-to-b from-campaign-input-top via-campaign-input-middle to-campaign-input-bottom shadow-dashBoardCardImageShadow"
                         type="date"
                         value={endDate}
                         min= {minDate}
@@ -157,11 +156,11 @@ const CampaignForm = ({ setShowForm }) => {
                         required
                     />
                 </div>
-                <div className="flex flex-col gap-[4px]">
-                <label className="text-[1.2rem] font-bold"> Age Group:</label>
-                <div className="bg-opacity-45 backdrop-blur-[6px] w-[300px] px-4 p-3 leading-[px] items-center outline-0 rounded-[30px] text-lg bg-gradient-to-b from-campaign-input-top via-campaign-input-middle to-campaign-input-bottom shadow-dashBoardCardImageShadow border-1 flex justify-evenly ring-1 ring-gray-300 bg-white overflowX-scroll">
+                <div className="flex flex-col gap-[6px]">
+                <label className="text-[1.2rem]  font-bold"> Age Group:</label>
+                <div className="bg-opacity-45 backdrop-blur-[6px] w-[300px] px-4 p-3 leading-[px] items-center outline-0 rounded-[40px] text-lg bg-gradient-to-b from-campaign-input-top via-campaign-input-middle to-campaign-input-bottom shadow-dashBoardCardImageShadow border-1 flex justify-evenly ring-1 ring-gray-300 bg-white overflowX-scroll">
                     <div className="flex  justify-center flex-col gap-[5px] items-center">
-                    <label className="text-[1.2rem] font-semibold" htmlFor="thirteen">
+                    <label className="text-[1.2rem] text-black font-semibold" htmlFor="thirteen">
                             13
                         </label>
                         <input
@@ -180,7 +179,7 @@ const CampaignForm = ({ setShowForm }) => {
                     </div>
                     <div className="flex justify-center flex-col gap-[5px] items-center">
                        
-                       <label className="text-[1.2rem] font-semibold" htmlFor="eighteen">
+                       <label className="text-[1.2rem] text-black font-semibold" htmlFor="eighteen">
                             18+
                         </label>
                         <input className="w-9 h-9"
@@ -197,7 +196,7 @@ const CampaignForm = ({ setShowForm }) => {
                         
                     </div>
                     <div className="flex flex-col justify-center gap-[5px] items-center">
-                        <label className="text-[1.2rem] font-semibold" htmlFor="all">
+                        <label className="text-[1.2rem] text-black font-semibold" htmlFor="all">
                              All Age
                         </label>
                         <input type="radio"
@@ -215,10 +214,6 @@ const CampaignForm = ({ setShowForm }) => {
                     </div>
                 </div>
             </div>
-
-
-
-
             </fieldset>
             <ImageCropper
                 headerImgUrl={headerImgUrl}
@@ -226,7 +221,7 @@ const CampaignForm = ({ setShowForm }) => {
             />
             {error && <p className="text-red-500 text-base  top-[95%]">{campaignError}</p>}
             <button
-                className="text-white flex gap-[10px] items-center focus:outline-none rounded-[30px] shadow-buttonShadow font-semibold bg-gradient-to-b from-green-300 text-2xl to-green-800 py-5 px-10"
+                className="text-white flex gap-[5px] items-center focus:outline-none rounded-[30px] tracking-wider shadow-buttonShadow font-semibold bg-gradient-to-b from-green-300 text-2xl relative to-green-800 py-5 px-10"
                 onClick={async () => {
                     // console.log(
                     //     orgName,

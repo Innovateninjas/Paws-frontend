@@ -16,9 +16,9 @@ module.exports = {
         'campaign-input-top': 'rgba(252, 178, 231, 0.68)',
         'campaign-input-middle': 'rgba(252, 174, 242, 0.68)',
         'campaign-input-bottom': 'rgba(242, 117, 237,0.68)',
-        // 'input-container': 'rgba(255, 255, 255, 0.5)', // Transparent white
-        // // 'input-container-green': 'rgba(84, 200, 180, 0.5)', // Transparent sea green
-        // 'input-container-blue': 'rgba(70, 130, 180, 0.8)', // Transparent steel blue
+        'campaign-card-bg-top': '#1e85e47d',
+        'campaign-card-bg-middle': '#ffffff80',
+        'campaign-card-bg-bottom': '#ffffffcc',
         'stone': '#7D9189',
       },
       fontFamily: {
