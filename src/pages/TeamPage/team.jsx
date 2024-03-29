@@ -46,7 +46,7 @@ const TeamPage = () => {
     {
         name: "Anirban Majumdar",
         position: "Backend Developer",
-        image: "https://media.licdn.com/dms/image/D5635AQGuer7LhHbXKg/profile-framedphoto-shrink_800_800/0/1711286412806?e=1712250000&v=beta&t=U6ethcPj0_pGQ98kCi-BrG39Vy5JBXsLK_Rdlfwq9lU",
+        image: "https://media.licdn.com/dms/image/D5603AQG5LSd6uM5VsA/profile-displayphoto-shrink_800_800/0/1711645732216?e=1717027200&v=beta&t=rk-Gap8Q-uA7Bh-tv_mbNHX-Szhe-9yP-X7NCFlkr1Y",
         featureText: "It all starts with 0 or it's an error",
         socialLinks: {
           linkedin: "https://www.linkedin.com/in/anirbanmajumder0/",
