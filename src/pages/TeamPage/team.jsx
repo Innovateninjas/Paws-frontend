@@ -36,8 +36,8 @@ const TeamPage = () => {
     {
         name: "Shreya Shaw",
         position: "UI/UX Developer", 
-        image: "https://workik-widget-assets.s3.amazonaws.com/widget-assets/images/expert2.png",
-        featureText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        image: "https://media.licdn.com/dms/image/D5603AQFAH-ciYtM0ZA/profile-displayphoto-shrink_800_800/0/1711645818457?e=1717027200&v=beta&t=lQ0H6HJRfpEhlorEc4OhMNNC_sPgSQTDtPHgq47M9K4",
+        featureText: "Code, Create, Conquer - Engineering the Future..",
         socialLinks: {
           linkedin: "https://www.linkedin.com/in/shreya-shaw/",
           github: "https://github.com/shreyashaw05"
@@ -70,7 +70,7 @@ const TeamPage = () => {
     <div className="bg-gradient-to-r from-blue-500 to-green-500 min-h-screen">
       <div className="container mx-auto px-4 py-8">
         <h2 className="text-3xl font-semibold text-center mb-8 text-white">Our Team</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 justify-center">
         {teamMembers.map((member, index) => (
     <div key={index} className="w-[23rem] z-[30] bg-white rounded-3xl bg-opacity-57 backdrop-blur-[5px] shadow-lg ring-1 ring-gray-300">
         <img className="w-60 mt-2 h-60 rounded-full border-4 border-emerald-500 mx-auto block" src={member.image} alt={member.name} />
