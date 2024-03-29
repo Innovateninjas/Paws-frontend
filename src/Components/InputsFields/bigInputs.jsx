@@ -53,7 +53,6 @@ function InputField({
                 name={name}
                 min={min}
             />
-            {console.log(min)}
             </>
         );
     }
