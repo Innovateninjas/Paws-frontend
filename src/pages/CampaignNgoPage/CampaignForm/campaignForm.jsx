@@ -219,7 +219,7 @@ const CampaignForm = ({ setShowForm }) => {
                 headerImgUrl={headerImgUrl}
                 setheaderImgUrl={setheaderImgUrl}
             />
-            {error && <p className="text-red-500 text-base  top-[95%]">{campaignError}</p>}
+            {!error && <p className="text-red-500 font-semibold text-base">{campaignError}</p>}
             <button
                 className="text-white flex gap-[5px] items-center focus:outline-none rounded-[30px] tracking-wider shadow-buttonShadow font-semibold bg-gradient-to-b from-green-300 text-2xl relative to-green-800 py-5 px-10"
                 onClick={async () => {
