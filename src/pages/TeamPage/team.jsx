@@ -5,7 +5,7 @@ const TeamPage = () => {
   const teamMembers = [
     {
       name: "Rishi Paul",
-      position: "AI & Frontend Developer",
+      position: "AI & Fullstack Developer",
       image: "https://media.licdn.com/dms/image/D5603AQH5Pdev9HMjdw/profile-displayphoto-shrink_800_800/0/1702138868459?e=1717027200&v=beta&t=67GlMCnOOMNe-dqJ5YfbeY3dgaGjQA1j935ImKW3Dyc",
       featureText: "Tests in Production, because who needs that silly staging environment anyway?",
       socialLinks: {
@@ -25,7 +25,7 @@ const TeamPage = () => {
     },
     {
         name: "Debayudh Basu",
-        position: "Payments Developer",
+        position: "Frontend Developer",
         image: "https://media.licdn.com/dms/image/D5603AQE3L9nP5ZM_vg/profile-displayphoto-shrink_800_800/0/1708620931019?e=1717027200&v=beta&t=mJwwcnkLJNBYUAa4vzFqXGe0C4TVOAwD5iD9eJih0lY",
         featureText: "Who needs cocaine when you can sniff HTTPs requests",
         socialLinks: {
@@ -55,7 +55,7 @@ const TeamPage = () => {
     },
     {
         name: "Chandrima Ghosh",
-        position: "Designer",
+        position: "Designer and QA",
         image: "https://media.licdn.com/dms/image/D5603AQGQNKUH0VzDMQ/profile-displayphoto-shrink_800_800/0/1698230927367?e=1717027200&v=beta&t=7y20D_MiqLSOFHBFg-hdvxYBqnrUOiiXdIGfBCXa4qk",
         featureText: "Engineering the world differently.",
         socialLinks: {
