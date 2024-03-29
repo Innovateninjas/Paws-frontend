@@ -14,6 +14,16 @@ const TeamPage = () => {
       }
     },
     {
+      name: "Anirban Majumdar",
+      position: "Backend Developer",
+      image: "https://media.licdn.com/dms/image/D5603AQG5LSd6uM5VsA/profile-displayphoto-shrink_800_800/0/1711645732216?e=1717027200&v=beta&t=rk-Gap8Q-uA7Bh-tv_mbNHX-Szhe-9yP-X7NCFlkr1Y",
+      featureText: "It all starts with 0 or it's an error",
+      socialLinks: {
+        linkedin: "https://www.linkedin.com/in/anirbanmajumder0/",
+        github: "https://github.com/anirbanmajumder0"
+      }
+  },
+    {
         name: "Arnab Mondal",
         position: "Frontend Developer",
         image: "https://media.licdn.com/dms/image/D5603AQF1SG1K-VPsTg/profile-displayphoto-shrink_800_800/0/1699975516118?e=1717027200&v=beta&t=ZLzBL-4382gD16CTtZhR9aEEz6El5CBF8L_ImUUVz3w",
@@ -23,6 +33,16 @@ const TeamPage = () => {
           github: "https://github.com/codewarnab"
         }
     },
+    {
+      name: "Chandrima Ghosh",
+      position: "Designer and QA",
+      image: "https://media.licdn.com/dms/image/D5603AQGQNKUH0VzDMQ/profile-displayphoto-shrink_800_800/0/1698230927367?e=1717027200&v=beta&t=7y20D_MiqLSOFHBFg-hdvxYBqnrUOiiXdIGfBCXa4qk",
+      featureText: "Engineering the world differently.",
+      socialLinks: {
+        linkedin: "https://www.linkedin.com/in/chandrima-ghosh-476231295/",
+        github: "https://github.com/chandrima25"
+      }
+  },
     {
         name: "Debayudh Basu",
         position: "Frontend Developer",
@@ -43,26 +63,8 @@ const TeamPage = () => {
           github: "https://github.com/shreyashaw05"
         }
     },
-    {
-        name: "Anirban Majumdar",
-        position: "Backend Developer",
-        image: "https://media.licdn.com/dms/image/D5603AQG5LSd6uM5VsA/profile-displayphoto-shrink_800_800/0/1711645732216?e=1717027200&v=beta&t=rk-Gap8Q-uA7Bh-tv_mbNHX-Szhe-9yP-X7NCFlkr1Y",
-        featureText: "It all starts with 0 or it's an error",
-        socialLinks: {
-          linkedin: "https://www.linkedin.com/in/anirbanmajumder0/",
-          github: "https://github.com/anirbanmajumder0"
-        }
-    },
-    {
-        name: "Chandrima Ghosh",
-        position: "Designer and QA",
-        image: "https://media.licdn.com/dms/image/D5603AQGQNKUH0VzDMQ/profile-displayphoto-shrink_800_800/0/1698230927367?e=1717027200&v=beta&t=7y20D_MiqLSOFHBFg-hdvxYBqnrUOiiXdIGfBCXa4qk",
-        featureText: "Engineering the world differently.",
-        socialLinks: {
-          linkedin: "https://www.linkedin.com/in/chandrima-ghosh-476231295/",
-          github: "https://github.com/chandrima25"
-        }
-    }
+    
+    
     // Add more team members as needed
   ];
 
