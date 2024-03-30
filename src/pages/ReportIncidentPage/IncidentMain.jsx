@@ -8,7 +8,7 @@ import ContactInformationPage from "./contactInformationPage/ContactInformationP
 import SuccessPage from "../successPage/SuccessPage";
 import { UserContext } from "../../contexts/UserContext";
 function IncidentForm() {
-  const { userData } = useContext(UserContext);
+  const { userData, setKey } = useContext(UserContext);
   const [currentPage, setCurrentPage] = useState(1);
   const [Submitted, setSubmitted] = useState(false);
   const [formData, setFormData] = useState({
@@ -198,6 +198,7 @@ function IncidentForm() {
         );
 
         if (response.ok) {
+          setKey(prevKey => prevKey + 1);
           setSubmitted(true);
           const data = await response.json();
           console.log("Success:", data);
