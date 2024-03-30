@@ -108,7 +108,45 @@ function NgoRegisterForm() {
           />
 
           <Creatable
-            className="placeholder-stone flex justify-center z-20 h-16 bg-opacity-45 w-80 px-4 py-2 items-center outline-0 rounded-[30px] text-black text-lg bg-white shadow-dashBoardCardImageShadow"
+           styles={{
+        control: base => ({
+            ...base,
+            // maxHeight: "6rem",
+            width: '20rem',
+            backgroundColor: 'rgba(255, 255, 255, 0.5)',
+            boxShadow: "3.847223997116089px 4.946430683135986px 14.289689064025879px 0px #00000040",
+            borderRadius: '30px',
+            padding: '0.5rem 1rem',
+            fontSize: '16px',
+            backdropFilter: 'blur(6px)',
+            outline: '0',
+            overflow: 'scroll',
+            position: 'relative',
+            
+        }),
+        menu: (provided) => ({
+            ...provided,
+            position:'relative'
+        }),
+        multiValue: (provided, state) => ({
+            ...provided,
+            backgroundColor: 'rgba(255, 255, 255, 0.5)',
+            borderRadius: '30px',
+            fontSize: '18px',
+            marginLeft: '5px',
+            padding: '2px',
+        }),
+        clearIndicator: (provided, state) => ({
+            ...provided,
+            color: 'rgb(244 63 94)',
+        }),
+        dropdownIndicator: (provided, state) => ({
+            ...provided,
+            color: 'black',
+            lineHeight: '32px',
+        }),
+    }}
+            // className="placeholder-stone  justify-center z-20 h-16 bg-opacity-45 w-80 px-4 py-2 items-center outline-0 rounded-[30px] text-black text-lg bg-white shadow-dashBoardCardImageShadow"
             isMulti={true}
             placeholder="Animal Supported"
             options={AnimalList}
