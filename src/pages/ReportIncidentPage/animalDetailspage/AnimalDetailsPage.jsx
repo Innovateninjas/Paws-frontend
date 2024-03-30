@@ -4,6 +4,7 @@ import "react-tooltip/dist/react-tooltip.css";
 import { Tooltip } from "react-tooltip";
 import Button from "../../../Components/tailwindButton/Button";
 import Background from "../../../Components/backgroundComponent/Background";
+import {set} from "core-js"
 function AnimalDetailsPage({
   formData,
   errors,
@@ -15,10 +16,11 @@ function AnimalDetailsPage({
   const [isCat, setIsCat] = useState(false);
   const [isCattle, setIsCattle] = useState(false);
   const [key, setKey] = useState(0);
+  const [isclass, setClass] = useState("true");
+
   useEffect(() => {
     setKey((prev) => prev + 1);
   }, []);
-
   useEffect(() => {
     if (formData.predictedAnimal === "dog") {
       setIsDog(true);
@@ -29,14 +31,11 @@ function AnimalDetailsPage({
     }
   }, [formData.predictedAnimal]);
 
-  setTimeout(() => {
-    const elements = document.querySelectorAll(".show-tooltip");
-    setKey((prev) => prev + 1);
-    elements.forEach((element) => {
-      element.classList.remove("show-tooltip");
-    });
-  }, 4000);
-
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setClass(false);
+    }, 5000);
+  }, [isDog, isCat, isCattle]);
   return (
     // A MASTER CONTAINER
     <div >
@@ -44,14 +43,22 @@ function AnimalDetailsPage({
       <h1 className="text-center mt-[20px] pb-1 z-[3] text-indigo-900 font-bold tracking-wide text-[2em] underline">
         Describe The Issue
       </h1>
-      <Tooltip
-        key={key}
-        anchorSelect=".show-tooltip"
-        isOpen={formData}
-        disableStyleInjection={true}
-      />
+      <div style={{ position: 'relative', zIndex: 50 }}>
+  <Tooltip
+    key={key}
+    anchorSelect=".show-tooltip"
+    isOpen={isclass}
+    disableStyleInjection={true}
+  />
+  {console.log(formData)}
+</div>
       {/* contentsContainer */}
-      <div className="relative z-[3] flex flex-col p-4 gap-5 mb-20  ">
+
+      {!(isDog|| isCat || isCattle)&& 
+        <p className="text-lg text-blue-500 font-bold">Fetching data...</p>
+      }
+      {(isDog|| isCat || isCattle) && <>
+        <div className="relative z-[3] flex flex-col p-4 gap-5 mb-20  ">
       <div className=" p-[10px] border-1 flex flex-col gap-[10px] rounded-3xl shadow-lg ring-1 ring-gray-300 bg-opacity-57 bg-white overflowX-scroll backdrop-blur-[6px]">
           <label>
             <p className="font-extrabold  text-indigo-900 pl-5 text-[1.4rem] leading-normal tracking-wider overflow-scroll">
@@ -294,6 +301,8 @@ function AnimalDetailsPage({
           <Button text="Next" clas="text-base  text-white bg-gradient-to-b from-blue-300 to-blue-800 shadow-buttonShadow focus:outline-none rounded-[30px]  bg-opacity-20 font-semibold"  onClick={handleNextPage}/>
         </div>
       </div>
+</>}
+      
     </div>
   );
 }
