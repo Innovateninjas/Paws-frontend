@@ -19,7 +19,7 @@ function ImageAndLocationPage({
   errors,
   setErrors,
   setFormData,
-}) {
+}) {// eslint-disable-next-line
   const [timerId, setTimerId] = useState(null);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [nearestNgo, setNearestNgo] = useState(null);
@@ -28,13 +28,12 @@ function ImageAndLocationPage({
     const id = setTimeout(() => {
     const url = process.env.REACT_APP_BACKEND_URL;
     axios.get(`${url}/nearest_ngo?lat=${formData.latitude}&lon=${formData.longitude}`).then((response) => {
-      console.log(response.data);
       setNearestNgo(response.data);
      setModalIsOpen(true);
     }).catch((error) => {
       console.error(error);
     });
-    }, 20000);
+    }, 30000);
     
     setTimerId(id);
     

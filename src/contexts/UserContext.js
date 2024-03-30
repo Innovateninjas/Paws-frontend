@@ -8,7 +8,7 @@ export const UserProvider = ({ children }) => {
     const [userData, setUserData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-
+    const [key,setKey] = useState(0);
     useEffect(() => {
         let isMounted = true;
 
@@ -52,10 +52,10 @@ export const UserProvider = ({ children }) => {
         return () => {
             isMounted = false;
         };
-    }, []);
+    }, [key]);
 
     return (
-        <UserContext.Provider value={{ userData, loading, error }}>
+        <UserContext.Provider value={{ userData, loading, error,setKey }}>
             {children}
         </UserContext.Provider>
     );
