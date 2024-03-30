@@ -38,7 +38,7 @@ const CampaignForm = ({ setShowForm }) => {
             <fieldset className="bg-white p-6 gap-[20px] rounded-[30px] bg-opacity-30 backdrop-blur-[5px] shadow-dashBoardCardImageShadow flex flex-col" >
                <label className="text-[1.6rem] font-extrabold underline tracking-wider uppercase">Description</label>
                 <InputField
-                className="placeholder-stone h-16 bg-opacity-45 backdrop-blur-[6px] w-[300px]  px-4 leading-[px] items-center outline-0 rounded-[30px] text-black text-lg bg-gradient-to-b from-campaign-input-top via-campaign-input-middle to-campaign-input-bottom shadow-dashBoardCardImageShadow"
+                className="placeholder-stone h-16 bg-opacity-45 backdrop-blur-[6px] w-[300px] px-4 items-center outline-0 rounded-[30px] text-black text-lg bg-gradient-to-b from-campaign-input-top via-campaign-input-middle to-campaign-input-bottom shadow-dashBoardCardImageShadow"
                     type="text"
                     placeholder="Campaign Title"
                     value={campTitle}
@@ -60,31 +60,53 @@ const CampaignForm = ({ setShowForm }) => {
                     required
                 />
                 <Creatable
-                    styles={{
-                        control: base =>
-                        ({
-                            ...base,
-                            height: "4rem",
-                            width: '300px',
-                            backgroundImage: "linear-gradient(to bottom, rgba(252, 178, 231, 0.68), rgba(252, 174, 242, 0.68),rgba(242, 117, 237,0.68))",
-                            boxShadow: "3.847223997116089px 4.946430683135986px 14.289689064025879px 0px #00000040",
-                            borderRadius: '30px',
-                            padding: '0.5rem 1rem',
-                            fontSize: '16px',
-                            backdropFilter: "blur(6px)",
-                        })
-                    }
-                    }
-                    isMulti={true}
-                    placeholder="Enter tags"
-                    options={rolesOptions}
-                    onChange={(selectedOptions) => {
-                        const tags = selectedOptions.map(option => option.label);
-                        setError("");
-                        setTags(tags);
-                    }
-                    }
-                />
+                styles={{
+                control: base => ({
+            ...base,
+            // maxHeight: "6rem",
+            width: '300px',
+            backgroundImage: "linear-gradient(to bottom, rgba(252, 178, 231, 0.68), rgba(252, 174, 242, 0.68),rgba(242, 117, 237,0.68))",
+            boxShadow: "3.847223997116089px 4.946430683135986px 14.289689064025879px 0px #00000040",
+            borderRadius: '30px',
+            padding: '0.5rem 1rem',
+            fontSize: '16px',
+            backdropFilter: 'blur(6px)',
+            outline: '0',
+            overflow: 'scroll',
+            position: 'relative',
+        }),
+        menu: (provided) => ({
+            ...provided,
+            position:'relative'
+        }),
+        multiValue: (provided, state) => ({
+            ...provided,
+            backgroundColor: 'rgba(255, 255, 255, 0.5)',
+            borderRadius: '30px',
+            fontSize: '18px',
+            marginLeft: '5px',
+            padding: '2px',
+        }),
+        clearIndicator: (provided, state) => ({
+            ...provided,
+            color: 'rgb(244 63 94)',
+        }),
+        dropdownIndicator: (provided, state) => ({
+            ...provided,
+            color: 'black',
+            lineHeight: '32px',
+        }),
+    }}
+    isMulti={true}
+    placeholder="Enter tags"
+    options={rolesOptions}
+    onClick={() => {}}
+    onChange={(selectedOptions) => {
+        const tags = selectedOptions.map(option => option.label);
+        setError("");
+        setTags(tags);
+    }}
+/>
             </fieldset>
             <fieldset className="bg-white p-6 gap-[20px] rounded-[30px] bg-opacity-30 backdrop-blur-[5px] shadow-dashBoardCardImageShadow flex flex-col">
             <label className="text-[1.6rem] uppercase font-extrabold underline tracking-wider">Contact details</label>
@@ -219,6 +241,7 @@ const CampaignForm = ({ setShowForm }) => {
                 headerImgUrl={headerImgUrl}
                 setheaderImgUrl={setheaderImgUrl}
             />
+            {console.log(!error)}
             {!error && <p className="text-red-500 font-semibold text-base">{campaignError}</p>}
             <button
                 className="text-white flex gap-[5px] items-center focus:outline-none rounded-[30px] tracking-wider shadow-buttonShadow font-semibold bg-gradient-to-b from-green-300 text-2xl relative to-green-800 py-5 px-10"
