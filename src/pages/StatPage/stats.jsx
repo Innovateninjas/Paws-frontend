@@ -95,7 +95,7 @@ function Stats() {
           </h1>
         </div>
 
-        <div className='min-h-[300px]'></div>
+        <div className='min-h-[100px]'></div>
       </div>
     </>
   );
