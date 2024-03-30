@@ -59,6 +59,7 @@ module.exports = {
         },
         animation: {
           'fade-in': 'fade-in 0.5s ease-out',
+          'fade-in-campaign': 'fade-in 2s infinite alternate',
           'zoom-in': 'zoom-in 0.3s',
           'zoom-out': 'zoom-out 0.3s'
         },
