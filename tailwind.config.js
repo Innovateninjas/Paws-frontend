@@ -13,6 +13,12 @@ module.exports = {
         'dashboard-gradient-bottom': 'rgba(6, 240, 255, 1)',
         'dashboard-card-gradient-bottom': 'rgba(117, 117, 117, 0.46)',
         'dashboard-card-report-gradient':'rgba(203, 199, 199, 0.77)',
+        'campaign-input-top': 'rgba(252, 178, 231, 0.68)',
+        'campaign-input-middle': 'rgba(252, 174, 242, 0.68)',
+        'campaign-input-bottom': 'rgba(242, 117, 237,0.68)',
+        'campaign-card-bg-top': '#1e85e47d',
+        'campaign-card-bg-middle': '#ffffff80',
+        'campaign-card-bg-bottom': '#ffffffcc',
         'stone': '#7D9189',
       },
       fontFamily: {
@@ -22,10 +28,10 @@ module.exports = {
         baijam: ['Bai Jamjuree', 'sans-serif'],
         baloo:['Baloo', 'sans-serif'],
         Calistoga : ['Calistoga', 'sans-serif'],
+        BigShotOne : ['BigShotOne', 'sans-serif'],
       },
       boxShadow: {
-
-        custom: '1px 1px 2px black',
+        custom: '14px 18px 30px 0px #1E85E47D',
         buttonShadow: 'rgb(38, 57, 77) 0px 15px 30px -10px',
         dashBoardCardShadow: '0px 28.052980422973633px 0px #1E85E426, 0px 28.052980422973633px 0px #1E85E426',
         dashBoardCardImageShadow: '3.847223997116089px 4.946430683135986px 14.289689064025879px 0px #00000040',
