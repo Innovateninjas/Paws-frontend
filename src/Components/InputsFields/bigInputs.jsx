@@ -42,6 +42,7 @@ function InputField({
     } 
     else if (type === 'date') {
         return (
+            <>
             <input
                 className={className}
                 type={type}
@@ -52,6 +53,7 @@ function InputField({
                 name={name}
                 min={min}
             />
+            </>
         );
     }
     else {

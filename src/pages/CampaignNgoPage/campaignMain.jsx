@@ -8,20 +8,7 @@ function Campaign() {
   };
 
   return (
-    <div
-      style={{
-        minHeight: '100vh',
-        width: '89%',
-        margin: 'auto',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        position: 'relative',
-        zIndex: 0
-      }
-      }
-    >
-
+    <div>
       {!showForm && <CreateCampaignPage onClick={toggleForm} />}
       {showForm && <CampaignForm 
       setShowForm={setShowForm} />}

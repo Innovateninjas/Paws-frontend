@@ -38,3 +38,4 @@ const disableDate = () => {
     }
     return `${yyyy}-${mm.toString().padStart(2, '0')}-${dd.toString().padStart(2, '0')}`;
 };
+export default disableDate;
