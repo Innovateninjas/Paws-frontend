@@ -117,20 +117,6 @@ function AnimalDetailsPage({
       </div>
 
       {/* contentsContainer */}
-      {!(
-        isDog ||
-        isCat ||
-        isCattle ||
-        isBird ||
-        isSheep ||
-        isPoultry ||
-        isOther ||
-        isRabbit
-      ) && (
-        <p className=" w-screen text-2xl mt-12 text-center text-blue-500 font-bold">
-          Fetching data...
-        </p>
-      )}
       {(isDog ||
         isCat ||
         isCattle ||
