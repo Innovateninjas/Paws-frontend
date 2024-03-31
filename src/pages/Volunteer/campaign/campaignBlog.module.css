@@ -1,16 +1,4 @@
-.heading {
-  text-decoration: none;
-  background-color: rgb(209, 209, 209);
-  border-radius: 5px;
-  box-shadow: 1px 1px 2px black;
-  padding: 10px 5px;
-  width: 370px;
-  margin: auto;
-  margin-top: 20px;
-}
-.head {
-  padding: 10px;
-}
+
 .organiser {
   margin: 5px;
   float: right;
