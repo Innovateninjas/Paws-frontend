@@ -29,14 +29,14 @@ const Campaignlist = () => {
     <Background/>
       {!isLoading && (
         <>
-        <div className="flex flex-col items-center font-breeSerif justify-center gap-[20px] mb-[60px] w-screen ">
-          <h1 className="text-center mt-[30px] pb-1 z-[3] text-[#40025D] font-extrabold tracking-widest text-4xl drop-shadow-xl flex flex-col">
+        <div className="flex flex-col items-center font-breeSerif justify-center gap-[30px] mb-[60px] w-screen ">
+          <h1 className="text-center mt-[40px] pb-1 z-[3] text-[#40025D] font-extrabold tracking-widest text-4xl drop-shadow-xl flex flex-col">
            <span className="mb-[5px]">Volunteer Now,</span><span> Make Your Mark!</span></h1>
           <div className={styles.masterContainer}>
           {data.map((item, index) => (
             <div key={index} className="flex justify-center w-screen">
-            <div  className=" py-[15px] px-[20px] w-[90%] flex flex-col rounded-3xl shadow-dashBoardCardImageShadow bg-[#ffffff66]  backdrop-blur-[5px] mb-[20px]">
-              <div className="flex flex-col gap-3">
+            <div  className=" py-[8px] px-[15px] w-[90%] flex flex-col rounded-3xl shadow-dashBoardCardImageShadow bg-[#ffffff66]  backdrop-blur-[5px] mb-[20px]">
+              <div className="flex flex-col gap-[10px]">
               {/* TITLE */}
                 <p className="font-bold drop-shadow-md tracking-wide text-[1.3rem] text-[#0b0553de]">{item.title}</p>
                 {/* DURATION */}
