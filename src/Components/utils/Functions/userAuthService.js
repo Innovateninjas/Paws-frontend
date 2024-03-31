@@ -39,7 +39,7 @@ export const login = async (email, password, setError, setButtonState) => {
         const userType = response.data.is_ngo ? "ngo" : "user";
         requestPermission();
         if(userType === "ngo"){
-            window.location.href = "/dashboard";
+            window.location.href = "/stats";
         }
         else{
             window.location.href = "/";
