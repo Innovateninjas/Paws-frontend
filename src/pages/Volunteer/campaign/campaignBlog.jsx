@@ -4,26 +4,39 @@ import { useParams } from "react-router-dom";
 import styles from "./campaignBlog.module.css";
 import axios from "axios";
 import Background from "../../../Components/backgroundComponent/Background";
-import { format } from 'date-fns';
+// import { format } from 'date-fns';
 const CampaignBlog = () => {
   // const [id, setId] = useState();
   const { campaignId } = useParams();
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState();
   const [age, setAge] = useState();
+  const [startDate, setStartDate] = useState();
+const [endDate, setEndDate] = useState();
+const [appEndDate, setAppEndDate] = useState();
   // console.log(campaignId);
   useEffect(() => {
     const fetchData = async () => {
       try {
         const url = process.env.REACT_APP_BACKEND_URL;
-        const response = await axios.get(
-          `${url}/api/campaigns/${campaignId}`
-        );
-
-        // Extract data from the response
+        const response = await axios.get(`${url}/api/campaigns/${campaignId}`);
+  
         const dataJson = response.data;
-
-        // setId(campaignId);
+  
+        // Convert start date format
+        let startDate = new Date(dataJson.start_date);
+        let formattedStartDate = startDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+        // Convert end date format
+        let endDate = new Date(dataJson.end_date);
+        let formattedEndDate = endDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+        // Convert application end date format
+        let appEndDate = new Date(dataJson.application_deadline);
+        let formattedAppEndDate = appEndDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+        // Update state variables
+        setStartDate(formattedStartDate);
+        setEndDate(formattedEndDate);
+        setAppEndDate(formattedAppEndDate);
+  
         setIsLoading(false);
         setData(dataJson);
         setAge(dataJson.age_group);
@@ -31,8 +44,7 @@ const CampaignBlog = () => {
         console.error("Error fetching data:", error);
       }
     };
-
-   
+  
     fetchData();
   }, [campaignId]);
   
@@ -44,7 +56,6 @@ const CampaignBlog = () => {
           return (age+ "+");
         }
   }
-  // bg-gradient-to-b from-[rgba(222,221,255,0.68)] to-[rgba(205,254,207,0.68)] via-[rgba(110,255,117,0.68)] border border-black border-opacity-100 shadow-xl blur-[33.93px]
   return (
     <div>
       <>
@@ -69,17 +80,19 @@ const CampaignBlog = () => {
                   <div className="flex mt-[5px] flex-col gap-[2px]">
                   <li className="list-none">
                     <b> Campaign starts on: </b>
-
-                    {data.start_date.split("T")[0]}
+                    {startDate}
                   </li>
                   <li className="list-none">
-                    <b> Last date for applications: </b>
-                    {data.application_deadline.split("T")[0]}
+                    <b> Campaign ends on: </b>
+                    {endDate}
+                  </li>
+                  <li className="list-none">
+                    <b>Application Deadline: </b>
+                    {appEndDate}
                   </li>
                   <li className="list-none">
                     <b> Duration: </b>
-                    {data.start_date.split("T")[0]} to
-                    {data.end_date.split("T")[0]}
+                    {(new Date(data.end_date.split('T')[0]) - new Date(data.start_date.split('T')[0])) / (1000 * 60 * 60 * 24)} Days
                   </li>
                   <li className="list-none">
                   <b className="mr-[5px]">  Age Accessibility:</b>{ageAccess()} 
