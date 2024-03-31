@@ -43,10 +43,9 @@ const Campaignlist = () => {
                 <div className="flex flex-col gap-1">
                 <small className="text-[#0b4626ad] drop-shadow-md font-medium text-[16px]">Duration: {(new Date(item.end_date.split('T')[0])- new Date(item.start_date.split('T')[0]))/ (1000 * 60 * 60 * 24)} Days</small>
                 {/* DESCRIPTION */}
-                <p className="text-[16px] font-medium">{item.description.slice(0,100)} <Link to={`/campaignBlog/${item.campaign_id}`} className="font-medium tracking-wide underline text-[#40025D]"> Learn More...</Link>
+                <p className="text-[16px] font-medium">{item.description.slice(0,100)} <Link to={`/campaignBlog/${item.campaign_id}`} className="font-medium ml-1 underline text-[#40025D]"> Learn More...</Link>
                 {/* LINK */}
-                 </p>
-                 
+                 </p> 
                  </div>
               </div>
             </div>
