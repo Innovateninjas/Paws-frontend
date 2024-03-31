@@ -10,7 +10,7 @@ function LandingPage() {
 
     useEffect(() => {
         if (csrftoken && userType === "ngo") {
-            navigate('/dashboard');
+            navigate('/stats');
         }
     }, [csrftoken, userType, navigate]);
 
