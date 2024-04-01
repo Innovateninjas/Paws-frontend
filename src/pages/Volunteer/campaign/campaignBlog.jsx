@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect,useContext } from "react";
 import Skeleton from "..//..//..//Components/Skeletons/campaign";
 import { useParams } from "react-router-dom";
 import styles from "./campaignBlog.module.css";
 import axios from "axios";
 import Background from "../../../Components/backgroundComponent/Background";
 import Button from "../../../Components/tailwindButton/Button";
+import { handleInterest } from "../../../Components/utils/Functions/handleInterest";
+import { UserContext } from "../../../contexts/UserContext";
 const CampaignBlog = () => {
   // const [id, setId] = useState();
+  const { userData } = useContext(UserContext);
   const { campaignId } = useParams();
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState();
@@ -14,15 +17,19 @@ const CampaignBlog = () => {
   const [startDate, setStartDate] = useState();
 const [endDate, setEndDate] = useState();
 const [appEndDate, setAppEndDate] = useState();
-  // console.log(campaignId);
+const[interested,setInterested]=useState("Show Interest");
+const[disable,setDisable]=useState(false);
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
+        if(userData){
+          console.log(userData.email);
         const url = process.env.REACT_APP_BACKEND_URL;
         const response = await axios.get(`${url}/api/campaigns/${campaignId}`);
   
         const dataJson = response.data;
-  
+        console.log(dataJson)
         // Convert start date format
         let startDate = new Date(dataJson.start_date);
         let formattedStartDate = startDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
@@ -40,6 +47,13 @@ const [appEndDate, setAppEndDate] = useState();
         setIsLoading(false);
         setData(dataJson);
         setAge(dataJson.age_group);
+
+// DISABLING BUTTON IF USER HAS ALREADY SHOWN INTEREST
+        if(dataJson.applicant_list.includes(userData.email)){
+          setInterested("Interest Shown");
+          setDisable(true);}
+
+        }
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -117,9 +131,12 @@ const [appEndDate, setAppEndDate] = useState();
                   ))}
               </p>
               <div className="mt-4 w-full flex flex-wrap justify-evenly gap-4">
+              {console.log(interested)}
               <Button
-                text="Show Interest"
+               text={interested}
                 clas=" text-2xl text-white font-normal focus:outline-none rounded-[30px] shadow-buttonShadow bg-gradient-to-b from-green-300 to-green-800 mb-7"
+                onClick={() => handleInterest(campaignId,userData.email,setInterested,setDisable)}
+                disabled={disable}
               />
             </div>
             </div>
