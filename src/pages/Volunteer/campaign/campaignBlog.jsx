@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import styles from "./campaignBlog.module.css";
 import axios from "axios";
 import Background from "../../../Components/backgroundComponent/Background";
-// import { format } from 'date-fns';
+import Button from "../../../Components/tailwindButton/Button";
 const CampaignBlog = () => {
   // const [id, setId] = useState();
   const { campaignId } = useParams();
@@ -62,22 +62,22 @@ const [appEndDate, setAppEndDate] = useState();
         {!isLoading && (
           <>
           <Background />
-          <h1 className="bg-gradient-to-b from-[rgba(175,255,171,0.68)] to-[rgba(29,239,36,0.68)] via-[rgba(110,255,117,0.68)] text-center font-breeSerif text-[#0B0553] text-3xl drop-shadow-xl font-bold rounded-[30px] shadow-dashBoardCardImageShadow p-2 w-80 mx-auto mt-5 mb-5">{data.title}</h1>
-            {/* <h1 className={styles.heading}>{data.title}</h1> */}
-            <small className="text-[#0B0553] font-bold float-right text-sm">
+          <div className="font-breeSerif">
+          <h1 className="bg-gradient-to-b from-[rgba(175,255,171,0.68)] to-[rgba(29,239,36,0.68)] via-[rgba(110,255,117,0.68)] text-center font-breeSerif text-[#0B0553] text-3xl drop-shadow-xl font-bold rounded-[30px] shadow-dashBoardCardImageShadow p-4 w-[90%] mx-auto mt-[30px] mb-5">{data.title}</h1>
+            <small className="text-[#0B0553] pb-[15px] tracking-wider font-bold float-right mr-4 text-sm">
               <i>
                 Organised By- <u> {data.ngo_name}</u>
               </i>
             </small>
             <br />
-            <div className=" py-[8px] px-[15px] w-[95vw] flex flex-col rounded-3xl shadow-dashBoardCardImageShadow bg-[#ffffff66]  backdrop-blur-[5px] mb-[20px] m-auto">
-            <h2 className="p-[10px]">
+            <div className=" py-[8px] h-fit px-[15px] w-[95vw] flex flex-col rounded-3xl shadow-dashBoardCardImageShadow bg-[#ffffff66] mb-[120px] backdrop-blur-[5px] m-auto">
+            <h2 className="p-[10px] text-[#0B0553] text-2xl drop-shadow-xl ">
                 <i>Description:</i>
               </h2>
-            <div className="max-w-full px-3 flex flex-col items-center text-left justify-center overflow-x-hidden mb-20">
+            <div className="max-w-full h-fit px-3 flex flex-col items-center text-left justify-center overflow-x-hidden">
               {data.description}
               {/* LIST CONTAINER */}
-                  <div className="flex mt-[5px] flex-col gap-[2px]">
+                  <div className="flex mt-[5px] w-full flex-col gap-[5px]">
                   <li className="list-none">
                     <b> Campaign starts on: </b>
                     {startDate}
@@ -90,31 +90,39 @@ const [appEndDate, setAppEndDate] = useState();
                     <b>Application Deadline: </b>
                     {appEndDate}
                   </li>
-                  <li className="list-none">
+                  {/* <li className="list-none">
                     <b> Duration: </b>
                     {(new Date(data.end_date.split('T')[0]) - new Date(data.start_date.split('T')[0])) / (1000 * 60 * 60 * 24)} Days
-                  </li>
+                  </li> */}
                   <li className="list-none">
                   <b className="mr-[5px]">  Age Accessibility:</b>{ageAccess()} 
                   </li>
               
               </div>
               <br />
-              <p className={styles.details}>
-                For inquiries, contact us: <i> <u>{data.phone_number}</u> </i> or<i> <u>{data.email}</u>  </i>
+              <p className="w-full">
+                For inquiries, contact us on:
+                <li>{data.phone_number}</li>
+                <li>{data.email}</li>
               </p>
 
-              <img className={styles.imageStyle} src={data.image_link} alt="" />
+              <img className="w-full rounded-[20px] object-center mt-[10px] shadow-dashBoardCardImageShadow" src={data.image_link} alt="" />
               <br />
-              <p className={styles.tagContainer}>
+              <p className="font-normal w-full text-base flex flex-wrap gap-[5px]">
                 {data.tags &&
                   data.tags.map((item, index) => (
-                    <span className={styles.tag} key={index}>
+                    <span className="bg-gray-300 px-5 shadow-dashBoardCardImageShadow py-2 rounded-[20px] border " key={index}>
                       {item} <br></br>
                     </span>
                   ))}
               </p>
-              <button className={styles.btn}>Show Interest</button>
+              <div className="mt-4 w-full flex flex-wrap justify-evenly gap-4">
+              <Button
+                text="Show Interest"
+                clas=" text-2xl text-white font-normal focus:outline-none rounded-[30px] shadow-buttonShadow bg-gradient-to-b from-green-300 to-green-800 mb-7"
+              />
+            </div>
+            </div>
             </div>
             </div>
           </>
