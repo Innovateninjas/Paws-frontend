@@ -29,7 +29,7 @@ const Campaignlist = () => {
     <Background/>
       {!isLoading && (
         <>
-        <div className="flex flex-col items-center font-breeSerif justify-center gap-[30px] mb-[60px] w-screen ">
+        <div className="flex flex-col items-center font-breeSerif justify-center gap-[30px] mb-[70px] w-screen ">
           <h1 className="text-center mt-[40px] pb-1 z-[3] text-[#40025D] font-extrabold tracking-widest text-4xl drop-shadow-xl flex flex-col">
            <span className="mb-[5px]">Volunteer Now,</span><span> Make Your Mark!</span></h1>
           <div className={styles.masterContainer}>
