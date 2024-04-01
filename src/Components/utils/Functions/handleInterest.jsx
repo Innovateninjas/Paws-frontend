@@ -15,7 +15,7 @@ export const handleInterest = async (id, email, setInterested,setDisable) => {
     }
     
     
-    console.log(applicant_list);
+    // console.log(applicant_list);
     const patchResponse = await axios.patch(
       `https://paws-backend.azurewebsites.net/api/campaigns/${id}/`,
       {
