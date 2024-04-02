@@ -92,13 +92,9 @@ function AnimalDetailsPage({
       setIsOther(true);
     }
   }, [formData.predictedAnimal]);
-  // console.log(formData.predictedAnimal);
 
-  // console.log(isDog, isCat, isCattle, isBird, isSheep,isRabbit, isPoultry);
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setClass(false);
-    }, 5000);
+    setTimeout(() => {setClass(false);},5000);
   }, [isDog, isCat, isCattle, isBird, isSheep, isPoultry,isRabbit, isOther]);
   return (
     // A MASTER CONTAINER
