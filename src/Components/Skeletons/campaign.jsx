@@ -38,9 +38,6 @@ const Campaign = ({...props }) => (
       <rect x="0" y="180" rx="5" ry="5" width="95%" height="15" />
       <rect x="0" y="200" rx="5" ry="5" width="100%" height="15" />
     </ContentLoader>
-    <List
-      backgroundColor="#ffffff66"
-      foregroundColor="rgba(255, 255, 255, 0.7)"/>
     <ContentLoader
       speed={1}
       width={300}
