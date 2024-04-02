@@ -57,15 +57,13 @@ const Campaignlist = () => {
       )}
       {isLoading && (
         <>
-        <div className={styles.skeltonContainer}>
-        <Skeleton width="calc(100vw - 20px)" height={150} />
-          <Skeleton width="calc(100vw - 40px)" height={100} />
-          <Skeleton width="calc(100vw - 40px)" height={100} />
-          <Skeleton width="calc(100vw - 40px)" height={100} />
-          <Skeleton width="calc(100vw - 40px)" height={100} />
-          <Skeleton width="calc(100vw - 40px)" height={100} />
-          <Skeleton width="calc(100vw - 40px)" height={100} />
-          <Skeleton width="calc(100vw - 40px)" height={100} />
+        <div className="flex flex-col gap-[15px] justify-center items-center my-[45px]">
+          <Skeleton width="calc(100vw - 40px)" height={150} />
+          <Skeleton width="calc(100vw - 60px)" height={120} />
+          <Skeleton width="calc(100vw - 60px)" height={120} />
+          <Skeleton width="calc(100vw - 60px)" height={120} />
+          <Skeleton width="calc(100vw - 60px)" height={120} />
+          <Skeleton width="calc(100vw - 60px)" height={120} />
         </div>
          
         </>
