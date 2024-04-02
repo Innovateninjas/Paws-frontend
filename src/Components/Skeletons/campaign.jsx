@@ -3,16 +3,16 @@ import ContentLoader from "react-content-loader";
 import { List, Code, BulletList } from "react-content-loader";
 const Campaign = ({...props }) => (
   <>
-    <div className="mt-[30px] flex flex-col items-center gap-[30px]">
+    <div className="mt-[30px] w-[100vw] flex flex-col items-center gap-[30px]">
       <ContentLoader
         speed={1}
-        width="320"
+        width="340"
         height="120"
         backgroundColor="#ffffff66"
         foregroundColor="rgba(255, 255, 255, 0.7)"
         {...props}
       >
-        <rect x="0" y="5" rx="30" ry="30" width="320" height="120">
+        <rect x="0" y="5" rx="30" ry="30" width="340" height="120">
           <animate attributeName="fill" dur="3s" repeatCount="indefinite" />
         </rect>
       </ContentLoader>
@@ -20,7 +20,7 @@ const Campaign = ({...props }) => (
 
     <ContentLoader
       speed={1}
-      width= "320"
+      width= "340"
       height="215"
       backgroundColor="#ffffff66"
       foregroundColor="rgba(255, 255, 255, 0.7)"
@@ -53,6 +53,7 @@ const Campaign = ({...props }) => (
     <Code
       backgroundColor="#ffffff66"
       foregroundColor="rgba(255, 255, 255, 0.7)"
+      width={340}
     />
     </div>
   </>

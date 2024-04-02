@@ -106,7 +106,7 @@ const CampaignBlog = () => {
               </small>
               <br />
               <div className=" py-[8px] h-fit px-[20px] w-[95vw] flex flex-col gap-4 rounded-3xl shadow-dashBoardCardImageShadow bg-[#ffffff66] mb-[120px] backdrop-blur-[5px] m-auto">
-                <h2 className="p-[10px] text-[#0B0553] text-2xl drop-shadow-xl ">
+                <h2 className="pt-[2px] text-[#0B0553] text-2xl drop-shadow-xl ">
                   <i>Description:</i>
                 </h2>
                   {data.description}
@@ -129,7 +129,7 @@ const CampaignBlog = () => {
                       {ageAccess()}
                     </li>
                   </div>
-                  <p className="w-full">
+                  <p className="p-[5px]">
                     For inquiries, contact us on:
                     <li>{data.phone_number}</li>
                     <li>{data.email}</li>
@@ -173,7 +173,7 @@ const CampaignBlog = () => {
         {isLoading && (
           <>
           <Background />
-          <div className="m-3">
+          <div>
             <Skeleton/>
           </div></>
           
