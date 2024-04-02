@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import Skeleton from "..//..//..//Components/Skeletons/campaign";
 import { useParams } from "react-router-dom";
-import styles from "./campaignBlog.module.css";
 import axios from "axios";
 import Background from "../../../Components/backgroundComponent/Background";
 import Button from "../../../Components/tailwindButton/Button";
@@ -9,7 +8,8 @@ import { handleInterest } from "../../../Components/utils/Functions/handleIntere
 import { UserContext } from "../../../contexts/UserContext";
 const CampaignBlog = () => {
   // const [id, setId] = useState();
-  const { userData } = useContext(UserContext);
+  const { userData, loading, error } = useContext(UserContext);
+  const [userDetails, setUserData] = useState(null);
   const { campaignId } = useParams();
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState();
@@ -21,9 +21,15 @@ const CampaignBlog = () => {
   const [disable, setDisable] = useState(false);
 
   useEffect(() => {
+    if (!loading && !error && userData) {
+      setUserData(userData);
+    }
+  }, [userData, loading, error]);
+
+  useEffect(() => {
     const fetchData = async () => {
       try {
-        if (userData) {
+        if (userDetails) {
           // console.log(userData.email);
           const url = process.env.REACT_APP_BACKEND_URL;
           const response = await axios.get(
@@ -63,7 +69,7 @@ const CampaignBlog = () => {
           setAge(dataJson.age_group);
 
           // DISABLING BUTTON IF USER HAS ALREADY SHOWN INTEREST
-          if (dataJson.applicant_list.includes(userData.email)) {
+          if (dataJson.applicant_list.includes(userDetails.email)) {
             setInterested("Interest Shown");
             setDisable(true);
           }
@@ -74,7 +80,7 @@ const CampaignBlog = () => {
     };
 
     fetchData();
-  }, [campaignId]);
+  }, [campaignId,userDetails]);
 
   const ageAccess = () => {
     if (age === 0) {
@@ -90,7 +96,7 @@ const CampaignBlog = () => {
           <>
             <Background />
             <div className="font-breeSerif">
-              <h1 className="bg-gradient-to-b from-[rgba(175,255,171,0.68)] to-[rgba(29,239,36,0.68)] via-[rgba(110,255,117,0.68)] text-center font-breeSerif text-[#0B0553] text-3xl drop-shadow-xl font-bold rounded-[30px] shadow-dashBoardCardImageShadow p-4 w-[90%] mx-auto mt-[30px] mb-5">
+              <h1 className="bg-gradient-to-b from-[rgba(175,255,171,0.68)] to-[rgba(29,239,36,0.68)] via-[rgba(110,255,117,0.68)] text-center font-breeSerif text-[#0B0553] leading-relaxed text-3xl drop-shadow-xl font-bold rounded-[30px] shadow-dashBoardCardImageShadow p-4 w-[90%] mx-auto mt-[30px] mb-5">
                 {data.title}
               </h1>
               <small className="text-[#0B0553] pb-[15px] tracking-wider font-bold float-right mr-4 text-sm">
@@ -99,11 +105,10 @@ const CampaignBlog = () => {
                 </i>
               </small>
               <br />
-              <div className=" py-[8px] h-fit px-[15px] w-[95vw] flex flex-col rounded-3xl shadow-dashBoardCardImageShadow bg-[#ffffff66] mb-[120px] backdrop-blur-[5px] m-auto">
+              <div className=" py-[8px] h-fit px-[20px] w-[95vw] flex flex-col gap-4 rounded-3xl shadow-dashBoardCardImageShadow bg-[#ffffff66] mb-[120px] backdrop-blur-[5px] m-auto">
                 <h2 className="p-[10px] text-[#0B0553] text-2xl drop-shadow-xl ">
                   <i>Description:</i>
                 </h2>
-                <div className="max-w-full h-fit px-3 flex flex-col items-center text-left justify-center overflow-x-hidden">
                   {data.description}
                   {/* LIST CONTAINER */}
                   <div className="flex mt-[5px] w-full flex-col gap-[5px]">
@@ -118,17 +123,12 @@ const CampaignBlog = () => {
                     <li className="list-none">
                       <b>Application Deadline: </b>
                       {appEndDate}
-                    </li>
-                    {/* <li className="list-none">
-                    <b> Duration: </b>
-                    {(new Date(data.end_date.split('T')[0]) - new Date(data.start_date.split('T')[0])) / (1000 * 60 * 60 * 24)} Days
-                  </li> */}
+                    </li>   
                     <li className="list-none">
                       <b className="mr-[5px]"> Age Accessibility:</b>
                       {ageAccess()}
                     </li>
                   </div>
-                  <br />
                   <p className="w-full">
                     For inquiries, contact us on:
                     <li>{data.phone_number}</li>
@@ -140,7 +140,6 @@ const CampaignBlog = () => {
                     src={data.image_link}
                     alt=""
                   />
-                  <br />
                   <p className="font-normal w-full text-base flex flex-wrap gap-[5px]">
                     {data.tags &&
                       data.tags.map((item, index) => (
@@ -153,14 +152,13 @@ const CampaignBlog = () => {
                       ))}
                   </p>
                   <div className="mt-4 w-full flex flex-wrap justify-evenly gap-4">
-                    {console.log(interested)}
                     <Button
                       text={interested}
                       clas=" text-2xl text-white font-normal focus:outline-none rounded-[30px] shadow-buttonShadow bg-gradient-to-b from-green-300 to-green-800 mb-7"
                       onClick={() =>
                         handleInterest(
                           campaignId,
-                          userData.email,
+                          userDetails.email,
                           setInterested,
                           setDisable
                         )
@@ -168,15 +166,17 @@ const CampaignBlog = () => {
                       disabled={disable}
                     />
                   </div>
-                </div>
               </div>
             </div>
           </>
         )}
         {isLoading && (
-          <div className={styles.skeltonContainer}>
-            <Skeleton width={370} height={120} />
-          </div>
+          <>
+          <Background />
+          <div className="m-3">
+            <Skeleton/>
+          </div></>
+          
         )}
       </>
     </div>
