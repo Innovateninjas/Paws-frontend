@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import styles from "./campaignList.module.css";
 import { Link } from "react-router-dom";
 import Skeleton from "..//..//..//Components/Skeletons/campList";
 import axios from "axios";
@@ -32,7 +31,7 @@ const Campaignlist = () => {
         <div className="flex flex-col items-center font-breeSerif justify-center gap-[30px] mb-[70px] w-screen ">
           <h1 className="text-center mt-[40px] pb-1 z-[3] text-[#40025D] font-extrabold tracking-widest text-4xl drop-shadow-xl flex flex-col">
            <span className="mb-[5px]">Volunteer Now,</span><span> Make Your Mark!</span></h1>
-          <div className={styles.masterContainer}>
+          <div>
           {data.map((item, index) => (
             <div key={index} className="flex justify-center w-screen">
             <div  className=" py-[8px] px-[15px] w-[90%] flex flex-col rounded-3xl shadow-dashBoardCardImageShadow bg-[#ffffff66]  backdrop-blur-[5px] mb-[20px]">
@@ -57,15 +56,13 @@ const Campaignlist = () => {
       )}
       {isLoading && (
         <>
-        <div className={styles.skeltonContainer}>
-        <Skeleton width="calc(100vw - 20px)" height={150} />
-          <Skeleton width="calc(100vw - 40px)" height={100} />
-          <Skeleton width="calc(100vw - 40px)" height={100} />
-          <Skeleton width="calc(100vw - 40px)" height={100} />
-          <Skeleton width="calc(100vw - 40px)" height={100} />
-          <Skeleton width="calc(100vw - 40px)" height={100} />
-          <Skeleton width="calc(100vw - 40px)" height={100} />
-          <Skeleton width="calc(100vw - 40px)" height={100} />
+        <div className="flex flex-col gap-[15px] justify-center items-center my-[45px]">
+          <Skeleton width="calc(100vw - 40px)" height={150} />
+          <Skeleton width="calc(100vw - 60px)" height={120} />
+          <Skeleton width="calc(100vw - 60px)" height={120} />
+          <Skeleton width="calc(100vw - 60px)" height={120} />
+          <Skeleton width="calc(100vw - 60px)" height={120} />
+          <Skeleton width="calc(100vw - 60px)" height={120} />
         </div>
          
         </>
