@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import Skeleton from "..//..//..//Components/Skeletons/campaign";
 import { useParams } from "react-router-dom";
-import styles from "./campaignBlog.module.css";
 import axios from "axios";
 import Background from "../../../Components/backgroundComponent/Background";
 import Button from "../../../Components/tailwindButton/Button";
@@ -174,8 +173,7 @@ const CampaignBlog = () => {
         {isLoading && (
           <>
           <Background />
-          <div className="m-5">
-          
+          <div className="m-3">
             <Skeleton/>
           </div></>
           
