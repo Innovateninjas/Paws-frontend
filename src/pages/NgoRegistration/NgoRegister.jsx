@@ -124,10 +124,7 @@ function NgoRegisterForm() {
             position: 'relative',
             
         }),
-        menu: (provided) => ({
-            ...provided,
-            position:'relative'
-        }),
+
         multiValue: (provided, state) => ({
             ...provided,
             backgroundColor: 'rgba(255, 255, 255, 0.5)',
@@ -146,7 +143,7 @@ function NgoRegisterForm() {
             lineHeight: '32px',
         }),
     }}
-            // className="placeholder-stone  justify-center z-20 h-16 bg-opacity-45 w-80 px-4 py-2 items-center outline-0 rounded-[30px] text-black text-lg bg-white shadow-dashBoardCardImageShadow"
+
             isMulti={true}
             placeholder="Animal Supported"
             options={AnimalList}
