@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useContext } from 'react';
-import styles from './ViewReports.module.css';
 import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
 import Viewreports from "..//..//Components/Skeletons/view-reports"
@@ -62,47 +61,28 @@ function ViewReports() {
 
   return (
     <>
+    <div className="bg-gradient-to-b from-emerald-300 to-blue-500 min-h-screen">
       {!isLoading && (
         <div className="header">
-          <h2 className={styles.heading}>View Reports</h2>
+          <h2 className="mb-5 mt-3 mx-auto text-center text-5xl font-bayon line-heigh-[6.9rem] text-[#40025D] tracking-widest">
+            MY REPORTS
+          </h2>
           {reports.length === 0 ? (
-            <p className={styles.noReport}>No reports uploaded.</p>
+            <p className="text-center text-gray-500 mt-10">No reports uploaded.</p>
           ) : (
-            <ul className={styles.cardContainer}>
+            <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
               {reports.map((report, index) => (
                 <Card
-                  key={report.id}
-                  className={`${styles.card} ${report.expanded ? styles.expanded : ''}`}
-                  style={{
-                    position: 'relative',
-                    backgroundColor: '#F0F0F0',
-                    borderRadius: '20px',
-                    boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)',
-                    marginBottom: '20px',
-                    cursor: 'pointer',
-                    opacity: '0.9',
-                    transition: 'transform 0.3s',
-                    '&:hover': {
-                      boxShadow: '10px 10px 10px solid black',
-                    },
-                  }}
-                >
-                  <img src={report.image} alt={report.description} className={styles.incidentImage} />
-                  <Typography gutterBottom variant="h4" component="div">
-                    <span style={{ display: "inline-block", fontWeight: "bold", paddingLeft: "30px", paddingTop: "5px", fontSize: window.innerWidth <= 768 ? "20px" : "30px", textAlign: "center" }}>Animal Type:</span>
-                    <span style={{ display: "inline-block", fontSize: "25px" }}>{report.animal_type}</span>
-                  </Typography>
-                  <Typography variant="body1" color="text.primary" style={{ fontSize: window.innerWidth <= 768 ? '14px' : '20px', paddingLeft: '15px' }}>
-                    Description: {report.description}
-                  </Typography>
-                  <Typography variant="body1" color="text.primary" style={{ fontSize: window.innerWidth <= 768 ? '14px' : '20px', paddingLeft: '15px' }}>
-                    Address : {report.address}
-                  </Typography>
-                  <Typography variant="body1" color="text.primary" style={{ fontSize: window.innerWidth <= 768 ? '14px' : '20px', paddingLeft: '15px' }}>
-                    Landmark: {report.landmark}
-                  </Typography>
-                  <Typography variant="body1" color="text.primary" style={{ fontSize: window.innerWidth <= 768 ? '14px' : '20px', paddingLeft: '15px' }}>
-                    Reported At: {new Date(report.reported_time).toLocaleString('en-US', {
+                key={report.id}
+                className={`w-full bg-white bg-opacity-57 rounded-full backdrop-blur-5 shadow-lg border p-4 border-gray-300 relative mb-6 cursor-pointer transform transition duration-300 hover:shadow-2xl ${report.expanded ? 'expanded' : ''}`}
+              >
+                  <img src={report.image} alt={report.description} className="w-full z-30 opacity-100 h-56 object-cover object-center rounded-3xl border-2 border-black" />
+                  <div className="p-4">
+                    <Typography gutterBottom variant="h4" component="div" className="font-bold text-lg">{report.animal_type}</Typography>
+                    <Typography variant="body1" className="text-sm">{report.description}</Typography>
+                    <Typography variant="body1" className="text-sm">Address: {report.address}</Typography>
+                    <Typography variant="body1" className="text-sm">Landmark: {report.landmark}</Typography>
+                    <Typography variant="body1" className="text-sm">Reported At: {new Date(report.reported_time).toLocaleString('en-US', {
                       year: 'numeric',
                       month: 'short',
                       day: '2-digit',
@@ -110,24 +90,13 @@ function ViewReports() {
                       minute: '2-digit',
                       second: '2-digit',
                       hour12: true,
-                    })}
-                  </Typography>
-                    {/* <Typography variant="body1" color="text.primary" style={{ fontSize: window.innerWidth <= 768 ? '14px' : '20px', paddingLeft: '15px' }}>
-                    Number of Animals: {report.numberOfAnimals}
-                    </Typography> */}
-                  <Typography variant="body1" color="text.primary" style={{ fontSize: window.innerWidth <= 768 ? '14px' : '20px', paddingLeft: '15px' }}>
-                    Condition: {report.condition}
-                  </Typography>
-                  <Typography variant="body1" color="text.primary" style={{ fontSize: window.innerWidth <= 768 ? '14px' : '20px', paddingLeft: '15px' }}>
-                    Reported To: {report.assigned_to ? (
-                      <span>
-                        {ngoNames[report.id] || "Loading..."}
-                      </span>
-                    ) : "Not Assigned"}
-                  </Typography>
-                  <Typography variant="body1" color="text.primary" style={{ fontSize: window.innerWidth <= 768 ? '14px' : '20px', paddingLeft: '15px', paddingBottom: '10px' }}>
-                    Status: {report.status || 'No status'}
-                  </Typography>
+                    })}</Typography>
+                    <Typography variant="body1" className="text-sm">Condition: {report.condition}</Typography>
+                    <Typography variant="body1" className="text-sm">Reported To: {report.assigned_to ? (
+                      <span>{ngoNames[report.id] || "Loading..."}</span>
+                    ) : "Not Assigned"}</Typography>
+                    <Typography variant="body1" className="text-sm pb-2">Status: {report.status || 'No status'}</Typography>
+                  </div>
                 </Card>
               ))}
             </ul>
@@ -136,10 +105,9 @@ function ViewReports() {
       )}
 
       {isLoading && (
-        <>
-          <Viewreports />
-        </>
+        <Viewreports />
       )}
+    </div>
     </>
   );
 }
