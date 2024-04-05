@@ -11,7 +11,7 @@ function ViewReports() {
   const [isLoading, setIsLoading] = useState(true);
   const [ngoNames, setNgoNames] = useState({});
 
-  useEffect(() => {
+   useEffect(() => {
     const fetchReports = async () => {
       try {
         if (userData) {
@@ -104,11 +104,11 @@ function ViewReports() {
             </p>
           ) : (
             // If reports are present
-            <ul className="w-screen flex flex-col justify-center p-6 items-center gap-5">
+            <ul className="w-screen flex flex-col justify-center p-4 items-center gap-5">
               {reports.map((report, index) => (
                 <>
                 <Card  key={report.id}
-                  className="bg-gradient-to-b from-[#1e85e420] to-[#1E85E440] flex flex-col w-80 items-center justify-center p-2 shadow-dashBoardCardImageShadow"
+                  className="bg-gradient-to-b from-[#1e85e420] to-[#1E85E440] flex flex-col w-full items-center justify-center p-2 shadow-dashBoardCardImageShadow"
                   style={{
                       border: '1px solid #75757575', 
                       borderRadius: '15px', 
@@ -187,7 +187,11 @@ function ViewReports() {
         </>
       )}
 
-      {isLoading && <Viewreports />}
+      {isLoading && 
+      (
+        <div className="w-screen h-screen flex flex-col items-center mt-10"><Viewreports /></div>
+      )
+      }
     </div>
     </div>
     </>
