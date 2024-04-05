@@ -70,7 +70,7 @@ const CampaignBlog = () => {
 
           // DISABLING BUTTON IF USER HAS ALREADY SHOWN INTEREST
           if (dataJson.applicant_list.includes(userDetails.email)) {
-            setInterested("Interest Shown");
+            setInterested("Interested");
             setDisable(true);
           }
         }
@@ -151,20 +151,21 @@ const CampaignBlog = () => {
                         </span>
                       ))}
                   </p>
-                  <div className="mt-4 w-full flex flex-wrap justify-evenly gap-4">
-                    <Button
-                      text={interested}
-                      clas=" text-2xl text-white font-normal focus:outline-none rounded-[30px] shadow-buttonShadow bg-gradient-to-b from-green-300 to-green-800 mb-7"
-                      onClick={() =>
-                        handleInterest(
-                          campaignId,
-                          userDetails.email,
-                          setInterested,
-                          setDisable
-                        )
-                      }
-                      disabled={disable}
-                    />
+                  <div className="mt-4 w-full flex flex-wrap justify-evenly gap-4">            
+                  <Button
+                    text={interested}
+                    clas={`text-2xl text-white font-normal focus:outline-none rounded-[30px] tracking-wider shadow-buttonShadow mb-7 ${disable ? "bg-gradient-to-b from-green-100 to-green-900" : "bg-gradient-to-b from-green-300 to-green-800"
+                      }`}
+                    onClick={() =>
+                      handleInterest(
+                        campaignId,
+                        userDetails.email,
+                        setInterested,
+                        setDisable
+                      )
+                    }
+                    disabled={disable}
+                  />                  
                   </div>
               </div>
             </div>
