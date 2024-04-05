@@ -34,7 +34,6 @@ function UserPage() {
         <div className="w-60 h-60 rounded-[50%] shadow-dashBoardCardImageShadow  ">
           <img className="" src="./images/profileIcon.png" alt="icon" />
         </div>
-        {/* <div className="flex flex-col items-center w-full max-w-3xl"> */}
         <div className=" w-80 p-5 border-1 flex flex-col gap-[15px] rounded-[30px]  ring-1 ring-gray-300 bg-opacity-35 bg-white shadow-dashBoardCardImageShadow backdrop-blur-[5px]">
           {/* NAME */}
           <div className="flex gap-1 items-center text-xl drop-shadow-md">
@@ -46,7 +45,6 @@ function UserPage() {
           {/* Email */}
           <div className="flex gap-1 items-center text-xl drop-shadow-md">
             <span className="rounded-full bg-blue-900 p-1 mr-2">
-              {/* <FiMail color="white" /> */}
               <IoIosMail fontSize="30px" color="rgba(255,255,255,0.7)" />
             </span>
             {userDetails.email}
