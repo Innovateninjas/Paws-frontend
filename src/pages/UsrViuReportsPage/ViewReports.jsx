@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import Card from '@mui/material/Card';
 import Viewreports from "..//..//Components/Skeletons/view-reports";
 import { UserContext } from "../../contexts/UserContext";
 import axios from "axios";
@@ -87,7 +88,9 @@ function ViewReports() {
     console.log(reports);
   };
   return (
-    <div className="bg-gradient-to-b from-emerald-300 to-blue-500 flex flex-col mb-[60px] font-ChauPhilomeneOne">
+    <>
+    <div>
+    <div className="bg-gradient-to-b h-fit from-emerald-300 to-blue-500 flex flex-col font-ChauPhilomeneOne pb-[120px]">
       {!isLoading && (
         <>
           {/* Heading */}
@@ -103,37 +106,64 @@ function ViewReports() {
             // If reports are present
             <ul className="w-screen flex flex-col justify-center p-6 items-center gap-5">
               {reports.map((report, index) => (
-                <div
-                  key={report.id}
-                  className="bg-white bg-opacity-57 flex flex-col items-center justify-center  rounded-[20px] backdrop-blur-[6px] shadow-dashBoardCardImageShadow"
-                >
+                <>
+                <Card  key={report.id}
+                  className="bg-gradient-to-b from-[#1e85e420] to-[#1E85E440] flex flex-col w-80 items-center justify-center p-2 shadow-dashBoardCardImageShadow"
+                  style={{
+                      border: '1px solid #75757575', 
+                      borderRadius: '15px', 
+                       }}>
                   <img
                     src={report.image}
                     alt={report.description}
-                    className="h-[12.5rem] w-[18.3rem] rounded-[20px] object-cover shadow-dashBoardCardImageShadow m-4 "
+                    className="h-[12.5rem] w-[18.3rem] rounded-[20px] object-cover shadow-dashBoardCardImageShadow m-2"
                   />
-                  <div className="flex w-full pt-1 p-4 flex-col justify-center text-[17px] font-ChauPhilomeneOne text-[#0B0553F5] drop-shadow-2xl leading-relaxed ">
-                    <p className="text-2xl  capitalize">
+                  <div className="flex w-full pt-1 p-3 flex-col justify-center text-[17px] font-ChauPhilomeneOne text-[#090443] drop-shadow-2xl leading-relaxed ">
+                  <div className="flex justify-between items-center">
+                    <p className="text-2xl capitalize">
                       Animal Type : {report.animal_type}
                     </p>
                     <div>
                     <ExpandMoreIcon
                       onClick={() => toggleExpand(index)}
-                      className={`absolute bottom-2 right-3 ${
-                        report.expanded ? "rotate-180" : ""
+                      className={`${
+                        report.expanded ? "rotate-180 absolute bottom-1 right-3 " : ""
                       }`}
                     />
                     </div>
+                    </div>
                     {/* When Expanded */}
                     {report.expanded && (
-                      <div>
-                        <p className=" drop-shadow-xl "> Description: {report.description}</p>
-                        <p>Address: {report.address}</p>
-                        <p>Landmark: {report.landmark}</p>
-                        <p>Reported At: {report.reported_time}</p>
-                        <p>Condition: {report.condition}</p>
+                      <div className="pt-2 flex flex-col gap-1">
+                        <p className=" drop-shadow-xl ">
+                        <span className="font-semibold mr-1 border-t-white tracking-widest">
+                        Description: 
+                        </span> {report.description}</p>
+                    
+                        <p >
+                         <span className="font-semibold mr-1 tracking-widest">
+                         Address: 
+                        </span>
+                        <span> {report.address}</span></p>
+
+                        <p> 
+                        <span className="font-semibold mr-1 tracking-widest">
+                        Landmark: 
+                        </span> {report.landmark}</p>
+
                         <p>
-                          Reported To:{" "}
+                        <span className="font-semibold mr-1 tracking-widest">
+                        Reported At:  
+                        </span>{report.reported_time}</p>
+
+                        <p><span className="font-semibold mr-1 tracking-widest">
+                        Condition: 
+                        </span> {report.condition}</p>
+
+                        <p>
+                        <span className="font-semibold mr-1 tracking-widest">
+                        Reported To:
+                        </span>
                           {report.assigned_to ? (
                             <span>{ngoNames[report.id] || "Loading..."}</span>
                           ) : (
@@ -141,12 +171,16 @@ function ViewReports() {
                           )}
                         </p>
                         <p className="">
-                          Status: {report.status || "No status"}
+                        <span className="font-semibold mr-1 tracking-widest">
+                        Status:
+                        </span>
+                           {report.status || "No status"}
                         </p>
                       </div>
                     )}
                   </div>
-                </div>
+                </Card>
+                </>
               ))}
             </ul>
           )}
@@ -155,6 +189,8 @@ function ViewReports() {
 
       {isLoading && <Viewreports />}
     </div>
+    </div>
+    </>
   );
 }
 
