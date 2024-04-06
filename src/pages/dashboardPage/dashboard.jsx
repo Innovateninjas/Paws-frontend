@@ -75,14 +75,11 @@ function Dashboard() {
   };
 
   const handle = (index) => {
-    console.log(index)
     setClicked((prevState) => {
       let newClicked = [...prevState];
-      console.log("old",newClicked)
       newClicked[index] = !newClicked[index];
       return newClicked;
     })
-    console.log(clicked);
     setCategories((prevState) => {
       let newCategories = [...prevState];
       if (!newCategories.includes(category[index])) {
