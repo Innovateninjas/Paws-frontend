@@ -70,10 +70,10 @@ function UserPage() {
         </div>
         {/* BUTTONS */}
         <div className="flex gap-3">
-          <button className="px-8 py-4 text-white bg-gradient-to-b from-green-300 to-green-800  rounded-full drop-shadow-md shadow-buttonShadow tracking-wider text-lg">
+          <button className="px-8 py-4 text-white bg-gradient-to-b from-green-400 to-green-900  rounded-full drop-shadow-md shadow-buttonShadow tracking-wider text-lg">
             <Link to="/view-reports">My Reports</Link>
           </button>
-          <button className="px-8 py-4 bg-gradient-to-b from-green-300 to-green-800 rounded-full drop-shadow-md shadow-buttonShadow tracking-wider text-white text-lg">
+          <button className="px-8 py-4 bg-gradient-to-b from-red-400 to-red-900 rounded-full drop-shadow-md shadow-buttonShadow tracking-wider text-white text-lg">
             <Link to="/logout">Logout</Link>
           </button>
         </div>
