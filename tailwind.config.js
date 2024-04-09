@@ -20,6 +20,8 @@ module.exports = {
         'campaign-card-bg-middle': '#ffffff80',
         'campaign-card-bg-bottom': '#ffffffcc',
         'stone': '#7D9189',
+        'donationButtonTop': 'rgba(170, 251, 247, 0.80)',
+        'donationButtonBottom': 'rgba(7, 209, 197, 0.70)'
       },
       fontFamily: {
         bayon: ['Bayon', 'sans-serif'], 
@@ -61,7 +63,8 @@ module.exports = {
           'fade-in': 'fade-in 0.5s ease-out',
           'fade-in-campaign': 'fade-in 2s infinite alternate',
           'zoom-in': 'zoom-in 0.3s',
-          'zoom-out': 'zoom-out 0.3s'
+          'zoom-out': 'zoom-out 0.3s',
+          'fade-in-donation': 'fade-in 2s infinite alternate',
         },
     },
   },
