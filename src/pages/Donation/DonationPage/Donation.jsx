@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from "./Donation.module.css";
+import { FaIndianRupeeSign } from "react-icons/fa6";
 import Background from '../../../Components/backgroundComponent/Background';
 function Donation() {
   const [customAmount, setCustomAmount] = useState(""); // State to store custom amount
@@ -23,36 +23,43 @@ function Donation() {
 
   return (
 
-    <div className="relative z-[3] h-fit w-full flex flex-col gap-3 justify-center items-center overflow-x-hidden px-4">
+    <div className="relative z-[3] font-baijam h-fit w-full flex flex-col gap-3 justify-center items-center overflow-x-hidden px-4 text-[#40025D] ">
     <Background />
-    <div className="bg-adbd7f w-full h-[784px]  flex flex-col items-center ">
-      <div className="imgContainer  pb-[5.25rem]">
-          <img src="./images/Donation.png" alt='' />
-          <h2 className="w-[25rem]  z-[30] bg-white rounded-3xl bg-opacity-57 backdrop-blur-[5px] shadow-lg ring-1 ring-gray-300 text-center pb-3 pt-3 flex justify-center items-center flex-col"> <span className="text-purple-700 text-[1.6rem]">HELP US BRIGHTEN THEIR LIVES!</span></h2>
+    <div className="h-screen flex items-center">
+    <div className="bg-adbd7f w-full flex flex-col items-center gap-8">
+      <div className=" relative">
+          <img className="absolute w-full object-fill left-[3px] top-[-80px] sm:top-[-83px] sm:left-[8px] w-90%" src="./images/donation.png" alt='' />
+          <h2 className="bg-white font-breeSerif rounded-3xl bg-opacity-57 backdrop-blur-[5px] shadow-dashBoardCardImageShadow text-center pb-3 pt-3 flex justify-center items-center flex-col"> <span className="text-[#40025D] font-bold animate-fade-in-donation text-[1.6rem] ">HELP US BRIGHTEN THEIR LIVES!</span></h2>
         </div>
         <div className="w-30">
-        <div className="bg-c4c29d p-8 flex flex-col items-center justify-center gap-4 shadow-md mb-6 h-[35rem] w-[22rem] z-[30] bg-white rounded-[3.5rem] bg-opacity-57  shadow-lg ring-1 ring-gray-300">
-          <p className="text-center p-[0.5rem] ">Your generous donations play a crucial role in caring for our little friends and helping them find their forever homes.</p>
-          <div className="pt-[0.5rem] w-auto flex flex-col items-center justify-center gap-[1.0rem] border-t border-black">
-            <div className="flex items-center justify-center gap-[1.6rem]">
-              {/* On button click, call handleDonate function with the corresponding amount */}
-              <button className="text-purple-650 text-[1.125rem] p-[0.1rem] font-normal font-BaiJamjuree bg-gradient-to-b from-teal-400 via-teal-200 to-teal-400 shadow-lg rounded-full border-silver border-2 backdrop-blur-4xl"onClick={() => handleDonate(100)}>100 rupees</button>
-              <button className="text-purple-650 text-[1.125rem] p-[0.1rem] font-normal font-BaiJamjuree bg-gradient-to-b from-teal-400 via-teal-200 to-teal-400 shadow-lg rounded-full border-silver border-2 backdrop-blur-4xl" onClick={() => handleDonate(250)}>250 rupees</button>
-              <button className="text-purple-650 text-[1.125rem] p-[0.1rem] font-normal font-BaiJamjuree bg-gradient-to-b from-teal-400 via-teal-200 to-teal-400 shadow-lg rounded-full border-silver border-2 backdrop-blur-4xl" onClick={() => handleDonate(500)}>500 rupees</button>
+        {/* CONATINER */}
+        <div className=" bg-white flex flex-col items-center justify-center gap-4 shadow-dashBoardCardImageShadow rounded-[40px] bg-opacity-35 p-2 pb-4 backdrop-blur-[5px]">
+          <p className="text-center p-3 text-[#0b0553de] drop-shadow-xl text-[1.20rem] border-b border-black ">Your generous donations play a crucial role in caring for our little friends and helping them find their forever homes.</p>
+          <div className="flex flex-col items-center justify-center gap-[1.0rem]">
+            <div className="flex items-center justify-center gap-2">
+            {/* BUTTONS */}
+                <button className="inset-0 text-[1.10rem] text-[#40025D] tracking-wider font-semibold font-baijam bg-gradient-to-b from-donationButtonTop to-donationButtonBottom shadow-xl rounded-[30px] py-3 px-4 bg-opacity-47 drop-shadow-lg flex items-center justify-center" onClick={() => handleDonate(100)}><FaIndianRupeeSign />100
+                </button>
+              <button className="inset-0 text-[1.10rem] text-[#40025D] tracking-wider font-semibold font-baijam bg-gradient-to-b from-donationButtonTop to-donationButtonBottom shadow-xl rounded-[30px] py-3 px-4  bg-opacity-47 flex items-center justify-center" onClick={() => handleDonate(250)}>
+              <FaIndianRupeeSign />250
+              </button>
+              <button className="inset-0 text-[1.10rem] text-[#40025D] tracking-wider font-semibold font-baijam bg-gradient-to-b from-donationButtonTop to-donationButtonBottom shadow-xl rounded-[30px] py-3 px-4 bg-opacity-47 flex items-center justify-center" onClick={() => handleDonate(500)}><FaIndianRupeeSign />500</button>
             </div>
+            {/* CUSTOM AMOUNT */}
+            <div className="text-center text-[20px]">
             <h2>OR</h2>
-            <label className={styles.amt} htmlFor="password">Custom Amount</label>
-            <div className={styles.gap}>
-              <input type="number" id="amount" name="rupees" placeholder="Enter custom amount..." value={customAmount} onChange={handleCustomAmountChange} required />
+            <label  htmlFor="password">Custom Amount</label>
             </div>
-            <div className={styles.donatebtn}>
+            <div className='w-full'>
+              <input className="w-full outline-0 placeholder-stone inset-0 text-[#40025D] font-semibold font-baijam bg-white bg-opacity-50 shadow-dashBoardCardImageShadow rounded-[30px]  py-3 px-4" type="number" id="amount" name="rupees" placeholder="Enter custom amount..." value={customAmount} onChange={handleCustomAmountChange} required />
+            </div>
               {/* On click, call handleCustomAmountDonate function */}
-              <button className="mb-24 rounded-3xl font-bold bg-white px-16 py-4 bg-gradient-to-b from-grey-800 to-grey-800 text-blue shadow-lg opacity-50" onClick={handleCustomAmountDonate}>Donate now!</button>
-            </div>
+              <button className="text-white focus:outline-none rounded-[30px] shadow-buttonShadow bg-gradient-to-b from-green-300 to-green-800 py-3 px-4 text-[1.5rem]" onClick={handleCustomAmountDonate}>Donate now!</button>
           </div>
         </div>
         </div>
       </div>
+    </div>
     </div>
   );
 }
