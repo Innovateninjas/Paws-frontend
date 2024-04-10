@@ -21,7 +21,9 @@ module.exports = {
         'campaign-card-bg-bottom': '#ffffffcc',
         'stone': '#7D9189',
         'donationButtonTop': 'rgba(170, 251, 247, 0.80)',
-        'donationButtonBottom': 'rgba(7, 209, 197, 0.70)'
+        'donationButtonBottom': 'rgba(7, 209, 197, 0.70)',
+        'donatetoNgoTop': 'rgba(252, 178, 231)',
+        'donatetoNgoBottom': 'rgba(255, 174, 242)',
       },
       fontFamily: {
         bayon: ['Bayon', 'sans-serif'], 
