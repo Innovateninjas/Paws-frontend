@@ -41,7 +41,7 @@ function LandingPage() {
             <div>
   {/* SAVE LIVES */}
  
-                <p className= {`${styles.para} text-[24px] p-4 font-baijam drop-shadow-lg tracking-wider`}>
+                <p className= " text-[24px] p-4 font-baijam drop-shadow-lg tracking-wider">
                     "Save lives - report injured animals to authorities. Click below to notify and make a difference."
                 </p>
             </div>
@@ -51,7 +51,7 @@ function LandingPage() {
             <img className="w-40 absolute z-4 top-[-50px] right-[15px]" src="./images/t2.png" alt=""></img>
             <button
                   type='submit'
-                  className="bg-gradient-to-b m-3 from-[#50f609] to-[#41d302] text-white focus:outline-none rounded-[40px] shadow-buttonShadow  py-4 font-bold tracking-widest text-[2rem] px-10"
+                  className="bg-gradient-to-b m-3 from-[#48dc08] to-[#3bad0a] text-white focus:outline-none rounded-[40px] shadow-buttonShadow  py-4 font-semibold tracking-widest text-[2rem] px-10"
                 >
                   <Link to="/report-incident">Report</Link>
                 </button>
