@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FaIndianRupeeSign } from "react-icons/fa6";
+import styles from './..//Donationfront/donationFront.module.css';
 import Background from '../../../Components/backgroundComponent/Background';
 function Donation() {
   const [customAmount, setCustomAmount] = useState(""); // State to store custom amount
@@ -28,8 +29,8 @@ function Donation() {
     <div className="h-screen flex items-center">
     <div className="w-full flex flex-col items-center gap-8">
       <div className=" relative">
-          <img className="absolute w-full object-fill left-[3px] top-[-80px] sm:top-[-83px] sm:left-[8px] w-90%" src="./images/donation.png" alt='' />
-          <h2 className="bg-white font-breeSerif rounded-3xl bg-opacity-57 backdrop-blur-[5px] shadow-dashBoardCardImageShadow text-center pb-3 pt-3 flex justify-center items-center flex-col"> <span className="text-[#40025D] font-bold animate-fade-in-donation text-[1.6rem] ">HELP US BRIGHTEN THEIR LIVES!</span></h2>
+          <img className={styles.image} src="./images/Donation.png" alt='' />
+          <h2 className="bg-white font-breeSerif rounded-3xl bg-opacity-57 backdrop-blur-[5px] shadow-dashBoardCardImageShadow px-4 text-center pb-3 pt-3 flex justify-center items-center flex-col"> <span className="text-[#40025D] font-bold animate-fade-in-donation text-[1.6rem] ">HELP US BRIGHTEN THEIR LIVES!</span></h2>
         </div>
         <div className="w-30">
         {/* CONATINER */}
