@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Suspense,useMemo} from "react";
+import React, { useState, useEffect,useRef, Suspense,useMemo} from "react";
 import ImageUploader from "../../../Components/ImageUploader/ImageUploader";
 import { handleImageChange } from "./handleImageChange";
 import Background from "../../../Components/backgroundComponent/Background";
@@ -44,9 +44,18 @@ function ImageAndLocationPage({
   const onChange = (imageList) => {
     handleImageChange(imageList, handleChange, setErrors, setFormData);
   };
+  const prevLandmarkRef = useRef();
+
+  // Remember the current landmark for the next render
+  useEffect(() => {
+    prevLandmarkRef.current = formData.landmark;
+  }, [formData.landmark]);
+  
   const memoizedLandmark = useMemo(() => {
     if (formData.landmark !== "") {
-     return formData.landmark;
+      return formData.landmark;
+    } else {
+      return prevLandmarkRef.current;
     }
   }, [formData.landmark]);
 // console.log(memoizedLandmark);
@@ -121,6 +130,7 @@ function ImageAndLocationPage({
           </p>
           </label>
           <textarea
+            ref={prevLandmarkRef}
             className="w-[21rem] flex items-center justify-center text-[1rem] p-2 rounded-3xl"
             name="landmark"
             value={memoizedLandmark}
