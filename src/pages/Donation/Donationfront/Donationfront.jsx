@@ -1,5 +1,5 @@
 import React, { useState , useEffect } from 'react';
-// import styles from './Donationfront.module.css';
+import styles from "./donationFront.module.css";
 import { Link } from 'react-router-dom';
 import Background from '../../../Components/backgroundComponent/Background';
 import { TypeAnimation } from 'react-type-animation';
@@ -42,8 +42,8 @@ export const Donationfront = () => {
       <Background/>
         <div className="flex flex-col h-[90vh] font-breeSerif items-center justify-center gap-[30px] p-3">
         <div className=" relative">
-          <img className="absolute w-full object-fill left-[3px] top-[-80px] sm:top-[-83px] sm:left-[8px] w-90%" src="./images/donation.png" alt='' />
-          <h2 className="bg-white font-breeSerif rounded-3xl bg-opacity-57 backdrop-blur-[5px] shadow-dashBoardCardImageShadow text-center pb-3 pt-3 flex justify-center items-center flex-col"> <span className="text-[#40025D] font-bold animate-fade-in-donation text-[1.6rem] drop-shadow-xl ">HELP US BRIGHTEN THEIR LIVES!</span></h2>
+          <img className={styles.image} src="./images/Donation.png" alt='' />
+          <h2 className="bg-white font-breeSerif rounded-3xl bg-opacity-57 backdrop-blur-[5px] shadow-dashBoardCardImageShadow px-4 text-center pb-3 pt-3 flex justify-center items-center flex-col"> <span className="text-[#40025D] font-bold animate-fade-in-donation text-[1.6rem] drop-shadow-xl ">HELP US BRIGHTEN THEIR LIVES!</span></h2>
         </div>
         {/* MAIN CONTENTS */}
         <div className="w-full">
