@@ -54,14 +54,14 @@ export const Donationfront = () => {
                 className="text-white focus:outline-none rounded-[30px] shadow-buttonShadow bg-gradient-to-b from-pink-300 to-pink-800 py-3 px-4 text-[1.5rem] sm:text-[1.5rem] hover:transform hover:duration-100 hover:scale-[1.01] `${donationType === 'us' ? styles.active : ''}`"
                 onClick={() => handleToggleClick('us')}
               >
-                Donate US
+                Donate to US
               </button>
               <button
                 type='button'
                 className="text-white focus:outline-none rounded-[30px] shadow-buttonShadow bg-gradient-to-b from-pink-300 to-pink-800 py-3 px-4 text-[1.5rem] sm:text-[1.5rem] hover:transform hover:duration-100 hover:scale-[1.01] `${donationType === 'ngo' ? styles.active : ''}`"
                 onClick={() => handleToggleClick('ngo')}
               >
-                Donate NGO
+                Donate to NGO
               </button>
 
           </div>
@@ -79,7 +79,7 @@ export const Donationfront = () => {
                     <TypeAnimation
                       key={animationKey}
                       sequence={[
-                        `${donationType === 'us' ? 'Donate Us...' : 'Donate an Ngo...'}`,
+                        `${donationType === 'us' ? 'Donate to Us...' : 'Donate to an NGO...'}`,
                         1000
                       ]}
                       wrapper="span"
@@ -87,7 +87,7 @@ export const Donationfront = () => {
                       style={{ fontSize: '28px', display: 'inline-block', fontWeight: 'bold' }}
                     />
                   {donationType === 'us' && 'To help us save our little friends!'}
-                  {donationType !== 'us' && 'Choose an NGO and donate to make a difference.'}
+                  {donationType !== 'us' && 'Choose an NGO and donate to make a difference!'}
                </div>
                  {/* choose an ngo or teams */}
               <div className="flex flex-col items-center gap-4">
