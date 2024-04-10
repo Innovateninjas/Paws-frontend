@@ -33,6 +33,7 @@ module.exports = {
         baloo:['Baloo', 'sans-serif'],
         Calistoga : ['Calistoga', 'sans-serif'],
         BigShotOne : ['BigShotOne', 'sans-serif'],
+        Adorable : ['Adorable-Handmade', 'sans-serif'],
       },
       boxShadow: {
         custom: '14px 18px 30px 0px #1E85E47D',
