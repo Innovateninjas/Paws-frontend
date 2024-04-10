@@ -26,7 +26,7 @@ function Donation() {
     <div className="relative z-[3] font-baijam h-fit w-full flex flex-col gap-3 justify-center items-center overflow-x-hidden px-4 text-[#40025D] ">
     <Background />
     <div className="h-screen flex items-center">
-    <div className="bg-adbd7f w-full flex flex-col items-center gap-8">
+    <div className="w-full flex flex-col items-center gap-8">
       <div className=" relative">
           <img className="absolute w-full object-fill left-[3px] top-[-80px] sm:top-[-83px] sm:left-[8px] w-90%" src="./images/donation.png" alt='' />
           <h2 className="bg-white font-breeSerif rounded-3xl bg-opacity-57 backdrop-blur-[5px] shadow-dashBoardCardImageShadow text-center pb-3 pt-3 flex justify-center items-center flex-col"> <span className="text-[#40025D] font-bold animate-fade-in-donation text-[1.6rem] ">HELP US BRIGHTEN THEIR LIVES!</span></h2>
