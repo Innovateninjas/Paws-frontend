@@ -104,7 +104,7 @@ export const Donationfront = () => {
               )}
                {/* TOGGLE US */}
               {donationType === 'us' && (
-                <p className="text-[22px]"> Meet our team <Link className="underline text-blue-900" to="/team">here</Link> </p>
+                <p className="text-[22px]"> Explore our <Link className="inset-0 text-[22px] text-[#40025D] tracking-wider font-semibold font-baijam bg-gradient-to-b from-violet-200 to-violet-400 shadow-xl rounded-[30px] py-3 px-4 bg-opacity-47" to="/team">Crew!</Link> </p>
               )}
               </div>
             </div>
