@@ -51,7 +51,7 @@ export const Donationfront = () => {
           <div className="w-full flex justify-center gap-2 py-3">         
               <button
                 type='button'
-                className="text-white focus:outline-none rounded-[30px] shadow-buttonShadow bg-gradient-to-b from-pink-300 to-pink-800 py-3 px-4 text-[1.5rem] sm:text-[1.5rem] hover:transform hover:duration-100 hover:scale-[1.01] `${donationType === 'us' ? styles.active : ''}`"
+                className="text-white focus:outline-none rounded-[30px] shadow-buttonShadow bg-gradient-to-b from-teal-300 to-teal-500 py-3 px-4 text-[1.5rem] sm:text-[1.5rem] hover:transform hover:duration-100 hover:scale-[1.01] `${donationType === 'us' ? styles.active : ''}`"
                 onClick={() => handleToggleClick('us')}
               >
                 Donate to US
