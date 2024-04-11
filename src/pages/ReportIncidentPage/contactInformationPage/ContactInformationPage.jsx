@@ -17,6 +17,7 @@ function ContactInformationPage({
   handleNextPage,
 }) {
   const { userData} = useContext(UserContext);
+  const csrftoken = localStorage.getItem('csrftoken');
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   useEffect(() => {
@@ -71,18 +72,19 @@ function ContactInformationPage({
           <small className="text-sm text-red-500">{errors.user_phone}</small>
           </div>
         <div className="flex flex-col gap-[10px]">
-        <label className="font-extrabold text-[#0B0553DE] pl-3 text-xl">
+          <label className="font-extrabold text-[#0B0553DE] pl-3 text-xl">
           Email: </label>
-          <InputField
- className=" h-[60px] rounded-[30px] text-white  p-4 w-[100%] outline-0 backdrop-blur-[6px] bg-gradient-to-r from-blue-500 to-[#7096F5] shadow-dashBoardCardImageShadow"
+          <input
+            className=" h-[60px] rounded-[30px] text-white  p-4 w-[100%] outline-0 backdrop-blur-[6px] bg-gradient-to-r from-blue-500 to-[#7096F5] shadow-dashBoardCardImageShadow"
             type="email"
             name="user_email"
             value={formData.user_email}
             onChange={handleChange}
             required={true}
-          />
+            disabled={csrftoken? true : false}
+            />
           <small className="text-sm text-red-500">{errors.user_email}</small>
-</div>
+        </div>
         </div>
         <p className="text-breeSerif font-medium text-center w-9/10 mx-auto text-violet-900 cursor-pointer underline text-[18px]" onClick={() => setModalIsOpen(true)}>Learn why we need that data</p>
         <div className="flex justify-evenly  w-full">
