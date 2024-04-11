@@ -29,7 +29,7 @@ const CardItem = ({ report, index, statusOptions, toggleExpand, setReports }) =>
     <img
       src={report.image}
       alt={report.description}
-      className="h-[12.5rem] w-[18.3rem] rounded-[17px] object-cover object-center shadow-dashBoardCardImageShadow mb-4 "
+      className="h-auto w-[18.3rem] max-h-[22rem] rounded-[17px] object-cover object-center shadow-dashBoardCardImageShadow mb-4 "
     />
   </div>
         <p >
