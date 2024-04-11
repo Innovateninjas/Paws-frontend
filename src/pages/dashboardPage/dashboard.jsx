@@ -5,7 +5,6 @@ import { NgoContext } from "../../contexts/NgoContext";
 import axios from "axios";
 import { onMessage } from "firebase/messaging";
 import { messaging } from '../../firebase';
-// import { set } from "core-js/core/dict";
 
 function Dashboard() {
   const { NgoData } = useContext(NgoContext);
@@ -108,7 +107,7 @@ function Dashboard() {
             <button
               key={index}
               // value={category}
-              className={`${clicked[index] ? 'bg-gray-400' : 'bg-gray-300'} bg-opacity-47 px-3 py-1 border border-gray-400 text-[20px] shadow-dashBoardCardImageShadow font-ChauPhilomeneOne rounded-[30px]`}
+              className={`${clicked[index] ? 'bg-gray-400' : 'bg-gray-300'} bg-opacity-47 px-3 py-1 border border-gray-400 text-[20px] shadow-dashBoardCardImageShadow font-ChauPhilomeneOne rounded-[10px]`}
               onClick={() => {
                 handle(index);
               }}
