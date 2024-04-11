@@ -13,6 +13,9 @@ function Donation() {
   // Function to handle custom amount input change
   const handleCustomAmountChange = (event) => {
     setCustomAmount(event.target.value);
+    const inputValue = event.target.value;
+    const numericValue = inputValue.replace(/[^0-9]/g, '');
+    setCustomAmount(numericValue);
   };
 
   // Function to handle custom amount donate button click
@@ -52,7 +55,7 @@ function Donation() {
             <label  htmlFor="password">Custom Amount</label>
             </div>
             <div className='w-full'>
-              <input className="w-full outline-0 placeholder-stone inset-0 text-[#40025D] font-semibold font-baijam bg-white bg-opacity-50 shadow-dashBoardCardImageShadow rounded-[30px]  py-3 px-4" type="number" id="amount" name="rupees" placeholder="Enter custom amount..." value={customAmount} onChange={handleCustomAmountChange} required />
+              <input className="w-full outline-0 placeholder-stone inset-0 text-[#40025D] font-semibold font-baijam bg-white bg-opacity-50 shadow-dashBoardCardImageShadow rounded-[30px]  py-3 px-4" type="text" id="amount" name="rupees" placeholder="Enter custom amount..." value={customAmount} onChange={handleCustomAmountChange} required />
             </div>
               {/* On click, call handleCustomAmountDonate function */}
               <button className="text-white focus:outline-none rounded-[30px] shadow-buttonShadow bg-gradient-to-b from-green-300 to-green-800 py-3 px-4 text-[1.5rem]" onClick={handleCustomAmountDonate}>Donate now!</button>
