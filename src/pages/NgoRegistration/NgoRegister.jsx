@@ -13,7 +13,7 @@ function NgoRegisterForm() {
 
   const customButtonStyle = {
     borderRadius: "40px",
-    background: "linear-gradient(to bottom, #48bb78, #2f855a)",
+    background: "linear-gradient(to bottom, #16a34a, #15803d)",
     padding: "20px 40px",
     marginTop: "0.675rem",
     fontSize: "19px",
@@ -179,7 +179,7 @@ function NgoRegisterForm() {
           />
         </>
         <>
-          <div className="w-screen h-[70px] mt-5 flex justify-center">
+          <div className="w-screen relative h-[70px] mt-5 flex justify-center">
             <ReactiveButton
               style={customButtonStyle}
               buttonState={state}
@@ -217,6 +217,7 @@ function NgoRegisterForm() {
                 //   console.log("BAKA"); hai hai subarashi
               }}
             />
+             {error && <p className="absolute top-[-25px] tracking-wide text-red-500 font-semibold text-center">{error}</p>}
           </div>
         </>
         <div className="w-screen h-fit flex flex-col mt-3 gap-2 items-center">
@@ -229,7 +230,7 @@ function NgoRegisterForm() {
         />
         </div>
       </form>
-      {error && <p className="absolute bottom-[4%] tracking-wide text-red-500 font-semibold text-center">{error}</p>}
+     
     </div>
   );
 }
