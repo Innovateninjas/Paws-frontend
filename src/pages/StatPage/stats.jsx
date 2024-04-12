@@ -63,7 +63,17 @@ function Stats() {
             attribution='<a>Paws</a>'
           />
           {reports && !isLoading && (
-            <HeatmapLayer data={reports} />
+            <HeatmapLayer data={reports}
+            radius={70}
+            blur={15}
+            gradient={{
+              0.1: 'blue',
+              0.3: 'cyan',
+              0.6: 'lime',
+              0.7: 'yellow',
+              0.8: 'orange',
+              1.0: 'red'
+            }}/>
           )}
         </MapContainer>
 
