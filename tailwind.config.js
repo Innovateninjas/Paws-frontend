@@ -20,10 +20,10 @@ module.exports = {
         'campaign-card-bg-middle': '#ffffff80',
         'campaign-card-bg-bottom': '#ffffffcc',
         'stone': '#53605B',
-        'donationButtonTop': 'rgba(170, 251, 247, 0.80)',
-        'donationButtonBottom': 'rgba(7, 209, 197, 0.70)',
-        'donatetoNgoTop': 'rgba(252, 178, 231)',
-        'donatetoNgoBottom': 'rgba(255, 174, 242)',
+        // 'donationButtonTop': 'rgba(170, 251, 247, 0.80)',
+        // 'donationButtonBottom': 'rgba(7, 209, 197, 0.70)',
+        // 'donatetoNgoTop': 'rgba(252, 178, 231)',
+        // 'donatetoNgoBottom': 'rgba(255, 174, 242)',
       },
       fontFamily: {
         bayon: ['Bayon', 'sans-serif'], 
@@ -37,7 +37,7 @@ module.exports = {
       },
       boxShadow: {
         custom: '14px 18px 30px 0px #1E85E47D',
-        buttonShadow: 'rgb(38, 57, 77) 0px 15px 30px -10px',
+        buttonShadow: ' rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px',
         dashBoardCardShadow: '0px 28.052980422973633px 0px #1E85E426, 0px 28.052980422973633px 0px #1E85E426',
         dashBoardCardImageShadow: '3.847223997116089px 4.946430683135986px 14.289689064025879px 0px #00000040',
       },

@@ -123,14 +123,14 @@ const ImageUploader = ({ formData, setFormData, onChange }) => {
                     </div>
                     <div className={`absolute bottom-0 flex justify-center space-x-4 transition-all duration-700 ease-in-out transform ${formData.image ? 'translate-y-1 delay-100' : 'delay-0'}`}>
                         <button
-                            className={`text-base mt-3 text-white bg-gradient-to-b from-blue-300 to-blue-800 focus:outline-none rounded-[30px] px-5 py-4 bg-opacity-20 font-semibold ${isDragging && 'opacity-50'}`}
+                            className={`text-[1rem] leading-4 mt-3 text-white shadow-buttonShadow bg-gradient-to-b from-green-500 to-green-600 font-semibold focus:outline-none rounded-[30px] px-5 py-4 bg-opacity-20  ${isDragging && 'opacity-50'}`}
                             onClick={handleCameraCapture}
                             {...dragProps}
                         >
                             {isDragging ? 'Uploading...' : 'Take Photo'}
                         </button>
                         <button
-                            className="text-base mt-3 text-white bg-gradient-to-b from-blue-300 to-emerald-500 focus:outline-none rounded-[30px] px-5 py-4 bg-opacity-20 font-semibold"
+                            className="text-base mt-3 text-white bg-gradient-to-b from-green-500 to-green-600 shadow-buttonShadow focus:outline-none rounded-[30px] px-5 py-4 bg-opacity-20 font-semibold"
                             onClick={onImageUpload}
                         >
                             Add Photo
