@@ -1,6 +1,5 @@
 // CreateButton.js
 import React from "react";
-import { FaPlus } from "react-icons/fa";
 import MButton from "../../../Components/buttons/MediumButton/mButton";
 import Background from "../../../Components/backgroundComponent/Background";
 const CreateCampaignPage = ({ onClick }) => {

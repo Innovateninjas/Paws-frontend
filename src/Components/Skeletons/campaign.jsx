@@ -1,6 +1,6 @@
 import React from "react";
 import ContentLoader from "react-content-loader";
-import { List, Code, BulletList } from "react-content-loader";
+import {Code} from "react-content-loader";
 const Campaign = ({...props }) => (
   <>
     <div className="mt-[30px] w-[100vw] flex flex-col items-center gap-[30px]">

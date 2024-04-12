@@ -1,4 +1,3 @@
-import Button from '../../Components/buttons/Bigbutton/bigButton';
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import styles from "./Homepage.module.css";

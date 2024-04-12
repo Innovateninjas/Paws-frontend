@@ -2,7 +2,6 @@ import React, { useRef, useState } from "react";
 import PropTypes from "prop-types";
 import Cropper from "react-cropper"; // https://www.npmjs.com/package/react-cropper
 import "cropperjs/dist/cropper.css";
-import styles from "./Cropper.module.css";
 import { uploadImageToCloudinary } from "../utils/Functions/imageUploader";
 
 /**
