@@ -26,7 +26,7 @@ const MButton = ({ text, icon,onClick, customstyle }) => {
     };
 
     return (
-        <button style={defaultStyles} className="bg-gradient-to-b from-green-300 text-2xl relative to-green-800" onClick={onClick}>
+        <button style={defaultStyles} className="text-white focus:outline-none rounded-[30px] shadow-buttonShadow bg-gradient-to-b from-green-600 to-green-700 drop-shadow-md py-3 px-4 text-[1.5rem] " onClick={onClick}>
             {text}{icon}
         </button>
     );

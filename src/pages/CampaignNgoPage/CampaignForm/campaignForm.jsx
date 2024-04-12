@@ -9,6 +9,7 @@ import ImageCropper from "../../../Components/ImageCropper/Cropper";
 import createCampaign from "../createCampaign";
 import disableDate  from "./dateDisable"
 import Background from "../../../Components/backgroundComponent/Background";
+import Button from "../../../Components/tailwindButton/Button";
 const CampaignForm = ({ setShowForm }) => {
     const { NgoData, loading, error } = useContext(NgoContext);
     const [orgName,setOrgName] = useState("Ngo"); // i will add option later for fetching the org name  from Ngocontext
@@ -215,8 +216,7 @@ const CampaignForm = ({ setShowForm }) => {
                                 setError("");
                                 setageGroup(18);
                             }}
-                        />
-                        
+                        />             
                     </div>
                     <div className="flex flex-col justify-center gap-[5px] items-center">
                         <label className="text-[1.2rem] text-black font-semibold" htmlFor="all">
@@ -242,24 +242,11 @@ const CampaignForm = ({ setShowForm }) => {
                 headerImgUrl={headerImgUrl}
                 setheaderImgUrl={setheaderImgUrl}
             />
-            {console.log(!error)}
-            {!error && <p className="text-red-500 font-semibold text-base">{campaignError}</p>}
-            <button
-                className="text-white flex gap-[5px] items-center focus:outline-none rounded-[30px] tracking-wider shadow-buttonShadow font-semibold bg-gradient-to-b from-green-300 text-2xl relative to-green-800 py-5 px-10"
+            {console.log("Error:",!!error)}
+            {!!error && <p className="text-red-600 tracking-wider drop-shadow-lg font-semibold text-base">{campaignError}</p>}
+            <Button
+                clas=" py-5 px-8 font-semibold tracking-wider text-[1.5rem] leading-[1.5rem]"
                 onClick={async () => {
-                    // console.log(
-                    //     orgName,
-                    //     phoneNumber,
-                    //     email,
-                    //     campTitle,
-                    //     campDes,
-                    //     tags,
-                    //     strtDate,
-                    //     endDate,
-                    //     ageGroup,
-                    //     lastDate,
-                    //     headerImgUrl
-                    // );
                     createCampaign(orgName,
                         phoneNumber, 
                         email,
@@ -275,9 +262,8 @@ const CampaignForm = ({ setShowForm }) => {
                          setShowForm
                          );
                 }}
-            >
-                Create <FaPlus fontSize="18px" />
-            </button>
+                text={<> <span className="flex gap-2 items-center"> Create <FaPlus fontSize="18px" /></span> </>}
+            />
         </div>
         </>
     );
