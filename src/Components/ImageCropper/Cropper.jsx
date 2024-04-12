@@ -39,9 +39,14 @@ const ImageCropper = ({ headerImgUrl, setheaderImgUrl, aspectRatio = 4 / 3 }) =>
 
     return (
         <fieldset className="bg-white p-6 gap-[20px] rounded-[30px] bg-opacity-30 backdrop-blur-[5px] shadow-dashBoardCardImageShadow flex flex-col">
-            <label className="text-[1.6rem] font-extrabold underline uppercase tracking-wider">Upload Images</label>
+        
+            <label className="text-[1.6rem] font-extrabold underline uppercase tracking-wider text-center">Upload Images</label>
+            <label htmlFor="file-upload" className="text-stone h-16 bg-opacity-45 backdrop-blur-[6px] w-[300px] px-4 items-center outline-0 rounded-[30px] text-lg leading-[64px] placeholder-stone bg-white bg-opacity-47 shadow-dashBoardCardImageShadow">
+  Upload Image
+</label>
             <input
-            className="text-stone h-16 bg-opacity-45 backdrop-blur-[6px] w-[300px] px-4 py-[13px] items-center outline-0 rounded-[30px] text-lg bg-gradient-to-b from-campaign-input-top via-campaign-input-middle to-campaign-input-bottom shadow-dashBoardCardImageShadow"
+            className="hidden"
+                id="file-upload"
                 type="file"
                 accept="image/png, image/jpeg, image/jpg"
                 onChange={(e) => {

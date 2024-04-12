@@ -36,9 +36,9 @@ const CampaignForm = ({ setShowForm }) => {
         <div className="text-[#0B0553DE] min-h-screen py-12 overflow-x-hidden mx-auto flex flex-col gap-[30px] items-center mb-[120px]">
         
             <fieldset className="bg-white p-6 gap-[20px] rounded-[30px] bg-opacity-30 backdrop-blur-[5px] shadow-dashBoardCardImageShadow flex flex-col" >
-               <label className="text-[1.6rem] font-extrabold underline tracking-wider uppercase">Description</label>
+               <label className="text-[1.6rem] font-extrabold underline tracking-wider uppercase text-center">Description</label>
                 <InputField
-                className="placeholder-stone h-16 bg-opacity-45 backdrop-blur-[6px] w-[300px] px-4 items-center outline-0 rounded-[30px] text-black text-lg bg-gradient-to-b from-campaign-input-top via-campaign-input-middle to-campaign-input-bottom shadow-dashBoardCardImageShadow"
+                className="placeholder-stone h-16 bg-opacity-45 backdrop-blur-[6px] w-[300px] px-4 items-center outline-0 rounded-[30px] text-black text-lg bg-white bg-opacity-47 shadow-dashBoardCardImageShadow"
                     type="text"
                     placeholder="Campaign Title"
                     value={campTitle}
@@ -49,7 +49,7 @@ const CampaignForm = ({ setShowForm }) => {
                     required
                 />
                 <InputField
-                className="placeholder-stone h-[120px] bg-opacity-45 backdrop-blur-[6px] w-[300px]  px-4 leading-[120px]  outline-0 rounded-[30px] text-lg  bg-gradient-to-b from-campaign-input-top via-campaign-input-middle to-campaign-input-bottom shadow-dashBoardCardImageShadow"
+                className="placeholder-stone h-20 bg-opacity-45 backdrop-blur-[6px] w-[300px]  px-4 leading-[80px]  outline-0 rounded-[40px] text-lg  bg-white bg-opacity-47 shadow-dashBoardCardImageShadow"
                     type="textarea"
                     placeholder="Campaign Description"
                     value={campDes}
@@ -65,7 +65,8 @@ const CampaignForm = ({ setShowForm }) => {
             ...base,
             // maxHeight: "6rem",
             width: '300px',
-            backgroundImage: "linear-gradient(to bottom, rgba(252, 178, 231, 0.68), rgba(252, 174, 242, 0.68),rgba(242, 117, 237,0.68))",
+            // backgroundImage: "linear-gradient(to bottom, rgba(252, 178, 231, 0.68), rgba(252, 174, 242, 0.68),rgba(242, 117, 237,0.68))",
+            backgroundColor: "#ffffff80",
             boxShadow: "3.847223997116089px 4.946430683135986px 14.289689064025879px 0px #00000040",
             borderRadius: '30px',
             padding: '0.5rem 1rem',
@@ -81,7 +82,7 @@ const CampaignForm = ({ setShowForm }) => {
         }),
         multiValue: (provided, state) => ({
             ...provided,
-            backgroundColor: 'rgba(255, 255, 255, 0.5)',
+            backgroundColor: '#fafafae6',
             borderRadius: '30px',
             fontSize: '18px',
             marginLeft: '5px',
@@ -109,9 +110,9 @@ const CampaignForm = ({ setShowForm }) => {
 />
             </fieldset>
             <fieldset className="bg-white p-6 gap-[20px] rounded-[30px] bg-opacity-30 backdrop-blur-[5px] shadow-dashBoardCardImageShadow flex flex-col">
-            <label className="text-[1.6rem] uppercase font-extrabold underline tracking-wider">Contact details</label>
+            <label className="text-[1.6rem] uppercase font-extrabold underline tracking-wider text-center">Contact details</label>
                 <InputField
-                className="h-16 bg-opacity-45 backdrop-blur-[6px] w-[300px] px-4 leading-[px] items-center outline-0 rounded-[30px] text-lg bg-gradient-to-b from-campaign-input-top via-campaign-input-middle to-campaign-input-bottom shadow-dashBoardCardImageShadow"
+                className="h-16 bg-opacity-45 backdrop-blur-[6px] w-[300px] px-4 leading-[px] items-center outline-0 rounded-[30px] text-lg placeholder-stone bg-white bg-opacity-47 shadow-dashBoardCardImageShadow"
                     type="tel"
                     placeholder="Phone Number"
                     value={phoneNumber}
@@ -122,7 +123,7 @@ const CampaignForm = ({ setShowForm }) => {
                     required
                 />
                 <InputField
-                className="h-16 bg-opacity-45 backdrop-blur-[6px] w-[300px] px-4 leading-[px] items-center outline-0 rounded-[30px] text-lg bg-gradient-to-b from-campaign-input-top via-campaign-input-middle to-campaign-input-bottom shadow-dashBoardCardImageShadow"
+                className="h-16 bg-opacity-45 backdrop-blur-[6px] w-[300px] px-4 leading-[px] items-center outline-0 rounded-[30px] text-lg placeholder-stone bg-white bg-opacity-47 shadow-dashBoardCardImageShadow "
                     type="email"
                     placeholder="Email"
                     value={email}
@@ -134,11 +135,11 @@ const CampaignForm = ({ setShowForm }) => {
                 />
             </fieldset> 
             <fieldset className="bg-white p-6 gap-[20px] rounded-[30px] bg-opacity-30 backdrop-blur-[5px] shadow-dashBoardCardImageShadow flex flex-col">
-                <label className="text-[1.6rem] uppercase font-extrabold underline tracking-wider">Duration</label>
+                <label className="text-[1.6rem] uppercase font-extrabold underline tracking-wider text-center">Duration</label>
                 <div className="flex flex-col gap-[4px]">
                     <label className="text-[1.2rem] font-bold">Start Date:</label>
                     <InputField
-                        className="text-stone h-16 bg-opacity-45 backdrop-blur-[6px] w-[300px] px-4 leading-[px] items-center outline-0 rounded-[30px] text-lg bg-gradient-to-b from-campaign-input-top via-campaign-input-middle to-campaign-input-bottom shadow-dashBoardCardImageShadow"
+                        className="text-stone h-16 bg-opacity-45 backdrop-blur-[6px] w-[300px] px-4 leading-[px] items-center outline-0 rounded-[30px] text-lg placeholder-stone bg-white bg-opacity-47 shadow-dashBoardCardImageShadow"
                         type="date"
                         value={strtDate}
                         min= {minDate}
@@ -153,7 +154,7 @@ const CampaignForm = ({ setShowForm }) => {
                 <div className="flex flex-col gap-[4px]">
                     <label className="text-[1.2rem] font-bold">End Date:</label>
                     <InputField
-                        className="text-stone h-16 bg-opacity-45 backdrop-blur-[6px] w-[300px] px-4 leading-[px] items-center outline-0 rounded-[30px] text-lg bg-gradient-to-b from-campaign-input-top via-campaign-input-middle to-campaign-input-bottom shadow-dashBoardCardImageShadow"
+                        className="text-stone h-16 bg-opacity-45 backdrop-blur-[6px] w-[300px] px-4 leading-[px] items-center outline-0 rounded-[30px] text-lg placeholder-stone bg-white bg-opacity-47 shadow-dashBoardCardImageShadow"
                         type="date"
                         value={endDate}
                         min= {minDate}
@@ -167,7 +168,7 @@ const CampaignForm = ({ setShowForm }) => {
                 <div className="flex flex-col gap-[4px]">
                     <label className="text-[1.2rem] font-bold">Application Deadline:</label>
                     <InputField
-                        className="text-stone h-16 bg-opacity-45 backdrop-blur-[6px] w-[300px] px-4 leading-[px] items-center outline-0 rounded-[30px] text-lg bg-gradient-to-b from-campaign-input-top via-campaign-input-middle to-campaign-input-bottom shadow-dashBoardCardImageShadow"
+                        className="text-stone h-16 bg-opacity-45 backdrop-blur-[6px] w-[300px] px-4 leading-[px] items-center outline-0 rounded-[30px] text-lg placeholder-stone bg-white bg-opacity-47 shadow-dashBoardCardImageShadow"
                         type="date"
                         value={lastDate}
                         min= {minDate}
@@ -180,13 +181,13 @@ const CampaignForm = ({ setShowForm }) => {
                 </div>
                 <div className="flex flex-col gap-[6px]">
                 <label className="text-[1.2rem]  font-bold"> Age Group:</label>
-                <div className="bg-opacity-45 backdrop-blur-[6px] w-[300px] px-4 p-3 leading-[px] items-center outline-0 rounded-[40px] text-lg bg-gradient-to-b from-campaign-input-top via-campaign-input-middle to-campaign-input-bottom shadow-dashBoardCardImageShadow border-1 flex justify-evenly ring-1 ring-gray-300 bg-white overflowX-scroll">
+                <div className="bg-opacity-45 backdrop-blur-[6px] w-[300px] px-4 p-3 leading-[px] items-center outline-0 rounded-[40px] text-lg placeholder-stone bg-white bg-opacity-47 shadow-dashBoardCardImageShadow border-1 flex justify-evenly overflowX-scroll">
                     <div className="flex  justify-center flex-col gap-[5px] items-center">
                     <label className="text-[1.2rem] text-black font-semibold" htmlFor="thirteen">
                             13
                         </label>
                         <input
-                            className="w-9 h-9"
+                            className="w-7 h-7"
                             type="radio"
                             id="thirteen"
                             name="age"
@@ -204,7 +205,7 @@ const CampaignForm = ({ setShowForm }) => {
                        <label className="text-[1.2rem] text-black font-semibold" htmlFor="eighteen">
                             18+
                         </label>
-                        <input className="w-9 h-9"
+                        <input className="w-7 h-7"
                             type="radio"
                             id="eighteen"
                             name="age"
@@ -222,7 +223,7 @@ const CampaignForm = ({ setShowForm }) => {
                              All Age
                         </label>
                         <input type="radio"
-                            className="w-9 h-9"
+                            className="w-7 h-7"
                             id="all"
                             name="age"
                             value="Everybody"
