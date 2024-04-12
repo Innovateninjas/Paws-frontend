@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { FaIndianRupeeSign } from "react-icons/fa6";
 import styles from './..//Donationfront/donationFront.module.css';
 import Background from '../../../Components/backgroundComponent/Background';
+import Button from "..//..//..//Components/tailwindButton/Button"
 function Donation() {
   const [customAmount, setCustomAmount] = useState(""); // State to store custom amount
 
   // Function to handle donation button click
   const handleDonate = (amount) => {
+    console.log("handleDonate")
     const upiLink = `upi://pay?pa=rishipaulstudy@okhdfcbank&pn=Rishi%20Paul&am=${amount}&cu=INR&aid=uGICAgMCerK_8eg`;
     window.location.href = upiLink;
   };
@@ -20,6 +22,7 @@ function Donation() {
 
   // Function to handle custom amount donate button click
   const handleCustomAmountDonate = () => {
+    console.log("handleCustomAmountDonate")
     if (customAmount !== "") {
       handleDonate(customAmount);
     }
@@ -42,12 +45,21 @@ function Donation() {
           <div className="flex flex-col items-center justify-center gap-[1.0rem]">
             <div className="flex items-center justify-center gap-2">
             {/* BUTTONS */}
-                <button className="inset-0 text-[1.10rem] text-[#40025D] tracking-wider font-semibold font-baijam bg-gradient-to-b from-donationButtonTop to-donationButtonBottom shadow-xl rounded-[30px] py-3 px-4 bg-opacity-47 drop-shadow-lg flex items-center justify-center" onClick={() => handleDonate(100)}><FaIndianRupeeSign />100
-                </button>
-              <button className="inset-0 text-[1.10rem] text-[#40025D] tracking-wider font-semibold font-baijam bg-gradient-to-b from-donationButtonTop to-donationButtonBottom shadow-xl rounded-[30px] py-3 px-4  bg-opacity-47 flex items-center justify-center" onClick={() => handleDonate(250)}>
-              <FaIndianRupeeSign />250
-              </button>
-              <button className="inset-0 text-[1.10rem] text-[#40025D] tracking-wider font-semibold font-baijam bg-gradient-to-b from-donationButtonTop to-donationButtonBottom shadow-xl rounded-[30px] py-3 px-4 bg-opacity-47 flex items-center justify-center" onClick={() => handleDonate(500)}><FaIndianRupeeSign />500</button>
+                <Button
+                clas=" text-[#40025D] tracking-wider shadow-xl bg-gradient-to-b from-cyan-400 to-cyan-300 flex items-center text-[1.10rem]"
+                text={ <> <FaIndianRupeeSign /> 100</>}
+                onClick={() => handleDonate(100)}
+              />
+              <Button
+                clas=" text-[#40025D] tracking-wider shadow-xl bg-gradient-to-b from-cyan-400 to-cyan-300 flex items-center text-[1.10rem]"
+                text={ <> <FaIndianRupeeSign /> 250</>}
+                onClick={() => handleDonate(250)}
+              />
+              <Button
+                clas=" text-[#40025D] tracking-wider shadow-xl bg-gradient-to-b from-cyan-400 to-cyan-300 flex items-center text-[1.10rem]"
+                text={ <> <FaIndianRupeeSign /> 500</>}
+                onClick={() => handleDonate(500)}
+              />
             </div>
             {/* CUSTOM AMOUNT */}
             <div className="text-center text-[20px]">
@@ -58,7 +70,11 @@ function Donation() {
               <input className="w-full outline-0 placeholder-stone inset-0 text-[#40025D] font-semibold font-baijam bg-white bg-opacity-50 shadow-dashBoardCardImageShadow rounded-[30px]  py-3 px-4" type="text" id="amount" name="rupees" placeholder="Enter custom amount..." value={customAmount} onChange={handleCustomAmountChange} required />
             </div>
               {/* On click, call handleCustomAmountDonate function */}
-              <button className="text-white focus:outline-none rounded-[30px] shadow-buttonShadow bg-gradient-to-b from-green-300 to-green-800 py-3 px-4 text-[1.5rem]" onClick={handleCustomAmountDonate}>Donate now!</button>
+              <Button
+                clas=""
+                onClick={handleCustomAmountDonate}
+                text="Donate Now"
+              />
           </div>
         </div>
         </div>

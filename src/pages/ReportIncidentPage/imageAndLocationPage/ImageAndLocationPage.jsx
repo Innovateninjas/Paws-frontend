@@ -153,7 +153,7 @@ function ImageAndLocationPage({
       )}
           <Button 
             text="Next" 
-            clas="mb-24 px-16 py-4 bg-gradient-to-b from-green-300 to-green-800 text-white shadow-lg" 
+            clas="mb-24 font-semibold tracking-wider px-8 text-white bg-gradient-to-b from-green-500 to-green-600" 
             onClick={handleNextPage}/>
     </div>
   );

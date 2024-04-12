@@ -504,12 +504,12 @@ function AnimalDetailsPage({
             <div className="mt-4 w-full flex flex-wrap justify-evenly gap-4">
               <Button
                 text="Back"
-                clas=" text-base text-white focus:outline-none rounded-[30px] shadow-buttonShadow font-semibold bg-gradient-to-b from-green-300 to-green-800"
+                clas="font-semibold tracking-wider px-6 font-poppins text-white"
                 onClick={handleBackPage}
               />
               <Button
                 text="Next"
-                clas="text-base  text-white bg-gradient-to-b from-blue-300 to-blue-800 shadow-buttonShadow focus:outline-none rounded-[30px]  bg-opacity-20 font-semibold"
+                clas="font-semibold tracking-wider px-6 text-white bg-gradient-to-b from-blue-600 to-blue-800 shadow-buttonShadow focus:outline-none "
                 onClick={handleNextPage}
               />
             </div>

@@ -37,15 +37,14 @@ function ContactInformationPage({
     <Background />
     <div className=" flex flex-col justify-center items-center relative">
       <div className="mt-24 relative w-full  gap-[20px] flex flex-col items-center ">
-        <h1 className="text-center mt-[20px] pb-1 z-[3] text-[#0B0553DE] font-black tracking-wide text-[1.6em] underline">CONTACT DETAILS</h1>
-     <div className="bg-white w-[90%] p-5 rounded-3xl bg-opacity-57 backdrop-blur-[6px] flex flex-col justify-evenly gap-[10px]">
+        <h1 className="text-center mt-[20px] pb-1 z-[3] text-[#0B0553DE] font-black tracking-wide text-[2rem] underline">CONTACT DETAILS</h1>
+     <div className="bg-gray-200 bg-opacity-40 w-[90%] py-8 px-4 rounded-3xl backdrop-blur-[6px] flex flex-col justify-evenly gap-[10px] shadow-dashBoardCardImageShadow">
    <div className="flex flex-col gap-[10px]">
-        <label className="font-extrabold text-[#0B0553DE] pl-3 text-xl">
-          Name :
-          </label>
+
           <InputField
-           className=" h-[60px] rounded-[30px] text-white p-4 w-[100%] outline-0 bg-opacity-80 bg-gradient-to-r from-green-500 to-[#65D33C] shadow-dashBoardCardImageShadow"
+           className=" h-16 bg-opacity-15 backdrop-blur-[6px] w-[300px] px-4 leading-[px] items-center outline-0 rounded-[30px] text-lg placeholder-stone bg-white bg-opacity-47 shadow-dashBoardCardImageShadow"
             type="text"
+            placeholder="Name"
             name="user_name"
             value={formData.user_name}
             onChange={handleChange}
@@ -58,11 +57,11 @@ function ContactInformationPage({
           <div className="error">{errors.first_name}</div>
           </div>
         <div className="flex flex-col gap-[10px]">
-        <label className="font-extrabold text-[#0B0553DE] pl-3 text-xl">
-          Phone Number:</label>
+
           <InputField
-         className=" h-[60px] rounded-[30px] p-4 w-[100%] outline-0 bg-opacity-80  bg-slate-200 shadow-dashBoardCardImageShadow"
+         className=" h-16 bg-opacity-15 backdrop-blur-[6px] w-[300px] px-4 leading-[px] items-center outline-0 rounded-[30px] text-lg placeholder-stone bg-white bg-opacity-47 shadow-dashBoardCardImageShadow"
             type="tel"
+            placeholder="Phone Number"
             name="user_phone"
             value={formData.user_phone}
             onChange={handleChange}
@@ -72,11 +71,11 @@ function ContactInformationPage({
           <small className="text-sm text-red-500">{errors.user_phone}</small>
           </div>
         <div className="flex flex-col gap-[10px]">
-          <label className="font-extrabold text-[#0B0553DE] pl-3 text-xl">
-          Email: </label>
+
           <input
-            className=" h-[60px] rounded-[30px] text-white  p-4 w-[100%] outline-0 backdrop-blur-[6px] bg-gradient-to-r from-blue-500 to-[#7096F5] shadow-dashBoardCardImageShadow"
+            className=" h-16 bg-opacity-15 backdrop-blur-[6px] w-[300px] px-4 leading-[px] items-center outline-0 rounded-[30px] text-lg placeholder-stone bg-white bg-opacity-47 shadow-dashBoardCardImageShadow"
             type="email"
+            placeholder="E-mail"
             name="user_email"
             value={formData.user_email}
             onChange={handleChange}
@@ -87,9 +86,9 @@ function ContactInformationPage({
         </div>
         </div>
         <p className="text-breeSerif font-medium text-center w-9/10 mx-auto text-violet-900 cursor-pointer underline text-[18px]" onClick={() => setModalIsOpen(true)}>Learn why we need that data</p>
-        <div className="flex justify-evenly  w-full">
-          <Button text="Back" clas="text-base text-white focus:outline-none rounded-[30px] shadow-buttonShadow font-medium tracking-widest bg-gradient-to-b from-green-300 to-green-800" onClick={handleBackPage}/>
-          <Button text="Submit" clas="text-base text-white bg-gradient-to-b from-blue-300 to-blue-800 shadow-buttonShadow focus:outline-none rounded-[30px]  bg-opacity-20 font-medium tracking-widest" onClick={(e) => {
+        <div className="flex justify-center gap-5 items-center w-full">
+          <Button text="Back" clas="tracking-wider px-6 text-white focus:outline-none" onClick={handleBackPage}/>
+          <Button text="Submit" clas="tracking-wider px-6 text-white bg-gradient-to-b from-blue-600 to-blue-800 shadow-buttonShadow focus:outline-none" onClick={(e) => {
             if (validatePage()) {
               handleNextPage();
               handleSubmit(e);

@@ -144,7 +144,7 @@ const CampaignBlog = () => {
                     {data.tags &&
                       data.tags.map((item, index) => (
                         <span
-                          className="bg-gray-300 px-5 shadow-dashBoardCardImageShadow py-2 rounded-[20px] border "
+                          className="bg-gradient-to-b from-gray-200 to-gray-400 px-5 shadow-buttonShadow py-2 rounded-[20px]"
                           key={index}
                         >
                           {item} <br></br>
@@ -154,7 +154,7 @@ const CampaignBlog = () => {
                   <div className="mt-4 w-full flex flex-wrap justify-evenly gap-4">            
                   <Button
                     text={interested}
-                    clas={`text-2xl text-white font-normal focus:outline-none rounded-[30px] tracking-wider shadow-buttonShadow mb-7 ${disable ? "bg-gradient-to-b from-green-100 to-green-900" : "bg-gradient-to-b from-green-300 to-green-800"
+                    clas={`text-2xl text-white font-normal focus:outline-none rounded-[30px] tracking-wider shadow-buttonShadow mb-7 ${disable ? "bg-gradient-to-b from-gray-500 to-gray-700" : ""
                       }`}
                     onClick={() =>
                       handleInterest(

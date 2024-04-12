@@ -3,6 +3,7 @@ import styles from "./donationFront.module.css";
 import { Link } from 'react-router-dom';
 import Background from '../../../Components/backgroundComponent/Background';
 import { TypeAnimation } from 'react-type-animation';
+// import 
 
 export const Donationfront = () => {
   
@@ -51,14 +52,14 @@ export const Donationfront = () => {
           <div className="w-full flex justify-center gap-2 py-3">         
               <button
                 type='button'
-                className="text-white focus:outline-none rounded-[30px] shadow-buttonShadow bg-gradient-to-b from-teal-300 to-teal-500 py-3 px-4 text-[1.5rem] sm:text-[1.5rem] hover:transform hover:duration-100 hover:scale-[1.01] `${donationType === 'us' ? styles.active : ''}`"
+                className="text-white focus:outline-none rounded-[30px] shadow-buttonShadow bg-gradient-to-b from-teal-400 to-teal-500 py-3 px-4 text-[1.5rem] sm:text-[1.5rem] hover:transform hover:duration-100 hover:scale-[1.01] `${donationType === 'us' ? styles.active : ''}`"
                 onClick={() => handleToggleClick('us')}
               >
                 Donate to US
               </button>
               <button
                 type='button'
-                className="text-white focus:outline-none rounded-[30px] shadow-buttonShadow bg-gradient-to-b from-pink-300 to-pink-800 py-3 px-4 text-[1.5rem] sm:text-[1.5rem] hover:transform hover:duration-100 hover:scale-[1.01] `${donationType === 'ngo' ? styles.active : ''}`"
+                className="text-white focus:outline-none rounded-[30px] shadow-buttonShadow bg-gradient-to-b from-pink-400 to-pink-500 py-3 px-4 text-[1.5rem] sm:text-[1.5rem] hover:transform hover:duration-100 hover:scale-[1.01] `${donationType === 'ngo' ? styles.active : ''}`"
                 onClick={() => handleToggleClick('ngo')}
               >
                 Donate to NGO
@@ -96,7 +97,7 @@ export const Donationfront = () => {
                 <select className="rounded-[30px] p-2 text-[20px] bg-white bg-opacity-45 outline-0">
                   <option>Choose an NGO</option>
                   {ngoNames.map((ngo, index) => (
-                    <option className="bg-pink-200" key={index} value={ngo.name}>
+                    <option key={index} value={ngo.name}>
                       {ngo.name}
                     </option>
                   ))}
@@ -104,15 +105,17 @@ export const Donationfront = () => {
               )}
                {/* TOGGLE US */}
               {donationType === 'us' && (
-                <p className="text-[22px]"> Explore our <Link className="inset-0 text-[22px] text-[#40025D] tracking-wider font-semibold font-baijam bg-gradient-to-b from-violet-200 to-violet-400 shadow-xl rounded-[30px] py-3 px-4 bg-opacity-47" to="/team">Crew!</Link> </p>
+                <p className="text-[22px]"> Explore our <Link className="text-[20px] underline text-[#382f87] tracking-wider font-semibold font-baijam  rounded-[30px] py-3  bg-opacity-47" to="/team">Crew!</Link> </p>
               )}
               </div>
             </div>
               {/* Button Container */}
               <div>
+
+
                 <button
                   type='submit'
-                  className="bg-gradient-to-b m-3 from-green-300 to-green-800 text-white focus:outline-none rounded-[30px] shadow-buttonShadow  py-3 px-4 text-[1.5rem]"
+                  className="px-6 py-4 text-white bg-gradient-to-b from-green-600 to-green-700  rounded-[30px] drop-shadow-md shadow-buttonShadow text-[1.5rem] leading-[1.5rem] tracking-widest mb-4"
                 >
                   <Link to="/donation">Donate</Link>
                 </button>
