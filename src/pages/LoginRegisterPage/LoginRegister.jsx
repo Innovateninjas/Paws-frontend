@@ -18,13 +18,13 @@ function LoginRegisterForm() {
 
   const customButtonStyle = {
     borderRadius: "40px",
-    background: "linear-gradient(to bottom, #48bb78, #2f855a)",
+    background: "linear-gradient(to bottom, #16a34a, #15803d)",
     padding: "20px 40px",
     marginTop: "0.675rem",
-    fontSize: "19px",
-    fontWeight: "700",
+    fontSize: "22px",
+    fontWeight: "800",
     boxShadow: "rgb(38, 57, 77) 0px 15px 30px -10px",
-    letterSpacing: "0.2em",
+    letterSpacing: "0.2rem",
     width:"fit-content",
     margin:"auto"
   };
@@ -71,6 +71,7 @@ function LoginRegisterForm() {
         {isLogin && 
         <h1 className=" mt-[60px] text-center pb-1 pl-2 pr-2 z-[3] text-indigo-900 font-bold tracking-wide text-[2.5em] underline "> Welcome Back</h1>}
         <InputField
+        // h-16 bg-opacity-15 backdrop-blur-[6px] w-[300px] px-4 leading-[px] items-center outline-0 rounded-[30px] text-lg placeholder-stone bg-white bg-opacity-47 shadow-dashBoardCardImageShadow 
           className="placeholder-stone h-16 mt-5 bg-opacity-45 backdrop-blur-[6px] w-80 px-4 py-2 items-center outline-0 rounded-[30px] text-black text-lg bg-white shadow-dashBoardCardImageShadow"
           type="email"
           placeholder="Email"

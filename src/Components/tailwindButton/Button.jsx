@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 import {twMerge } from 'tailwind-merge';
+import { FaIndianRupeeSign } from "react-icons/fa6";
 const Button = ({ text, clas, onClick,disabled }) => {
 
-    // text-base mt-3 text-white  focus:outline-none rounded-[30px] px-5 py-4 bg-opacity-20 font-semibold
-    var baseClass = "text-base focus:outline-none rounded-[30px] px-10 py-4 font-semibold ";  
+    var baseClass = "text-white focus:outline-none rounded-[30px] shadow-buttonShadow bg-gradient-to-b from-green-600 to-green-700 rounded-[35px] drop-shadow-md shadow-buttonShadow py-3 px-4 text-[1.5rem] ";  
     return (
         <button className={twMerge(baseClass, clas)} disabled={disabled} onClick={onClick}>{text}</button>
     )
