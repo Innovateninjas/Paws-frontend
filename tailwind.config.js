@@ -19,7 +19,7 @@ module.exports = {
         'campaign-card-bg-top': '#1e85e47d',
         'campaign-card-bg-middle': '#ffffff80',
         'campaign-card-bg-bottom': '#ffffffcc',
-        'stone': '#7D9189',
+        'stone': '#53605B',
         'donationButtonTop': 'rgba(170, 251, 247, 0.80)',
         'donationButtonBottom': 'rgba(7, 209, 197, 0.70)',
         'donatetoNgoTop': 'rgba(252, 178, 231)',
