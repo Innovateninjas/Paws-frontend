@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 import {twMerge } from 'tailwind-merge';
-import { FaIndianRupeeSign } from "react-icons/fa6";
 const Button = ({ text, clas, onClick,disabled }) => {
 
     var baseClass = "text-white focus:outline-none rounded-[30px] shadow-buttonShadow bg-gradient-to-b from-green-600 to-green-700 rounded-[35px] drop-shadow-md shadow-buttonShadow py-3 px-4 text-[1.5rem] ";  
