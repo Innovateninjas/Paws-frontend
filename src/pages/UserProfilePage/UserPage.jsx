@@ -2,10 +2,10 @@ import React, { useEffect, useState, useContext } from "react";
 import { FaUser, FaPhoneAlt } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";
 import { RiCoinsLine } from "react-icons/ri";
+import { IoDocumentSharp } from "react-icons/io5";
 import Loader from "../../Components/loaders/loader";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../contexts/UserContext";
-
 function UserPage() {
   const [userDetails, setUserData] = useState(null);
   const { userData, loading, error } = useContext(UserContext);
@@ -58,22 +58,29 @@ function UserPage() {
           </div>
 
           {/* NUMBER OF REPORTS */}
-          <div className="text-xl tracking-wider drop-shadow-md">
-            <span>No of Reports: {userDetails.no_reports}</span>
+          <div className="flex items-center gap-1 text-xl drop-shadow-md">
+          <span className="rounded-full bg-blue-900 p-2 mr-2">
+          <IoDocumentSharp fontSize="24px" color="rgba(255,255,255,0.7)"/>
+              {/* <FaPhoneAlt fontSize="22px" color="rgba(255,255,255,0.7)" /> */}
+            </span>
+          
+            <span>Reports: {userDetails.no_reports}</span>
           </div>
 
           {/* COINS */}
-          <p className="flex items-center gap-1 drop-shadow-sm text-xl text-[#c39105d5]">
-            <RiCoinsLine fontSize="34px" />
+          <p className="flex items-center gap-1 drop-shadow-sm text-xl">
+          <span className="rounded-full bg-blue-900 p-2 mr-2">
+          <RiCoinsLine fontSize="28px" color="rgba(255,255,255,0.7)" />
+            </span>
             <span className="tracking-wider">Coins: {userDetails.coins}</span>
           </p>
         </div>
         {/* BUTTONS */}
         <div className="flex gap-3">
-          <button className="px-8 py-4 text-white bg-gradient-to-b from-green-400 to-green-900  rounded-full drop-shadow-md shadow-buttonShadow tracking-wider text-lg">
+          <button className="px-6 py-5 text-white bg-gradient-to-b from-green-600 to-green-700  rounded-[35px] drop-shadow-md shadow-buttonShadow text-[1.3rem] leading-[1.3rem] tracking-widest">
             <Link to="/view-reports">My Reports</Link>
           </button>
-          <button className="px-8 py-4 bg-gradient-to-b from-red-400 to-red-900 rounded-full drop-shadow-md shadow-buttonShadow tracking-wider text-white text-lg">
+          <button className="px-6 py-5 text-white bg-gradient-to-b from-green-600 to-green-700  rounded-[35px] drop-shadow-md shadow-buttonShadow text-[1.3rem] leading-[1.3rem] tracking-widest">
             <Link to="/logout">Logout</Link>
           </button>
         </div>
