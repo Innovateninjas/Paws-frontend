@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import InputField from "../../Components/InputsFields/bigInputs";
 import ReactiveButton from "reactive-button";
@@ -34,7 +34,10 @@ function LoginRegisterForm() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [state, setButtonState] = useState("idle");
-
+ console.log(isLogin)
+ useEffect(() => {
+  setError("");
+ },[isLogin])
   return (
     <>    
     
@@ -69,7 +72,11 @@ function LoginRegisterForm() {
           </>
         )}
         {isLogin && 
-        <h1 className=" mt-[60px] text-center pb-1 pl-2 pr-2 z-[3] text-indigo-900 font-bold tracking-wide text-[2.5em] underline "> Welcome Back</h1>}
+        <>
+        <h1 className=" mt-[60px] text-center pb-1 pl-2 pr-2 z-[3] text-indigo-900 font-bold tracking-wide text-[2.5em] underline "> Welcome Back</h1>
+        </>
+        
+        }
         <InputField
         // h-16 bg-opacity-15 backdrop-blur-[6px] w-[300px] px-4 leading-[px] items-center outline-0 rounded-[30px] text-lg placeholder-stone bg-white bg-opacity-47 shadow-dashBoardCardImageShadow 
           className="placeholder-stone h-16 mt-5 bg-opacity-45 backdrop-blur-[6px] w-80 px-4 py-2 items-center outline-0 rounded-[30px] text-black text-lg bg-white shadow-dashBoardCardImageShadow"
@@ -96,7 +103,7 @@ function LoginRegisterForm() {
         
         {!isLogin && (
           <>
-            <div className="w-screen h-[70px] mt-5 flex justify-center">
+            <div className="w-screen relative h-[70px] mt-5 flex justify-center">
               <ReactiveButton
                 style={customButtonStyle}
                 buttonState={state}
@@ -116,6 +123,7 @@ function LoginRegisterForm() {
                   )
                 }
               />
+      {error && <p className="absolute top-[-25px] w-screen tracking-wide text-red-500 font-semibold text-center">{error}</p>}
             </div>
           </>
         )}
@@ -132,7 +140,7 @@ function LoginRegisterForm() {
           </>
         )}
         {isLogin && (
-          <div className="w-screen mt-5 h-fit flex justify-center">
+          <div className="w-screen relative mt-5 h-fit flex justify-center">
           <ReactiveButton
             style={customButtonStyle}
             buttonState={state}
@@ -144,10 +152,11 @@ function LoginRegisterForm() {
               login(email, password, setError, setButtonState)
             }
           />
+          {error && <p className="absolute w-screen top-[-25px] tracking-wide text-red-500 font-semibold text-center">{error}</p>}
           </div>
         )}
       </form>
-      {error && <p className="absolute w-screen bottom-[29%] tracking-wide text-red-500 font-semibold text-center">{error}</p>}
+      
 </div>
     </>
 
