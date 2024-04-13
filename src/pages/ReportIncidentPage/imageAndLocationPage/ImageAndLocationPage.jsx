@@ -1,11 +1,11 @@
-import React, { useState, useEffect,useRef, Suspense,useMemo} from "react";
+import React, { useState, useEffect, useRef, Suspense, useMemo } from "react";
 import ImageUploader from "../../../Components/ImageUploader/ImageUploader";
 import { handleImageChange } from "./handleImageChange";
 import Background from "../../../Components/backgroundComponent/Background";
 import MapSkeleton from "../../../Components/Skeletons/mapSkeleton";
 import Button from "../../../Components/tailwindButton/Button";
 import Rodal from 'rodal';
-import 'rodal/lib/rodal.css'; 
+import 'rodal/lib/rodal.css';
 import axios from "axios";
 
 const LazyMap = React.lazy(() =>
@@ -19,38 +19,41 @@ function ImageAndLocationPage({
   errors,
   setErrors,
   setFormData,
-}) {// eslint-disable-next-line
+}) {
+  //eslint-disable-next-line
   const [timerId, setTimerId] = useState(null);
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [nearestNgo, setNearestNgo] = useState(null);
+
   useEffect(() => {
-    // Set up a timer to call a function after 10 seconds
     const id = setTimeout(() => {
-    const url = process.env.REACT_APP_BACKEND_URL;
-    axios.get(`${url}/nearest_ngo?lat=${formData.latitude}&lon=${formData.longitude}`).then((response) => {
-      setNearestNgo(response.data);
-     setModalIsOpen(true);
-    }).catch((error) => {
-      console.error(error);
-    });
+      const url = process.env.REACT_APP_BACKEND_URL;
+      axios.get(`${url}/nearest_ngo?lat=${formData.latitude}&lon=${formData.longitude}`).then((response) => {
+        setNearestNgo(response.data);
+        setModalIsOpen(true);
+      }).catch((error) => {
+        console.error(error);
+      });
     }, 30000);
-    
+
     setTimerId(id);
-    
-    // Clear the timer if the component unmounts or user navigates away
+
     return () => clearTimeout(id);
   }, [formData.latitude, formData.longitude]);
-  
+
   const onChange = (imageList) => {
+    const currentLandmark = formData.landmark;
     handleImageChange(imageList, handleChange, setErrors, setFormData);
+    if (currentLandmark !== undefined && currentLandmark !== null) {
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        landmark: currentLandmark,
+      }));
+    }
   };
+
   const prevLandmarkRef = useRef();
 
-  // Remember the current landmark for the next render
-  useEffect(() => {
-    prevLandmarkRef.current = formData.landmark;
-  }, [formData.landmark]);
-  
   const memoizedLandmark = useMemo(() => {
     if (formData.landmark !== "") {
       return formData.landmark;
@@ -58,7 +61,7 @@ function ImageAndLocationPage({
       return prevLandmarkRef.current;
     }
   }, [formData.landmark]);
-// console.log(memoizedLandmark);
+
   return (
     <div className="relative z-[3] h-fit w-full flex flex-col gap-3 justify-center items-center overflow-x-hidden">
       <Background />
@@ -96,7 +99,7 @@ function ImageAndLocationPage({
           <div className="absolute bottom-3 w-full  flex items-center justify-center"
           >
             <a
-              href={`sms:${nearestNgo ? nearestNgo.phone_number : ''}?&body=Hello,%0A%0AI'm%20reporting%20an%20urgent%20animal%20rescue%20situation%20that%20needs%20immediate%20attention:%0A%0A- Description:%20[Data%20to%20describe%20what%20happened]%0A- Animal%20Type:%20[Species]%0A- Severity:%20[Urgency%20level]%0A- Location:%20${formData.address ? formData.address: "[Enter%20Your%20Address]"}%0A%0APlease%20let%20me%20know%20if%20you%20need%20further%20details%20or%20assistance.%0A%0AThank%20you,%0A`}
+              href={`sms:${nearestNgo ? nearestNgo.phone_number : ''}?&body=Hello,%0A%0AI'm%20reporting%20an%20urgent%20animal%20rescue%20situation%20that%20needs%20immediate%20attention:%0A%0A- Description:%20[Data%20to%20describe%20what%20happened]%0A- Animal%20Type:%20[Species]%0A- Severity:%20[Urgency%20level]%0A- Location:%20${formData.address ? formData.address : "[Enter%20Your%20Address]"}%0A%0APlease%20let%20me%20know%20if%20you%20need%20further%20details%20or%20assistance.%0A%0AThank%20you,%0A`}
               className="px-4 py-4 bg-gradient-to-b tracking-wider rounded-2xl from-green-300 to-green-800 text-white shadow-lg"
             >
               Send Message Directly
@@ -116,33 +119,32 @@ function ImageAndLocationPage({
       />
       <div className="w-[23rem]  z-[30] bg-white rounded-3xl bg-opacity-57 backdrop-blur-[5px] shadow-lg ring-1 ring-gray-300">
 
-      <div className=" flex-col justify-center items-center gap-6 p-4   ">
-     <div className="w-full h-[200px] flex pb-5">
-          <Suspense fallback={<MapSkeleton />}>
-            <LazyLoadedMap formData={formData} />
-          </Suspense>
+        <div className=" flex-col justify-center items-center gap-6 p-4   ">
+          <div className="w-full h-[200px] flex pb-5">
+            <Suspense fallback={<MapSkeleton />}>
+              <LazyLoadedMap formData={formData} />
+            </Suspense>
+          </div>
+
+          <div className=" z-[30] justify-center flex flex-col justify-items-center gap-3">
+            <label>
+              <p className="text-base font-semibold pr-5 text-indigo-900 border-1 overflow-wrap break-word">
+                Address: {formData.address ? formData.address : "loading.."}
+              </p>
+            </label>
+            <textarea
+              className="w-[21rem] flex items-center justify-center text-[1rem] p-2 rounded-3xl"
+              name="landmark"
+              value={memoizedLandmark}
+              onChange={handleChange}
+              rows={1}
+              placeholder="Enter a landmark"
+            ></textarea>
+
+          </div>
+
         </div>
-      
-      <div className=" z-[30] justify-center flex flex-col justify-items-center gap-3">
-        <label>
-          <p className="text-base font-semibold pr-5 text-indigo-900 border-1 overflow-wrap break-word">
-            Address: {formData.address ? formData.address : "loading.."}
-          </p>
-          </label>
-          <textarea
-            ref={prevLandmarkRef}
-            className="w-[21rem] flex items-center justify-center text-[1rem] p-2 rounded-3xl"
-            name="landmark"
-            value={memoizedLandmark}
-            onChange={handleChange}
-            rows={1}
-            placeholder="Enter a landmark"
-          ></textarea>
-        
       </div>
-          
-      </div>
-</div>
       {errors && (
         <p className="text-red-500">
           {errors.landmark ||
@@ -151,10 +153,10 @@ function ImageAndLocationPage({
             errors.latitude}
         </p>
       )}
-          <Button 
-            text="Next" 
-            clas="mb-24 font-semibold tracking-wider px-8 text-white bg-gradient-to-b from-green-500 to-green-600" 
-            onClick={handleNextPage}/>
+      <Button
+        text="Next"
+        clas="mb-24 font-semibold tracking-wider px-8 text-white bg-gradient-to-b from-green-500 to-green-600"
+        onClick={handleNextPage} />
     </div>
   );
 }
