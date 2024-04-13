@@ -43,7 +43,7 @@ module.exports = {
         buttonShadow: ' rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px',
         dashBoardCardShadow: '0px 28.052980422973633px 0px #1E85E426, 0px 28.052980422973633px 0px #1E85E426',
         dashBoardCardImageShadow: '3.847223997116089px 4.946430683135986px 14.289689064025879px 0px #00000040',
-        glow: '0 0 10px 0 #0af',
+        glow: '0 0 10px 0 #45bbf9',
       },
       opacity: {
         '57': '0.57',

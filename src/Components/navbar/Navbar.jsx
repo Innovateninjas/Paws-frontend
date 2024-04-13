@@ -36,7 +36,7 @@ const Navbar = () => {
   }, [location.pathname]);
 
   return (
-    <div className={`fixed bottom-0 left-0 w-full z-50 ${isScrollable ? 'bg-white' : 'bg-opacity-0'}`}>
+    <div className='fixed bottom-0 left-0 w-full z-50 bg-opacity-0'>
     <nav className='p-0.5 bg-teal-500/25 shadow-glow'>
       <BottomNavigation
         value={value}
