@@ -33,7 +33,7 @@ function SuccessPage() {
         </div>
         <div className="w-[92%] mt-6 ">
           <div className=" flex flex-row items-center w-full justify-start">
-            <h1 className="pl-3 mb-1 text-2xl text-bold tracking-wider  font-breeSerif ">Here Is what you can do </h1>
+            <h1 className="pl-2 mb-1 text-2xl text-bold tracking-wider  font-breeSerif ">Here Is what you can do </h1>
           </div>
           <CustomizedAccordions />
         </div>
