@@ -5,6 +5,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundImage: theme => ({
+        'custom-gradient': 'linear-gradient(to bottom right, #cedffb, #54d5fc, #2683f2, #1d81f3)'
+      }),
       colors: {
         'gradient-start': 'rgba(252, 178, 231, 0.68)',
         'gradient-middle': 'rgba(255, 174, 242, 0.68)',
