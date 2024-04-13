@@ -10,7 +10,7 @@ const Accordion = styled((props) => (
     <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
     border: `1px solid ${theme.palette.divider}`,
-    borderRadius: '5x',
+    borderRadius: '7px',
     '&:not(:last-child)': {
         borderBottom: 0,
     },
@@ -18,7 +18,7 @@ const Accordion = styled((props) => (
         display: 'none',
     },
     backdropFilter: 'blur(8px)',
-    backgroundColor: 'rgba(255, 255, 255, 0.7)', // Adjust the opacity as needed
+    backgroundColor: 'rgba(255, 255, 255, 0.6)', // Adjust the opacity as needed
 }));
 
 
@@ -45,7 +45,7 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 }));
 
 export default function CustomizedAccordions() {
-    const [expanded, setExpanded] = React.useState('panel1');
+    const [expanded, setExpanded] = React.useState(null);
 
     const handleChange = (panel) => (event, newExpanded) => {
         setExpanded(newExpanded ? panel : false);
@@ -55,18 +55,18 @@ export default function CustomizedAccordions() {
         <div>
             <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                 <AccordionSummary aria-controls="panel2d-content" id="panel1d-header">
-                    <Typography>Determine how badly the puppy is injured</Typography>
+                    <Typography>Determine how badly the animal is injured</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                     <Typography>
-                        Some injuries need urgent care, like severe bleeding or serious distress. Minor injuries, like a mobile puppy without distress, can be treated at home. Assess the situation and decide if the puppy needs immediate medical attention based on its behavior.
+                        Some injuries need urgent care, like severe bleeding or serious distress. Minor injuries, like a mobile animal without distress, can be treated at home. Assess the situation and decide if the animal needs immediate medical attention based on its behavior.
                         <img src="./images/determining.jpeg" alt="" />
                     </Typography>
                 </AccordionDetails>
             </Accordion>
             <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
                 <AccordionSummary aria-controls="panel1d-content" id="panel2d-header">
-                    <Typography>Provide first aid, if possible: </Typography>
+                    <Typography>Provide first aid, if possible </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                     <Typography>
@@ -77,7 +77,7 @@ export default function CustomizedAccordions() {
             </Accordion>
             <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
                 <AccordionSummary aria-controls="panel3d-content" id="panel3d-header">
-                    <Typography>Approach the streetie slowly and calmly:</Typography>
+                    <Typography>Approach the streetie slowly and calmly</Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                     <Typography>
