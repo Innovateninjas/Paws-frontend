@@ -8,7 +8,10 @@ body {
     padding: 0;
     box-sizing: border-box;
 }
-
+@font-face {
+    font-family: 'VarelaRound';
+    src: url('..//public/fonts/VarelaRound-Regular.ttf') format('truetype');
+}
 @font-face {
     font-family: 'Bayon';
     src: url('../public//fonts/bayon.ttf') format('truetype');
