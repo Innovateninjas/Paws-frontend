@@ -23,10 +23,10 @@ module.exports = {
         'campaign-card-bg-middle': '#ffffff80',
         'campaign-card-bg-bottom': '#ffffffcc',
         'stone': '#53605B',
-        // 'donationButtonTop': 'rgba(170, 251, 247, 0.80)',
-        // 'donationButtonBottom': 'rgba(7, 209, 197, 0.70)',
-        // 'donatetoNgoTop': 'rgba(252, 178, 231)',
-        // 'donatetoNgoBottom': 'rgba(255, 174, 242)',
+        'success-top':'rgba(167, 254, 181, 0.60)',
+        'success-bottom': 'rgba(240, 7, 231, 0.60)'
+
+
       },
       fontFamily: {
         bayon: ['Bayon', 'sans-serif'], 

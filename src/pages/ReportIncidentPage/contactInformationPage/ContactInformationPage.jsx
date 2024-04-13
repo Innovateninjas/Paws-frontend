@@ -52,7 +52,6 @@ function ContactInformationPage({
             backgroundColor={"#D9D9D9"}
             outline={true}
           />
-          {console.log(errors)}
           <small className="text-sm text-red-500">{errors.user_name}</small>
           <div className="error">{errors.first_name}</div>
           </div>
