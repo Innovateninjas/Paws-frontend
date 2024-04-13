@@ -1,5 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import "react-tooltip/dist/react-tooltip.css";
+//eslint-disable-next-line
+import styles from "./AnimalDetailsPage.module.css";
 import { Tooltip } from "react-tooltip";
 import Button from "../../../Components/tailwindButton/Button";
 import Background from "../../../Components/backgroundComponent/Background";

@@ -5,7 +5,7 @@ import isValidEmail from "../../Components/utils/Functions/emailValidator";
 import ImageAndLocationPage from "./imageAndLocationPage/ImageAndLocationPage";
 import AnimalDetailsPage from "./animalDetailspage/AnimalDetailsPage";
 import ContactInformationPage from "./contactInformationPage/ContactInformationPage";
-import SuccessPage from "../successPage/SuccessPage";
+import SuccessPage from "./successPage/SuccessPage";
 import { UserContext } from "../../contexts/UserContext";
 function IncidentForm() {
   const { userData, setKey } = useContext(UserContext);
