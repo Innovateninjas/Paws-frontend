@@ -24,6 +24,7 @@ import NgoProfile from './pages/NgoProfilepage/ngoProfile';
 import { Donationfront } from './pages/Donation/Donationfront/Donationfront';
 import requestPermission from './Components/utils/Functions/notifyService';
 import TeamPage from './pages/TeamPage/team';
+import SuccessPage from './pages/ReportIncidentPage/successPage/SuccessPage';
 /**
  * The main component of the application.
  * @returns {JSX.Element} The rendered App component.
@@ -57,6 +58,7 @@ function App() {
           <Route path="/donation" element={<Donation />} /> {/* Renders the Donation component */}
           <Route path="/ngologin" element={<NgoRegister />} /> {/* Renders the NGORegistration component */}
           <Route path="/ngoregister" element={<NgoRegister />} /> {/* Renders the NGORegistration component */}
+          <Route path="/success" element={<SuccessPage />} /> {/* Renders the SuccessPage component */}
           <Route path="/createcampaign" element={<Campaign />} /> {/* Renders the CreateCampaign component */}
           <Route path="/campaignList" element={<Campaignlist />} /> {/* Renders the CreateCampaign component */}
           <Route path="/campaignBlog/:campaignId" element={<Campaignblog />} />
