@@ -29,15 +29,29 @@ function LandingPage() {
         }
     }, [csrftoken, userType, navigate]);
 
+    useEffect(() => {
+        document.body.style.overflow = 'hidden';
+        document.body.style.touchAction = 'manipulation';
+        return () => {
+          document.body.style.overflow = '';
+          document.body.style.touchAction = '';
+        };
+      }, []);
+
     return (
     <div className="z-[-2] h-screen bg-custom-gradient w-full flex flex-col items-center font-Calistoga">
         {stars}
-        <div className="flex flex-col items-center justify-between h-[70vh] gap-5">
+        <div className="flex flex-col items-center justify-between h-[70vh] gap-3">
             <div className="flex flex-col items-center h-fit gap-2">
-                <div className="mt-[100px] relative">
+                <div className="mt-[50px] relative">
                     <img className="w-40 absolute z-4 top-[-23px] right-[5px]" src="./images/t1.png" alt="" />
                     <h2 className={`${styles.heading} font-Calistoga tracking-wider`}>Paws</h2>
                 </div>
+                    <img
+                        className="mx-auto my-auto w-72 h-72 backdrop-blur-md"
+                        src="./images/paws.png"
+                        alt="Paws"
+                    />
                 <TypeAnimation
                     sequence={[
                         "Pause to save some Paws.",
@@ -49,12 +63,12 @@ function LandingPage() {
                     ]}
                     wrapper="span"
                     speed={50}
-                    style={{ fontSize: '28px', letterSpacing: '0.1rem', display: 'inline-block', fontWeight: 'bold' }}
+                    style={{ fontSize: '24px', letterSpacing: '0.1rem', display: 'inline-block', fontWeight: 'bold' }}
                     repeat={Infinity}
                 />
                 <div>
                     {/* SAVE LIVES */}
-                    <p className="text-[24px] p-4 font-baijam drop-shadow-lg tracking-wider">
+                    <p className="text-[18px] p-4 font-baijam drop-shadow-lg tracking-wider">
                         "Save lives - report injured animals to authorities. Click below to notify and make a difference."
                     </p>
                 </div>
