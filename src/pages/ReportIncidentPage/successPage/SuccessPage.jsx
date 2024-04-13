@@ -3,11 +3,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Background from "../../../Components/backgroundComponent/Background";
 import CustomizedAccordions from "../../../Components/FAQ/FAQ";
+import Button from "../../../Components/tailwindButton/Button";
+const csrftoken = localStorage.getItem('csrftoken');
 
 
 function SuccessPage() {
 
-
+console.log(csrftoken)
   const containerStyle = {
     width: '155px',
     height: '50px',
@@ -17,23 +19,36 @@ function SuccessPage() {
     backdropFilter: 'blur(79.37px)',
   };
   return (
-    <div className="relative z-[3] h-fit w-full flex flex-col gap-3 justify-center items-center overflow-x-hidden mb-10 ">
-      <Background />
-      <div className="w-full h-60vh text-center mt-16  mb-10 pt-[7.5rem] flex flex-col items-center gap-5 justify-center">
-        <h2 className="text-purple-950 text-5xl font-normal font-['Bayon'] tracking-widest">Success</h2>
-        <div className="w-354 h-354 transform p-6  text-6xl origin-top-left bg-gradient-to-b from-green-300 to-purple-500 shadow-lg rounded-full shadow-black-900/60">✓</div>
-        <p  className="w-89 h-32 text-center text-indigo-950 text-opacity-90 text-2xl  font-['Bree Serif'] tracking-widest font-bold">Your report has been successfully submitted</p>
-        <div className="flex flex-row items-center w-full justify-evenly">
-          <Link to="/" className="w-472 h-175 bg-opacity-40 bg-white shadow-lg rounded-full border-3 p-3 backdrop-blur-2xl text-black text-xl font-normal font-bakbak-one  shadow-black-900/60 hover:shadow-indigo-500/40 ">
-            Back to Home
-          </Link>
-          <Link to="/view-reports" style={containerStyle} className="text-black pt-3 text-xl font-normal font-bakbak-one shadow-black-900/60">
-            View Reports
-          </Link>
+    <div className="z-[-2] mb-10 min-h-screen max-h-fit bg-gradient-to-b from-[#CEFBE8] to-[#0DB6A2] top-0 w-full flex items-center">
+      <div className="pt-7 w-full text-center mb-10 flex flex-col items-center gap-5 justify-center">
+        <h2 className="text-[#40025D] w-screen text-5xl font-normal font-['Bayon'] tracking-widest drop-shadow-2xl">Success</h2>
+        <div className="text-8xl bg-gradient-to-b from-success-top to-success-bottom px-7 py-4 shadow-buttonShadow rounded-[50%]">✓</div>
+        <p  className="text-center text-opacity-90 text-2xl font-breeSerif drop-shadow-2xl tracking-widest font-bold">Your report has been submitted successfully. </p>
+        <div className="flex flex-row items-center w-full justify-center gap-4">
+        <Button
+          text={<Link to="/" >
+           Home
+          </Link>}
+          clas="bg-gradient-to-b from-blue-600 to-blue-800 px-7 py-3 font-semibold"
+        />
+          {
+            csrftoken ? (<Button
+              text={<Link to="/view-reports">
+                View Reports
+              </Link>}
+              clas="px-7 py-3 font-semibold"
+            />) : (<Button
+              text={<Link to="/login">
+                Login
+              </Link>}
+              clas="px-7 py-3 font-semibold"
+            />)
+          }
+            
         </div>
-        <div className="w-[92%] mt-6 ">
+        <div className="w-[92%] mt-12 ">
           <div className=" flex flex-row items-center w-full justify-start">
-            <h1 className="pl-3 mb-1 text-2xl text-bold tracking-wider  font-breeSerif ">Here Is what you can do </h1>
+            <h1 className="pl-2 mb-1 text-2xl text-bold tracking-wider  font-breeSerif ">Here Is what you can do </h1>
           </div>
           <CustomizedAccordions />
         </div>
