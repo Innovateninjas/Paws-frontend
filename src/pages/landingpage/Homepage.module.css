@@ -1,7 +1,7 @@
 .heading{
-        -webkit-text-stroke: 2px black;
+        /* -webkit-text-stroke: 2px black; */
         font-size: 6rem;
         color: white;
-        text-shadow: 1px 1px 2px black;
-        /* font-family: Adorable; */
+        text-shadow: 2px 4px 6px black;
+
 }

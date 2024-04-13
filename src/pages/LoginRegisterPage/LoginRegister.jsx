@@ -140,7 +140,7 @@ function LoginRegisterForm() {
           </>
         )}
         {isLogin && (
-          <div className="w-screen relative mt-5 h-fit flex justify-center">
+          <div className="w-screen relative mt-7 h-fit flex justify-center">
           <ReactiveButton
             style={customButtonStyle}
             buttonState={state}
@@ -152,7 +152,7 @@ function LoginRegisterForm() {
               login(email, password, setError, setButtonState)
             }
           />
-          {error && <p className="absolute w-screen top-[-25px] tracking-wide text-red-500 font-semibold text-center">{error}</p>}
+          {error && <p className="absolute w-screen top-[-40px] tracking-wide text-red-500 font-semibold text-center">{error}</p>}
           </div>
         )}
       </form>

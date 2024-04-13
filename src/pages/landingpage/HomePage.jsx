@@ -39,50 +39,36 @@ function LandingPage() {
       }, []);
 
     return (
-    <div className="z-[-2] h-screen bg-custom-gradient w-full flex flex-col items-center font-Calistoga">
+    <div className="z-[-2] h-screen bg-custom-gradient w-full flex flex-col items-center font-VarelaRound ">
         {stars}
         <div className="flex flex-col items-center justify-between h-[70vh] gap-3">
             <div className="flex flex-col items-center h-fit gap-2">
                 <div className="mt-[50px] relative">
-                    <img className="w-40 absolute z-4 top-[-23px] right-[5px]" src="./images/t1.png" alt="" />
-                    <h2 className={`${styles.heading} font-Calistoga tracking-wider`}>Paws</h2>
+                    <h2 className={`${styles.heading} drop-shadow-3xl font-extrabold font-VarelaRound tracking-wider`}>Paws</h2>
                 </div>
                     <img
                         className="mx-auto my-auto w-72 h-72 backdrop-blur-md"
                         src="./images/paws.png"
                         alt="Paws"
                     />
-                <TypeAnimation
-                    sequence={[
-                        "Pause to save some Paws.",
-                        1000,
-                        " ",
-                        1000,
-                        "Pause to save some Paws.",
-                        1000
-                    ]}
-                    wrapper="span"
-                    speed={50}
-                    style={{ fontSize: '24px', letterSpacing: '0.1rem', display: 'inline-block', fontWeight: 'bold' }}
-                    repeat={Infinity}
-                />
+                    <p className="text-[24px] drop-shadow-3xl font-semibold tracking-wider">Pause to save some Paws.</p>
                 <div>
                     {/* SAVE LIVES */}
                     <p className="text-[18px] p-4 font-baijam drop-shadow-lg tracking-wider">
-                        "Save lives - report injured animals to authorities. Click below to notify and make a difference."
+                        "Save lives - Click below to report injured animals to authorities."
                     </p>
                 </div>
-            </div>
-            {/* BUTTON */}
-            <div className="relative mt-5">
-                <img className="w-40 absolute z-4 top-[-50px] right-[15px]" src="./images/t2.png" alt=""></img>
+                {/* BUTTON */}
+            <div className="">
                 <button
                     type='submit'
-                    className="bg-gradient-to-b m-3 from-[#48dc08] to-[#3bad0a] text-white focus:outline-none rounded-[40px] shadow-buttonShadow py-4 font-semibold tracking-widest text-[2rem] px-10"
+                    className="bg-gradient-to-b from-[#eb2b5b] to-[#b81d43] text-white focus:outline-none rounded-[40px] shadow-buttonShadow py-4 font-bold tracking-widest text-[2rem] px-10"
                 >
                     <Link to="/report-incident">Report</Link>
                 </button>
             </div>
+            </div>
+            
         </div>
     </div>
 );}
