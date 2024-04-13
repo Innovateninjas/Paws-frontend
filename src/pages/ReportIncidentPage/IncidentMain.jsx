@@ -47,9 +47,8 @@ function IncidentForm() {
   });
 
   useEffect(() => {
-    async function increment(no_reports) {
+    async function increment(no_reports,csrftoken) {
       const url = process.env.REACT_APP_BACKEND_URL;
-      const csrftoken = localStorage.getItem('csrftoken');
       try {
         const response = await axios.put(
           `${url}/info/user/`,
@@ -69,7 +68,11 @@ function IncidentForm() {
       }
     }
     if (Submitted) {
-      increment(userData.no_reports);
+      const csrftoken = localStorage.getItem('csrftoken');
+      if(!csrftoken){
+        return;
+      }
+      increment(userData.no_reports,csrftoken);
     } else {
       return;
     }
