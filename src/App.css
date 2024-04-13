@@ -37,3 +37,30 @@ body {
     background: linear-gradient(0deg, #c1dcf6 0%, #cce1f7 10%, #caeaee 100% ) !important;
     border-radius: 1.5rem !important;
 }
+
+
+
+
+
+
+
+
+.faqs .faq .faq-answer {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.2s ease;
+}
+
+.faqs .faq.open .faq-question {
+    margin-bottom: 15px;
+}
+
+.faqs .faq.open .faq-question::after {
+    content: "-";
+}
+
+.faqs .faq.open .faq-answer {
+    max-height: 1000px;
+    opacity: 1;
+}
