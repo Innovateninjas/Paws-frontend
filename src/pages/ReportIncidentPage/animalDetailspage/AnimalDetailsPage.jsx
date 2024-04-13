@@ -1,11 +1,8 @@
 import React, { useEffect, useState, useRef } from "react";
-import styles from "./AnimalDetailsPage.module.css";
 import "react-tooltip/dist/react-tooltip.css";
 import { Tooltip } from "react-tooltip";
 import Button from "../../../Components/tailwindButton/Button";
 import Background from "../../../Components/backgroundComponent/Background";
-// import { set } from "core-js";
-// import { is } from "core-js";
 function AnimalDetailsPage({
   formData,
   errors,
@@ -67,7 +64,7 @@ function AnimalDetailsPage({
       const left = rabbitRef.current.offsetLeft;
       containerRef.current.scrollLeft = left;
     }
-  }, [isDog, isCat, isCattle, isBird, isSheep,isRabbit,isPoultry]);
+  }, [isDog, isCat, isCattle, isBird, isSheep,isRabbit,isPoultry,formData.predictedAnimal]);
 
   useEffect(() => {
     setKey((prev) => prev + 1);
