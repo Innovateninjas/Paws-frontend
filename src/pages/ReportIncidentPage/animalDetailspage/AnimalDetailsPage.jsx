@@ -51,8 +51,8 @@ function AnimalDetailsPage({
     ) {
       const left = sheepRef.current.offsetLeft;
       containerRef.current.scrollLeft = left;
-    } else if (
-      formData.predictedAnimal === "" &&
+    }else if (
+      formData.predictedAnimal === null &&
       otherRef.current &&
       containerRef.current
     ) {
@@ -65,8 +65,7 @@ function AnimalDetailsPage({
     ) {
       const left = rabbitRef.current.offsetLeft;
       containerRef.current.scrollLeft = left;
-    }
-  }, [isDog, isCat, isCattle, isBird, isSheep,isRabbit,isPoultry,formData.predictedAnimal]);
+    }}, [isDog, isCat, isCattle, isBird, isSheep,isRabbit,isPoultry,isOther,formData.predictedAnimal]);
 
   useEffect(() => {
     setKey((prev) => prev + 1);
@@ -87,13 +86,15 @@ function AnimalDetailsPage({
       setIsPoultry(true);
     } else if (formData.predictedAnimal === "rabbit") {
       setIsRabbit(true);
-    } else if (formData.predictedAnimal === "") {
+    } else if (formData.predictedAnimal === null) {
       setIsOther(true);
     }
   }, [formData.predictedAnimal]);
-
+console.log("animaltype:",formData.animal_type);
+console.log(isOther);
+console.log("predicted",formData.predictedAnimal)
   useEffect(() => {
-    setTimeout(() => {setClass(false);},5000);
+    setTimeout(() => {setClass(false);},10000);
   }, [isDog, isCat, isCattle, isBird, isSheep, isPoultry,isRabbit, isOther]);
   return (
     // A MASTER CONTAINER
@@ -331,7 +332,7 @@ function AnimalDetailsPage({
                 {/* OTHER */}
                 <div
                   ref={otherRef}
-                  // className={isOther ? "show-tooltip" : ""}
+                  className={isOther ? "show-tooltip" : ""}
                   // data-tooltip-html="<b>Predicted<br>To be Anirban.</b>"
                 >
                   <input
@@ -339,7 +340,7 @@ function AnimalDetailsPage({
                     id="other"
                     name="predictedAnimal"
                     value="other"
-                    checked={formData.predictedAnimal === "" || formData.animal_type === ""}
+                    checked={formData.predictedAnimal === null || formData.animal_type === "other"}
                     onChange={handleChange}
                     hidden
                   />
@@ -355,7 +356,7 @@ function AnimalDetailsPage({
                 </div>
               </div>
               {/* OPTION:otherS */}
-              {formData.animal_type === "other" && (
+              {(formData.predictedAnimal===null || formData.animal_type=="other") && (
                 <label className=" text-xl flex items-center gap-2">
                   Please specify:
                   <input
