@@ -10,14 +10,17 @@ const Accordion = styled((props) => (
     <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
     border: `1px solid ${theme.palette.divider}`,
+    borderRadius: '5px',
     '&:not(:last-child)': {
         borderBottom: 0,
     },
-    borderRadius: '3px',
     '&::before': {
         display: 'none',
     },
+    backdropFilter: 'blur(8px)',
+    backgroundColor: 'rgba(255, 255, 255, 0.7)', // Adjust the opacity as needed
 }));
+
 
 const AccordionSummary = styled((props) => (
     <MuiAccordionSummary
@@ -25,10 +28,7 @@ const AccordionSummary = styled((props) => (
         {...props}
     />
 ))(({ theme }) => ({
-    backgroundColor:
-        theme.palette.mode === 'dark'
-            ? 'rgba(255, 255, 255, .05)'
-            : 'rgba(0, 0, 0, .03)',
+
     flexDirection: 'row-reverse',
     '& .MuiAccordionSummary-expandIconWrapper.Mui-expanded': {
         transform: 'rotate(90deg)',
