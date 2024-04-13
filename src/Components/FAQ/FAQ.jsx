@@ -17,14 +17,14 @@ const Accordion = styled((props) => (
     '&::before': {
         display: 'none',
     },
-    backdropFilter: 'blur(8px)',
+    backdropFilter: 'blur(4px)',
     backgroundColor: 'rgba(255, 255, 255, 0.6)', // Adjust the opacity as needed
 }));
 
 
 const AccordionSummary = styled((props) => (
     <MuiAccordionSummary
-        expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: '0.9rem' }} />}
+        expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: '0.6rem' }} />}
         {...props}
     />
 ))(({ theme }) => ({
@@ -34,7 +34,7 @@ const AccordionSummary = styled((props) => (
         transform: 'rotate(90deg)',
     },
     '& .MuiAccordionSummary-content': {
-        marginLeft: theme.spacing(1),
+        marginLeft: theme.spacing(0.7),
     },
 }));
 
@@ -60,7 +60,7 @@ export default function CustomizedAccordions() {
                 <AccordionDetails>
                     <Typography>
                         Some injuries need urgent care, like severe bleeding or serious distress. Minor injuries, like a mobile animal without distress, can be treated at home. Assess the situation and decide if the animal needs immediate medical attention based on its behavior.
-                        <img src="./images/determining.jpeg" alt="" />
+                            <img src="./images/determining.jpeg" alt="" style={{ borderRadius: '10px' }} />
                     </Typography>
                 </AccordionDetails>
             </Accordion>
@@ -71,7 +71,7 @@ export default function CustomizedAccordions() {
                 <AccordionDetails>
                     <Typography>
                         For minor injuries, clean cuts with soap and water, cover with a bandage. Treat minor burns with cool water and a dry cloth. If unconscious, check for injuries and provide aid as needed.
-                        <img src="./images/petdoc.webp" alt="" />
+                        <img src="./images/petdoc.webp" alt="" style={{ borderRadius: '10px' }} />
                     </Typography>
                 </AccordionDetails>
             </Accordion>
@@ -82,7 +82,7 @@ export default function CustomizedAccordions() {
                 <AccordionDetails>
                     <Typography>
                         If a stray dog shows aggression like growling, keep your distance and seek professional help. Approach calmly if the dog seems friendly, speaking softly to reassure it.
-                        <img src="./images/caution.jpeg" alt="" />
+                        <img src="./images/caution.jpeg" alt="" style={{ borderRadius: '10px' }} />
                     </Typography>
                 </AccordionDetails>
             </Accordion>
