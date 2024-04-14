@@ -3,8 +3,8 @@ import React from 'react'
 const Background = () => {
   return (
     
-    <div className="z-[-2] p-4 h-screen bg-gradient-to-b from-[#CEFBE8] to-[#0DB6A2] fixed top-0 w-full ">
-    <div className="absolute top-0 left-[-10%] w-1/2 z-0">
+    <div className="z-[-2] p-4 h-screen bg-custom-gradient fixed top-0 w-full ">
+    {/* <div className="absolute top-0 left-[-10%] w-1/2 z-0">
       <svg
         width="355"
         height="413"
@@ -136,7 +136,7 @@ const Background = () => {
           </linearGradient>
         </defs>
       </svg>
-    </div>
+    </div> */}
   </div>
   )
 }
