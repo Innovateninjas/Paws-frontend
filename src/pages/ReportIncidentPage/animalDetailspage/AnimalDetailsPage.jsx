@@ -21,7 +21,7 @@ function AnimalDetailsPage({
   const [isOther, setIsOther] = useState(false);
   const [isRabbit, setIsRabbit] = useState(false);
   const [key, setKey] = useState(0);
-  const [isclass, setClass] = useState("true");
+  const [isclass, setClass] = useState();
 
   const poultryRef = useRef(null);
   const birdRef = useRef(null);
@@ -90,12 +90,13 @@ function AnimalDetailsPage({
       setIsOther(true);
     }
   }, [formData.predictedAnimal]);
-console.log("animaltype:",formData.animal_type);
-console.log(isOther);
-console.log("predicted",formData.predictedAnimal)
+
   useEffect(() => {
-    setTimeout(() => {setClass(false);},10000);
-  }, [isDog, isCat, isCattle, isBird, isSheep, isPoultry,isRabbit, isOther]);
+    setClass(true);
+    setTimeout(() => {
+      setClass(false);
+    }, 10000);
+  }, [formData.predictedAnimal]);
   return (
     // A MASTER CONTAINER
     <div>
@@ -113,14 +114,6 @@ console.log("predicted",formData.predictedAnimal)
       </div>
 
       {/* contentsContainer */}
-      {(isDog ||
-        isCat ||
-        isCattle ||
-        isBird ||
-        isSheep ||
-        isPoultry ||
-        isOther||
-        isRabbit) && (
         <>
           <div className="relative z-[3] flex flex-col p-4 gap-5 mb-20  ">
             <div className=" p-[10px] border-1 flex flex-col gap-[10px] rounded-3xl shadow-lg ring-1 ring-gray-300 bg-opacity-57 bg-white  backdrop-blur-[6px]">
@@ -515,7 +508,7 @@ console.log("predicted",formData.predictedAnimal)
             </div>
           </div>
         </>
-      )}
+      
     </div>
   );
 }
