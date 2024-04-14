@@ -6,6 +6,7 @@ import { IoDocumentSharp } from "react-icons/io5";
 import Loader from "../../Components/loaders/loader";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../contexts/UserContext";
+import { HiMiniUser } from "react-icons/hi2";
 function UserPage() {
   const [userDetails, setUserData] = useState(null);
   const { userData, loading, error } = useContext(UserContext);
@@ -15,10 +16,6 @@ function UserPage() {
       setUserData(userData);
     }
   }, [userData, loading, error]);
-
-  // useEffect(() => {
-  //   console.log(userDetails); // log userDetails to the console
-  // }, [userDetails]);
 
   if (error) {
     return <h1>{error}</h1>;
@@ -30,11 +27,12 @@ function UserPage() {
 
   if (userDetails) {
     return (
-      <div className="flex flex-col font-Calistoga items-center justify-center gap-[30px] h-screen bg-gradient-to-b from-[#7DFFA1] to-[#4B77E9]">
-        <div className="w-60 h-60 rounded-[50%] shadow-dashBoardCardImageShadow  ">
-          <img className="" src="./images/profileIcon.png" alt="icon" />
+      <div className="flex flex-col font-Calistoga items-center justify-center gap-[30px] h-screen bg-custom-gradient">
+        <div className="p-5 rounded-[50%] bg-blue-900 shadow- dashBoardCardImageShadow flex items-end justify-center ">
+          {/* <img className="" src="./images/profileIcon.png" alt="icon" /> */}
+              <HiMiniUser fontSize="9rem" color="rgba(255,255,255,0.8)" />
         </div>
-        <div className=" w-80 p-5 border-1 flex flex-col gap-[15px] rounded-[30px]  ring-1 ring-gray-300 bg-opacity-35 bg-white shadow-dashBoardCardImageShadow backdrop-blur-[5px]">
+        <div className=" min-w-80 p-5 border-1 flex flex-col gap-[15px] rounded-[30px]  ring-1 ring-gray-300 bg-opacity-35 bg-white shadow-dashBoardCardImageShadow backdrop-blur-[5px]">
           {/* NAME */}
           <div className="flex gap-1 items-center text-xl drop-shadow-md">
             <span className="rounded-full bg-blue-900 p-2 mr-2">
