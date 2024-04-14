@@ -90,7 +90,7 @@ function ViewReports() {
   return (
     <>
     <div>
-    <div className="bg-gradient-to-b h-fit from-emerald-300 to-blue-500 flex flex-col font-ChauPhilomeneOne pb-[120px]">
+    <div className="bg-custom-gradient min-h-screen max-h-fit flex flex-col font-ChauPhilomeneOne pb-[120px]">
       {!isLoading && (
         <>
           {/* Heading */}
@@ -99,7 +99,7 @@ function ViewReports() {
           </h2>
           {/* If no reports are present  */}
           {reports.length === 0 ? (
-            <p className="text-center text-gray-500 mt-10">
+            <p className="text-center text-gray-500 text-2xl tracking-wider mt-10">
               No reports uploaded.
             </p>
           ) : (
