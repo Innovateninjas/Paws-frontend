@@ -116,7 +116,7 @@ function ViewReports() {
                   <img
                     src={report.image}
                     alt={report.description}
-                    className="h-[12.5rem] w-[18.3rem] rounded-[20px] object-cover shadow-dashBoardCardImageShadow m-2"
+                    className=" h-auto max-h-[22rem] w-[18.3rem] rounded-[20px] object-cover shadow-dashBoardCardImageShadow m-2"
                   />
                   <div className="flex w-full pt-1 p-3 flex-col justify-center text-[17px] font-ChauPhilomeneOne text-[#090443] drop-shadow-2xl leading-relaxed ">
                   <div className="flex justify-between items-center">

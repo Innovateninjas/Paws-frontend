@@ -4,6 +4,7 @@ import Loader from "../../Components/loaders/loader";
 import { Link } from "react-router-dom";
 import { NgoContext } from "../../contexts/NgoContext";
 import { IoIosMail } from "react-icons/io";
+import Button from "..//..//Components/tailwindButton/Button"
 
 const NgoProfile = () => {
   const [userDetails, setUserData] = useState(null);
@@ -96,11 +97,12 @@ const NgoProfile = () => {
             </div>
           </div>
           <div className="">
-            <button className="px-8 py-4 text-white bg-gradient-to-b from-green-300 to-green-800  rounded-full drop-shadow-md shadow-buttonShadow tracking-wider text-lg">
-              <Link to="/logout" className="tracking-widest">
+          <Button
+            clas="px-8 py-4 text-white "
+            text={<Link to="/logout" className="tracking-widest">
                 Logout
-              </Link>
-            </button>
+              </Link>}
+          />
           </div>
         </div>
       </>

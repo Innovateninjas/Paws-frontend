@@ -93,8 +93,7 @@ function Dashboard() {
   return (
     <>
       {/* Gradient background */}
-      <div className="fixed top-0 left-0 w-screen h-screen bg-gradient-to-b from-dashboard-gradient-top to-dashboard-gradient-bottom z-0"></div>
-  
+      <div className="fixed top-0 left-0 w-screen h-screen bg-custom-gradient z-0"></div>
       {/* Dashboard content */}
       <div className="relative z-10 w-screen min-h-screen p-5 flex flex-col overflow-y-auto">
         {/* NGO Dashboard Title */}
@@ -102,19 +101,21 @@ function Dashboard() {
           NGO Dashboard
         </h2>
        {/* FITER */}
-        <div className="flex w-full justify-around px-2 py-3 ">
-          {category.map((category, index) => (
-            <button
-              key={index}
-              // value={category}
-              className={`${clicked[index] ? 'bg-gray-400' : 'bg-gray-300'} bg-opacity-47 px-3 py-1 border border-gray-400 text-[20px] shadow-dashBoardCardImageShadow font-ChauPhilomeneOne rounded-[10px]`}
-              onClick={() => {
-                handle(index);
-              }}
-            >
-              {category}
-            </button>
-          ))}  </div>   
+        {reports.length > 0 && (
+          <div className="flex w-full justify-around px-2 py-3 ">
+            {category.map((category, index) => (
+              <button
+                key={index}
+                className={`${clicked[index] ? 'bg-gray-400' : 'bg-gray-300'} bg-opacity-47 px-3 py-1 border border-gray-400 text-[20px] shadow-dashBoardCardImageShadow font-ChauPhilomeneOne rounded-[10px]`}
+                onClick={() => {
+                  handle(index);
+                }}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
+        )}   
         {/* Render loading skeleton or report cards */}
         {isLoading ? (
           // Loading Skeletons
