@@ -34,7 +34,7 @@ const Campaignlist = () => {
           <div>
           {data.map((item, index) => (
             <div key={index} className="flex justify-center w-screen">
-            <div  className=" py-[8px] px-[15px] w-[90%] flex flex-col rounded-3xl shadow-dashBoardCardImageShadow bg-[#ffffff66]  backdrop-blur-[5px] mb-[20px]">
+            <div  className=" py-[8px] px-[15px] w-[90%] flex flex-col rounded-3xl shadow-dashBoardCardImageShadow bg-[#ffffff88]  backdrop-blur-[5px] mb-[20px]">
               <div className="flex flex-col gap-[10px]">
               {/* TITLE */}
                 <p className="font-bold drop-shadow-md tracking-wide text-[1.3rem] text-[#0b0553de]">{item.title}</p>

@@ -96,13 +96,12 @@ const CampaignBlog = () => {
           <>
             <Background />
             <div className="font-breeSerif">
-              <h1 className="bg-gradient-to-b from-[rgba(175,255,171,0.68)] to-[rgba(29,239,36,0.68)] via-[rgba(110,255,117,0.68)] text-center font-breeSerif text-[#0B0553] leading-relaxed text-3xl drop-shadow-xl font-bold rounded-[30px] shadow-dashBoardCardImageShadow p-4 w-[90%] mx-auto mt-[30px] mb-5">
+            {/* bg-gradient-to-br from-[rgba(189,255,185,0.87)] to-[rgb(0,238,8)] via-[rgba(155,255,160,0.93)]  */}
+            <h1 className="text-center font-breeSerif text-[#40025D] leading-relaxed p-2 text-[30px] rounded-[30px] font-bold w-[90%] mx-auto mt-[30px] mb-5">
                 {data.title}
               </h1>
-              <small className="text-[#0B0553] pb-[15px] tracking-wider font-bold float-right mr-4 text-sm">
-                <i>
+              <small className="text-[#000000] pb-[15px] tracking-wider font-bold float-right mr-4 text-sm">
                   Organised By- <u> {data.ngo_name}</u>
-                </i>
               </small>
               <br />
               <div className=" py-[8px] h-fit px-[20px] w-[95vw] flex flex-col gap-4 rounded-3xl shadow-dashBoardCardImageShadow bg-[#ffffff66] mb-[120px] backdrop-blur-[5px] m-auto">
