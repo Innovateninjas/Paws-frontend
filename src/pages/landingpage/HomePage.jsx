@@ -54,8 +54,9 @@ function LandingPage() {
                         </div>
                     </div>
                     <img
-                        className={`mx-auto my-auto w-72 h-72 backdrop-blur ${styles.img}`}
-                        src="./images/paws.png"
+
+                        className="mx-auto my-auto w-72 h-72 backdrop-blur"
+                        src="./images/paws.webp"
                         alt="Paws"
                     />
                     <p className={`text-[24px] drop-shadow-3xl w-full px-4 text-center font-semibold tracking-wider ${styles.hide}`}>Pause to save Paws</p>
