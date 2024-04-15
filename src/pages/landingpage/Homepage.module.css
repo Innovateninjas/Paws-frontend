@@ -10,8 +10,8 @@
         .hide {
                 display: none;
         }
-        .heading{
-                font-size: 4.5rem;
-
+        .img{
+                width: 250px;
+                height: 250px;
         }
 }       
