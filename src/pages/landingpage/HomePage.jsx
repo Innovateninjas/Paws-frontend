@@ -21,21 +21,24 @@ function LandingPage() {
     const navigate = useNavigate();
     const csrftoken = localStorage.getItem('csrftoken');
     const userType = localStorage.getItem('userType');
-
+    
     useEffect(() => {
-        if (csrftoken && userType === "ngo") {
-            navigate('/stats');
-        }
-    }, [csrftoken, userType, navigate]);
-
-    useEffect(() => {
+        const img = new Image();
+        img.src = "./images/paws.webp";
         document.body.style.overflow = 'hidden';
         document.body.style.touchAction = 'manipulation';
+    
         return () => {
           document.body.style.overflow = '';
           document.body.style.touchAction = '';
         };
       }, []);
+    
+    useEffect(() => {
+        if (csrftoken && userType === "ngo") {
+          navigate('/stats');
+        }
+      }, [csrftoken, userType, navigate]);
 
     return (
     <div className="z-[-2] h-screen bg-custom-gradient w-full flex flex-col items-center font-VarelaRound">
