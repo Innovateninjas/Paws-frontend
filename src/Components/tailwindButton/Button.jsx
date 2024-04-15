@@ -10,7 +10,7 @@ const Button = ({ text, clas, onClick,disabled }) => {
 }
 
 Button.propTypes = {
-    text: PropTypes.string,
+    text: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     clas: PropTypes.string,
     onClick: PropTypes.func
 }

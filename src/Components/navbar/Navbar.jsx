@@ -8,19 +8,6 @@ import { MdCampaign, MdHome, MdContentPasteSearch } from "react-icons/md";
 import { IoPeople } from "react-icons/io5";
 import { ImStatsBars } from "react-icons/im";
 
-//function for replacing the icons with images or svg
-//const NavigationAction = ({ value, to, imgSrc, key }) => {
-//  const imgPath = `images/nav/${imgSrc}.png`;
-//
-//  return (
-//    <BottomNavigationAction 
-//      value={value} 
-//      component={Link} 
-//      to={to} 
-//      icon={<img src={imgPath} alt={key} style={{width: '32px', height: '32px'}} />} 
-//    />
-//  );
-//};
 
 
 const Navbar = () => {
@@ -28,6 +15,7 @@ const Navbar = () => {
   const userType = localStorage.getItem('userType');
   const [value, setValue] = useState(0);
   const location = useLocation();
+  //eslint-disable-next-line
   const [isScrollable, setIsScrollable] = useState(false);
 
   useEffect(() => {
@@ -36,7 +24,7 @@ const Navbar = () => {
   }, [location.pathname]);
 
   return (
-    <div className='fixed bottom-0 left-0 w-full z-50 bg-opacity-0'>
+    <div className='fixed bottom-0 left-0 w-full z-50 '>
     <nav className='p-0.5 bg-teal-500/25 shadow-glow'>
       <BottomNavigation
         value={value}
@@ -49,12 +37,15 @@ const Navbar = () => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-evenly',
-          backgroundColor: 'transparent',
+          backgroundColor: '#B7DDFB',
         }}
       >
         {csrftoken && userType === "user" ? (
           [
-            <BottomNavigationAction key="home" value="/" component={Link} to="/" icon={<MdHome size={30}/>} />,
+            <BottomNavigationAction 
+            key="home" value="/" component={Link} 
+            to="/" icon={<MdHome size={30}/>} 
+            />,
             <BottomNavigationAction key="campaignList" value="/campaignList" component={Link} to="/campaignList" icon={<IoPeople size={28} />} />,
             <BottomNavigationAction key="donationfront" value="/donationfront" component={Link} to="/donationfront" icon={<PiHandCoinsBold size={28} />} />,
             <BottomNavigationAction key="profile" value="/user" component={Link} to="/user" icon={<FaUser size={24} />} />,
