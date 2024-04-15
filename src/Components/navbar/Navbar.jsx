@@ -15,7 +15,6 @@ const Navbar = () => {
   const userType = localStorage.getItem('userType');
   const [value, setValue] = useState(0);
   const location = useLocation();
-  //eslint-disable-next-line
   const [isScrollable, setIsScrollable] = useState(false);
 
   useEffect(() => {
@@ -24,8 +23,8 @@ const Navbar = () => {
   }, [location.pathname]);
 
   return (
-    <div className='fixed bottom-0 left-0 w-full z-50 '>
-    <nav className='p-0.5 bg-teal-500/25 shadow-glow'>
+    <div className='fixed bottom-0 left-0 w-full z-50'>
+    <nav className='nav'>
       <BottomNavigation
         value={value}
         onChange={(event, newValue) => {
@@ -37,7 +36,9 @@ const Navbar = () => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-evenly',
-          backgroundColor: '#B7DDFB',
+          borderTopLeftRadius: '16px',
+          borderTopRightRadius: '16px',
+          backgroundColor: '#b8ddfa',
         }}
       >
         {csrftoken && userType === "user" ? (
