@@ -40,7 +40,7 @@ function LandingPage() {
     return (
     <div className="z-[-2] h-screen bg-custom-gradient w-full flex flex-col items-center font-VarelaRound">
         {stars}
-            <div className="flex flex-col items-center justify-between h-[70vh] gap-3">
+            <div className="flex flex-col items-center justify-between h-[70vh] gap-2.5">
                 <div className="flex flex-col items-center h-fit gap-2">
                     <div className="mt-[50px] relative">
                         <div className="absolute top-3 right-[-2rem] flex flex-row items-start">
@@ -54,12 +54,12 @@ function LandingPage() {
                         </div>
                     </div>
                     <img
-                        className="mx-auto my-auto w-72 h-72 backdrop-blur"
+                        className={`mx-auto my-auto w-72 h-72 backdrop-blur ${styles.img}`}
                         src="./images/paws.png"
                         alt="Paws"
                     />
                     <p className={`text-[24px] drop-shadow-3xl w-full px-4 text-center font-semibold tracking-wider ${styles.hide}`}>Pause to save Paws</p>
-                <div className="text-[18px] text-center p-4 font-baijam drop- tracking-wider">
+                <div className="text-[18px] text-center max-width-[95%] pt-3 font-baijam drop- tracking-wider">
                     <p>
                         "Save lives - Click below to report 
                     </p>
