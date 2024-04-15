@@ -58,7 +58,7 @@ function LandingPage() {
                         src="./images/paws.png"
                         alt="Paws"
                     />
-                    <p className="text-[24px] drop-shadow-3xl w-full px-4 text-center font-semibold tracking-wider">Pause to save Paws</p>
+                    <p className={`text-[24px] drop-shadow-3xl w-full px-4 text-center font-semibold tracking-wider ${styles.hide}`}>Pause to save Paws</p>
                 <div className="text-[18px] text-center p-4 font-baijam drop- tracking-wider">
                     <p>
                         "Save lives - Click below to report 

@@ -164,6 +164,7 @@ function IncidentForm() {
 
   const handleNextPage = () => {
     if (validatePage(currentPage)) {
+      
       setCurrentPage((prevPage) => prevPage + 1);
     }
   };
@@ -219,6 +220,7 @@ function IncidentForm() {
 
   const validatePage = (page) => {
     const pageData = formData;
+    console.log(pageData)
     const pageErrors = {};
     switch (page) {
       case 1:
@@ -290,6 +292,7 @@ function IncidentForm() {
         return (
           <AnimalDetailsPage
             formData={formData}
+            setFormData={setFormData}
             errors={errors}
             handleChange={handleChange}
             handleNextPage={handleNextPage}

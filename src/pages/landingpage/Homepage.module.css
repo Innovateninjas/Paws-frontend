@@ -5,3 +5,13 @@
         text-shadow: 2px 4px 6px black;
 
 }
+
+@media (max-height: 768px) {
+        .hide {
+                display: none;
+        }
+        .heading{
+                font-size: 4.5rem;
+
+        }
+}       
