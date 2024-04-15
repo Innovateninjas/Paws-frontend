@@ -7,6 +7,7 @@ import Button from "../../../Components/tailwindButton/Button";
 import Background from "../../../Components/backgroundComponent/Background";
 function AnimalDetailsPage({
   formData,
+  setFormData,
   errors,
   handleChange,
   handleBackPage,
@@ -87,9 +88,10 @@ function AnimalDetailsPage({
     } else if (formData.predictedAnimal === "rabbit") {
       setIsRabbit(true);
     } else if (formData.predictedAnimal === null) {
+      setFormData((prev) => ({ ...prev, animal_type: "other" }));
       setIsOther(true);
     }
-  }, [formData.predictedAnimal]);
+  }, [formData.predictedAnimal,setFormData]);
 
   useEffect(() => {
     setClass(true);
@@ -349,7 +351,7 @@ function AnimalDetailsPage({
                 </div>
               </div>
               {/* OPTION:otherS */}
-              {(formData.predictedAnimal===null || formData.animal_type=="other") && (
+              {(formData.predictedAnimal===null || formData.animal_type==="other") && (
                 <label className=" text-xl flex items-center gap-2">
                   Please specify:
                   <input
