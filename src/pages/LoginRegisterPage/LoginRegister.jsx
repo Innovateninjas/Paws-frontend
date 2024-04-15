@@ -34,7 +34,6 @@ function LoginRegisterForm() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [state, setButtonState] = useState("idle");
- console.log(isLogin)
  useEffect(() => {
   setError("");
  },[isLogin])

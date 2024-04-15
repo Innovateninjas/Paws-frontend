@@ -77,7 +77,7 @@ const NgoProfile = () => {
               </div>
               {/* WEBSITE URL */}
               <div className="px-4 py-2 flex border-t border-blue-800  gap-1 text-[18px] drop-shadow-md">
-                <p className="tracking-wider">Website URL :</p>
+                <p className="tracking-wider">Unique Darpan Id :</p>
                 <span className="max-w-[80%] ml-1 break-words">{userDetails.website} </span>
               </div>
               {/* ANIMALS SUPPORTED */}
