@@ -69,6 +69,9 @@ module.exports = {
             '100%': { transform: 'scale(0.9)', opacity: '0' },
           }
         },
+        screens: {
+          'h-md': {'raw': '(max-height: 768px)'}
+        },
         animation: {
           'fade-in': 'fade-in 0.5s ease-out',
           'fade-in-campaign': 'fade-in 2s infinite alternate',

@@ -38,7 +38,7 @@ function ContactInformationPage({
     <div className=" flex flex-col justify-center items-center relative">
       <div className="mt-24 relative w-full  gap-[20px] flex flex-col items-center ">
         <h1 className="text-center mt-[20px] pb-1 z-[3] text-[#0B0553DE] font-black tracking-wide text-[2rem] underline">CONTACT DETAILS</h1>
-     <div className="bg-gray-200 bg-opacity-40 w-[90%] py-8 px-4 rounded-3xl backdrop-blur-[6px] flex flex-col justify-evenly gap-[10px] shadow-dashBoardCardImageShadow">
+     <div className="bg-gray-200 bg-opacity-40 w-[90%] py-8 px-4 rounded-3xl backdrop-blur-[6px] flex flex-col justify-evenly items-center gap-[10px] shadow-dashBoardCardImageShadow">
    <div className="flex flex-col gap-[10px]">
 
           <InputField
