@@ -58,9 +58,9 @@ function Dashboard() {
       console.log("Background message received:", payload);
       if (payload.notification.body ==="A new report has been made near you."){
         toast.success(`New report received`);
+        await fetchReports();
       }
       // Fetch reports again when a new report is added
-      await fetchReports();
     });
 
     // Clean up function
