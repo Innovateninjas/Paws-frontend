@@ -1,7 +1,7 @@
 import axios from "axios";
 import isValidEmail from "./emailValidator";
 import isValidPhoneNumber from "./phoneNumberValidator";
-import { validateWebsiteLink } from "./websiteValidator";
+
 
 /**
  * Performs a registration request to the backend server.
@@ -37,10 +37,7 @@ export const registration = async (orgName, phoneNumber, email, emergency, passw
         setError("Enter a valid emergency contact number.");
         return;
     }
-    if (!validateWebsiteLink(websiteLink)) {
-        setError("Invalid website link");
-        return;
-    }
+    
     try {
         
         // Clear any previous error message and set button state to loading
