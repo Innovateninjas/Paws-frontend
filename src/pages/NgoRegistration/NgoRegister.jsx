@@ -170,7 +170,7 @@ function NgoRegisterForm() {
           <InputField
             className="placeholder-stone h-16 bg-opacity-45 backdrop-blur-[6px] w-80 px-4 py-2 items-center outline-0 rounded-[30px] text-black text-lg bg-white shadow-dashBoardCardImageShadow"
             type="text"
-            placeholder=" NGO-DARPAN ID"
+            placeholder=" NGO-DARPAN ID (STATE/YEAR/ID)"
             value={websiteLink}
             onChange={(e) => {
               setError("");
