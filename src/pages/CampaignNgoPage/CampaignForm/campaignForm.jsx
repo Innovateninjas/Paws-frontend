@@ -242,8 +242,8 @@ const CampaignForm = ({ setShowForm }) => {
                 headerImgUrl={headerImgUrl}
                 setheaderImgUrl={setheaderImgUrl}
             />
-            {console.log("Error:",!!error)}
-            {!!error && <p className="text-red-600 tracking-wider drop-shadow-lg font-semibold text-base">{campaignError}</p>}
+            {/* {console.log("Error:",!error)} */}
+            {!error && <p className="text-red-600 tracking-wider drop-shadow-lg font-semibold text-base">{campaignError}</p>}
             <Button
                 clas=" py-5 px-8 font-semibold tracking-wider text-[1.5rem] leading-[1.5rem]"
                 onClick={async () => {
