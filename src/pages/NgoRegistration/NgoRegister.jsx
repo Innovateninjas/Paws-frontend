@@ -61,7 +61,7 @@ function NgoRegisterForm() {
           {/* PHONE NUMBER */}
           <InputField
             className="placeholder-stone h-16 bg-opacity-45 backdrop-blur-[6px] w-80 px-4 py-2 items-center outline-0 rounded-[30px] text-black text-lg bg-white shadow-dashBoardCardImageShadow"
-            type="number"
+            type="tel"
             placeholder="Phone Number"
             value={phoneNumber}
             onChange={(e) => {
@@ -138,6 +138,11 @@ function NgoRegisterForm() {
             ...provided,
             color: 'rgb(244 63 94)',
         }),
+              placeholder: defaultStyles => ({
+                ...defaultStyles,
+                color: '#53605B',
+                fontSize: '18px',
+              }),
         dropdownIndicator: (provided, state) => ({
             ...provided,
             color: 'black',
@@ -158,7 +163,7 @@ function NgoRegisterForm() {
           {/* EMERGENCY CONTACT NUMBER */}
           <InputField
             className="placeholder-stone h-16 bg-opacity-45 backdrop-blur-[6px] w-80 px-4 py-2 items-center outline-0 rounded-[30px] text-black text-lg bg-white shadow-dashBoardCardImageShadow"
-            type="number"
+            type="tel"
             placeholder="Emergency Contact Number"
             value={emergency}
             onChange={(e) => {
