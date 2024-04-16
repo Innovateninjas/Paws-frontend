@@ -39,7 +39,7 @@ function LoginRegisterForm() {
  },[isLogin])
   return (
     <>    
-    
+    <div  className="h-full w-screen flex items-center justify-center mb-[60px]">
     <Background/>
  <div className="min-h-screen">
       <form className="flex gap-[20px] items-center justify-center flex-col">
@@ -156,6 +156,7 @@ function LoginRegisterForm() {
         )}
       </form>
       
+</div>
 </div>
     </>
 
