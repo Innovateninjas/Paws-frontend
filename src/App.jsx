@@ -61,7 +61,7 @@ function App() {
           <Route path="/createcampaign" element={<Campaign />} /> {/* Renders the CreateCampaign component */}
           <Route path="/campaignList" element={<Campaignlist />} /> {/* Renders the CreateCampaign component */}
           <Route path="/campaignBlog/:campaignId" element={<Campaignblog />} />
-              <Route path="/stats" element={< Stats/>} />
+          <Route path="/stats" element={< Stats/>} />
           <Route path="/created" element={<Success />} />
           <Route path="/ngoProfile" element={<NgoProfile />} />
           <Route path="/donationfront" element={<Donationfront />} />

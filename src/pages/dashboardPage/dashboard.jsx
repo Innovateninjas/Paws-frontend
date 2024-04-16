@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import CardItem from "./Card";
 import DashboardSkeleton from "../../Components/Skeletons/dashboard";
 import { NgoContext } from "../../contexts/NgoContext";
@@ -13,8 +15,9 @@ function Dashboard() {
   const [statusOptions] = useState(["Received", "In Progress", "Rescued"]);
   const [isLoading, setIsLoading] = useState(true);
   const [categories, setCategories] = useState([]);
-  const [clicked, setClicked] = useState([false, false,false]);
+  const [clicked, setClicked] = useState([false, false, false]);
   const category = ["In Progress", "Received", "Rescued"];
+
   useEffect(() => {
     const fetchReports = async () => {
       try {
@@ -43,12 +46,16 @@ function Dashboard() {
           }));
           setReports(updatedReports);
           setIsLoading(false);
+          // Check for new report and show notification
+          checkNewReport(updatedReports);
         }
       } catch (error) {
         console.error("Error fetching reports:", error);
       }
     };
+
     fetchReports();
+
     const unsubscribe = onMessage(messaging, async (payload) => {
       console.log("Background message received:", payload);
       // Fetch reports again when a new report is added
@@ -60,6 +67,15 @@ function Dashboard() {
       unsubscribe();
     };
   }, [NgoData]);
+
+  const checkNewReport = (updatedReports) => {
+    // Assuming the new report is always the first one in the updatedReports array
+    if (updatedReports.length > reports.length) {
+      const newReport = updatedReports[0];
+      // Display toast notification for new report
+      toast.success(`New report received`);
+    }
+  };
 
   // Function to toggle report card expansion
   const toggleExpand = (id) => {
@@ -92,6 +108,7 @@ function Dashboard() {
   };
   return (
     <>
+      <ToastContainer position="top-right" autoClose={5000} />
       {/* Gradient background */}
       <div className="fixed top-0 left-0 w-screen h-screen bg-custom-gradient z-0"></div>
       {/* Dashboard content */}
