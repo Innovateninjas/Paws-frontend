@@ -7,13 +7,13 @@ const csrftoken = localStorage.getItem('csrftoken');
 
 function SuccessPage() {
 
-  console.log(csrftoken)
+  // console.log(csrftoken)
 
   return (
     <div className="z-[-2] mb-10 min-h-screen max-h-fit bg-custom-gradient top-0 w-full flex items-center">
       <div className="pt-7 w-full text-center mb-10 flex flex-col items-center gap-5 justify-center">
-        <h2 className="text-[#40025D] w-screen text-5xl font-normal font-['Bayon'] tracking-widest drop-shadow-2xl">Success</h2>
-        <div className=" px-9 rounded-[50%] bg-blue-900 shadow-dashBoardCardImageShadow flex text-white items-end justify-center text-[7rem] ">✓</div>
+        {/* <h2 className="text-[#40025D] w-screen text-5xl font-normal font-['Bayon'] tracking-widest drop-shadow-2xl">Success</h2> */}
+        <div className=" px-10 rounded-[50%] bg-gradient-to-br from-blue-400 to-blue-800 shadow-dashBoardCardImageShadow flex text-white items-end justify-center text-[7rem] ">✓</div>
         <p className="text-center text-opacity-90 text-2xl font-breeSerif drop-shadow-2xl tracking-widest font-bold">Your report has been submitted successfully. </p>
         <div className="flex flex-row items-center w-full justify-center gap-4">
           <Button

@@ -111,8 +111,9 @@ function NgoRegisterForm() {
            styles={{
         control: base => ({
             ...base,
-            // maxHeight: "6rem",
+            height: "4rem",
             width: '20rem',
+            border: '0',
             backgroundColor: 'rgba(255, 255, 255, 0.5)',
             boxShadow: "3.847223997116089px 4.946430683135986px 14.289689064025879px 0px #00000040",
             borderRadius: '30px',

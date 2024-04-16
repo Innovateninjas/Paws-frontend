@@ -1,13 +1,15 @@
 import React from "react";
 import { TypeAnimation } from 'react-type-animation';
+import { Link } from "react-router-dom";
+import Button from "..//..//..//Components/tailwindButton/Button";
 const Success = () => {
   return (
-    <div className="flex flex-col justify-center items-center h-screen bg-gradient-to-b from-emerald-300 to-cyan-600">
+    <div className="flex flex-col justify-center items-center h-screen bg-custom-gradient">
       <h1 className="text-3xl font-bold no-underline">
-        <div className="bg-gradient-to-b from-emerald-300 to-cyan-400 p-2 md:p-10 md:px-5 rounded-2xl  shadow-dashBoardCardImageShadow">
-        Campaign Created <br />  <TypeAnimation
+        <div>
+        Campaign created <br />  <TypeAnimation
                       sequence={[
-                       "Successfully",
+                       "Successfully.",
                         1000,
                       ]} 
                       wrapper="span"
@@ -16,7 +18,10 @@ const Success = () => {
 
         </div>
         <div className="pt-4">
-        <button className="text-white rounded-lg bg-gradient-to-b from-emerald-300 to-emerald-600 shadow-md p-5 mt-1.75rem text-lg font-semibold outline-none">Back to DashBoard</button>
+        <Button
+          text={<Link to="/dashboard"> Back to dashboard</Link>}
+          clas="px-7 py-3 font-semibold tracking-wider"
+        />
         </div>
       </h1>
     </div>
