@@ -10,9 +10,9 @@ const stars = Array.from({ length: 45 /*no of stars*/ }, (_, i) => (
         className="absolute text-white animate-ping opacity-75"
         style={{
             top: `${Math.random() * 70}vh`,
-            left: `${Math.random() * 90}vw`,
+            left: `${Math.random() * 95}vw`,
             fontSize: `${Math.random() * 1.5}rem`, /*size*/
-            animationDuration: `${Math.random() * 25}s`, /*how long star should stay*/
+            animationDuration: `${Math.random() * 12 + 1.1}s`, /*how long star should stay*/
         }}
     />
 ));
