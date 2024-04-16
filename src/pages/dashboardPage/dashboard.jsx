@@ -46,8 +46,6 @@ function Dashboard() {
           }));
           setReports(updatedReports);
           setIsLoading(false);
-          // Check for new report and show notification
-          checkNewReport(updatedReports);
         }
       } catch (error) {
         console.error("Error fetching reports:", error);
@@ -58,6 +56,9 @@ function Dashboard() {
 
     const unsubscribe = onMessage(messaging, async (payload) => {
       console.log("Background message received:", payload);
+      if (payload.notification.body ==="A new report has been made near you."){
+        toast.success(`New report received`);
+      }
       // Fetch reports again when a new report is added
       await fetchReports();
     });
@@ -68,14 +69,7 @@ function Dashboard() {
     };
   }, [NgoData]);
 
-  const checkNewReport = (updatedReports) => {
-    // Assuming the new report is always the first one in the updatedReports array
-    if (updatedReports.length > reports.length) {
-      const newReport = updatedReports[0];
-      // Display toast notification for new report
-      toast.success(`New report received`);
-    }
-  };
+
 
   // Function to toggle report card expansion
   const toggleExpand = (id) => {
