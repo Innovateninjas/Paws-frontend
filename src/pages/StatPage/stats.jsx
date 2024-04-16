@@ -44,7 +44,7 @@ function Stats() {
         <div className='flex flex-col justify-center items-center '>
           <h1 className='text-4xl text-[#40025D]  tracking-[8px] bold  font-bayon'>STATISTICS</h1>
         </div>
-        <h1 className='ml-2 mt-6 mb-2 underline underline-offset-4 text-[#40025D] font-Calistoga tracking-wide text-xl'>Number of reports per day</h1>
+        <h1 className='ml-2 mt-6 mb-2 underline underline-offset-4 text-[#40025D] font-Calistoga tracking-wide text-xl'>Number of reports</h1>
         <div className='backdrop-blur-sm bg-white/30 min-h-48  mb-9 rounded-2xl shadow-lg  mx-auto  flex text-center justify-center items-center'>
           {isLoading && !reports ? (
             <h1>Loading...</h1>
