@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import {
     Chart as ChartJS,
     LineElement,
@@ -20,11 +21,9 @@ ChartJS.register(
     Tooltip,
 );
 
-
-
-
-
 const LineChart = ({data}) => {
+    const [view, setView] = useState('day'); // Add a state variable for the view
+
     const convertDataForLineChart = (data) => {
         // Create an object to store the counts for each date
         const countsPerDay = {};
@@ -49,7 +48,7 @@ const LineChart = ({data}) => {
         const maxDate = new Date(Math.max(...data.map(report => new Date(report.reported_time))));
 
         // Iterate through all dates from minDate to maxDate
-        for (let currentDate = new Date(minDate); currentDate <= maxDate; currentDate.setDate(currentDate.getDate() + 1)) {
+        for (let currentDate = new Date(minDate); currentDate <= maxDate; currentDate.setDate(currentDate.getDate() + (view === 'day' ? 1 : view === 'week' ? 7 : view === 'month' ? 30 : view === '3months' ? 90 : 365))) {
             // Format the current date without the year
             const formattedDate = currentDate.toLocaleDateString('en-GB', {
                 day: '2-digit',
@@ -85,6 +84,15 @@ const LineChart = ({data}) => {
 
     return (
         <div>
+            {/* Add a group of buttons for the view */}
+            <div>
+                <button onClick={() => setView('day')} style={{backgroundColor: view === 'day' ? 'lightgray' : 'white'}}>Per Day</button>
+                <button onClick={() => setView('week')} style={{backgroundColor: view === 'week' ? 'lightgray' : 'white'}}>Per Week</button>
+                <button onClick={() => setView('month')} style={{backgroundColor: view === 'month' ? 'lightgray' : 'white'}}>Per Month</button>
+                <button onClick={() => setView('3months')} style={{backgroundColor: view === '3months' ? 'lightgray' : 'white'}}>Every 3 Months</button>
+                <button onClick={() => setView('year')} style={{backgroundColor: view === 'year' ? 'lightgray' : 'white'}}>Per Year</button>
+            </div>
+
             <Line
                 data={chartData}
                 options={{
@@ -106,7 +114,7 @@ const LineChart = ({data}) => {
                         point: {
                             radius: 0,
                         },
-                                           },
+                    },
                     scales: {
                         x: {
                             title: {
@@ -130,12 +138,10 @@ const LineChart = ({data}) => {
                                 font: {
                                     size: 12,
                                     weight: 'bold',
-
                                 }
                             }
                         }
                     },
-                    // borderColor: '#40025D',
                 }}
             />
         </div>
