@@ -75,8 +75,7 @@ function LandingPage() {
             <div className="">
                 <button
                     type='submit'
-                    className="bg-gradient-to-r from-[#f27b79] via-[#e6466c] to-[#f3285b] text-white focus:outline-none rounded-[40px] shadow-buttonShadow py-4 font-bold tracking-widest text-[2rem] px-10"
-                >
+                    className="bg-gradient-to-r from-[#f27b79] via-[#e6466c] to-[#f3285b] text-white focus:outline-none rounded-[40px] shadow-buttonShadow py-4 font-bold tracking-widest text-[2rem] px-10">
                     <Link to="/report-incident">Report</Link>
                 </button>
             </div>
