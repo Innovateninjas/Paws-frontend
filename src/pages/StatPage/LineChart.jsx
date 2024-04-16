@@ -84,13 +84,26 @@ const LineChart = ({data}) => {
 
     return (
         <div>
-            {/* Add a group of buttons for the view */}
-            <div>
-                <button onClick={() => setView('day')} style={{backgroundColor: view === 'day' ? 'lightgray' : 'white'}}>Per Day</button>
-                <button onClick={() => setView('week')} style={{backgroundColor: view === 'week' ? 'lightgray' : 'white'}}>Per Week</button>
-                <button onClick={() => setView('month')} style={{backgroundColor: view === 'month' ? 'lightgray' : 'white'}}>Per Month</button>
-                <button onClick={() => setView('3months')} style={{backgroundColor: view === '3months' ? 'lightgray' : 'white'}}>Every 3 Months</button>
-                <button onClick={() => setView('year')} style={{backgroundColor: view === 'year' ? 'lightgray' : 'white'}}>Per Year</button>
+            
+            <div className='w-ful flex justify-evenly'>
+                <button onClick={() => setView('day')} 
+                style={{backgroundColor: view === 'day' ? 'lightgray' : 'white'}}
+                className = " px-2 rounded-lg"
+                >Daily
+                </button>
+                <button onClick={() => setView('week')}
+                 style={{backgroundColor: view === 'week' ? 'lightgray' : 'white'}}
+                    className="px-2 rounded-lg"
+                 >Weekly</button>
+                <button onClick={() => setView('month')}
+                 style={{backgroundColor: view === 'month' ? 'lightgray' : 'white'}}
+                    className="px-2 rounded-lg"
+                    >Monthly</button>
+                {/* <button onClick={() => setView('3months')} style={{backgroundColor: view === '3months' ? 'lightgray' : 'white'}}>Every 3 Months</button> */}
+                <button onClick={() => setView('year')} 
+                style={{backgroundColor: view === 'year' ? 'lightgray' : 'white'}}
+                className="px-2 rounded-lg"
+                >Yearly</button>
             </div>
 
             <Line
@@ -119,7 +132,7 @@ const LineChart = ({data}) => {
                         x: {
                             title: {
                                 display: true,
-                                text: 'Date',
+                                text: view === 'day' ? 'Day' : view === 'week' ? 'Week' : view === 'month' ? 'Month' : view === '3months' ? '3 Months' : 'Year',
                                 color: '#40025D',
                                 family: 'Sans-serif',
                                 font: {
