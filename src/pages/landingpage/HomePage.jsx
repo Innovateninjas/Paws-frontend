@@ -1,6 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import styles from "./Homepage.module.css";
 import { FaStar } from 'react-icons/fa';
 import { PiPawPrintFill } from "react-icons/pi";
 
@@ -50,7 +49,7 @@ function LandingPage() {
                             <PiPawPrintFill className="text-white text-[2.2rem] transform rotate-45 " />
                             <PiPawPrintFill className="text-white text-[2rem] transform -rotate-12 mt-4" />
                         </div>
-                        <h2 className={`${styles.heading} drop-shadow-3xl font-extrabold font-VarelaRound tracking-wider`}>Paws</h2>
+                        <h2 style={{ textShadow: '2px 4px 6px black' }} className=" text-[6rem] text-white drop-shadow-3xl font-extrabold font-VarelaRound tracking-wider`">Paws</h2>
                         <div className="absolute bottom-0 left-[-2rem] flex flex-row items-start">
                             <PiPawPrintFill className="text-white text-[2.2rem] transform rotate-45 " />
                             <PiPawPrintFill className="text-white text-[2rem] transform -rotate-12 mt-4 " />
@@ -58,11 +57,11 @@ function LandingPage() {
                     </div>
                     <img
 
-                        className="mx-auto my-auto w-72 h-72 backdrop-blur"
+                        className="mx-auto my-auto w-72 h-72 md:w-32 backdrop-blur"
                         src="./images/paws.webp"
                         alt="Paws"
                     />
-                    <p className={`text-[24px] drop-shadow-3xl w-full px-4 text-center font-semibold tracking-wider ${styles.hide}`}>Pause to save Paws</p>
+                    <p className="text-[24px] drop-shadow-3xl w-full px-4 text-center font-semibold tracking-wider h-md:hidden">Pause to save Paws</p>
                 <div className="text-[18px] text-center max-width-[95%] pt-3 font-baijam drop- tracking-wider">
                     <p>
                         "Save lives - Click below to report 
