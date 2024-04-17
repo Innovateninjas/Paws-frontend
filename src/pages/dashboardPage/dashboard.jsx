@@ -12,7 +12,7 @@ function Dashboard() {
   const { NgoData } = useContext(NgoContext);
   const [reports, setReports] = useState([]);
   const [length, setLength] = useState();
-  const [statusOptions] = useState(["Received", "In Progress", "Rescued"]);
+  const [statusOptions] = useState(["Received", "In Progress","Not Found", "Rescued","dead"]);
   const [isLoading, setIsLoading] = useState(true);
   const [categories, setCategories] = useState([]);
   const [clicked, setClicked] = useState([false, false, false]);
