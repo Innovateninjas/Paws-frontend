@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import ImageUploading from 'react-images-uploading';
-import { Camera, ArrowClockwise } from 'react-bootstrap-icons'; // Import styles for the component
+import { Camera, ArrowRepeat } from 'react-bootstrap-icons'; // Import styles for the component
 import { uploadImageToCloudinary } from '../utils/Functions/imageUploader';
 import { CSSTransition } from 'react-transition-group';
  // Import the function to upload images to Cloudinary
@@ -160,7 +160,7 @@ const ImageUploader = ({ formData, setFormData, onChange }) => {
                     <div className="flex justify-center mt-1">
                         <button className="text-base mt-3 text-white bg-gradient-to-b from-blue-300 to-emerald-500 focus:outline-none rounded-[30px] mr-3 px-3 py-4 bg-opacity-20 font-semibold" onClick={captureImage}>Capture</button>
                         <button className="text-base mt-3 text-white bg-gradient-to-b from-blue-300 to-emerald-500 focus:outline-none rounded-[30px] px-5 py-4 bg-opacity-20 font-semibold" onClick={toggleCameraFacingMode}>
-                            {cameraFacingMode === 'user' ? <ArrowClockwise /> : <Camera />}
+                            {cameraFacingMode === 'user' ? <ArrowRepeat style={{ fontSize: '24px' }} /> : <Camera />}
                         </button>
                     </div>
                 </div>
