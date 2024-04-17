@@ -8,7 +8,7 @@ import { MapContainer, TileLayer, useMap } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import 'leaflet.heat';
-
+import Notification from '../../Components/notification/notification';
 function Stats() {
   const [reports, setReports] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -37,10 +37,17 @@ function Stats() {
     }
   }, [reports]);
 
+  const handleClick = () => {
+    console.log('Notification clicked!');
+    
+  };
   return (
     <>
+  
       <Background />
-      <div className='p-8'>
+      <Notification onClick={handleClick}
+      reports={reports}/>
+      <div className='p-8 pt-1'>
         <div className='flex flex-col justify-center items-center '>
           <h1 className='text-4xl text-[#40025D]  tracking-[8px] bold  font-bayon'>STATISTICS</h1>
         </div>
