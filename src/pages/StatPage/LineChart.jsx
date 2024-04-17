@@ -85,7 +85,7 @@ const LineChart = ({data}) => {
     return (
         <div>
             
-            <div className='w-ful flex justify-evenly'>
+            <div className='w-ful flex justify-evenly mb-2'>
                 <button onClick={() => setView('day')} 
                 style={{backgroundColor: view === 'day' ? 'lightgray' : 'white'}}
                 className = " px-2 rounded-lg"
