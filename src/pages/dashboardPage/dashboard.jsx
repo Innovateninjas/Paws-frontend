@@ -114,17 +114,25 @@ function Dashboard() {
        {/* FITER */}
         {reports.length > 0 && (
           <div className="flex w-full justify-around px-2 py-3 ">
-            {category.map((category, index) => (
-              <button
-                key={index}
-                className={`${clicked[index] ? 'bg-gray-400' : 'bg-gray-300'} bg-opacity-47 px-3 py-1 border border-gray-400 text-[20px] shadow-dashBoardCardImageShadow font-ChauPhilomeneOne rounded-[10px]`}
-                onClick={() => {
-                  handle(index);
-                }}
-              >
-                {category}
-              </button>
-            ))}
+         {category.map((category, index) => {
+  const categoryCount = reports.filter(report => report.status === category).length;
+  return (
+    <button
+      key={index}
+      className={`${clicked[index] ? 'bg-gray-400' : 'bg-gray-300'} bg-opacity-47 px-3 py-1 border border-gray-400 relative text-[20px] shadow-dashBoardCardImageShadow font-ChauPhilomeneOne rounded-[10px]`}
+      onClick={() => {
+        handle(index);
+      }}
+    >
+      {category} 
+      {categoryCount > 0 && category !== 'Rescued' && (
+        <div className="px-2 py-[3px] text-center" style={{ position: 'absolute', top: '-16px', right: '-8px', backgroundColor: 'red',fontSize:'14px',borderRadius: '50%', color: 'white' }}>
+          {categoryCount}
+        </div>
+      )}
+    </button>
+  );
+})}
           </div>
         )}   
         {/* Render loading skeleton or report cards */}
