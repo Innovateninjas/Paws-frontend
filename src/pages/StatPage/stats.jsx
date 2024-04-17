@@ -43,7 +43,7 @@ function Stats() {
   };
   return (
     <>
-  
+  {/* {console.log(reports)} */}
       <Background />
       <Notification onClick={handleClick}
       reports={reports}/>
