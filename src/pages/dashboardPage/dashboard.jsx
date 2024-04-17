@@ -57,8 +57,8 @@ function Dashboard() {
     const unsubscribe = onMessage(messaging, async (payload) => {
       console.log("Background message received:", payload);
       if (payload.notification.body ==="A new report has been made near you."){
-        toast.success(`New report received`);
         await fetchReports();
+        toast.success(`New report received near you.`);
       }
       // Fetch reports again when a new report is added
     });
