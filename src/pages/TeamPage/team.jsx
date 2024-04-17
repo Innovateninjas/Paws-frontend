@@ -47,7 +47,7 @@ const TeamPage = () => {
         name: "Debayudh Basu",
         position: "Frontend Developer",
         image: "https://media.licdn.com/dms/image/D5603AQE3L9nP5ZM_vg/profile-displayphoto-shrink_800_800/0/1708620931019?e=1717027200&v=beta&t=mJwwcnkLJNBYUAa4vzFqXGe0C4TVOAwD5iD9eJih0lY",
-        featureText: "Who needs cocaine when you can sniff HTTPs requests",
+        featureText: "Uncover the Invisible: Explore Network Traffic with Precision",
         socialLinks: {
           linkedin: "https://www.linkedin.com/in/debayudh-basu-5280562b2/",
           github: "https://github.com/debayudh07"
@@ -69,7 +69,7 @@ const TeamPage = () => {
   ];
 
   return (
-    <div className="bg-gradient-to-r from-blue-500 to-green-500 min-h-screen">
+    <div className="bg-gradient-to-r from-blue-500 to-green-500 min-h-screen pd-4">
       <div className="container mx-auto px-4 py-8">
         <h2 className="text-3xl font-semibold text-center mb-8 text-white">Our Team</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 justify-center">
