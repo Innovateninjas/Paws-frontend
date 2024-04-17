@@ -4,6 +4,10 @@ import Card from '@mui/material/Card';
 import Viewreports from "..//..//Components/Skeletons/view-reports";
 import { UserContext } from "../../contexts/UserContext";
 import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { onMessage } from "firebase/messaging";
+import { messaging } from '../../firebase';
 
 function ViewReports() {
   const { userData } = useContext(UserContext);
@@ -45,6 +49,17 @@ function ViewReports() {
       }
     };
     fetchReports();
+
+    const unsubscribe = onMessage(messaging, async (payload) => {
+      console.log("Background message received:", payload);
+      await fetchReports();
+      toast.info(payload.notification.body);
+    });
+
+    return () => {
+      unsubscribe();
+    };
+
   }, [userData]);
 
   useEffect(() => {
@@ -89,6 +104,7 @@ function ViewReports() {
   };
   return (
     <>
+    <ToastContainer position="top-right" autoClose={5000} />
     <div>
     <div className="bg-custom-gradient min-h-screen max-h-fit flex flex-col font-ChauPhilomeneOne pb-[120px]">
       {!isLoading && (
