@@ -64,6 +64,8 @@ const Navbar = () => {
               <BottomNavigationAction 
               key="home" value="/" component={Link} 
               to="/" icon={<MdHome size={30}/>} 
+              showLabel
+              label = "Home"  
               />,
               <BottomNavigationAction key="register" value="/register" showLabel label="Register" component={Link} to="/register" icon={<FaUserPlus size={28} />} />,
               <BottomNavigationAction key="login" value="/login" showLabel label="Login" component={Link} to="/login" icon={<FaUser size={24} />} />,
