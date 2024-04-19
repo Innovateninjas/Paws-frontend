@@ -1,64 +1,87 @@
-# CREATE A NEW BRANCH BEFORE PUSHING
-## type git checkout -b yourbranchname
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<h1 align="center">PAWS</h1>
+<h3 align="center">"Pause To Save a Pause"</h3>
+<p align="center">
+  <img src="./public/PAWS.png" >
+  </p>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<p align="center">About the project:</p>
+<p align="center">
+    <img src="https://img.shields.io/github/issues/Innovateninjas/Paws-frontend"> 
+    <img src="https://img.shields.io/github/issues-pr/Innovateninjas/Paws-frontend">
+    <img src="https://img.shields.io/github/forks/Innovateninjas/Paws-frontend">
+    <img src="https://img.shields.io/github/stars/Innovateninjas/Paws-frontend">
+    <!-- <img src="https://img.shields.io/github/license/akshitagupta15june/PetMe"> -->
+</p>
+<br>
+<p align="center">Tech Stack:</p>
+<p align="center">
+    <img src="https://img.shields.io/badge/-ReactJs-61DAFB?logo=react&logoColor=white&style=for-the-badge"> 
+    <img src="https://img.shields.io/badge/tailwindcss-0F172A?&logo=tailwindcss">
+    <img src="https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E">
+    <img src="https://img.shields.io/badge/firebase-ffca28?style=for-the-badge&logo=firebase&logoColor=black">
+</p>
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Inspiration for the Project:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Our project, **Paws**, is driven by a deep concern for animal welfare. Witnessing the challenges faced by animals worldwide, we were inspired to create a platform that enables users to report injured animals and connect them with the necessary assistance. Through **Paws**, we aim to raise awareness, foster compassion, and make a positive impact in the lives of animals in need.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Paws** was developed during the Smart Bengal Hackathon 2024 and proudly emerged as one of the finalist apps. This recognition further fuels our commitment to advancing animal welfare and leveraging technology for social good.
+## Features of Paws at a Glance
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+| Function | Feature | Image |
+| --- | ----------- | -------|
+| Adopting a Pet | Allows user to choose an animal they wish to adopt and submit their details for contact purposes | ![docfix1](https://github.com/5h0ov/PetMe/assets/83227649/df6cbd93-421c-45d2-b11a-9f61b7bba8f8) ![docfix2](https://github.com/stephanienguyens/PetMe/blob/documentation/Assets/Images/adoptionForm.png) |
+| Donating a Pet | Pet owners can donate their pets if they are unable to take care of the ones they have | ![docfix3](https://github.com/5h0ov/PetMe/assets/83227649/6e18e6d7-1df5-41fc-841e-866f767763f7) |
+| Emergency care for Stray Animals | Provide contact details to get emergency medical services | ![docfix4](https://github.com/5h0ov/PetMe/assets/83227649/5ad9418b-5991-4495-b7a5-1b4fdcb5528d) |
+| Support PetMe | Allows users to become volunteers for PetMe and submit their details for contact purposes | ![docfix5](https://github.com/stephanienguyens/PetMe/blob/documentation/Assets/Images/volunteerForm.png) |
+| Pet News | PetMe provides users with several stories on the latest news in the pet world | ![docfix6](https://github.com/stephanienguyens/PetMe/blob/documentation/Assets/Images/petNews.png) |
+| Blogs | PetMe also has a blogs section dedicated to pet lovers and their pet stories | ![docfix7](https://github.com/stephanienguyens/PetMe/blob/documentation/Assets/Images/blogs.png) |
+----
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Additional features:
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+i will fill this 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+## Contributing 👨‍💻 
+### Check Out   [CONTRIBUTING.md](/Contribution.md)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+##  Project Maintainers ✨
 
-### Advanced Configuration
+<table>
+  <tr>
+<td align="center"><a href="https://github.com/shreyashaw05"><img src="https://avatars.githubusercontent.com/u/141901560?v=4" width="80px;" alt="Shreya Shaw"/><br /><sub><b>Shreya  </b></sub></a></td>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+<td align="center"><a href="https://github.com/codewarnab"><img src="https://avatars.githubusercontent.com/u/94959855?v=4" width="80px;" alt="Arnab Mondal"/><br /><sub><b>Arnab</b></sub></a></td>
+ 
+<td align="center"><a href="https://github.com/rishicds"><img src="https://avatars.githubusercontent.com/u/124495375?v=4" width="80px;" alt="Rishi Paul"/><br /><sub><b>Rishi</b></sub></a></td>
 
-### Deployment
+<td align="center"><a href="https://github.com/anirbanmajumder0"><img src="https://avatars.githubusercontent.com/u/81350357?v=4"  width="80px;" alt="Anirban"/><br /><sub><b>Anirban</b></sub></a></td>
+  
+<td align="center"><a href="https://github.com/debayudh07"><img src="https://avatars.githubusercontent.com/u/143015409?v=4"  width="80px;" alt="Anirban"/><br /><sub><b>Debayudh</b></sub></a></td>
+  
+ </tr>
+</table>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## License 🛡️ 
+
+PetMe is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Socials 
+
+i will add this soon 
