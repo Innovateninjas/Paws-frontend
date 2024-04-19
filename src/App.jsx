@@ -2,29 +2,29 @@ import React ,{useEffect} from 'react';
 import './App.css';
 import 'react-tooltip/dist/react-tooltip.css'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import IncidentForm from './pages/ReportIncidentPage/IncidentMain';
-import LandingPage from './pages/landingpage/HomePage';
-import LoginRegisterForm from './pages/LoginRegisterPage/LoginRegister';
-import ViewReports from './pages/UsrViuReportsPage/ViewReports'
-import Navbar from './Components/navbar/Navbar';
-import UserPage from './pages/UserProfilePage/UserPage';
-import NgoPage from './pages/NgoProfilepage/ngoProfile'
-import Logout from './Components/utils/Functions/Logout';
-import Dashboard from './pages/dashboardPage/dashboard';
-import Donation from './pages/Donation/DonationPage/Donation';
-import NgoRegister from './pages/NgoRegistration/NgoRegister';
-import Campaign from './pages/CampaignNgoPage/campaignMain';
-import Campaignlist from './pages/Volunteer/campaignList/campaignList';
-import Campaignblog from './pages/Volunteer/campaign/campaignBlog';
-import Stats from './pages/StatPage/stats';
-import { UserProvider } from './contexts/UserContext';
-import { NgoProvider } from './contexts/NgoContext';
-import Success from './pages/CampaignNgoPage/SuccessPage/Success';
-import NgoProfile from './pages/NgoProfilepage/ngoProfile';
-import { Donationfront } from './pages/Donation/Donationfront/Donationfront';
-import requestPermission from './Components/utils/Functions/notifyService';
-import TeamPage from './pages/TeamPage/team';
-import NotFound from './Components/pagenotfound';
+import IncidentForm from './pages/user/ReportIncidentPages/IncidentMain';
+import LandingPage from './pages/shared/HomePage';
+import LoginRegisterForm from './pages/user/UserRegistration';
+import ViewReports from './pages/user/ViewReports'
+import Navbar from './Components/shared/Navbar';
+import UserPage from './pages/user/UserProfile';
+import NgoPage from './pages/ngo/ngoProfile'
+import Logout from './utils/Functions/Logout';
+import Dashboard from './pages/ngo/Dashboard/dashboard';
+import Donation from './pages/user/Donation/Donation';
+import NgoRegister from './pages/ngo/NgoRegistration/NgoRegister';
+import Campaign from './pages/ngo/CampaignNgoPage/campaignMain';
+import Campaignlist from './pages/user/CampaignPages/CampaignList';
+import Campaignblog from './pages/user/CampaignPages/CampaignPost';
+import Stats from './pages/ngo/StatPage/StatsMain';
+import { UserProvider } from './utils/contexts/UserContext';
+import { NgoProvider } from './utils/contexts/NgoContext';
+import Success from './pages/ngo/CampaignNgoPage/Success';
+import NgoProfile from './pages/ngo/ngoProfile';
+import { Donationfront } from './pages/user/Donation/Donationfront/Donationfront';
+import requestPermission from './utils/Functions/notifyService';
+import TeamPage from './pages/shared/team';
+import NotFound from './Components/shared/PageNotfound';
 /**
  * The main component of the application.
  * @returns {JSX.Element} The rendered App component.
