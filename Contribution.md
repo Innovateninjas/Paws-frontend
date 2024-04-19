@@ -13,8 +13,10 @@
 - Go to [Firebase Console](https://console.firebase.google.com/u/0/) and create a new project with any name(Do not enable the google anlytics for the project if asked )  
 - Go to project overview  under  *General* tab scroll down add app (dont try below its deleted already)
 ![Fire Base Config Screenshot](https://res.cloudinary.com/dff97ky68/image/upload/v1713553341/sbh/h0lzqfqnonb2ohrs9p1o.jpg)
-- create a **.env** file in the root of the folder 
-copy the **.env.sample** content and replace the fireBase config values also replace the firebaseConfig in the [firebase-messaging-sw.js] with your credentials 
+- create a **.env** file in the root of the folder go to project overview  under Cloud Messaging Generate key pair  copy the key and replace  it with **VAPID_KEY** in **.env** 
+
+- also replace the firebaseConfig in the [firebase-messaging-sw.js](./public/firebase-messaging-sw.js) & [firebase.js](./src/firebase.js) with your credentials 
+
 - Again go to project overview  under Cloud Messaging Generate key pair  copy the key and replace  it with **VAPID_KEY** in **.env** 
 
 - for more details check out [FCM DOCS](https://firebase.google.com/docs/cloud-messaging/js/client) 
