@@ -15,12 +15,12 @@ const Notification = ({ onClick, reports }) => {
     }, [NgoData, loading, error]);
 
     useEffect(() => {
-        if(NgoData){
+        if(userDetails){
             setFilteredReports(reports
-                .filter(report => report.assigned_to === NgoData.email)
+                .filter(report => report.assigned_to === userDetails.email)
                 .filter(report => report.status === "In Progress" || report.status === "Received"));
         }
-    }, [NgoData, reports]);
+    }, [userDetails, reports]);
 
     return (
         <>
