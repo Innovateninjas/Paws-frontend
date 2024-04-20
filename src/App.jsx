@@ -3,7 +3,7 @@ import './App.css';
 import 'react-tooltip/dist/react-tooltip.css'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import IncidentForm from './pages/user/ReportIncidentPages/IncidentMain';
-import LandingPage from './pages/shared/HomePage';
+import LandingPage from './pages/user/HomePage';
 import LoginRegisterForm from './pages/user/UserRegistration';
 import ViewReports from './pages/user/ViewReports'
 import Navbar from './Components/shared/Navbar';
