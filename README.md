@@ -90,7 +90,7 @@ Please Contact us at : [email](Innovateninjas@gmail.com)
 
 ## License 🛡️ 
 
-Paws is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Paws is licensed under the GPL License - see the [LICENSE](LICENSE) file for details.
 
 
 ## Socials 
