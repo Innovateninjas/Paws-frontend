@@ -1,9 +1,9 @@
 
 <h1 align="center">PAWS</h1>
 <h3 align="center">"Pause To Save Paws"</h3>
-<p align="center">
-  <img src="./public/PAWS.png" >
-  </p>
+
+
+![image](https://github.com/Innovateninjas/Paws-frontend/assets/124495375/c7e22ed2-c970-4aca-b622-9f7837163d33)
 
 <p align="center">About the project:</p>
 <p align="center">
@@ -25,7 +25,7 @@
 
 
 
-![image](https://github.com/Innovateninjas/Paws-frontend/assets/124495375/c7e22ed2-c970-4aca-b622-9f7837163d33)
+
 
 ## Inspiration for the Project:
 
@@ -54,12 +54,13 @@ Planned features:
  - Adoption Page
  - Lost and Found
  - Community Forum
+ - feedback message of the report 
  - Native Mobile App
  
 
  
 ## Are you an NGO?
-Please Contact us at :Fill this in
+Please Contact us at : [email](Innovateninjas@gmail.com)
 
 
 
@@ -93,5 +94,15 @@ Paws is licensed under the MIT License - see the [LICENSE](LICENSE) file for det
 
 
 ## Socials 
+<p align="center">
+  <a href="https://twitter.com/innovateninjas">
+    <img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white">
+  </a>
+  <a href="https://www.instagram.com/innovateninjas/">
+    <img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white">
+  </a>
+  <a href="https://github.com/innovateninjas">
+    <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white">
+  </a>
+</p>
 
-i will add this soon 
