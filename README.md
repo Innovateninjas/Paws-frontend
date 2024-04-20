@@ -1,6 +1,6 @@
 
 <h1 align="center">PAWS</h1>
-<h3 align="center">"Pause To Save a Pause"</h3>
+<h3 align="center">"Pause To Save Paws"</h3>
 <p align="center">
   <img src="./public/PAWS.png" >
   </p>
@@ -24,7 +24,8 @@
 
 
 
-:
+
+![image](https://github.com/Innovateninjas/Paws-frontend/assets/124495375/c7e22ed2-c970-4aca-b622-9f7837163d33)
 
 ## Inspiration for the Project:
 
@@ -37,20 +38,28 @@ Our project, **Paws**, is driven by a deep concern for animal welfare. Witnessin
 
 | Function | Feature | Image |
 | --- | ----------- | -------|
-| Adopting a Pet | Allows user to choose an animal they wish to adopt and submit their details for contact purposes | ![docfix1](https://github.com/5h0ov/PetMe/assets/83227649/df6cbd93-421c-45d2-b11a-9f61b7bba8f8) ![docfix2](https://github.com/stephanienguyens/PetMe/blob/documentation/Assets/Images/adoptionForm.png) |
-| Donating a Pet | Pet owners can donate their pets if they are unable to take care of the ones they have | ![docfix3](https://github.com/5h0ov/PetMe/assets/83227649/6e18e6d7-1df5-41fc-841e-866f767763f7) |
-| Emergency care for Stray Animals | Provide contact details to get emergency medical services | ![docfix4](https://github.com/5h0ov/PetMe/assets/83227649/5ad9418b-5991-4495-b7a5-1b4fdcb5528d) |
-| Support PetMe | Allows users to become volunteers for PetMe and submit their details for contact purposes | ![docfix5](https://github.com/stephanienguyens/PetMe/blob/documentation/Assets/Images/volunteerForm.png) |
-| Pet News | PetMe provides users with several stories on the latest news in the pet world | ![docfix6](https://github.com/stephanienguyens/PetMe/blob/documentation/Assets/Images/petNews.png) |
-| Blogs | PetMe also has a blogs section dedicated to pet lovers and their pet stories | ![docfix7](https://github.com/stephanienguyens/PetMe/blob/documentation/Assets/Images/blogs.png) |
+| Reporting an Animal | Allows user to report an animal, then the report of the animal is automatically sent to the nearest NGO/Animal hospital based on your location | ![image](https://github.com/Innovateninjas/Paws-frontend/assets/124495375/a7c2ad12-039d-4b29-90da-9705a39e43cf)|
+| AI Based Animal and Injury Classification | Automatically detect type of animal,number of animals, and external injury based on user uploaded image | ![image](https://github.com/Innovateninjas/Paws-frontend/assets/124495375/98e7e95b-6a30-4245-b7fd-1141b8d996bd)|
+| Campaigns | Participate in NGO created campaigns as a volunteer/donor |![image](https://github.com/Innovateninjas/Paws-frontend/assets/124495375/a04baadd-dacf-4467-a139-b335913d2cdf)|
+| Support Paws | Allows users to donate to Paws to make our app Better| ![image](https://github.com/Innovateninjas/Paws-frontend/assets/124495375/c388d7d1-58dc-4720-9c7f-87416da878b8)|
+| Statistics for NGOS | Allows NGOS to view various statistics related to stray animals | ![image](https://github.com/Innovateninjas/Paws-frontend/assets/124495375/cca38ed5-f40c-4e8f-9124-682ffbadea82) |
+
+
+
 ----
 
 
-Additional features:
+Planned features:
 
+ - Adoption Page
+ - Lost and Found
+ - Community Forum
+ - Native Mobile App
+ 
 
-i will fill this 
-
+ 
+## Are you an NGO?
+Please Contact us at :Fill this in
 
 
 
@@ -80,7 +89,8 @@ i will fill this
 
 ## License 🛡️ 
 
-PetMe is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+Paws is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
 
 ## Socials 
 
