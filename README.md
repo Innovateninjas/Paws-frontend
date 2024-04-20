@@ -1,5 +1,4 @@
 
-
 <h1 align="center">PAWS</h1>
 <h3 align="center">"Pause To Save Paws"</h3>
 <p align="center">
@@ -91,6 +90,7 @@ Please Contact us at :Fill this in
 ## License 🛡️ 
 
 Paws is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
 
 ## Socials 
 

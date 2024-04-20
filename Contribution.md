@@ -21,6 +21,7 @@
 ![Fire Base Config Screenshot](https://res.cloudinary.com/dff97ky68/image/upload/v1713553341/sbh/h0lzqfqnonb2ohrs9p1o.jpg)
 - create a **.env** file in the root of the folder ,go to project overview in firebase  under Cloud Messaging Generate key pair  copy the key and replace  it with **VAPID_KEY** in **.env** 
 
+
 - also replace the firebaseConfig in the [firebase-messaging-sw.js](./public/firebase-messaging-sw.js) & [firebase.js](./src/firebase.js) with your credentials 
 
 - Again go to project overview  under Cloud Messaging Generate key pair  copy the key and replace  it with **VAPID_KEY** in **.env** 
