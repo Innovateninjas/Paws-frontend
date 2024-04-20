@@ -106,3 +106,17 @@ Paws is licensed under the GPL License - see the [LICENSE](LICENSE) file for det
   </a>
 </p>
 
+### If you like our work, please star the repository.
+
+
+## Acknowledgements
+
+- [Cloudinary React](https://github.com/cloudinary/cloudinary-react)
+- [Material-Ui](https://github.com/mui/material-ui)
+- [react_toastify](https://github.com/fkhadra/react-toastify)
+- [Reactive-Buttons](https://github.com/arifszn/reactive-button)
+- [react-tooltip](https://github.com/ReactTooltip/react-tooltip)
+- [ChartJs](https://github.com/chartjs/Chart.js)
+- [React Leaflet](https://github.com/PaulLeCam/react-leaflet)
+
+
