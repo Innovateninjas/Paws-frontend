@@ -1,9 +1,10 @@
 import React, { useEffect, useState, useRef } from "react";
 import "react-tooltip/dist/react-tooltip.css";
 //eslint-disable-next-line
+import styles from "./AnimalDetailsPage.module.css";
 import { Tooltip } from "react-tooltip";
-import Button from "../../../Components/shared/Button";
-import Background from "../../../Components/shared/Background";
+import Button from "../../../../Components/shared/Button";
+import Background from "../../../../Components/shared/Background";
 function AnimalDetailsPage({
   formData,
   setFormData,
