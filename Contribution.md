@@ -6,9 +6,15 @@
 - Create a **[Pull Request](https://github.com/Innovateninjas/Paws-frontend)** (_PR_), which will be promptly reviewed and given suggestions for improvements by the community.
 - Add screenshots or screen captures to your Pull Request to help us understand the effects of the changes proposed in your PR.
 
-### Setup && Instllation
+### Setup && Installation
 
-**FIrebase**
+1. Fork the repository and clone it.
+2. Install the project using `npm i`.
+3. Run the project using `npm start`.
+4. Create a new branch using `git checkout -b <branch_name>`
+5. See How to Contribute for more information.
+
+**Firebase**
 
 - Go to [Firebase Console](https://console.firebase.google.com/u/0/) and create a new project with any name(Do not enable the google anlytics for the project if asked )  
 - Go to project overview  under  *General* tab scroll down add app select web and then copy the firebaseconfig(dont try below its deleted already)
@@ -19,4 +25,13 @@
 
 - Again go to project overview  under Cloud Messaging Generate key pair  copy the key and replace  it with **VAPID_KEY** in **.env** 
 
-- for more details check out [FCM DOCS](https://firebase.google.com/docs/cloud-messaging/js/client) 
+- for more details check out [FCM DOCS](https://firebase.google.com/docs/cloud-messaging/js/client)
+
+**Cloudinary**
+- Create a [Cloudinary account](https://cloudinary.com/), then create a product environment.
+- In access keys generate a new access key
+![image](https://github.com/Innovateninjas/Paws-frontend/assets/124495375/5b6a4241-8372-4e1f-b5b3-064e57dd05e2)
+- Paste the key in the .env file
+
+For setting up backend please refer to [Paws Backend]()
+
