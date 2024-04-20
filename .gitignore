@@ -26,3 +26,4 @@ yarn-error.log*
 /public/images/nav
 .vercel
 src/Components/utils/Functions/ngooVerify.js
+bfg-1.14.0.jar
