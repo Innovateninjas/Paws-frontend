@@ -31,7 +31,10 @@
 - Create a [Cloudinary account](https://cloudinary.com/), then create a product environment.
 - In access keys generate a new access key
 ![image](https://github.com/Innovateninjas/Paws-frontend/assets/124495375/5b6a4241-8372-4e1f-b5b3-064e57dd05e2)
-- Paste the key in the .env file
+- In Upload create a new upload preset
+  ![image](https://github.com/Innovateninjas/Paws-frontend/assets/124495375/0e6d2111-7fbd-41b7-a3b8-a545064dd2a1)
+
+- Paste the key and upload preset name in the .env file
 
 For setting up backend please refer to [Paws Backend]()
 
