@@ -1,6 +1,6 @@
 {
-  "name": "aniresfr",
-  "version": "0.1.0",
+  "name": "paws",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@cloudinary/react": "^1.11.2",

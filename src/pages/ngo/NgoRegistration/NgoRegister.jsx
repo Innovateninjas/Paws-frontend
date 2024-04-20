@@ -33,7 +33,7 @@ function NgoRegisterForm() {
   const [error, setError] = useState("");
   const [state, setButtonState] = useState("idle");
   const [lcation, setLocation] = useState("");
-  const [websiteLink, setWebsite] = useState("");
+  const [darpanid, setDarpanid] = useState("");
   const [latitude, setLatitude] = useState(0);
   const [longitude, setLongitude] = useState(0);
   useEffect(() => {
@@ -176,10 +176,10 @@ function NgoRegisterForm() {
             className="placeholder-stone h-16 bg-opacity-45 backdrop-blur-[6px] w-80 px-4 py-2 items-center outline-0 rounded-[30px] text-black text-lg bg-white shadow-dashBoardCardImageShadow"
             type="text"
             placeholder=" NGO-DARPAN ID (STATE/YEAR/ID)"
-            value={websiteLink}
+            value={darpanid}
             onChange={(e) => {
               setError("");
-              setWebsite(e.target.value);
+              setDarpanid(e.target.value);
             }
             }
           />
@@ -194,18 +194,7 @@ function NgoRegisterForm() {
               successText="Logging In"
               errorText="Register"
               messageDuration={3000}
-              onClick={async () => {
-                // console.log(
-                //   orgName,
-                //   phoneNumber,
-                //   email,
-                //   emergency,
-                //   password,
-                //   animalSupported,
-                //   lcation,
-                //   websiteLink,
-                //   latitude,
-                //   longitude);           
+              onClick={async () => {   
                 registration(
                   orgName,
                   phoneNumber,
@@ -214,13 +203,12 @@ function NgoRegisterForm() {
                   password,
                   animalSupported,
                   lcation,
-                  websiteLink,
+                  darpanid,
                   latitude,
                   longitude,
                   setError,
                   setButtonState
                 );
-                //   console.log("BAKA"); hai hai subarashi
               }}
             />
              {error && <p className="absolute top-[-25px] tracking-wide text-red-500 font-semibold text-center">{error}</p>}

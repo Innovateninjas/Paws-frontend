@@ -20,7 +20,7 @@ import { ngoValidator } from "./ngoValidator";
  * @returns {void}
  * @throws {Error} Throws an error if the email or phone number is not valid or if there's an error during the registration process.
  */
-export const registration = async (orgName, phoneNumber, email, emergency, password,animalSupported, location, websiteLink, latitude, longitude, setError, setButtonState) => {
+export const registration = async (orgName, phoneNumber, email, emergency, password,animalSupported, location, darpanid, latitude, longitude, setError, setButtonState) => {
     // Validate the email address
     if (!isValidEmail(email)) {
         setError("Enter a valid email address.");
@@ -37,7 +37,7 @@ export const registration = async (orgName, phoneNumber, email, emergency, passw
         setError("Enter a valid emergency contact number.");
         return;
     }
-    if (!(await ngoValidator(websiteLink, setError))) {
+    if (!(await ngoValidator(darpanid, setError))) {
         setError("Enter a valid DARPAN ID");
         return;
     }
@@ -57,9 +57,9 @@ export const registration = async (orgName, phoneNumber, email, emergency, passw
                 email: email,
                 password: password,
                 emergency_contact_number: emergency,
-                animals_supported: animalSupported, // You need to replace this with the actual data
-                website: websiteLink,
-                address: location, //You need to replace this with the actual data
+                animals_supported: animalSupported, 
+                website: darpanid,
+                address: location, 
                 latitude: latitude, 
                 longitude: longitude,
             }
