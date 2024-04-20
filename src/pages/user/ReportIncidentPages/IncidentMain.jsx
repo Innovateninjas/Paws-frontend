@@ -3,7 +3,7 @@ import axios from "axios";
 import isValidPhoneNumber from "../../../utils/Functions/phoneNumberValidator";
 import isValidEmail from "../../../utils/Functions/emailValidator";
 import ImageAndLocationPage from "./ImageAndLocationPage";
-import AnimalDetailsPage from "./AnimalDetailsPage";
+import AnimalDetailsPage from "./AnimalDetailsPage/AnimalDetailsPage";
 import ContactInformationPage from "./ContactInformationPage";
 import SuccessPage from "./SuccessPage";
 import { UserContext } from "../../../utils/contexts/UserContext";
