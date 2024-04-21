@@ -1,4 +1,4 @@
-
+ 
 <h1 align="center">PAWS</h1>
 <h3 align="center">"Pause To Save Paws"</h3>
 
@@ -73,15 +73,15 @@ Please Contact us at : [email](Innovateninjas@gmail.com)
 
 <table>
   <tr>
-<td align="center"><a href="https://github.com/shreyashaw05"><img src="https://avatars.githubusercontent.com/u/141901560?v=4" width="80px;" alt="Shreya Shaw"/><br /><sub><b>Shreya  </b></sub></a></td>
+<td align="center"><a href="https://github.com/shreyashaw05"><img src="https://avatars.githubusercontent.com/u/141901560?v=4" width="100px;" alt="Shreya Shaw"/><br /><sub><b>Shreya  </b></sub></a></td>
 
-<td align="center"><a href="https://github.com/codewarnab"><img src="https://avatars.githubusercontent.com/u/94959855?v=4" width="80px;" alt="Arnab Mondal"/><br /><sub><b>Arnab</b></sub></a></td>
+<td align="center"><a href="https://github.com/codewarnab"><img src="https://avatars.githubusercontent.com/u/94959855?v=4" width="100px;" alt="Arnab Mondal"/><br /><sub><b>Arnab</b></sub></a></td>
  
-<td align="center"><a href="https://github.com/rishicds"><img src="https://avatars.githubusercontent.com/u/124495375?v=4" width="80px;" alt="Rishi Paul"/><br /><sub><b>Rishi</b></sub></a></td>
+<td align="center"><a href="https://github.com/rishicds"><img src="https://avatars.githubusercontent.com/u/124495375?v=4" width="100px;" alt="Rishi Paul"/><br /><sub><b>Rishi</b></sub></a></td>
 
-<td align="center"><a href="https://github.com/anirbanmajumder0"><img src="https://avatars.githubusercontent.com/u/81350357?v=4"  width="80px;" alt="Anirban"/><br /><sub><b>Anirban</b></sub></a></td>
+<td align="center"><a href="https://github.com/anirbanmajumder0"><img src="https://avatars.githubusercontent.com/u/81350357?v=4"  width="100px;" alt="Anirban"/><br /><sub><b>Anirban</b></sub></a></td>
   
-<td align="center"><a href="https://github.com/debayudh07"><img src="https://avatars.githubusercontent.com/u/143015409?v=4"  width="80px;" alt="Anirban"/><br /><sub><b>Debayudh</b></sub></a></td>
+<td align="center"><a href="https://github.com/debayudh07"><img src="https://avatars.githubusercontent.com/u/143015409?v=4"  width="100px;" alt="Anirban"/><br /><sub><b>Debayudh</b></sub></a></td>
   
  </tr>
 </table>
