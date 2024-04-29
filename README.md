@@ -32,6 +32,11 @@
 Our project, **Paws**, is driven by a deep concern for animal welfare. Witnessing the challenges faced by animals worldwide, we were inspired to create a platform that enables users to report injured animals and connect them with the necessary assistance. Through **Paws**, we aim to raise awareness, foster compassion, and make a positive impact in the lives of animals in need.
 
 **Paws** was developed during the Smart Bengal Hackathon 2024 and proudly emerged as one of the finalist apps. This recognition further fuels our commitment to advancing animal welfare and leveraging technology for social good.
+
+
+# Demo
+> 📸 Watch the video on [YouTube](https://youtu.be/vrhiuxCzyQY)
+
 ## Features of Paws at a Glance
 
 
