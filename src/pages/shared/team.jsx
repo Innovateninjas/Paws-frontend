@@ -1,7 +1,6 @@
 import React from 'react';
 
 const TeamPage = () => {
-  // Sample team data
   const teamMembers = [
     {
       name: "Rishi Paul",
@@ -15,12 +14,31 @@ const TeamPage = () => {
     },
     {
       name: "Aditi Ghosh",
-      position: "UI Developer",
+      position: "Frontend Developer & Ui/Ux Designer",
       image: "https://res.cloudinary.com/dff97ky68/image/upload/v1714333558/WhatsApp_Image_2024-04-29_at_12.31.12_AM_ohouce.jpg",
       featureText: "Code Fearlessly, Innovate Relentlessly.",
       socialLinks: {
         linkedin: "https://www.linkedin.com/in/aditighosh2005",
         github: "https://github.com/GhoshAditi"
+      }
+    },
+    {
+      name: "Arnab Mondal",
+      position: "Frontend Developer",
+      image: "https://media.licdn.com/dms/image/D5603AQF1SG1K-VPsTg/profile-displayphoto-shrink_800_800/0/1699975516118?e=1717027200&v=beta&t=ZLzBL-4382gD16CTtZhR9aEEz6El5CBF8L_ImUUVz3w",
+      featureText: "it's not a bug; it's an undocumented feature",
+      socialLinks: {
+        linkedin: "https://in.linkedin.com/in/arnab-mondal-117616278",
+        github: "https://github.com/codewarnab"
+      }
+    },
+    {
+      name: "Sutanuka Chakraborty",
+      position: "UI/UX Designer",
+      image: "https://media.licdn.com/dms/image/D4D03AQHYnR-kriTWSQ/profile-displayphoto-shrink_200_200/0/1713470417629?e=1718841600&v=beta&t=CayRuA_fpxqoUydhR-bMDvhAa2bnah_9Lvm_KbsV61k",
+      featureText: 'Make sure to always "make it pop"!',
+      socialLinks: {
+        linkedin: "https://www.linkedin.com/in/sutanuka-chakraborty-148744275/",
       }
     },
     {
@@ -43,25 +61,7 @@ const TeamPage = () => {
         github: "https://github.com/shreyashaw05"
       }
     },
-    {
-      name: "Arnab Mondal",
-      position: "Frontend Developer",
-      image: "https://media.licdn.com/dms/image/D5603AQF1SG1K-VPsTg/profile-displayphoto-shrink_800_800/0/1699975516118?e=1717027200&v=beta&t=ZLzBL-4382gD16CTtZhR9aEEz6El5CBF8L_ImUUVz3w",
-      featureText: "it's not a bug; it's an undocumented feature",
-      socialLinks: {
-        linkedin: "https://in.linkedin.com/in/arnab-mondal-117616278",
-        github: "https://github.com/codewarnab"
-      }
-    },
-    {
-      name: "Sutanuka Chakraborty",
-      position: "UI/UX Designer",
-      image: "https://media.licdn.com/dms/image/D4D03AQHYnR-kriTWSQ/profile-displayphoto-shrink_200_200/0/1713470417629?e=1718841600&v=beta&t=CayRuA_fpxqoUydhR-bMDvhAa2bnah_9Lvm_KbsV61k",
-      featureText: 'Make sure to always "make it pop"!',
-      socialLinks: {
-        linkedin: "https://www.linkedin.com/in/sutanuka-chakraborty-148744275/",
-      }
-    },
+
     
     {
       name: "Debayudh Basu",
