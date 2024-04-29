@@ -4,7 +4,7 @@ const TeamPage = () => {
   const teamMembers = [
     {
       name: "Rishi Paul",
-      position: "AI Engineer",
+      position: "AI Engineer and Full Stack Developer",
       image: "https://media.licdn.com/dms/image/D5603AQFcc8_vrp3w-Q/profile-displayphoto-shrink_800_800/0/1714159671557?e=1720051200&v=beta&t=fWJEx0tXqTQdx1xN63fDZW50kS_LAZStD9TyF67le_k",
       featureText: "Tests in Production, because who needs that silly staging environment anyway?",
       socialLinks: {
@@ -14,7 +14,7 @@ const TeamPage = () => {
     },
     {
       name: "Aditi Ghosh",
-      position: "Frontend Developer & Ui/Ux Designer",
+      position: "Frontend Developer & UI/UX Designer",
       image: "https://res.cloudinary.com/dff97ky68/image/upload/v1714333558/WhatsApp_Image_2024-04-29_at_12.31.12_AM_ohouce.jpg",
       featureText: "Code Fearlessly, Innovate Relentlessly.",
       socialLinks: {
@@ -53,7 +53,7 @@ const TeamPage = () => {
     },
     {
       name: "Shreya Shaw",
-      position: "Frontend Developer & Ui/Ux Designer",
+      position: "Frontend Developer & UI/UX Designer",
       image: "https://media.licdn.com/dms/image/D5603AQFAH-ciYtM0ZA/profile-displayphoto-shrink_800_800/0/1711645818457?e=1717027200&v=beta&t=lQ0H6HJRfpEhlorEc4OhMNNC_sPgSQTDtPHgq47M9K4",
       featureText: "Code, Create, Conquer - Engineering the Future..",
       socialLinks: {
@@ -65,7 +65,7 @@ const TeamPage = () => {
     
     {
       name: "Debayudh Basu",
-      position: "Frontend Developer",
+      position: "Frontend and Payments Developer",
       image: "https://media.licdn.com/dms/image/D5603AQE3L9nP5ZM_vg/profile-displayphoto-shrink_800_800/0/1708620931019?e=1717027200&v=beta&t=mJwwcnkLJNBYUAa4vzFqXGe0C4TVOAwD5iD9eJih0lY",
       featureText: "Who needs cocaine when you can sniff HTTP requests?",
       socialLinks: {
@@ -76,7 +76,7 @@ const TeamPage = () => {
     
     {
       name: "Chandrima Ghosh",
-      position: "QA & testing Engineer",
+      position: "QA & Testing Engineer",
       image: "https://media.licdn.com/dms/image/D5603AQGQNKUH0VzDMQ/profile-displayphoto-shrink_800_800/0/1698230927367?e=1717027200&v=beta&t=7y20D_MiqLSOFHBFg-hdvxYBqnrUOiiXdIGfBCXa4qk",
       featureText: "Engineering the world differently.",
       socialLinks: {
