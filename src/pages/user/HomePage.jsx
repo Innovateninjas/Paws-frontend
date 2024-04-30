@@ -57,7 +57,7 @@ function LandingPage() {
                     </div>
                     <img
 
-                        className="mx-auto my-auto w-72 h-72 md:w-32 backdrop-blur"
+                        className="mx-auto my-auto h-72 backdrop-blur"
                         src="./images/paws.webp"
                         alt="Paws"
                     />
