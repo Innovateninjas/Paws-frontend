@@ -70,7 +70,7 @@ Please Contact us at : [email](Innovateninjas@gmail.com)
 
 
 ## Contributing 👨‍💻 
-### Check Out   [CONTRIBUTING.md](/Contribution.md)
+### Check Out   [CONTRIBUTING.md](/CONTRIBUTING.md)
 
 
 
