@@ -14,6 +14,55 @@ import { auth } from "../../firebase";
  * @param {Function} setButtonState - A function to set the state of the login button (idle/loading/success/error).
  * @returns {void}
  */
+export const googleLogin = async (setError, setButtonState) => {
+  try {
+    // Clear any previous error message and set button state to loading
+    setError("");
+    setButtonState("loading");
+
+    const url = process.env.REACT_APP_BACKEND_URL;
+    // Send a POST request to the registration endpoint with user data
+
+    // Sign in with Google provider
+    const provider = new GoogleAuthProvider();
+    const result = await signInWithPopup(auth, provider);
+
+    // Extract user data from the authentication result
+    const user = result.user;
+    const name = user.displayName;
+    const email = user.email;
+    console.log(name, user, email);
+    const response = await axios.post(`${url}/login/`, {
+      email: email,
+      password: "0000",
+    });
+    // Redirect or handle the successful signup process
+    // For example, you can save user data to database and redirect user
+    setButtonState("success");
+    const token = response.data.token;
+    const userType = response.data.is_ngo ? "ngo" : "user";
+    requestPermission();
+    if (userType === "ngo") {
+      window.location.href = "/stats";
+    } else {
+      window.location.href = "/";
+    }
+    // Save token to local storage and redirect user to home page
+    localStorage.setItem("csrftoken", token);
+    localStorage.setItem("userType", userType);
+  } catch (error) {
+    // Set button state to error and handle error message
+    setButtonState("error");
+    if (error.response && error.response.data.error) {
+      setError(error.response.data.error);
+    } else if (error.message === "Network Error") {
+      setError("Network error.Please check your internet connection.");
+    } else {
+      setError("An error occurred while logging in.");
+    }
+  }
+};
+
 export const login = async (email, password, setError, setButtonState) => {
   // Validate the email address
   if (!isValidEmail(email)) {

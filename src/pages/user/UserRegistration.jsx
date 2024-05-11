@@ -4,6 +4,7 @@ import InputField from "../../Components/shared/InputField";
 import ReactiveButton from "reactive-button";
 import Background from "../../Components/shared/Background";
 import {
+  googleLogin,
   googleSignup,
   login,
   registration,
@@ -21,6 +22,7 @@ function LoginRegisterForm() {
   }
 
   const googleButtonStyle = {
+    borderRadius: "40px",
     display: "flex",
     borderRadius: "4px",
     background: "#FFFFFF", // Google White
@@ -207,23 +209,67 @@ function LoginRegisterForm() {
               </>
             )}
             {isLogin && (
-              <div className="w-screen relative mt-7 h-fit flex justify-center">
-                <ReactiveButton
-                  style={customButtonStyle}
-                  buttonState={state}
-                  idleText="Login"
-                  loadingText="wait.."
-                  successText="Logging In"
-                  errorText="Login"
-                  onClick={async () =>
-                    login(email, password, setError, setButtonState)
-                  }
-                />
-                {error && (
-                  <p className="absolute w-screen top-[-40px] tracking-wide text-red-500 font-semibold text-center">
-                    {error}
-                  </p>
-                )}
+              <div>
+                <div className="w-screen relative mt-7 h-fit flex justify-center">
+                  <ReactiveButton
+                    style={customButtonStyle}
+                    buttonState={state}
+                    idleText="Login"
+                    loadingText="wait.."
+                    successText="Logging In"
+                    errorText="Login"
+                    onClick={async () =>
+                      login(email, password, setError, setButtonState)
+                    }
+                  />
+                  {error && (
+                    <p className="absolute w-screen top-[-40px] tracking-wide text-red-500 font-semibold text-center">
+                      {error}
+                    </p>
+                  )}
+                </div>
+                <div className="w-screen relative mt-10 h-fit flex justify-center">
+                  <ReactiveButton
+                    style={{ ...googleButtonStyle }} // Spread the styles                  buttonState={googleButtonState}
+                    idleText={
+                      <div
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}
+                      >
+                        <img
+                          src="/images/search.png"
+                          alt="Google Icon"
+                          style={{
+                            marginRight: "5px",
+                            width: "24px",
+                            height: "24px",
+                          }} // Adjust width and height as needed
+                        />
+                        Sign In with Google
+                      </div>
+                    }
+                    loadingText={
+                      <>
+                        <img
+                          src="path_to_your_external_icon_image"
+                          alt="Google Icon"
+                          style={{
+                            marginRight: "5px",
+                            width: "24px",
+                            height: "24px",
+                          }} // Adjust width and height as needed
+                        />
+                        Signing In with Google
+                      </>
+                    }
+                    successText="Signing In with Google"
+                    errorText="Sign up with Google"
+                    onClick={async () => googleLogin(setError, setButtonState)}
+                  />
+                </div>
               </div>
             )}
           </form>
