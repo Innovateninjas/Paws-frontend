@@ -10,8 +10,6 @@ import {
   registration,
 } from "../../utils/Functions/userAuthService";
 import LoginTextLink from "../../Components/shared/LoginTextLink";
-import { AlignHorizontalLeft } from "@mui/icons-material";
-import { left } from "@cloudinary/url-gen/qualifiers/textAlignment";
 
 function LoginRegisterForm() {
   const location = useLocation();
@@ -24,7 +22,6 @@ function LoginRegisterForm() {
   const googleButtonStyle = {
     borderRadius: "40px",
     display: "flex",
-    borderRadius: "4px",
     background: "#FFFFFF", // Google White
     color: "#3f3f3f", // Google Gray
     padding: "10px 10px",
@@ -54,7 +51,6 @@ function LoginRegisterForm() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [state, setButtonState] = useState("idle");
-  const [googleButtonState, setGoogleButtonState] = useState("idle");
 
   useEffect(() => {
     setError("");
