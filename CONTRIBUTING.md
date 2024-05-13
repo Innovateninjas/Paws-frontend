@@ -47,5 +47,5 @@
 
 **System Design**
 - to understand how its working please take a look at [Paws System Design](https://excalidraw.com/#json=GMHuRPYEPAvFAn5xM4ok8,8w53-nnoWQeDL0hPE86s9A)
-For setting up backend please refer to [Paws Backend](https://github.com/Innovateninjas/Paws-Backend)
+For setting up backend please refer to [Paws Backend](https://github.com/Innovateninjas/Paws-Backend) for any kind of help regarding backend please create a [discussion](https://github.com/Innovateninjas/Paws-Backend/discussions)  their mention our backend dev [@anirbanmajumder0](https://github.com/anirbanmajumder0)
 
