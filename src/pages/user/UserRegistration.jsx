@@ -127,7 +127,7 @@ function LoginRegisterForm() {
                 idleText="Register"
                 loadingText="wait.."
                 successText="Logging In"
-                errorText="Register"
+                errorText="Register" 
                 messageDuration={3000}
                 onClick={async () =>
                   registration(
