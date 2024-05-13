@@ -12,7 +12,7 @@ function Dashboard() {
   const { NgoData } = useContext(NgoContext);
   const [reports, setReports] = useState([]);
   const [length, setLength] = useState();
-  const [statusOptions] = useState(["Received", "In Progress","Not Found", "Rescued","dead"]);
+  const [statusOptions] = useState(["Received", "In Progress", "Not Found", "Rescued", "dead"]);
   const [isLoading, setIsLoading] = useState(true);
   const [categories, setCategories] = useState([]);
   const [clicked, setClicked] = useState([false, false, false]);
@@ -56,7 +56,7 @@ function Dashboard() {
 
     const unsubscribe = onMessage(messaging, async (payload) => {
       console.log("Background message received:", payload);
-      if (payload.notification.body ==="A new report has been made near you."){
+      if (payload.notification.body === "A new report has been made near you.") {
         await fetchReports();
         toast.success(`New report received near you.`);
       }
@@ -68,8 +68,6 @@ function Dashboard() {
       unsubscribe();
     };
   }, [NgoData]);
-
-
 
   // Function to toggle report card expansion
   const toggleExpand = (id) => {
@@ -92,7 +90,6 @@ function Dashboard() {
     setCategories((prevState) => {
       let newCategories = [...prevState];
       if (!newCategories.includes(category[index])) {
-        // newCategories.pop()
         newCategories.unshift(category[index]);
       } else {
         newCategories = newCategories.filter((cat) => cat !== category[index]);
@@ -100,6 +97,7 @@ function Dashboard() {
       return newCategories;
     })
   };
+
   return (
     <>
       <ToastContainer position="top-right" autoClose={5000} />
@@ -111,30 +109,30 @@ function Dashboard() {
         <h2 className="mb-2 mt-3 mx-auto text-5xl font-bayon line-heigh-[6.9rem] text-[#40025D] tracking-widest">
           NGO Dashboard
         </h2>
-       {/* FITER */}
+        {/* FILTER */}
         {reports.length > 0 && (
           <div className="flex w-full justify-around px-2 py-3 ">
-         {category.map((category, index) => {
-  const categoryCount = reports.filter(report => report.status === category).length;
-  return (
-    <button
-      key={index}
-      className={`${clicked[index] ? 'bg-gray-400' : 'bg-gray-300'} bg-opacity-47 px-3 py-1 border border-gray-400 relative text-[20px] shadow-dashBoardCardImageShadow font-ChauPhilomeneOne rounded-[10px]`}
-      onClick={() => {
-        handle(index);
-      }}
-    >
-      {category} 
-      {categoryCount > 0 && category !== 'Rescued' && (
-        <div className="px-2 py-[3px] text-center" style={{ position: 'absolute', top: '-16px', right: '-8px', backgroundColor: 'red',fontSize:'14px',borderRadius: '50%', color: 'white' }}>
-          {categoryCount}
-        </div>
-      )}
-    </button>
-  );
-})}
+            {category.map((category, index) => {
+              const categoryCount = reports.filter(report => report.status === category).length;
+              return (
+                <button
+                  key={index}
+                  className={`${clicked[index] ? 'bg-gray-400' : 'bg-gray-300'} bg-opacity-47 px-3 py-1 border border-gray-400 relative text-[20px] shadow-dashBoardCardImageShadow font-ChauPhilomeneOne rounded-[10px]`}
+                  onClick={() => {
+                    handle(index);
+                  }}
+                >
+                  {category}
+                  {categoryCount > 0 && category !== 'Rescued' && (
+                    <div className="px-2 py-[3px] text-center" style={{ position: 'absolute', top: '-16px', right: '-8px', backgroundColor: 'red', fontSize: '14px', borderRadius: '50%', color: 'white' }}>
+                      {categoryCount}
+                    </div>
+                  )}
+                </button>
+              );
+            })}
           </div>
-        )}   
+        )}
         {/* Render loading skeleton or report cards */}
         {isLoading ? (
           // Loading Skeletons
@@ -148,34 +146,36 @@ function Dashboard() {
         ) : length === 0 ? (
           // No reports assigned message
           <p className="text-2xl text-center font-bayon tracking-widest mt-[15rem]">NO REPORTS ASSIGNED YET.</p>
+        ) : categories.length !== 0 ? (
+          reports
+            .filter((elem) => categories.includes(elem.status))
+            .map((report, index) => (
+              <CardItem
+                key={report.id}
+                report={report}
+                index={index}
+                statusOptions={statusOptions}
+                toggleExpand={toggleExpand}
+                setReports={setReports}
+              />
+            )) || (
+            // Display message when there are no reports in the selected categories
+            <p className="text-2xl text-center font-bayon tracking-widest mt-[15rem]">
+              No report is {categories.join(" or ")}
+            </p>
+          )
         ) : (
-          /* RENDERING ON BASIS OF CATEGORIES */
-              categories.length !== 0 ? (
-                reports.filter((elem) => categories.includes(elem.status)).map((report, index) => (
-                  
-                  <CardItem
-                    key={report.id}
-                    report={report}
-                    index={index}
-                    statusOptions={statusOptions}
-                    toggleExpand={toggleExpand}
-                    setReports={setReports}
-                  />
-                ))
-              ) : (
-                reports.map((report, index) => (
-                  <CardItem
-                    key={report.id}
-                    report={report}
-                    index={index}
-                    statusOptions={statusOptions}
-                    toggleExpand={toggleExpand}
-                    setReports={setReports}
-                  />
-                ))
-              )
-
-        )}         
+          reports.map((report, index) => (
+            <CardItem
+              key={report.id}
+              report={report}
+              index={index}
+              statusOptions={statusOptions}
+              toggleExpand={toggleExpand}
+              setReports={setReports}
+            />
+          ))
+        )}
         <div className="bottom-0 h-32 right-0 p-5">
         </div>
       </div>
