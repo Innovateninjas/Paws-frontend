@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import InputField from "../../Components/shared/InputField";
-import ReactiveButton from "reactive-button";
 import Background from "../../Components/shared/Background";
+import './button.css'
 import {
   login,
   registration,
@@ -15,19 +15,6 @@ function LoginRegisterForm() {
   if (location.pathname === "/register") {
     isLogin = !isLogin;
   }
-
-  const customButtonStyle = {
-    borderRadius: "40px",
-    background: "linear-gradient(to bottom, #16a34a, #15803d)",
-    padding: "20px 40px",
-    marginTop: "0.675rem",
-    fontSize: "22px",
-    fontWeight: "800",
-    boxShadow: "rgb(38, 57, 77) 0px 15px 30px -10px",
-    letterSpacing: "0.2rem",
-    width:"fit-content",
-    margin:"auto"
-  };
   const [name, setname] = useState("");
   const [phone_number, setPhone_number] = useState("");
   const [email, setEmail] = useState("");
@@ -103,14 +90,8 @@ function LoginRegisterForm() {
         {!isLogin && (
           <>
             <div className="w-screen relative h-[70px] mt-5 flex justify-center">
-              <ReactiveButton
-                style={customButtonStyle}
-                buttonState={state}
-                idleText="Register"
-                loadingText="wait.."
-                successText="Logging In"
-                errorText="Register"
-                messageDuration={3000}
+              <button
+              className="loginSignupButton"
                 onClick={async () =>
                   registration(
                     name,
@@ -121,7 +102,7 @@ function LoginRegisterForm() {
                     setButtonState
                   )
                 }
-              />
+              >Register</button>
       {error && <p className="absolute top-[-25px] w-screen tracking-wide text-red-500 font-semibold text-center">{error}</p>}
             </div>
           </>
@@ -140,17 +121,12 @@ function LoginRegisterForm() {
         )}
         {isLogin && (
           <div className="w-screen relative mt-7 h-fit flex justify-center">
-          <ReactiveButton
-            style={customButtonStyle}
-            buttonState={state}
-            idleText="Login"
-            loadingText="wait.."
-            successText="Logging In"
-            errorText="Login"
+          <button
+          className="loginSignupButton"
             onClick={async () =>
               login(email, password, setError, setButtonState)
             }
-          />
+          >Login</button>
           {error && <p className="absolute w-screen top-[-40px] tracking-wide text-red-500 font-semibold text-center">{error}</p>}
           </div>
         )}

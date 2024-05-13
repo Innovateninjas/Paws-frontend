@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import InputField from "../../../Components/shared/InputField";
-import ReactiveButton from "reactive-button";
 import Creatable from "react-select/creatable";
 import { registration } from "../../../utils/Functions/ngoAuthService";
 import LoginTextLink from "../../../Components/shared/LoginTextLink";
@@ -10,18 +9,6 @@ import Background from "../../../Components/shared/Background";
 
 // import { shadow } from "@cloudinary/url-gen/actions/effect";]
 function NgoRegisterForm() {
-  const customButtonStyle = {
-    borderRadius: "40px",
-    background: "linear-gradient(to bottom, #16a34a, #15803d)",
-    padding: "20px 40px",
-    marginTop: "0.675rem",
-    fontSize: "19px",
-    fontWeight: "700",
-    boxShadow: "rgb(38, 57, 77) 0px 15px 30px -10px",
-    letterSpacing: "0.2em",
-    width: "fit-content",
-    margin: "auto",
-  };
 
   const [orgName, setFullName] = useState("");
   const [animalSupported, setanimalSupported] = useState([]);
@@ -203,14 +190,8 @@ function NgoRegisterForm() {
           </>
           <>
             <div className="w-screen relative flex justify-center">
-              <ReactiveButton
-                style={customButtonStyle}
-                buttonState={state}
-                idleText="Register"
-                loadingText="wait.."
-                successText="Logging In"
-                errorText="Register"
-                messageDuration={3000}
+              <button
+          className="loginSignupButton"
                 onClick={async () => {
                   registration(
                     orgName,
@@ -227,7 +208,7 @@ function NgoRegisterForm() {
                     setButtonState
                   );
                 }}
-              />
+              >Register</button>
               {error && (
                 <p className="absolute top-[-25px] tracking-wide text-red-500 font-semibold text-center">
                   {error}
