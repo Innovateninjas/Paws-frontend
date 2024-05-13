@@ -146,10 +146,26 @@ function Dashboard() {
         ) : length === 0 ? (
           // No reports assigned message
           <p className="text-2xl text-center font-bayon tracking-widest mt-[15rem]">NO REPORTS ASSIGNED YET.</p>
-        ) : categories.length !== 0 ? (
-          reports
-            .filter((elem) => categories.includes(elem.status))
-            .map((report, index) => (
+        ) : (
+          categories.length !== 0 ? (
+            reports
+              .filter((elem) => categories.includes(elem.status))
+              .map((report, index) => (
+                <CardItem
+                  key={report.id}
+                  report={report}
+                  index={index}
+                  statusOptions={statusOptions}
+                  toggleExpand={toggleExpand}
+                  setReports={setReports}
+                />
+              )) || (
+              <p className="text-2xl text-center font-bayon tracking-widest mt-[15rem]">
+                No report is {categories.join(" or ")}
+              </p>
+            )
+          ) : (
+            reports.map((report, index) => (
               <CardItem
                 key={report.id}
                 report={report}
@@ -158,23 +174,8 @@ function Dashboard() {
                 toggleExpand={toggleExpand}
                 setReports={setReports}
               />
-            )) || (
-            // Display message when there are no reports in the selected categories
-            <p className="text-2xl text-center font-bayon tracking-widest mt-[15rem]">
-              No report is {categories.join(" or ")}
-            </p>
+            ))
           )
-        ) : (
-          reports.map((report, index) => (
-            <CardItem
-              key={report.id}
-              report={report}
-              index={index}
-              statusOptions={statusOptions}
-              toggleExpand={toggleExpand}
-              setReports={setReports}
-            />
-          ))
         )}
         <div className="bottom-0 h-32 right-0 p-5">
         </div>
