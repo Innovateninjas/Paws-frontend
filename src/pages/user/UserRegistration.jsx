@@ -8,6 +8,8 @@ import {
   registration,
 } from "../../utils/Functions/userAuthService";
 import LoginTextLink from "../../Components/shared/LoginTextLink";
+
+
 function LoginRegisterForm() {
   const location = useLocation();
 
@@ -37,6 +39,19 @@ function LoginRegisterForm() {
  useEffect(() => {
   setError("");
  },[isLogin])
+
+ const handleLoginClick = async () => {
+    if (!email) {
+      setError("Please enter a valid email");
+      return;
+    }
+    if (!password) {
+      setError("Please enter a valid password");
+      return;
+    }
+    login(email, password, setError, setButtonState);
+  };
+
   return (
     <>    
     <div  className="h-full w-screen flex items-center justify-center mb-[60px]">
@@ -70,8 +85,11 @@ function LoginRegisterForm() {
             />
           </>
         )}
+
+        
         {isLogin && 
         <>
+
         <h1 className=" mt-[60px] text-center pb-1 pl-2 pr-2 z-[3] text-indigo-900 font-bold tracking-wide text-[2.5em] underline "> Welcome Back</h1>
         </>
         
@@ -147,9 +165,7 @@ function LoginRegisterForm() {
             loadingText="wait.."
             successText="Logging In"
             errorText="Login"
-            onClick={async () =>
-              login(email, password, setError, setButtonState)
-            }
+            onClick={handleLoginClick} // Modified here
           />
           {error && <p className="absolute w-screen top-[-40px] tracking-wide text-red-500 font-semibold text-center">{error}</p>}
           </div>
@@ -164,3 +180,4 @@ function LoginRegisterForm() {
 }
 
 export default LoginRegisterForm;
+
