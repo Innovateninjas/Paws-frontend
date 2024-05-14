@@ -42,18 +42,6 @@ function LoginRegisterForm() {
 
 
 
- // handle the password
-const handleSubmit = (e) => {
-  e.preventDefault();
-  if (password !== confirmPassword) {
-    setError('Passwords do not match');
-  } else {
-    // Handle successful submission
-    console.log('Passwords match');
-  }
-};
-
-
   return (
     <>    
     <div  className="h-full w-screen flex items-center justify-center mb-[60px]">
