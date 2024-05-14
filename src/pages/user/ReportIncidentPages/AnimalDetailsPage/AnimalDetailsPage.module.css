@@ -1,9 +1,23 @@
-::-webkit-scrollbar {
-    display: none;
-}
+/* AnimalDetailsPage.module.css */
 
-input[type="radio"]:checked+label img {
-    border: 7px solid #37bfc99b;
-    /* border: 8.12px solid rgba(255, 255, 255, 1); */
-    box-shadow: 6px 5px 2px 2px rgba(0, 0, 0, 0.2);
-}
+.hovAni {
+    border: 2px solid red;
+    transform: scale(2);
+  }
+  
+  .hovAni:hover {
+    animation: oscillate-right 0.5s ease-in-out forwards;
+  }
+  
+  @keyframes oscillate-right {
+    0% {
+      transform: translateX(0) rotate(0deg);
+    }
+    50% {
+      transform: translateX(20px) rotate(10deg);
+    }
+    100% {
+      transform: translateX(0) rotate(0deg);
+    }
+  }
+  

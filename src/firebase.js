@@ -3,14 +3,13 @@ import { initializeApp } from "firebase/app";
 import { getMessaging  } from "firebase/messaging";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBgRI7QrEqlrtj94hZ-MKtYc77XunOc_9w",
-    authDomain: "paws-b9b64.firebaseapp.com",
-    projectId: "paws-b9b64",
-    storageBucket: "paws-b9b64.appspot.com",
-    messagingSenderId: "610215952536",
-    appId: "1:610215952536:web:4f832813ef5d58acb010ed",
-    measurementId: "G-3TBQ0B47KK"
-};
+    apiKey: "AIzaSyBbRhJ8JsZugYBIg3w4q1b8anombM4GAqA",
+    authDomain: "gssocfront.firebaseapp.com",
+    projectId: "gssocfront",
+    storageBucket: "gssocfront.appspot.com",
+    messagingSenderId: "247620976596",
+    appId: "1:247620976596:web:7ac35a089a00e468316041"
+  };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);

@@ -103,7 +103,7 @@ function AnimalDetailsPage({
     // A MASTER CONTAINER
     <div>
       <Background />
-      <h1 className="text-center mt-[20px] pb-1 z-[3] text-indigo-900 font-bold tracking-wide text-[2em] underline">
+      <h1 className="text-center mt-[20px] pb-1 z-[3]  text-indigo-900 font-bold tracking-wide text-[2em] ">
         Describe The Issue
       </h1>
       <div style={{ position: "relative", zIndex: 50 }}>
@@ -118,7 +118,7 @@ function AnimalDetailsPage({
       {/* contentsContainer */}
         <>
           <div className="relative z-[3] flex flex-col p-4 gap-5 mb-20  ">
-            <div className=" p-[10px] border-1 flex flex-col gap-[10px] rounded-3xl shadow-lg ring-1 ring-gray-300 bg-opacity-57 bg-white  backdrop-blur-[6px]">
+            <div className=" p-[10px] border-1 flex flex-col gap-[10px] rounded-3xl shadow-lg  bg-opacity-30  bg-white  backdrop-blur-[10px]">
               <label>
                 <p className="font-extrabold  text-indigo-900 pl-5 text-[1.4rem] leading-normal tracking-wider overflow-scroll">
                   {" "}
@@ -149,7 +149,7 @@ function AnimalDetailsPage({
                   <label htmlFor="dog">
                     <div className=" w-[80px] h-[80px] relative mb-[8px] ">
                       <img
-                        className="rounded-[50%] w-full  h-full object-cover object-center"
+                        className="rounded-[50%]   hovAni ring-1  ring-slate-800 w-full  h-full object-cover object-center"
                         src="./images/dog.jpg"
                         alt=""
                       />
