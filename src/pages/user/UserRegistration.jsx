@@ -32,11 +32,28 @@ function LoginRegisterForm() {
   const [phone_number, setPhone_number] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState("");
   const [state, setButtonState] = useState("idle");
  useEffect(() => {
   setError("");
  },[isLogin])
+
+
+
+
+ // handle the password
+const handleSubmit = (e) => {
+  e.preventDefault();
+  if (password !== confirmPassword) {
+    setError('Passwords do not match');
+  } else {
+    // Handle successful submission
+    console.log('Passwords match');
+  }
+};
+
+
   return (
     <>    
     <div  className="h-full w-screen flex items-center justify-center mb-[60px]">
@@ -99,6 +116,19 @@ function LoginRegisterForm() {
           }}
           required
         />
+
+      <InputField
+          className="placeholder-stone h-16 mt-5 bg-opacity-45 backdrop-blur-[6px] w-80 px-4 py-2 items-center outline-0 rounded-[30px] text-black text-lg bg-white shadow-dashBoardCardImageShadow"
+          type="password"
+          placeholder="confirm Password"
+          value={confirmPassword}
+          onChange={(e) => {
+            setError("");
+            setConfirmPassword(e.target.value);
+          }}
+          required
+        /> 
+         {error && <div style={{ color: 'red' }}>{error}</div>}
         
         {!isLogin && (
           <>
@@ -111,16 +141,23 @@ function LoginRegisterForm() {
                 successText="Logging In"
                 errorText="Register"
                 messageDuration={3000}
-                onClick={async () =>
-                  registration(
-                    name,
-                    phone_number,
-                    email,
-                    password,
-                    setError,
-                    setButtonState
-                  )
-                }
+                onClick={async () => {
+          if (password !== confirmPassword) {
+            setError('Passwords do not match');
+            setButtonState('idle');
+            return;
+          }
+          setError(null);
+          setButtonState('loading');
+          await registration(
+            name,
+            phone_number,
+            email,
+            password,
+            setError,
+            setButtonState
+          );
+        }}
               />
       {error && <p className="absolute top-[-25px] w-screen tracking-wide text-red-500 font-semibold text-center">{error}</p>}
             </div>
