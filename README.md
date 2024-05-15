@@ -6,14 +6,27 @@
 ![image](https://github.com/Innovateninjas/Paws-frontend/assets/124495375/c7e22ed2-c970-4aca-b622-9f7837163d33)
 
 <p align="center">About the project:</p>
-<p align="center">
-    <img src="https://img.shields.io/github/issues/Innovateninjas/Paws-frontend"> 
-    <img src="https://img.shields.io/github/issues-pr/Innovateninjas/Paws-frontend">
-    <img src="https://img.shields.io/github/forks/Innovateninjas/Paws-frontend">
-    <img src="https://img.shields.io/github/stars/Innovateninjas/Paws-frontend">
-    <!-- <img src="https://img.shields.io/github/license/akshitagupta15june/PetMe"> -->
-</p>
-<br>
+<table align="center">
+    <thead align="center">
+        <tr border: 1px;>
+            <td><b>🌟 Stars</b></td>
+            <td><b>🍴 Forks</b></td>
+            <td><b>🐛 Issues</b></td>
+            <td><b>🔔 Open PRs</b></td>
+            <td><b>🔕 Close PRs</b></td>
+        </tr>
+     </thead>
+    <tbody>
+         <tr>
+            <td><img alt="Stars" src="https://img.shields.io/github/stars/Innovateninjas/Paws-frontend?style=flat&logo=github"/></td>
+             <td><img alt="Forks" src="https://img.shields.io/github/forks/Innovateninjas/Paws-frontend?style=flat&logo=github"/></td>
+            <td><img alt="Issues" src="https://img.shields.io/github/issues/Innovateninjas/Paws-frontend?style=flat&logo=github"/></td>
+            <td><img alt="Open Pull Requests" src="https://img.shields.io/github/issues-pr/Innovateninjas/Paws-frontend?style=flat&logo=github"/></td>
+           <td><img alt="Close Pull Requests" src="https://img.shields.io/github/issues-pr-closed/Innovateninjas/Paws-frontend?style=flat&color=critical&logo=github"/></td>
+        </tr>
+    </tbody>
+</table>
+</div>
 <p align="center">Tech Stack:</p>
 <p align="center">
     <img src="https://img.shields.io/badge/-ReactJs-61DAFB?logo=react&logoColor=white&style=for-the-badge"> 
@@ -22,7 +35,20 @@
     <img src="https://img.shields.io/badge/firebase-ffca28?style=for-the-badge&logo=firebase&logoColor=black">
 </p>
 
+<h3> Featured In</h3>
 
+<table>
+
+   <tr>
+      <th>Event Name</th>
+      <th>Event Description</th>
+   </tr>
+   <tr>
+      <td>GirlScript Summer of Code 2024</td>
+      <td>GirlScript Summer of Code is a three-month-long Open Source Program conducted every summer by GirlScript Foundation. It is an initiative to bring more beginners to Open-Source Software Development.</td>
+   </tr>
+
+</table>
 
 
 
@@ -124,4 +150,14 @@ Paws is licensed under the GPL License - see the [LICENSE](LICENSE) file for det
 - [ChartJs](https://github.com/chartjs/Chart.js)
 - [React Leaflet](https://github.com/PaulLeCam/react-leaflet)
 
+<h2 align = "center">Our Contributors ❤️</h2>
+<div align = "center">
+ <h3>Thank you for contributing to our repository</h3>
 
+![Contributors](https://contrib.rocks/image?repo=Innovateninjas/Paws-frontend)
+
+### Show some ❤️ by starring this awesome repository!
+
+</div>
+
+  
