@@ -50,4 +50,4 @@
 For setting up backend please refer to [Paws Backend](https://github.com/Innovateninjas/Paws-Backend) for any kind of help regarding backend please create a [discussion](https://github.com/Innovateninjas/Paws-Backend/discussions)  their mention our backend dev [@anirbanmajumder0](https://github.com/anirbanmajumder0)
 
 # Gssoc'24 
- issues under gssoc24 time alloted is 5 days . if a issue needed more time we will mention it while assigning aftern alloted time is passed if no update is given issue will be assigned to other contributor 
+ issues under gssoc24 time alloted is 5 days . if a issue needed more time we will mention it while assigning after alloted time is passed if no update is given issue will be assigned to other contributor 
