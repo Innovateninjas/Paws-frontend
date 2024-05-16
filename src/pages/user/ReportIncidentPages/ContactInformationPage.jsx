@@ -87,7 +87,7 @@ function ContactInformationPage({
         </div>
         <p className="text-breeSerif xs:text-[16px] font-medium text-center w-9/10 mx-auto text-violet-900 cursor-pointer underline text-[18px]" onClick={() => setModalIsOpen(true)}>Learn why we need that data</p>
         <div className="flex justify-center gap-5 items-center w-full">
-          <Button text="Back" clas="tracking-wider  md:text-[23px] md:px-5 xs:text-[20px] xs:px-3  px-6 text-white focus:outline-none" onClick={handleBackPage}/>
+          <Button text="Back" clas="tracking-wider  md:text-[23px] md:px-7 xs:text-[20px] xs:px-6  px-9 text-white focus:outline-none" onClick={handleBackPage}/>
           <Button text="Submit" clas="tracking-wider md:text-[23px] md:px-5 xs:text-[20px] xs:px-3 px-6 text-white bg-gradient-to-b from-blue-600 to-blue-800 shadow-buttonShadow focus:outline-none" onClick={(e) => {
             if (validatePage()) {
               handleNextPage();
