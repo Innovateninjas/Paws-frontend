@@ -1,15 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import InputField from "../../Components/shared/InputField";
 import ReactiveButton from "reactive-button";
 import Background from "../../Components/shared/Background";
-import {
-  googleLogin,
-  googleSignup,
-  login,
-  registration,
-} from "../../utils/Functions/userAuthService";
+import { login, registration } from "../../utils/Functions/userAuthService";
 import LoginTextLink from "../../Components/shared/LoginTextLink";
+import checkPasswordStrength from "../../utils/Functions/passwordStrength";
+import { AiOutlineInfoCircle } from "react-icons/ai";
 
 function LoginRegisterForm() {
   const location = useLocation();
@@ -19,42 +16,46 @@ function LoginRegisterForm() {
     isLogin = !isLogin;
   }
 
-  const googleButtonStyle = {
-    borderRadius: "40px",
-    display: "flex",
-    background: "#FFFFFF", // Google White
-    color: "#3f3f3f", // Google Gray
-    padding: "10px 10px",
-    fontSize: "16px",
-    fontWeight: "bold",
-    boxShadow: "rgba(0, 0, 0, 0.1) 0px 1px 2px 0px",
-    cursor: "pointer",
-    border: "1px solid #dadce0", // Google Gray
-    transition: "background-color 0.2s, box-shadow 0.2s",
-  };
   const customButtonStyle = {
     borderRadius: "40px",
     background: "linear-gradient(to bottom, #16a34a, #15803d)",
-    padding: "10px 20px",
+    padding: "20px 40px",
     marginTop: "0.675rem",
     fontSize: "22px",
     fontWeight: "800",
     boxShadow: "rgb(38, 57, 77) 0px 15px 30px -10px",
     letterSpacing: "0.2rem",
     width: "fit-content",
-    margin: "0px",
+    margin: "auto",
   };
-
   const [name, setname] = useState("");
   const [phone_number, setPhone_number] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordStrength, setPasswordStrength] = useState("");
   const [error, setError] = useState("");
   const [state, setButtonState] = useState("idle");
-
+  const [showTooltip, setShowTooltip] = useState(false);
   useEffect(() => {
     setError("");
   }, [isLogin]);
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (showTooltip && !tooltipRef.current.contains(event.target)) {
+        // Clicked outside the tooltip, so hide it
+        setShowTooltip(false);
+      }
+    }
+    // Bind the event listener
+    document.addEventListener("mousedown", handleClickOutside);
+    // Unbind the event listener on cleanup
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [showTooltip]);
+
+  const tooltipRef = useRef(null);
   return (
     <>
       <div className="h-full w-screen flex items-center justify-center mb-[60px]">
@@ -63,7 +64,7 @@ function LoginRegisterForm() {
           <form className="flex gap-[20px] items-center justify-center flex-col">
             {!isLogin && (
               <>
-                <h1 className=" mt-[40px] text-center pb-1 pl-2 pr-2 z-[3] text-indigo-900 font-bold text-[2.5em] underline">
+                <h1 className=" mt-[60px] text-center pb-1 pl-2 pr-2 z-[3] text-indigo-900 font-bold text-[2.5em] underline">
                   Create account
                 </h1>
                 <InputField
@@ -93,7 +94,6 @@ function LoginRegisterForm() {
             {isLogin && (
               <>
                 <h1 className=" mt-[60px] text-center pb-1 pl-2 pr-2 z-[3] text-indigo-900 font-bold tracking-wide text-[2.5em] underline ">
-                  {" "}
                   Welcome Back
                 </h1>
               </>
@@ -118,9 +118,30 @@ function LoginRegisterForm() {
               onChange={(e) => {
                 setError("");
                 setPassword(e.target.value);
+                setPasswordStrength(checkPasswordStrength(e.target.value));
               }}
               required
             />
+
+            {!isLogin && password !== "" ? (
+              <span className="m-0 p-0 h-1 flex gap-2 relative">
+                Password strength: {passwordStrength}
+                <AiOutlineInfoCircle
+                  size={20}
+                  onClick={() => setShowTooltip(!showTooltip)}
+                  className="cursor-pointer"
+                />
+                {showTooltip && (
+                  <div
+                    ref={tooltipRef}
+                    className="absolute z-10 bg-slate-100 top-7 p-2 text-sm rounded"
+                  >
+                    Password strength depends on length, use of uppercase,
+                    lowercase, numbers, and special characters.
+                  </div>
+                )}
+              </span>
+            ) : null}
 
             {!isLogin && (
               <>
@@ -150,51 +171,11 @@ function LoginRegisterForm() {
                     </p>
                   )}
                 </div>
-                <ReactiveButton
-                  style={{ ...googleButtonStyle }} // Spread the styles                  buttonState={googleButtonState}
-                  idleText={
-                    <div
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                      }}
-                    >
-                      <img
-                        src="/images/search.png"
-                        alt="Google Icon"
-                        style={{
-                          marginRight: "5px",
-                          width: "24px",
-                          height: "24px",
-                        }} // Adjust width and height as needed
-                      />
-                      Sign up with Google
-                    </div>
-                  }
-                  loadingText={
-                    <>
-                      <img
-                        src="path_to_your_external_icon_image"
-                        alt="Google Icon"
-                        style={{
-                          marginRight: "5px",
-                          width: "24px",
-                          height: "24px",
-                        }} // Adjust width and height as needed
-                      />
-                      Signing In with Google
-                    </>
-                  }
-                  successText="Signing In with Google"
-                  errorText="Sign up with Google"
-                  onClick={async () => googleSignup(setError, setButtonState)}
-                />
               </>
             )}
             {!isLogin && (
               <>
-                <div className="w-screen h-fit flex flex-col mt-2 gap-1 items-center">
+                <div className="w-screen h-fit flex flex-col mt-3 gap-2 items-center">
                   <LoginTextLink />
                   <LoginTextLink
                     text={"Are you an NGO ?"}
@@ -205,67 +186,23 @@ function LoginRegisterForm() {
               </>
             )}
             {isLogin && (
-              <div>
-                <div className="w-screen relative mt-7 h-fit flex justify-center">
-                  <ReactiveButton
-                    style={customButtonStyle}
-                    buttonState={state}
-                    idleText="Login"
-                    loadingText="wait.."
-                    successText="Logging In"
-                    errorText="Login"
-                    onClick={async () =>
-                      login(email, password, setError, setButtonState)
-                    }
-                  />
-                  {error && (
-                    <p className="absolute w-screen top-[-40px] tracking-wide text-red-500 font-semibold text-center">
-                      {error}
-                    </p>
-                  )}
-                </div>
-                <div className="w-screen relative mt-10 h-fit flex justify-center">
-                  <ReactiveButton
-                    style={{ ...googleButtonStyle }} // Spread the styles                  buttonState={googleButtonState}
-                    idleText={
-                      <div
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                        }}
-                      >
-                        <img
-                          src="/images/search.png"
-                          alt="Google Icon"
-                          style={{
-                            marginRight: "5px",
-                            width: "24px",
-                            height: "24px",
-                          }} // Adjust width and height as needed
-                        />
-                        Sign In with Google
-                      </div>
-                    }
-                    loadingText={
-                      <>
-                        <img
-                          src="path_to_your_external_icon_image"
-                          alt="Google Icon"
-                          style={{
-                            marginRight: "5px",
-                            width: "24px",
-                            height: "24px",
-                          }} // Adjust width and height as needed
-                        />
-                        Signing In with Google
-                      </>
-                    }
-                    successText="Signing In with Google"
-                    errorText="Sign up with Google"
-                    onClick={async () => googleLogin(setError, setButtonState)}
-                  />
-                </div>
+              <div className="w-screen relative mt-7 h-fit flex justify-center">
+                <ReactiveButton
+                  style={customButtonStyle}
+                  buttonState={state}
+                  idleText="Login"
+                  loadingText="wait.."
+                  successText="Logging In"
+                  errorText="Login"
+                  onClick={async () =>
+                    login(email, password, setError, setButtonState)
+                  }
+                />
+                {error && (
+                  <p className="absolute w-screen top-[-40px] tracking-wide text-red-500 font-semibold text-center">
+                    {error}
+                  </p>
+                )}
               </div>
             )}
           </form>
