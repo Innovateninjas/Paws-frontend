@@ -191,7 +191,7 @@ function NgoRegisterForm() {
           <>
             <div className="w-screen relative flex justify-center">
               <button
-          className="loginSignupButton"
+                id="Form_button"
                 onClick={async () => {
                   registration(
                     orgName,
@@ -208,7 +208,19 @@ function NgoRegisterForm() {
                     setButtonState
                   );
                 }}
-              >Register</button>
+              >
+                <div class="original">Register</div>
+                     <div class="letters">
+                          <span>R</span>
+                          <span>E</span>
+                          <span>G</span>
+                          <span>I</span>
+                          <span>S</span>
+                          <span>T</span>
+                          <span>E</span>
+                          <span>R</span>
+                     </div>
+              </button>
               {error && (
                 <p className="absolute top-[-25px] tracking-wide text-red-500 font-semibold text-center">
                   {error}
