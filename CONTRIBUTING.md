@@ -3,7 +3,7 @@
 ###  How to contribute
 - Take a look at the existing [Issues](https://github.com/Innovateninjas/Paws-frontend) or [create a new issue](https://github.com/Innovateninjas/Paws-frontend/issues/new/choose)!
 - Fork the Repo. Then, create a branch for any issue that you are working on. Finally, commit your work.
-- Create a **[Pull Request](https://github.com/Innovateninjas/Paws-frontend)** (_PR_), which will be promptly reviewed and given suggestions for improvements by the community.
+- Create a **[Pull Request](https://github.com/Innovateninjas/Paws-frontend)** (_PR_), which will be promptly reviewed and given suggestions for improvements by the community.(request for review to [@codewarnab](https://github.com/codewarnab)
 - Add screenshots or screen captures to your Pull Request to help us understand the effects of the changes proposed in your PR.
 
 ### Setup && Installation
@@ -47,5 +47,7 @@
 
 **System Design**
 - to understand how its working please take a look at [Paws System Design](https://excalidraw.com/#json=GMHuRPYEPAvFAn5xM4ok8,8w53-nnoWQeDL0hPE86s9A)
-For setting up backend please refer to [Paws Backend](https://github.com/Innovateninjas/Paws-Backend)
+For setting up backend please refer to [Paws Backend](https://github.com/Innovateninjas/Paws-Backend) for any kind of help regarding backend please create a [discussion](https://github.com/Innovateninjas/Paws-Backend/discussions)  their mention our backend dev [@anirbanmajumder0](https://github.com/anirbanmajumder0)
 
+# Gssoc'24 
+ issues under gssoc24 time alloted is 5 days . if a issue needed more time we will mention it while assigning after alloted time is passed if no update is given issue will be assigned to other contributor 
