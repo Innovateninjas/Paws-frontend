@@ -3,6 +3,8 @@ import { useLocation } from "react-router-dom";
 import InputField from "../../Components/shared/InputField";
 import ReactiveButton from "reactive-button";
 import Background from "../../Components/shared/Background";
+import 'bootstrap-icons/font/bootstrap-icons.css';
+
 import {
   googleLogin,
   googleSignup,
@@ -51,6 +53,11 @@ function LoginRegisterForm() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [state, setButtonState] = useState("idle");
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(prevState => !prevState); // Toggle the visibility state
+  };
 
   useEffect(() => {
     setError("");
@@ -110,9 +117,10 @@ function LoginRegisterForm() {
               }}
               required
             />
+            <div style={{position:'relative'}}>
             <InputField
               className="placeholder-stone h-16 mt-5 bg-opacity-45 backdrop-blur-[6px] w-80 px-4 py-2 items-center outline-0 rounded-[30px] text-black text-lg bg-white shadow-dashBoardCardImageShadow"
-              type="password"
+              type={showPassword ? 'text' : 'password'}
               placeholder="Password"
               value={password}
               onChange={(e) => {
@@ -121,6 +129,21 @@ function LoginRegisterForm() {
               }}
               required
             />
+
+                <div
+                style={{
+                  position: 'absolute',
+                  top: '60%',
+                  right: '30px',
+                  transform: 'translateY(-50%)',
+                  cursor: 'pointer',
+                  
+                }}
+                onClick={togglePasswordVisibility}
+              >
+                {showPassword ?  <i className="bi bi-eye-slash"></i> : <i className="bi bi-eye"></i>}
+              </div>
+            </div>
 
             {!isLogin && (
               <>
