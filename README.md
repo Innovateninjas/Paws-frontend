@@ -71,7 +71,7 @@ Please Contact us at : [email](Innovateninjas@gmail.com)
 
 ## Contributing 👨‍💻 
 ### Check Out   [CONTRIBUTING.md](/CONTRIBUTING.md)
-### If your are a beginner check [LEARN.md](/LEARN.d)
+### If your are a beginner check [LEARN.md](/LEARN.md)
 
 
 
