@@ -14,10 +14,10 @@ import { Link } from "react-router-dom";
  */
 function LoginTextLink({ text, link, linkText, position, topPosition, bottomPosition ,leftPosition, rightPosition}) {
     return (
-        <p className="text-gray-700 text-[16px] font-bold">
+        <p className="text-gray-500 text-[16px] font-bold">
         
             {text || "Already have an account?"}
-            <Link to={link || "/login"} className="text-gray-200 tracking-wider text-sm font-medium underline inline-block mx-1">
+            <Link to={link || "/login"} className="text-sky-400 tracking-wider text-sm font-medium underline inline-block mx-1">
                 {linkText || "Login now!"}
             </Link>
         </p>

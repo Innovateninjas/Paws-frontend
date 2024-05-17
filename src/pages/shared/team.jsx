@@ -90,12 +90,12 @@ const TeamPage = () => {
   ];
 
   return (
-    <div className="bg-gradient-to-r from-blue-500 to-green-500 min-h-screen pb-8">
-      <div className="container mx-auto py-8">
+    <div className="bg-gradient-to-r from-blue-500 to-green-500 min-h-screen pd-4 pb-4">
+      <div className="container mx-auto px-4 py-8">
         <h2 className="text-3xl font-semibold text-center mb-8 text-white">Our Team</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-4 justify-center pb-4 md:px-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-center pb-4">
           {teamMembers.map((member, index) => (
-            <div key={index} className="z-[30] bg-white rounded-3xl bg-opacity-57 backdrop-blur-[5px] shadow-lg ring-1 ring-gray-300">
+            <div key={index} className="w-[23rem] z-[30] bg-white rounded-3xl bg-opacity-57 backdrop-blur-[5px] shadow-lg ring-1 ring-gray-300">
               <img className="w-60 mt-2 h-60 rounded-full border-4 border-emerald-500 mx-auto block" src={member.image} alt={member.name} />
               <div className="px-6 py-4 text-center">
                 <div className="font-bold text-xl mb-2">{member.name}</div>
