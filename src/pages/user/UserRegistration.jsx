@@ -63,7 +63,7 @@ function LoginRegisterForm() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [state, setButtonState] = useState("idle");
-
+  const[confirmpassword,setConfirmPassword]=useState("")
   useEffect(() => {
     setError("");
   }, [isLogin]);
@@ -139,6 +139,17 @@ function LoginRegisterForm() {
                 }}
                 required
               />
+             {!isLogin && <InputField
+                className="placeholder-stone h-16 mt-5 bg-opacity-45 w-80 px-4 py-2 items-center outline-0 border-b-2 border-blue-800 text-black text-lg bg-white shadow-dashBoardCardImageShadow"
+                type="password"
+                placeholder="Confirm Password"
+                value={confirmpassword}
+                onChange={(e) => {
+                  setError("");
+                  setConfirmPassword(e.target.value);
+                }}
+                required
+              />}
               {!isLogin && (
                 <>
                   <div className="w-screen relative h-[70px] mt-5 flex justify-center">
@@ -156,6 +167,7 @@ function LoginRegisterForm() {
                           phone_number,
                           email,
                           password,
+                          confirmpassword,
                           setError,
                           setButtonState
                         )

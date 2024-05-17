@@ -124,18 +124,38 @@ export const registration = async (
   phone_number,
   email,
   password,
+  confirmpassword,
   setError,
   setButtonState
 ) => {
   // Validate the email address
+  if (!name) {
+    setError("please enter name");
+    return;
+  }
+
+   // Validate the phone number
+   if (!isValidPhoneNumber(phone_number)) {
+    setError("Enter a valid phone number.");
+    return;
+  }
+  
   if (!isValidEmail(email)) {
     setError("Enter a valid email address.");
     return;
   }
 
-  // Validate the phone number
-  if (!isValidPhoneNumber(phone_number)) {
-    setError("Enter a valid phone number.");
+ 
+  if (!password) {
+    setError("please enter password");
+    return;
+  }
+  if (!confirmpassword) {
+    setError("please enter confirm password");
+    return;
+  }
+  if (password!=confirmpassword) {
+    setError("Both the passwords are not matching");
     return;
   }
 
