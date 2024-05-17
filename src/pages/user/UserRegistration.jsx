@@ -31,6 +31,19 @@ function LoginRegisterForm() {
     isLogin = !isLogin;
   }
 
+  const googleButtonStyle = {
+    borderRadius: "40px",
+    display: "flex",
+    background: "#FFFFFF", // Google White
+    color: "#3f3f3f", // Google Gray
+    padding: "10px 10px",
+    fontSize: "16px",
+    fontWeight: "bold",
+    boxShadow: "rgba(0, 0, 0, 0.1) 0px 1px 2px 0px",
+    cursor: "pointer",
+    border: "1px solid #dadce0", // Google Gray
+    transition: "background-color 0.2s, box-shadow 0.2s",
+  };
   const customButtonStyle = {
     borderRadius: "20px", // Adjust the border radius as needed
     background: "linear-gradient(to bottom, #b3d9ff, #3399ff)", // Adjust gradient colors
