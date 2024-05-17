@@ -7,6 +7,8 @@ import custBackgroundImage from "../user/imgs/pngtree-blue-pastel-background-pic
 import i1 from '../user/imgs/white-dog-pastel-blue-background-3d_89917-269.jpg';
 import { login, registration } from "../../utils/Functions/userAuthService";
 import LoginTextLink from "../../Components/shared/LoginTextLink";
+import Validator from 'validator';
+
 function CustomBackground({ image }) {
   const backgroundStyle = {
     position: "fixed",
@@ -56,6 +58,19 @@ function LoginRegisterForm() {
     width: "fit-content",
     margin: "auto",
   };
+  const validate=(value)=>{
+    console.log(value)
+    
+    if(Validator.isStrongPassword(value,{
+      minLength:8,minLowercase:1,minUppercase:1,minNumbers:1,minSymbols:1
+    })){
+      setErrorMessage('Password is acceptable')
+      // setPassword(value);
+    }else{
+      setErrorMessage('Is Not Strong Password , Should contain atleast one lowecase letter and atleast one uppercase letter and atleast one number and atleast one symbol and min length should be 8')
+    }
+  }
+  const [errorMessage,setErrorMessage]=useState("");
   
   const [name, setname] = useState("");
   const [phone_number, setPhone_number] = useState("");
@@ -136,9 +151,13 @@ function LoginRegisterForm() {
                 onChange={(e) => {
                   setError("");
                   setPassword(e.target.value);
+                  validate(e.target.value)
+                  setPassword(e.target.value);
                 }}
                 required
               />
+              {errorMessage===''?null:<span style={{fontWeight:'bold',color:'red'}}>{errorMessage}</span>}
+
               {!isLogin && (
                 <>
                   <div className="w-screen relative h-[70px] mt-5 flex justify-center">
@@ -150,6 +169,7 @@ function LoginRegisterForm() {
                       successText="Logging In"
                       errorText="Register"
                       messageDuration={3000}
+                      disabled={errorMessage==='Is Not Strong Password , Should contain atleast one lowecase letter and atleast one uppercase letter and atleast one number and atleast one symbol and min length should be 8'|| errorMessage===''}
                       onClick={async () =>
                         registration(
                           name,
@@ -161,7 +181,7 @@ function LoginRegisterForm() {
                         )
                       }
                     />
-                    {error && <p className="absolute top-[-25px] w-screen tracking-wide text-red-500 font-semibold text-center">{error}</p>}
+                    {error && <p className="absolute top-[-25px] w-screen tracking-wide text-red-500 font-semibold text-center" style={{marginLeft:'35%',marginRight:'35%'}}>{error}</p>}
                   </div>
                 </>
               )}
