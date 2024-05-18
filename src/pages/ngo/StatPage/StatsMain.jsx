@@ -52,10 +52,11 @@ function Stats() {
           {/* <h1 className='text-4xl text-[#40025D]  tracking-[8px] bold  font-bayon'>STATISTICS</h1> */}
           <h1 className='text-[3rem] text-white  tracking-[8px]  font-bayon md:text-[4rem]'>STATISTICS</h1>
         </div>
-        <div className='pt-7 mb-8 border-blue-200 mt-8 backdrop-blur-sm bg-blue-700 rounded-[2rem] md:mx-[5rem] px-[4rem]'>
+        <div className='px-[2.4rem] pt-2 mb-8 border-blue-200 mt-8 backdrop-blur-sm rounded-[2rem] md:mx-[5rem] px-[4rem]'>
         {/* <h1 className='ml-2 mt-6 mb-2 underline underline-offset-4 text-white font-Calistoga tracking-wide text-xl'>Number of reports</h1> */}
-        <h1 className='ml-2 mt-6 mb-2 text-white font-Calistoga tracking-wide text-xl'>Number of reports</h1>
-        <div className='backdrop-blur-sm bg-white/30 min-h-48  mb-9 rounded-2xl shadow-lg  mx-auto  flex text-center justify-center items-center'>
+        <h1 className='ml-2 mt-2 mb-3 text-white font-Calistoga tracking-wide text-[1.6rem]'>Number of reports</h1>
+        {/* <div className='backdrop-blur-sm bg-white/30 cursor-pointer min-h-48  mb-9 rounded-2xl shadow-lg  mx-auto  flex text-center justify-center items-center'> */}
+        <div className='pb-4 backdrop-blur-sm bg-white/30 cursor-pointer min-h-48  mb-9 rounded-2xl shadow-lg  mx-auto'>
           {isLoading && !reports ? (
             <h1>Loading...</h1>
           ) : (
@@ -64,7 +65,7 @@ function Stats() {
         </div>
 
         {/* <h1 className='ml-2 mt-6 mb-2 underline underline-offset-4 text-white font-Calistoga tracking-wide text-xl'> */}
-        <h1 className='ml-2 mt-6 mb-2 text-white font-Calistoga tracking-wide text-xl'>
+        <h1 className='ml-2 mt-6 mb-3 text-white font-Calistoga tracking-wide text-[1.6rem]'>
           Heatmap of Reported Animals
         </h1>
         
@@ -92,7 +93,7 @@ function Stats() {
         <h1 className='ml-2 mt-6 mb-2 text-white font-Calistoga tracking-wide text-xl'>
           Reported Animal Types
         </h1>
-        <div className='backdrop-blur-sm bg-white/30 rounded-2xl shadow-lg mx-auto flex text-center justify-center mb-9 items-center'>
+        <div className='cursor-pointer backdrop-blur-sm bg-white/30 rounded-2xl shadow-lg mx-auto flex text-center justify-center mb-9 items-center'>
           {isLoading && !reports ? (
             <h1>Loading...</h1>
           ) : (
@@ -100,7 +101,7 @@ function Stats() {
           )}
         </div>
 
-        <div className='backdrop-blur-sm bg-white/30 rounded-lg min-h-5 shadow-lg '>
+        <div className='cursor-pointer backdrop-blur-sm bg-white/30 rounded-lg min-h-5 shadow-lg '>
           <h1 className='ml-2 mt-6 mb-2 text-white font-Calistoga tracking-wide text-xl'>Average Response Time : </h1>
           <h1 className='ml-2'>
             {averageResponseTime ? (
