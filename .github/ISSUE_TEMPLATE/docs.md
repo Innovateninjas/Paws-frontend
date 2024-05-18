@@ -1,8 +1,8 @@
 ---
 name: 📝 Documentation
-about: Propose changes and improvements to ScrapQuest Docs.
+about: Propose changes and improvements to Paws-frontend Docs.
 title: '📝[Docs]: '
-labels: 'enhancement'
+labels: '[enhancement, docs ]'
 assignees: ''
 ---
 
