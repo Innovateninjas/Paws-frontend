@@ -90,7 +90,7 @@ function Stats() {
         </MapContainer>
 
         {/* <h1 className='ml-2 mt-6 mb-2 underline underline-offset-4 text-white font-Calistoga tracking-wide text-xl'> */}
-        <h1 className='ml-2 mt-6 mb-2 text-white font-Calistoga tracking-wide text-xl'>
+        <h1 className='ml-2 mt-6 mb-2 text-white font-Calistoga tracking-wide text-[1.6rem]'>
           Reported Animal Types
         </h1>
         <div className='cursor-pointer backdrop-blur-sm bg-white/30 rounded-2xl shadow-lg mx-auto flex text-center justify-center mb-9 items-center'>
@@ -102,7 +102,7 @@ function Stats() {
         </div>
 
         <div className='cursor-pointer backdrop-blur-sm bg-white/30 rounded-lg min-h-5 shadow-lg '>
-          <h1 className='ml-2 mt-6 mb-2 text-white font-Calistoga tracking-wide text-xl'>Average Response Time : </h1>
+          <h1 className='ml-2 mt-6 mb-2 text-white font-Calistoga tracking-wide text-[1.6rem]'>Average Response Time : </h1>
           <h1 className='ml-2'>
             {averageResponseTime ? (
               averageResponseTime.split(' ').map((part, index) => (
