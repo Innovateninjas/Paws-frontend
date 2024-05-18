@@ -12,12 +12,23 @@ import { Link } from "react-router-dom";
  * @param {string} [props.bottomPosition] - The bottom CSS property for the text link.
  * @returns {JSX.Element} A JSX element representing the LoginTextLink component.
  */
-function LoginTextLink({ text, link, linkText, position, topPosition, bottomPosition ,leftPosition, rightPosition}) {
+function LoginTextLink({
+    text,
+    link,
+    linkText,
+    position,
+    topPosition,
+    bottomPosition,
+    leftPosition,
+    rightPosition,
+}) {
     return (
         <p className="text-gray-500 text-[16px] font-bold">
-        
             {text || "Already have an account?"}
-            <Link to={link || "/login"} className="text-sky-400 tracking-wider text-sm font-medium underline inline-block mx-1">
+            <Link
+                to={link || "/login"}
+                className="text-sky-400 cursor-pointer hover:text-[#312E81] hover:font-bold transition-all ease-in-out tracking-wider text-sm font-medium underline inline-block mx-1"
+            >
                 {linkText || "Login now!"}
             </Link>
         </p>
