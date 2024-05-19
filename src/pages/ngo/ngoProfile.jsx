@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { NgoContext } from "../../utils/contexts/NgoContext";
 import { IoIosMail } from "react-icons/io";
 import Button from "../../Components/shared/Button"
+import { ProfilePhoto } from "../../Components/shared/ProfilePhoto";
 
 const NgoProfile = () => {
   const [userDetails, setUserData] = useState(null);
@@ -28,9 +29,7 @@ const NgoProfile = () => {
         <div className="flex flex-col font-Calistoga items-center justify-center gap-[30px] min-h-screen bg-custom-gradient p-4">
           <div className="w-full mt-8 break-normal border-1 flex flex-col gap-[15px] rounded-[30px] bg-opacity-35 bg-white shadow-dashBoardCardImageShadow backdrop-blur-[5px] break-word">
             <div className="flex px-4 pt-5 gap-5 items-center">
-              <span className="w-fit h-fit rounded-full flex items-center bg-blue-900 p-4 mr-2">
-                <FaUser color="rgba(255,255,255,0.7)" fontSize="60px" />
-              </span>
+              <ProfilePhoto userDetails={userDetails} setUserData={setUserData}/>
               <p className="text-[30px] break-words">{userDetails.name}</p>
             </div>
             <div className="flex flex-col gap-2">
