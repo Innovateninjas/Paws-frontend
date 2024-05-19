@@ -8,6 +8,7 @@ const ViewreportsSkeletonLoader = (props) => {
   speed={1}
   width="100%"
   height="100%"
+  min-height =" 30%"
   backgroundColor="#ffffff66"
   foregroundColor="rgba(255, 255, 255, 0.7)"
   {...props}
