@@ -58,20 +58,8 @@ function LoginRegisterForm() {
     width: "fit-content",
     margin: "auto",
   };
-  const validate=(value)=>{
-    console.log(value)
-    
-    if(Validator.isStrongPassword(value,{
-      minLength:8,minLowercase:1,minUppercase:1,minNumbers:1,minSymbols:1
-    })){
-      setErrorMessage('Password is acceptable')
-      // setPassword(value);
-    }else{
-      setErrorMessage('Is Not Strong Password , Should contain atleast one lowecase letter and atleast one uppercase letter and atleast one number and atleast one symbol and min length should be 8')
-    }
-  }
-  const [errorMessage,setErrorMessage]=useState("");
-  
+
+  const [errorMessage, setErrorMessage] = useState("");
   const [name, setname] = useState("");
   const [phone_number, setPhone_number] = useState("");
   const [email, setEmail] = useState("");
@@ -79,9 +67,23 @@ function LoginRegisterForm() {
   const [error, setError] = useState("");
   const [state, setButtonState] = useState("idle");
 
+  const [isMinLength, setIsMinLength] = useState(false);
+  const [hasUpperCase, setHasUpperCase] = useState(false);
+  const [hasLowerCase, setHasLowerCase] = useState(false);
+  const [hasNumber, setHasNumber] = useState(false);
+  const [hasSymbol, setHasSymbol] = useState(false);
+
   useEffect(() => {
     setError("");
   }, [isLogin]);
+
+  const validate = (value) => {
+    setIsMinLength(value.length >= 8);
+    setHasUpperCase(/[A-Z]/.test(value));
+    setHasLowerCase(/[a-z]/.test(value));
+    setHasNumber(/[0-9]/.test(value));
+    setHasSymbol(/[^A-Za-z0-9]/.test(value));
+  };
 
   return (
     <div className="h-full w-screen flex items-center justify-center mb-[60px]">
@@ -93,7 +95,7 @@ function LoginRegisterForm() {
           }
         `}
       </style>
-        <CustomBackground image={custBackgroundImage} />
+      <CustomBackground image={custBackgroundImage} />
       <div className="container min-h-screen flex flex-row ">
         <div className="w-1/2 flex justify-center items-center">
           <div className="">
@@ -102,17 +104,17 @@ function LoginRegisterForm() {
                 <>
                   <h1 className="mt-[60px] text-center pb-1 pl-2 pr-2 z-[3] text-indigo-900 font-semibold text-[2.5em] ">Create Account</h1>
                   <InputField
-  className="placeholder-stone h-16 mt-5 bg-opacity-45 w-80 px-4 py-2 items-center outline-0 border-b-2 border-blue-800 text-black text-lg bg-white shadow-dashBoardCardImageShadow"
-  type="text"
-  placeholder="Full Name"
-  value={name}
-  onChange={(e) => {
-    setError("");
-    setname(e.target.value);
-  }}
-  style={{ marginBottom: "-2px" }} // Adjust this value as needed
-  required
-/>
+                    className="placeholder-stone h-16 mt-5 bg-opacity-45 w-80 px-4 py-2 items-center outline-0 border-b-2 border-blue-800 text-black text-lg bg-white shadow-dashBoardCardImageShadow"
+                    type="text"
+                    placeholder="Full Name"
+                    value={name}
+                    onChange={(e) => {
+                      setError("");
+                      setname(e.target.value);
+                    }}
+                    style={{ marginBottom: "-2px" }} // Adjust this value as needed
+                    required
+                  />
 
                   <InputField
                     className="placeholder-stone h-16 mt-5 bg-opacity-45 w-80 px-4 py-2 items-center outline-0 border-b-2 border-blue-800 text-black text-lg bg-white shadow-dashBoardCardImageShadow"
@@ -151,12 +153,19 @@ function LoginRegisterForm() {
                 onChange={(e) => {
                   setError("");
                   setPassword(e.target.value);
-                  validate(e.target.value)
+                  validate(e.target.value);
                   setPassword(e.target.value);
                 }}
                 required
               />
-              {errorMessage===''?null:<span style={{fontWeight:'bold',color:'red'}}>{errorMessage}</span>}
+
+              <div className="text-left w-80 mt-2">
+                <p style={{ color: isMinLength ? 'green' : 'red' }}>• Minimum 8 characters</p>
+                <p style={{ color: hasUpperCase ? 'green' : 'red' }}>• At least one uppercase letter</p>
+                <p style={{ color: hasLowerCase ? 'green' : 'red' }}>• At least one lowercase letter</p>
+                <p style={{ color: hasNumber ? 'green' : 'red' }}>• At least one number</p>
+                <p style={{ color: hasSymbol ? 'green' : 'red' }}>• At least one symbol</p>
+              </div>
 
               {!isLogin && (
                 <>
@@ -169,7 +178,7 @@ function LoginRegisterForm() {
                       successText="Logging In"
                       errorText="Register"
                       messageDuration={3000}
-                      disabled={errorMessage==='Is Not Strong Password , Should contain atleast one lowecase letter and atleast one uppercase letter and atleast one number and atleast one symbol and min length should be 8'|| errorMessage===''}
+                      disabled={!(isMinLength && hasUpperCase && hasLowerCase && hasNumber && hasSymbol)}
                       onClick={async () =>
                         registration(
                           name,
