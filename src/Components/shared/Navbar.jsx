@@ -24,7 +24,7 @@ const Navbar = () => {
   }, [location.pathname]);
 
   return (
-    <div className='fixed bottom-0 left-0 w-full z-50'>
+    <div className='fixed top-0 left-0 w-full z-50'>
     <nav className='nav'>
       <BottomNavigation
         value={value}
@@ -37,8 +37,8 @@ const Navbar = () => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-evenly',
-          borderTopLeftRadius: '16px',
-          borderTopRightRadius: '16px',
+          borderbottomLeftRadius: '16px',
+          borderbottomRightRadius: '16px',
           backgroundColor: '#b8ddfa',
         }}
       >
