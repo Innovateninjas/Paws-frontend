@@ -9,6 +9,13 @@ function SuccessPage() {
 
   // console.log(csrftoken)
 
+  //backend endpoint required to fetch 3 closest NGO info
+  const nearNGO = [
+    ["name1:  ", "number1"],
+    ["name2:  ", "number2"],
+    ["name3:  ", "number3"]
+  ]
+
   return (
     <div className="z-[-2] mb-10 min-h-screen max-h-fit bg-custom-gradient top-0 w-full flex items-center">
       <div className="pt-7 w-full text-center mb-10 flex flex-col items-center gap-5 justify-center">
@@ -46,9 +53,23 @@ function SuccessPage() {
             )
           }
         </div>
+        <div className="w-[92%] mt-12 bg-red-50 rounded-xl bg-opacity-75 ">
+          <div className=" flex flex-row items-center w-full justify-start">
+            <h1 className="pl-5 mt-1 mb-1 text-2xl text-bold tracking-wider text-red-900 font-breeSerif ">Contact the nearest NGO if you can!</h1>
+          </div>
+          <div>
+            <h3 className="pl-5 mb-2 text-left">These are the closest NGOs. Let them know a streetie needs help!</h3>
+            <ol className="pl-20 mb-5 font-bold text-lg font-sans text-left list-decimal">
+              <li>{nearNGO[0]}</li>
+              <li>{nearNGO[1]}</li>
+              <li>{nearNGO[2]}</li>
+            </ol>
+            <p className="pl-5 mb-2 text-left">Doing this can let the animal receive help quicker.</p>
+          </div>
+        </div>
         <div className="w-[92%] mt-12 ">
           <div className=" flex flex-row items-center w-full justify-start">
-            <h1 className="pl-2 mb-1 text-2xl text-bold tracking-wider  font-breeSerif ">Here Is what you can do </h1>
+            <h1 className="pl-2 mb-1 text-2xl text-bold tracking-wider  font-breeSerif ">Here's what you can do in the meantime</h1>
           </div>
           <CustomizedAccordions />
         </div>
