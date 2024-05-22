@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import InputField from "../../Components/shared/InputField";
 import ReactiveButton from "reactive-button";
 import custBackgroundImage from "../user/imgs/pngtree-blue-pastel-background-picture-image_1599663.jpg"; // Import your background image
-
+import {FaEye,FaEyeSlash} from 'react-icons/fa6'
 import i1 from '../user/imgs/white-dog-pastel-blue-background-3d_89917-269.jpg';
 import { login, registration } from "../../utils/Functions/userAuthService";
 import LoginTextLink from "../../Components/shared/LoginTextLink";
@@ -27,7 +27,7 @@ function CustomBackground({ image }) {
 
 function LoginRegisterForm() {
   const location = useLocation();
-
+  const [isPassVisible,setIsPassVisible]=useState(false)
   let isLogin = true;
   if (location.pathname === "/register") {
     isLogin = !isLogin;
@@ -146,9 +146,11 @@ function LoginRegisterForm() {
                 }}
                 required
               />
+              <div className="relative">
+
               <InputField
                 className="placeholder-stone h-16 mt-5 bg-opacity-45 w-80 px-4 py-2 items-center outline-0 border-b-2 border-blue-800 text-black text-lg bg-white shadow-dashBoardCardImageShadow"
-                type="password"
+                type={`${isPassVisible?"text":"password"}`}
                 placeholder="Password"
                 value={password}
                 onChange={(e) => {
@@ -159,7 +161,10 @@ function LoginRegisterForm() {
                 }}
                 required
               />
-
+            {
+              isPassVisible?<FaEye className="absolute right-[10px] text-[#59cceb] top-8" onClick={()=>setIsPassVisible(false)} size={"40px"}/>:<FaEyeSlash className="absolute right-[10px] text-[#59cceb] top-8" onClick={()=>setIsPassVisible(true)} size={"40px"}/>
+            }
+              </div>
               <div className="text-left w-80 mt-2">
                 <p style={{ color: isMinLength ? 'green' : 'red' }}>• Minimum 8 characters</p>
                 <p style={{ color: hasUpperCase ? 'green' : 'red' }}>• At least one uppercase letter</p>
