@@ -65,7 +65,7 @@ Planned features:
 
  
 ## Are you an NGO?
-Please Contact us at : [email](Innovateninjas@gmail.com)
+Please Contact us at : [email](mailto:Innovateninjas@gmail.com)
 
 
 
