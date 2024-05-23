@@ -5,3 +5,10 @@
     background-size: cover;
     background: url("/public/images/background.png");
 }
+@media (max-width: 600px) {
+    .background{
+        background-position: -150px 0px;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+}
