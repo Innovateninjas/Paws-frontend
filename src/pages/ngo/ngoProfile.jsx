@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
-import { FaUser, FaPhoneAlt } from "react-icons/fa";
+// import { FaUser, FaPhoneAlt } from "react-icons/fa";
+import { FaPhoneAlt } from "react-icons/fa";
 import Loader from "../../Components/shared/loader";
 import { Link } from "react-router-dom";
 import { NgoContext } from "../../utils/contexts/NgoContext";
@@ -29,7 +30,7 @@ const NgoProfile = () => {
         <div className="flex flex-col font-Calistoga items-center justify-center gap-[30px] min-h-screen bg-custom-gradient p-4">
           <div className="w-full mt-8 break-normal border-1 flex flex-col gap-[15px] rounded-[30px] bg-opacity-35 bg-white shadow-dashBoardCardImageShadow backdrop-blur-[5px] break-word">
             <div className="flex px-4 pt-5 gap-5 items-center">
-              <ProfilePhoto userDetails={userDetails} setUserData={setUserData}/>
+              <ProfilePhoto userDetails={userDetails} setUserData={setUserData} />
               <p className="text-[30px] break-words">{userDetails.name}</p>
             </div>
             <div className="flex flex-col gap-2">
@@ -44,9 +45,9 @@ const NgoProfile = () => {
                     <IoIosMail fontSize="30px" color="rgba(255,255,255,0.7)" />
                   </span>
                   <span className="max-w-[85%]">
-                  {userDetails.email}
+                    {userDetails.email}
                   </span>
-                 
+
                 </div>
                 {/* PHONE NUMBER */}
                 <div className="flex items-center gap-1 text-xl drop-shadow-md">
@@ -70,7 +71,7 @@ const NgoProfile = () => {
                       year: "numeric",
                       month: "long",
                       day: "numeric"
-                    }) 
+                    })
                   }
                 </span>
               </div>
@@ -81,25 +82,25 @@ const NgoProfile = () => {
               </div>
               {/* ANIMALS SUPPORTED */}
               <div className="px-4 py-2 pb-3 flex border-t border-blue-800 gap-1 text-[18px] drop-shadow-md">
-              <p className="tracking-wider">Animal Supported:</p>
-              <span className="ml-1 max-w-[80%] break-words flex flex-wrap" >
-                {animals_supported &&
-                  animals_supported.map((element, index) => (
-                    <p className="mr-1" key={index}>{element}
-                      {index !== animals_supported.length - 1 && ","}</p>
-                   ))} 
+                <p className="tracking-wider">Animal Supported:</p>
+                <span className="ml-1 max-w-[80%] break-words flex flex-wrap" >
+                  {animals_supported &&
+                    animals_supported.map((element, index) => (
+                      <p className="mr-1" key={index}>{element}
+                        {index !== animals_supported.length - 1 && ","}</p>
+                    ))}
 
-              </span>
+                </span>
               </div>
             </div>
           </div>
           <div className="">
-          <Button
-            clas="px-8 py-4 text-white "
-            text={<Link to="/logout" className="tracking-widest">
+            <Button
+              clas="px-8 py-4 text-white "
+              text={<Link to="/logout" className="tracking-widest">
                 Logout
               </Link>}
-          />
+            />
           </div>
         </div>
       </>
