@@ -1,9 +1,9 @@
 import React from 'react'
-
+import './Background.css'
 const Background = () => {
   return (
     
-    <div className="z-[-2] p-4 h-screen bg-custom-gradient fixed top-0 w-full ">
+    <div className="z-[-2] p-4 h-screen fixed top-0 w-full background">
     {/* <div className="absolute top-0 left-[-10%] w-1/2 z-0">
       <svg
         width="355"
