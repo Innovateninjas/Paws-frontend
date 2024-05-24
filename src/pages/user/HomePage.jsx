@@ -50,7 +50,7 @@ function LandingPage() {
     <div className="z-[-2] h-[120vh] bg-custom-gradient w-full flex flex-col items-center font-VarelaRound">
         {stars}
             <div className="flex flex-col items-center justify-between h-[70vh] gap-2.5">
-                <div className="flex flex-col items-center h-fit gap-2">
+                <div className="flex flex-col items-center gap-2 max-h-[650px] -mt-[40px]">
                     <div className="mt-[50px] relative">
                         <div className="absolute top-3 right-[-2rem] flex flex-row items-start">
                             <PiPawPrintFill className="text-white text-[2.2rem] transform rotate-45 " />
