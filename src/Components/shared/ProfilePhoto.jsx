@@ -20,6 +20,8 @@ export function ProfilePhoto({ userDetails, setUserData }) {
 
   const [loading , setLoading] = useState(false);
 
+  const csrftoken = localStorage.getItem('csrftoken');
+
   const dataURLtoFile = (dataUrl, filename) => {
     const arr = dataUrl.split(",");
     const mime = arr[0].match(/:(.*?);/)[1];
@@ -62,10 +64,10 @@ export function ProfilePhoto({ userDetails, setUserData }) {
       const response = await fetch(`${url}/profile/`, {
         method: "POST",
         headers: {
+          "Authorization": `Token ${csrftoken}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          email: userDetails.email,
           profile_image: imageUrl,
         }),
       });
