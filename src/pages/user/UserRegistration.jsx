@@ -3,11 +3,11 @@ import { useLocation } from "react-router-dom";
 import InputField from "../../Components/shared/InputField";
 import ReactiveButton from "reactive-button";
 import custBackgroundImage from "../user/imgs/pngtree-blue-pastel-background-picture-image_1599663.jpg"; // Import your background image
-
+import {FaEye,FaEyeSlash} from 'react-icons/fa6'
 import i1 from '../user/imgs/white-dog-pastel-blue-background-3d_89917-269.jpg';
 import { login, registration } from "../../utils/Functions/userAuthService";
 import LoginTextLink from "../../Components/shared/LoginTextLink";
-import Validator from 'validator';
+// import Validator from 'validator';
 
 function CustomBackground({ image }) {
   const backgroundStyle = {
@@ -27,25 +27,26 @@ function CustomBackground({ image }) {
 
 function LoginRegisterForm() {
   const location = useLocation();
-
+  const [isPassVisible,setIsPassVisible]=useState(false)
   let isLogin = true;
   if (location.pathname === "/register") {
     isLogin = !isLogin;
   }
 
-  const googleButtonStyle = {
-    borderRadius: "40px",
-    display: "flex",
-    background: "#FFFFFF", // Google White
-    color: "#3f3f3f", // Google Gray
-    padding: "10px 10px",
-    fontSize: "16px",
-    fontWeight: "bold",
-    boxShadow: "rgba(0, 0, 0, 0.1) 0px 1px 2px 0px",
-    cursor: "pointer",
-    border: "1px solid #dadce0", // Google Gray
-    transition: "background-color 0.2s, box-shadow 0.2s",
-  };
+  // const googleButtonStyle = {
+  //   borderRadius: "40px",
+  //   display: "flex",
+  //   background: "#FFFFFF", // Google White
+  //   color: "#3f3f3f", // Google Gray
+  //   padding: "10px 10px",
+  //   fontSize: "16px",
+  //   fontWeight: "bold",
+  //   boxShadow: "rgba(0, 0, 0, 0.1) 0px 1px 2px 0px",
+  //   cursor: "pointer",
+  //   border: "1px solid #dadce0", // Google Gray
+  //   transition: "background-color 0.2s, box-shadow 0.2s",
+  // };
+
   const customButtonStyle = {
     borderRadius: "20px", // Adjust the border radius as needed
     background: "linear-gradient(to bottom, #b3d9ff, #3399ff)", // Adjust gradient colors
@@ -58,20 +59,8 @@ function LoginRegisterForm() {
     width: "fit-content",
     margin: "auto",
   };
-  const validate=(value)=>{
-    console.log(value)
-    
-    if(Validator.isStrongPassword(value,{
-      minLength:8,minLowercase:1,minUppercase:1,minNumbers:1,minSymbols:1
-    })){
-      setErrorMessage('Password is acceptable')
-      // setPassword(value);
-    }else{
-      setErrorMessage('Is Not Strong Password , Should contain atleast one lowecase letter and atleast one uppercase letter and atleast one number and atleast one symbol and min length should be 8')
-    }
-  }
-  const [errorMessage,setErrorMessage]=useState("");
-  
+
+  // const [errorMessage, setErrorMessage] = useState("");
   const [name, setname] = useState("");
   const [phone_number, setPhone_number] = useState("");
   const [email, setEmail] = useState("");
@@ -79,9 +68,23 @@ function LoginRegisterForm() {
   const [error, setError] = useState("");
   const [state, setButtonState] = useState("idle");
 
+  const [isMinLength, setIsMinLength] = useState(false);
+  const [hasUpperCase, setHasUpperCase] = useState(false);
+  const [hasLowerCase, setHasLowerCase] = useState(false);
+  const [hasNumber, setHasNumber] = useState(false);
+  const [hasSymbol, setHasSymbol] = useState(false);
+
   useEffect(() => {
     setError("");
   }, [isLogin]);
+
+  const validate = (value) => {
+    setIsMinLength(value.length >= 8);
+    setHasUpperCase(/[A-Z]/.test(value));
+    setHasLowerCase(/[a-z]/.test(value));
+    setHasNumber(/[0-9]/.test(value));
+    setHasSymbol(/[^A-Za-z0-9]/.test(value));
+  };
 
   return (
     <div className="h-full w-screen flex items-center justify-center mb-[60px]">
@@ -93,7 +96,14 @@ function LoginRegisterForm() {
           }
         `}
       </style>
-        <CustomBackground image={custBackgroundImage} />
+      <CustomBackground image={custBackgroundImage} />
+      <div style={{
+            overflowY: 'scroll',
+            height: '100vh',
+            scrollbarWidth: 'thin',
+            scrollbarColor: '#888 transparent',
+        }}>
+            <div>
       <div className="container min-h-screen flex flex-row ">
         <div className="w-1/2 flex justify-center items-center">
           <div className="">
@@ -102,17 +112,17 @@ function LoginRegisterForm() {
                 <>
                   <h1 className="mt-[60px] text-center pb-1 pl-2 pr-2 z-[3] text-indigo-900 font-semibold text-[2.5em] ">Create Account</h1>
                   <InputField
-  className="placeholder-stone h-16 mt-5 bg-opacity-45 w-80 px-4 py-2 items-center outline-0 border-b-2 border-blue-800 text-black text-lg bg-white shadow-dashBoardCardImageShadow"
-  type="text"
-  placeholder="Full Name"
-  value={name}
-  onChange={(e) => {
-    setError("");
-    setname(e.target.value);
-  }}
-  style={{ marginBottom: "-2px" }} // Adjust this value as needed
-  required
-/>
+                    className="placeholder-stone h-16 mt-5 bg-opacity-45 w-80 px-4 py-2 items-center outline-0 border-b-2 border-blue-800 text-black text-lg bg-white shadow-dashBoardCardImageShadow"
+                    type="text"
+                    placeholder="Full Name"
+                    value={name}
+                    onChange={(e) => {
+                      setError("");
+                      setname(e.target.value);
+                    }}
+                    style={{ marginBottom: "-2px" }} // Adjust this value as needed
+                    required
+                  />
 
                   <InputField
                     className="placeholder-stone h-16 mt-5 bg-opacity-45 w-80 px-4 py-2 items-center outline-0 border-b-2 border-blue-800 text-black text-lg bg-white shadow-dashBoardCardImageShadow"
@@ -143,20 +153,32 @@ function LoginRegisterForm() {
                 }}
                 required
               />
+              <div className="relative">
+
               <InputField
                 className="placeholder-stone h-16 mt-5 bg-opacity-45 w-80 px-4 py-2 items-center outline-0 border-b-2 border-blue-800 text-black text-lg bg-white shadow-dashBoardCardImageShadow"
-                type="password"
+                type={`${isPassVisible?"text":"password"}`}
                 placeholder="Password"
                 value={password}
                 onChange={(e) => {
                   setError("");
                   setPassword(e.target.value);
-                  validate(e.target.value)
+                  validate(e.target.value);
                   setPassword(e.target.value);
                 }}
                 required
               />
-              {errorMessage===''?null:<span style={{fontWeight:'bold',color:'red'}}>{errorMessage}</span>}
+            {
+              isPassVisible?<FaEye className="absolute right-[10px] text-[#59cceb] top-8" onClick={()=>setIsPassVisible(false)} size={"40px"}/>:<FaEyeSlash className="absolute right-[10px] text-[#59cceb] top-8" onClick={()=>setIsPassVisible(true)} size={"40px"}/>
+            }
+              </div>
+              <div className="text-left w-80 mt-2">
+                <p style={{ color: isMinLength ? 'green' : 'red' }}>• Minimum 8 characters</p>
+                <p style={{ color: hasUpperCase ? 'green' : 'red' }}>• At least one uppercase letter</p>
+                <p style={{ color: hasLowerCase ? 'green' : 'red' }}>• At least one lowercase letter</p>
+                <p style={{ color: hasNumber ? 'green' : 'red' }}>• At least one number</p>
+                <p style={{ color: hasSymbol ? 'green' : 'red' }}>• At least one symbol</p>
+              </div>
 
               {!isLogin && (
                 <>
@@ -169,7 +191,7 @@ function LoginRegisterForm() {
                       successText="Logging In"
                       errorText="Register"
                       messageDuration={3000}
-                      disabled={errorMessage==='Is Not Strong Password , Should contain atleast one lowecase letter and atleast one uppercase letter and atleast one number and atleast one symbol and min length should be 8'|| errorMessage===''}
+                      disabled={!(isMinLength && hasUpperCase && hasLowerCase && hasNumber && hasSymbol)}
                       onClick={async () =>
                         registration(
                           name,
@@ -220,6 +242,8 @@ function LoginRegisterForm() {
         <div className="image-container w-1/2 flex justify-center items-center">
           <img className="rounded-xl " id="scaledImage" src={i1} alt="Cute dog" />
         </div>
+      </div>
+      </div>
       </div>
     </div>
   );
