@@ -97,6 +97,13 @@ function LoginRegisterForm() {
         `}
       </style>
       <CustomBackground image={custBackgroundImage} />
+      <div style={{
+            overflowY: 'scroll',
+            height: '100vh',
+            scrollbarWidth: 'thin',
+            scrollbarColor: '#888 transparent',
+        }}>
+            <div>
       <div className="container min-h-screen flex flex-row ">
         <div className="w-1/2 flex justify-center items-center">
           <div className="">
@@ -230,6 +237,8 @@ function LoginRegisterForm() {
         <div className="image-container w-1/2 flex justify-center items-center">
           <img className="rounded-xl " id="scaledImage" src={i1} alt="Cute dog" />
         </div>
+      </div>
+      </div>
       </div>
     </div>
   );
