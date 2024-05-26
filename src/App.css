@@ -134,3 +134,12 @@ body {
     text-decoration: underline;
   }
   
+
+  @media screen and (max-width:800px) {
+    .container{
+      box-shadow: none;
+      padding: 0;
+      margin:0;
+    }
+    
+  }

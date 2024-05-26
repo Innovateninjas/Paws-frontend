@@ -85,149 +85,144 @@ function LoginRegisterForm() {
       </style>
       <CustomBackground image={custBackgroundImage} />
 
-      <div className="container min-h-screen flex justify-center items-center p-4">
-        <Grid container spacing={2} justifyContent="center" alignItems="center">
-          <Grid item xs={12} md={6} display={{ xs: "block", md: "none" }}>
-            <div className=" w-full flex justify-center items-center mt-20">
-              <img className="rounded-xl" height="10px" width="300px" src={i1} alt="Cute dog" />
-            </div>
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <div className="w-full flex justify-center items-center">
-              <div className="w-full max-w-md p-4 rounded-lg ">
-                <form className="flex gap-[20px] items-center justify-start flex-col">
-                  {!isLogin && (
-                    <>
-                      <h1 className="mt-[60px] text-center pb-1 pl-2 pr-2 z-[3] text-indigo-900 font-semibold text-[2.5em] ">Create Account</h1>
-                      <InputField
-                        className="placeholder-stone h-16 mt-5 bg-opacity-45 w-80 px-4 py-2 items-center outline-0 border-b-2 border-blue-800 text-black text-lg bg-white shadow-dashBoardCardImageShadow"
-                        type="text"
-                        placeholder="Full Name"
-                        value={name}
-                        onChange={(e) => {
-                          setError("");
-                          setname(e.target.value);
-                        }}
-                        style={{ marginBottom: "-2px" }} // Adjust this value as needed
-                        required
-                      />
-                      <InputField
-                        className="placeholder-stone h-16 mt-5 bg-opacity-45 w-80 px-4 py-2 items-center outline-0 border-b-2 border-blue-800 text-black text-lg bg-white shadow-dashBoardCardImageShadow"
-                        type="tel"
-                        placeholder="Phone Number"
-                        value={phone_number}
-                        onChange={(e) => {
-                          setError("");
-                          setPhone_number(e.target.value);
-                        }}
-                        required
-                      />
-                    </>
-                  )}
-                  {isLogin && (
-                    <>
-                      <h1 className="mt-[60px] text-center pb-1 pl-2 pr-2 z-[3] text-indigo-900 font-bold tracking-wide text-[2.5em] underline">Welcome Back</h1>
-                    </>
-                  )}
-                  <InputField
-                    className="placeholder-stone h-16 mt-5 bg-opacity-45 w-80 px-4 py-2 items-center outline-0 border-b-2 border-blue-800 text-black text-lg bg-white shadow-dashBoardCardImageShadow"
-                    type="email"
-                    placeholder="Email"
-                    value={email}
-                    onChange={(e) => {
-                      setError("");
-                      setEmail(e.target.value);
-                    }}
-                    required
-                  />
-                  <InputField
-                    className="placeholder-stone h-16 mt-5 bg-opacity-45 w-80 px-4 py-2 items-center outline-0 border-b-2 border-blue-800 text-black text-lg bg-white shadow-dashBoardCardImageShadow"
-                    type="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={(e) => {
-                      setError("");
-                      setPassword(e.target.value);
-                      validate(e.target.value);
-                      setPassword(e.target.value);
-                    }}
-                    required
-                  />
+      <div className="min-h-0 md:min-h-screen flex justify-center items-center p-4 container ">
+                <Grid container spacing={2} justifyContent="center" alignItems="center">
+        <Grid item xs={12} md={6}>
+          <div className="w-full flex justify-center items-center">
+            <div className="w-full max-w-md p-4 rounded-lg ">
+              <form className="flex gap-[20px] items-center justify-start flex-col">
+                {!isLogin && (
+                  <>
+                    <h1 className="mt-[60px] text-center pb-1 pl-2 pr-2 z-[3] text-indigo-900 font-semibold text-[2.5em] ">Create Account</h1>
+                    <InputField
+                      className="placeholder-stone h-16 mt-5 bg-opacity-45 w-80 px-4 py-2 items-center outline-0 border-b-2 border-blue-800 text-black text-lg bg-white shadow-dashBoardCardImageShadow"
+                      type="text"
+                      placeholder="Full Name"
+                      value={name}
+                      onChange={(e) => {
+                        setError("");
+                        setname(e.target.value);
+                      }}
+                      style={{ marginBottom: "-2px" }} // Adjust this value as needed
+                      required
+                    />
+                    <InputField
+                      className="placeholder-stone h-16 mt-5 bg-opacity-45 w-80 px-4 py-2 items-center outline-0 border-b-2 border-blue-800 text-black text-lg bg-white shadow-dashBoardCardImageShadow"
+                      type="tel"
+                      placeholder="Phone Number"
+                      value={phone_number}
+                      onChange={(e) => {
+                        setError("");
+                        setPhone_number(e.target.value);
+                      }}
+                      required
+                    />
+                  </>
+                )}
+                {isLogin && (
+                  <>
+                    <h1 className="mt-[60px] text-center pb-1 pl-2 pr-2 z-[3] text-indigo-900 font-bold tracking-wide text-[2.5em] underline">Welcome Back</h1>
+                  </>
+                )}
+                <InputField
+                  className="placeholder-stone h-16 mt-5 bg-opacity-45 w-80 px-4 py-2 items-center outline-0 border-b-2 border-blue-800 text-black text-lg bg-white shadow-dashBoardCardImageShadow"
+                  type="email"
+                  placeholder="Email"
+                  value={email}
+                  onChange={(e) => {
+                    setError("");
+                    setEmail(e.target.value);
+                  }}
+                  required
+                />
+                <InputField
+                  className="placeholder-stone h-16 mt-5 bg-opacity-45 w-80 px-4 py-2 items-center outline-0 border-b-2 border-blue-800 text-black text-lg bg-white shadow-dashBoardCardImageShadow"
+                  type="password"
+                  placeholder="Password"
+                  value={password}
+                  onChange={(e) => {
+                    setError("");
+                    setPassword(e.target.value);
+                    validate(e.target.value);
+                    setPassword(e.target.value);
+                  }}
+                  required
+                />
 
-                  <div className="text-left w-80 mt-2">
-                    <p style={{ color: isMinLength ? 'green' : 'red' }}>• Minimum 8 characters</p>
-                    <p style={{ color: hasUpperCase ? 'green' : 'red' }}>• At least one uppercase letter</p>
-                    <p style={{ color: hasLowerCase ? 'green' : 'red' }}>• At least one lowercase letter</p>
-                    <p style={{ color: hasNumber ? 'green' : 'red' }}>• At least one number</p>
-                    <p style={{ color: hasSymbol ? 'green' : 'red' }}>• At least one symbol</p>
-                  </div>
+                <div className="text-left w-80 mt-2">
+                  <p style={{ color: isMinLength ? 'green' : 'red' }}>• Minimum 8 characters</p>
+                  <p style={{ color: hasUpperCase ? 'green' : 'red' }}>• At least one uppercase letter</p>
+                  <p style={{ color: hasLowerCase ? 'green' : 'red' }}>• At least one lowercase letter</p>
+                  <p style={{ color: hasNumber ? 'green' : 'red' }}>• At least one number</p>
+                  <p style={{ color: hasSymbol ? 'green' : 'red' }}>• At least one symbol</p>
+                </div>
 
-                  {!isLogin && (
-                    <>
-                      <div className="w-screen relative h-[70px] mt-5 flex justify-center">
-                        <ReactiveButton
-                          style={customButtonStyle}
-                          buttonState={state}
-                          idleText="Register"
-                          loadingText="wait.."
-                          successText="Logging In"
-                          errorText="Register"
-                          messageDuration={3000}
-                          disabled={!(isMinLength && hasUpperCase && hasLowerCase && hasNumber && hasSymbol)}
-                          onClick={async () =>
-                            registration(
-                              name,
-                              phone_number,
-                              email,
-                              password,
-                              setError,
-                              setButtonState
-                            )
-                          }
-                        />
-                        {error && <p className="absolute top-[-25px] w-screen tracking-wide text-red-500 font-semibold text-center" style={{ marginLeft: '35%', marginRight: '35%' }}>{error}</p>}
-                      </div>
-                    </>
-                  )}
-                  {!isLogin && (
-                    <>
-                      <div className="w-screen h-fit flex flex-col mt-3 gap-2 items-center">
-                        <LoginTextLink />
-                        <LoginTextLink
-                          text={"Are you an NGO?"}
-                          link={"/ngoregister"}
-                          linkText={"Register Here!"}
-                          className="text-indigo-800 underline"
-                        />
-                      </div>
-                    </>
-                  )}
-                  {isLogin && (
-                    <div className="w-screen relative mt-7 h-fit flex justify-center">
+                {!isLogin && (
+                  <>
+                    <div className="w-screen relative h-[70px] mt-5 flex justify-center">
                       <ReactiveButton
                         style={customButtonStyle}
                         buttonState={state}
-                        idleText="Login"
+                        idleText="Register"
                         loadingText="wait.."
                         successText="Logging In"
-                        errorText="Login"
+                        errorText="Register"
+                        messageDuration={3000}
+                        disabled={!(isMinLength && hasUpperCase && hasLowerCase && hasNumber && hasSymbol)}
                         onClick={async () =>
-                          login(email, password, setError, setButtonState)
+                          registration(
+                            name,
+                            phone_number,
+                            email,
+                            password,
+                            setError,
+                            setButtonState
+                          )
                         }
                       />
-                      {error && <p className="absolute w-screen top-[-40px] tracking-wide text-red-500 font-semibold text-center">{error}</p>}
+                      {error && <p className="absolute top-[-25px] w-screen tracking-wide text-red-500 font-semibold text-center" style={{ marginLeft: '35%', marginRight: '35%' }}>{error}</p>}
                     </div>
-                  )}
-                </form>
-              </div>
+                  </>
+                )}
+                {!isLogin && (
+                  <>
+                    <div className="w-screen h-fit flex flex-col mt-3 gap-2 items-center">
+                      <LoginTextLink />
+                      <LoginTextLink
+                        text={"Are you an NGO?"}
+                        link={"/ngoregister"}
+                        linkText={"Register Here!"}
+                        className="text-indigo-800 underline"
+                      />
+                    </div>
+                  </>
+                )}
+                {isLogin && (
+                  <div className="w-screen relative mt-7 h-fit flex justify-center">
+                    <ReactiveButton
+                      style={customButtonStyle}
+                      buttonState={state}
+                      idleText="Login"
+                      loadingText="wait.."
+                      successText="Logging In"
+                      errorText="Login"
+                      onClick={async () =>
+                        login(email, password, setError, setButtonState)
+                      }
+                    />
+                    {error && <p className="absolute w-screen top-[-40px] tracking-wide text-red-500 font-semibold text-center">{error}</p>}
+                  </div>
+                )}
+              </form>
             </div>
-          </Grid>
-          <Grid item xs={12} display={{ xs: "none", md: "block" }} md={6}>
-            <div className="image-container w-full flex justify-center items-center">
-              <img className="rounded-xl" height={"100%"} width={"100%"} id="scaledImage" src={i1} alt="Cute dog" />
-            </div>
-          </Grid>
+          </div>
         </Grid>
+        <Grid item xs={12} display={{ xs: "none", md: "block" }} md={6}>
+          <div className="image-container w-full flex justify-center items-center">
+            <img className="rounded-xl" height={"100%"} width={"100%"} id="scaledImage" src={i1} alt="Cute dog" />
+          </div>
+        </Grid>
+      </Grid>
       </div>
     </div>
   );
