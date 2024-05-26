@@ -40,7 +40,14 @@ function LandingPage() {
       }, [csrftoken, userType, navigate]);
 
     return (
-    <div className="z-[-2] h-screen bg-custom-gradient w-full flex flex-col items-center font-VarelaRound">
+        <div style={{
+            overflowY: 'scroll',
+            height: '100vh',
+            scrollbarWidth: 'thin',
+            scrollbarColor: '#888 transparent',
+        }}>
+            <div>
+    <div className="z-[-2] h-[120vh] bg-custom-gradient w-full flex flex-col items-center font-VarelaRound">
         {stars}
             <div className="flex flex-col items-center justify-between h-[70vh] gap-2.5">
                 <div className="flex flex-col items-center gap-2 max-h-[650px] -mt-[40px]">
@@ -79,7 +86,8 @@ function LandingPage() {
                 </button>
             </div>
             </div>
-            
+            </div>
+            </div>
         </div>
     </div>
 );}
