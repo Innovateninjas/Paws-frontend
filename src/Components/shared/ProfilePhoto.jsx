@@ -10,9 +10,16 @@ import {
 import { blue} from "@mui/material/colors";
 import { FaCamera } from "react-icons/fa";
 import { Close } from "@mui/icons-material";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export function ProfilePhoto({ userDetails, setUserData }) {
-  const [openDialog, setOpenDialog] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  
+
+  const queryParams = new URLSearchParams(location.search).get('upload') ? true : null;
+  
+  const [openDialog, setOpenDialog] = useState(queryParams || false);
 
   const [showSaveBtn, setShowSaveBtns] = useState(false);
 
@@ -50,7 +57,16 @@ export function ProfilePhoto({ userDetails, setUserData }) {
     setOpenDialog(false);
     setShowSaveBtns(false);
     setTempImg(userDetails.profile_image);
+    removeQueryParams();
   };
+
+  // when reload/cancel/update want to remove query params
+  const removeQueryParams = () => {
+    if(queryParams){
+      navigate(location.pathname); 
+    }
+    
+  }
 
   const handleSaveProfile = async () => {
     setLoading(true);
@@ -75,6 +91,7 @@ export function ProfilePhoto({ userDetails, setUserData }) {
       setOpenDialog(false);
       setShowSaveBtns(false);
       setLoading(false);
+      removeQueryParams();
       if (response.ok) {
         const data = await response.json();
         console.log(data);
@@ -140,7 +157,7 @@ export function ProfilePhoto({ userDetails, setUserData }) {
                         color: "rgba(255,255,255,0.8)",
                         width: "15rem",
                         height: "15rem",
-                        fontSize: "3rem",
+                        fontSize: "5rem",
                         bgcolor: blue[700],
                         textTransform: "capitalize",
                       }}
