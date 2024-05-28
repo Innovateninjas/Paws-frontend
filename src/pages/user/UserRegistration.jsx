@@ -26,12 +26,13 @@ function CustomBackground({ image }) {
 }
 
 function LoginRegisterForm() {
-	const location = useLocation();
-	const [isPassVisible, setIsPassVisible] = useState(false);
-	let isLogin = true;
-	if (location.pathname === "/register") {
-		isLogin = !isLogin;
-	}
+  const location = useLocation();
+  const [userTypingPassword, setUserTypingPassword] = useState(false);
+  let isLogin = true;
+  if (location.pathname === "/register") {
+    isLogin = !isLogin;
+  }
+
 
 	// const googleButtonStyle = {
 	//   borderRadius: "40px",
