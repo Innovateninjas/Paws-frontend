@@ -27,7 +27,8 @@ function CustomBackground({ image }) {
 
 function LoginRegisterForm() {
   const location = useLocation();
-  const [isPassVisible,setIsPassVisible]=useState(false)
+  const [isPassVisible, setIsPassVisible] = useState(false)
+  const [userTypingPassword, setUserTypingPassword] = useState(false);
   let isLogin = true;
   if (location.pathname === "/register") {
     isLogin = !isLogin;
@@ -165,6 +166,11 @@ function LoginRegisterForm() {
                   setPassword(e.target.value);
                   validate(e.target.value);
                   setPassword(e.target.value);
+                  if (e.target.value.length > 0) {
+                    setUserTypingPassword(true);
+                  } else {
+                    setUserTypingPassword(false);
+                  }
                 }}
                 required
               />
@@ -172,13 +178,13 @@ function LoginRegisterForm() {
               isPassVisible?<FaEye className="absolute right-[10px] text-[#59cceb] top-8" onClick={()=>setIsPassVisible(false)} size={"40px"}/>:<FaEyeSlash className="absolute right-[10px] text-[#59cceb] top-8" onClick={()=>setIsPassVisible(true)} size={"40px"}/>
             }
               </div>
-              <div className="text-left w-80 mt-2">
+              {userTypingPassword && <div className="text-left w-80 mt-2">
                 <p style={{ color: isMinLength ? 'green' : 'red' }}>• Minimum 8 characters</p>
                 <p style={{ color: hasUpperCase ? 'green' : 'red' }}>• At least one uppercase letter</p>
                 <p style={{ color: hasLowerCase ? 'green' : 'red' }}>• At least one lowercase letter</p>
                 <p style={{ color: hasNumber ? 'green' : 'red' }}>• At least one number</p>
                 <p style={{ color: hasSymbol ? 'green' : 'red' }}>• At least one symbol</p>
-              </div>
+              </div>}
 
               {!isLogin && (
                 <>
