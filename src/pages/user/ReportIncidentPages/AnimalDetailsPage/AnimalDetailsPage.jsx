@@ -120,17 +120,20 @@ function AnimalDetailsPage({
         <>
           <div className="relative z-[3] flex flex-col p-4 gap-5 mb-20  ">
 
+
             <div className=" p-[10px] border-1 flex flex-col gap-[10px] rounded-3xl shadow-lg  bg-opacity-30  bg-white  backdrop-blur-[10px]">
               <label>
                 <p className="font-bold xs:text-center xs:pl-0 text-start xs:text-[1.3rem]  text-indigo-900 pl-5 text-[1.4rem] leading-normal">
                   {" "}
                   Type of Animal:
+
                 </p>
               </label>
               <div
                 ref={containerRef}
 
                 className="flex overflow-x-auto gap-4 items-center scrollbar-hide z-[5] "
+
 
               >
                 {/* DOG */}
@@ -160,6 +163,7 @@ function AnimalDetailsPage({
                       />
                        {/*  hover:blur-xs hover:shadow-lg ring-[3px] */}
 
+
                     </div>
                   </label>
                 </div>
@@ -183,9 +187,11 @@ function AnimalDetailsPage({
 
                   <label htmlFor="cat">
 
+
                     <div className=" w-[80px] h-[80px] xs:w-[65px] xs:h-[65px] relative my-[8px] ">
                       <img
                         className="rounded-[50%] hover:ring-[2.7px] shadow-md shadow-black ring-indigo-950 w-full ring-[2px] h-full object-cover object-center "
+
 
                         src="./images/cat.jpg"
                         alt=""
@@ -216,6 +222,7 @@ function AnimalDetailsPage({
                       <img
                         className="rounded-[50%] hover:ring-[2.7px] shadow-md shadow-black ring-indigo-950 w-full ring-[2px] h-full object-cover object-center"
 
+
                         src="./images/cow.jpg"
                         alt=""
                       />
@@ -242,9 +249,11 @@ function AnimalDetailsPage({
                   />
                   <label htmlFor="bird">
 
+
                     <div className="w-[80px] h-[80px]  xs:w-[65px] xs:h-[65px] relative my-[8px]">
                       <img
                         className="rounded-[50%] hover:ring-[2.7px] shadow-md shadow-black ring-indigo-950 w-full ring-[2px] h-full object-cover object-center"
+
 
                         src="./images/bird.jpeg"
                         alt=""
@@ -303,11 +312,13 @@ function AnimalDetailsPage({
                   />
                   <label htmlFor="sheep">
 
+
                     <div className="w-[80px] h-[80px] xs:w-[65px] xs:h-[65px] relative my-[8px]">
                       <img
                         className="rounded-[50%] hover:ring-[2.7px] shadow-md shadow-black ring-indigo-950 w-full ring-[2px] h-full object-cover object-center"
 
                  
+
                         src="./images/sheep.jpg"
                         alt=""
                       />
@@ -339,6 +350,7 @@ function AnimalDetailsPage({
                         className="rounded-[50%] hover:ring-[2.7px] shadow-md shadow-black ring-indigo-950 w-full ring-[2px] h-full object-cover object-center"
 
                       src="./images/rabbit.jpg"
+
                         alt=""
                       />
                     </div>
@@ -361,9 +373,11 @@ function AnimalDetailsPage({
                   />
                   <label htmlFor="other">
 
+
                     <div className=" w-[80px] h-[80px] xs:w-[65px] xs:h-[65px] relative my-[8px]">
                       <img
                         className="rounded-[50%] hover:ring-[2.7px] shadow-md shadow-black ring-indigo-950 w-full ring-[2px] h-full object-cover object-center"
+
 
                         src="./images/more.jpg"
                         alt=""
@@ -374,6 +388,7 @@ function AnimalDetailsPage({
               </div>
               {/* OPTION:otherS */}
               {(formData.predictedAnimal===null || formData.animal_type==="other") && (
+
 
                 <label className=" text-lg xs:text-[15px] flex items-center gap-2">
                   Please specify:
@@ -404,6 +419,7 @@ function AnimalDetailsPage({
                     type="radio"
                     className="w-8 h-8 xs:w-7 xs:h-7"
 
+
                     name="numberOfAnimals"
                     value="One"
                     checked={
@@ -421,6 +437,7 @@ function AnimalDetailsPage({
                   <input
                     type="radio"
 
+
                     className="w-8 h-8 xs:w-7 xs:h-7"
 
                     name="numberOfAnimals"
@@ -432,6 +449,7 @@ function AnimalDetailsPage({
                     onChange={handleChange}
                   />
                 </label>
+
 
                 <label className="flex flex-col items-center justify-center text-lg font-medium sm:text-[17px]">
                   <p>More</p>
@@ -454,6 +472,7 @@ function AnimalDetailsPage({
             {/* DESCRIBE WHAT  HAPPENED */}
             <div className="bg-white bg-opacity-57 shadow-lg ring-1 ring-gray-300 flex flex-col justify-center border-1 gap-2 p-5 rounded-3xl backdrop-blur-[6px]">
               <label>
+
 
                 <p className="font-bold xs:pl-0 xs:text-center text-start xs:text-[1.3rem]  text-indigo-900 pl-5 text-[1.4rem] leading-normal ">
                 Incident Description:
@@ -489,6 +508,7 @@ function AnimalDetailsPage({
                   <input
                     type="radio"
 
+
                     className="w-8 h-8 xs:w-7 xs:h-7"
 
                     id="urgent"
@@ -498,6 +518,7 @@ function AnimalDetailsPage({
                     onChange={handleChange}
                   />
 
+
                   <label htmlFor="urgent" className="text-lg font-medium sm:text-[17px]">
 
                     Urgent
@@ -506,6 +527,7 @@ function AnimalDetailsPage({
                 <div className="flex flex-col-reverse items-center justify-center text-lg font-semibold">
                   <input
                     type="radio"
+
 
                     className="w-8 h-8 xs:w-7 xs:h-7"
 
@@ -518,12 +540,14 @@ function AnimalDetailsPage({
 
                   <label htmlFor="Critical" className="text-lg font-medium sm:text-[17px]">
 
+
                     Critical
                   </label>
                 </div>
                 <div className="flex flex-col-reverse items-center justify-center text-lg font-semibold">
                   <input
                     type="radio"
+
 
                     className="w-8 h-8 xs:w-7 xs:h-7"
 
@@ -534,7 +558,9 @@ function AnimalDetailsPage({
                     onChange={handleChange}
                   />
 
+
                   <label htmlFor="Normal" className="text-lg font-medium sm:text-[17px]">
+
 
                     Normal
                   </label>
@@ -545,6 +571,7 @@ function AnimalDetailsPage({
 
             {/* BUTTONS */}
             <div className="mt-4 w-full flex flex-wrap justify-evenly gap-4">
+
 
             <Button text="Back" clas="tracking-wider font-semibold md:text-[23px] md:px-7 xs:text-[20px] xs:px-6  px-9 text-white focus:outline-none" onClick={handleBackPage}/>
               
@@ -557,6 +584,7 @@ function AnimalDetailsPage({
             </div>
           </div>
         </>
+
 
       </div>
 

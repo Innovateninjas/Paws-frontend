@@ -1,4 +1,5 @@
 import React, { useState , useEffect } from 'react';
+import styles from "./donationFront.module.css";
 import { Link } from 'react-router-dom';
 import Background from '../../../../Components/shared/Background';
 import { TypeAnimation } from 'react-type-animation';
@@ -41,7 +42,7 @@ export const Donationfront = () => {
       <Background/>
         <div className="flex flex-col h-[90vh] font-breeSerif items-center justify-center gap-[30px] p-3">
         <div className=" relative">
-          <img className="absolute top-[-85px] left-[3px] w-[100%] object-contain h-[100px] md:top-[-87px] md:left-[22px] md:w-[90%]"  src="./images/Donation.png" alt='' />
+          <img className={styles.image} src="./images/Donation.png" alt='' />
           <h2 className="bg-white font-breeSerif rounded-3xl bg-opacity-57 backdrop-blur-[5px] shadow-dashBoardCardImageShadow px-4 text-center pb-3 pt-3 flex justify-center items-center flex-col"> <span className="text-[#40025D] font-bold animate-fade-in-donation text-[1.6rem] drop-shadow-xl ">HELP US BRIGHTEN THEIR LIVES!</span></h2>
         </div>
         {/* MAIN CONTENTS */}
