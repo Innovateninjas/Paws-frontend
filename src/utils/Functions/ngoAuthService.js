@@ -37,10 +37,10 @@ export const registration = async (orgName, phoneNumber, email, emergency, passw
         setError("Enter a valid emergency contact number.");
         return;
     }
-    // if (!(await ngoValidator(darpanid, setError))) {
-    //     setError("Enter a valid DARPAN ID");
-    //     return;
-    // }
+    if (!(await ngoValidator(darpanid, setError))) {
+        setError("Enter a valid DARPAN ID");
+        return;
+    }
 
     try {
         
@@ -58,7 +58,7 @@ export const registration = async (orgName, phoneNumber, email, emergency, passw
                 password: password,
                 emergency_contact_number: emergency,
                 animals_supported: animalSupported, 
-                // website: darpanid,
+                website: darpanid,
                 address: location, 
                 latitude: latitude, 
                 longitude: longitude,
