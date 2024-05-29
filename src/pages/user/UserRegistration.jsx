@@ -2,66 +2,40 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import InputField from "../../Components/shared/InputField";
 import ReactiveButton from "reactive-button";
-import custBackgroundImage from "../user/imgs/pngtree-blue-pastel-background-picture-image_1599663.jpg"; // Import your background image
-import {FaEye,FaEyeSlash} from 'react-icons/fa6'
+import custBackgroundImage from "../user/imgs/pngtree-blue-pastel-background-picture-image_1599663.jpg";
+import { FaEye, FaEyeSlash } from 'react-icons/fa6';
 import i1 from '../user/imgs/white-dog-pastel-blue-background-3d_89917-269.jpg';
 import { login, registration } from "../../utils/Functions/userAuthService";
 import LoginTextLink from "../../Components/shared/LoginTextLink";
-// import Validator from 'validator';
 
 function CustomBackground({ image }) {
-  const backgroundStyle = {
-    position: "fixed",
-    top: 0,
-    left: 0,
-    width: "100%",
-    height: "100%",
-    zIndex: -1,
-    backgroundImage: `url(${image})`,
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-  };
-
-  return <div style={backgroundStyle}></div>;
+  return (
+    <div
+      className="fixed top-0 left-0 w-full h-full bg-cover bg-center z-[-1]"
+      style={{ backgroundImage: `url(${image})` }}
+    ></div>
+  );
 }
 
 function LoginRegisterForm() {
   const location = useLocation();
-  const [isPassVisible, setIsPassVisible] = useState(false)
+  const [isPassVisible, setIsPassVisible] = useState(false);
   const [userTypingPassword, setUserTypingPassword] = useState(false);
-  let isLogin = true;
-  if (location.pathname === "/register") {
-    isLogin = !isLogin;
-  }
-
-  // const googleButtonStyle = {
-  //   borderRadius: "40px",
-  //   display: "flex",
-  //   background: "#FFFFFF", // Google White
-  //   color: "#3f3f3f", // Google Gray
-  //   padding: "10px 10px",
-  //   fontSize: "16px",
-  //   fontWeight: "bold",
-  //   boxShadow: "rgba(0, 0, 0, 0.1) 0px 1px 2px 0px",
-  //   cursor: "pointer",
-  //   border: "1px solid #dadce0", // Google Gray
-  //   transition: "background-color 0.2s, box-shadow 0.2s",
-  // };
+  let isLogin = location.pathname !== "/register";
 
   const customButtonStyle = {
-    borderRadius: "20px", // Adjust the border radius as needed
-    background: "linear-gradient(to bottom, #b3d9ff, #3399ff)", // Adjust gradient colors
-    padding: "20px 40px",
-    marginTop: "0.675rem",
-    fontSize: "22px",
+    borderRadius: "20px",
+    background: "linear-gradient(to bottom, #b3d9ff, #3399ff)",
+    padding: "16px 32px",
+    marginTop: "1rem",
+    fontSize: "18px",
     fontWeight: "800",
     boxShadow: "rgb(38, 57, 77) 0px 15px 30px -10px",
-    letterSpacing: "0.2rem",
+    letterSpacing: "0.1rem",
     width: "fit-content",
     margin: "auto",
   };
 
-  // const [errorMessage, setErrorMessage] = useState("");
   const [name, setname] = useState("");
   const [phone_number, setPhone_number] = useState("");
   const [email, setEmail] = useState("");
@@ -87,172 +61,160 @@ function LoginRegisterForm() {
     setHasSymbol(/[^A-Za-z0-9]/.test(value));
   };
 
+
   return (
-    <div className="h-full w-screen flex items-center justify-center mb-[60px]">
-      <style>
-        {`
-          #scaledImage {
-            width: 65%; /* Set the desired width */
-            height: auto; /* Maintain aspect ratio */
-          }
-        `}
-      </style>
+    <div className="flex flex-col items-center justify-center min-h-screen py-8 px-4 lg:px-8">
       <CustomBackground image={custBackgroundImage} />
-      <div style={{
-            overflowY: 'scroll',
-            height: '100vh',
-            scrollbarWidth: 'thin',
-            scrollbarColor: '#888 transparent',
-        }}>
-            <div>
-      <div className="container min-h-screen flex flex-row ">
-        <div className="w-1/2 flex justify-center items-center">
-          <div className="">
-            <form className="flex gap-[20px] items-center justify-start flex-col ">
-              {!isLogin && (
-                <>
-                  <h1 className="mt-[60px] text-center pb-1 pl-2 pr-2 z-[3] text-indigo-900 font-semibold text-[2.5em] ">Create Account</h1>
-                  <InputField
-                    className="placeholder-stone h-16 mt-5 bg-opacity-45 w-80 px-4 py-2 items-center outline-0 border-b-2 border-blue-800 text-black text-lg bg-white shadow-dashBoardCardImageShadow"
-                    type="text"
-                    placeholder="Full Name"
-                    value={name}
-                    onChange={(e) => {
-                      setError("");
-                      setname(e.target.value);
-                    }}
-                    style={{ marginBottom: "-2px" }} // Adjust this value as needed
-                    required
-                  />
-
-                  <InputField
-                    className="placeholder-stone h-16 mt-5 bg-opacity-45 w-80 px-4 py-2 items-center outline-0 border-b-2 border-blue-800 text-black text-lg bg-white shadow-dashBoardCardImageShadow"
-                    type="tel"
-                    placeholder="Phone Number"
-                    value={phone_number}
-                    onChange={(e) => {
-                      setError("");
-                      setPhone_number(e.target.value);
-                    }}
-                    required
-                  />
-                </>
-              )}
-              {isLogin && 
+      <div className="w-full max-w-6xl flex flex-row sm:flex-col items-center justify-center rounded-xl shadow-2xl p-6 lg:p-12">
+        <div className="w-full  flex justify-center items-center mb-8 lg:mb-0">
+          <form className="flex flex-col gap-4 w-full max-w-md">
+            {!isLogin && (
               <>
-                <h1 className="mt-[60px] text-center pb-1 pl-2 pr-2 z-[3] text-indigo-900 font-bold tracking-wide text-[2.5em] underline"> Welcome Back</h1>
+                <h1 className="text-center text-indigo-900 font-semibold text-2xl lg:text-3xl">Create Account</h1>
+                <InputField
+                  className="h-12 px-4 py-2 border-b-2 border-blue-800 text-lg bg-white shadow-md"
+                  type="text"
+                  placeholder="Full Name"
+                  value={name}
+                  onChange={(e) => {
+                    setError("");
+                    setname(e.target.value);
+                  }}
+                  required
+                />
+                <InputField
+                  className="h-12 px-4 py-2 border-b-2 border-blue-800 text-lg bg-white shadow-md"
+                  type="tel"
+                  placeholder="Phone Number"
+                  value={phone_number}
+                  onChange={(e) => {
+                    setError("");
+                    setPhone_number(e.target.value);
+                  }}
+                  required
+                />
               </>
-              }
-              <InputField
-                className="placeholder-stone h-16 mt-5 bg-opacity-45 w-80 px-4 py-2 items-center outline-0 border-b-2 border-blue-800 text-black text-lg bg-white shadow-dashBoardCardImageShadow"
-                type="email"
-                placeholder="Email"
-                value={email}
-                onChange={(e) => {
-                  setError("");
-                  setEmail(e.target.value);
-                }}
-                required
-              />
-              <div className="relative">
+            )}
+            {isLogin && (
+              <h1 className="text-center text-indigo-900 font-bold text-2xl lg:text-3xl underline">Welcome Back</h1>
+            )}
+            <InputField
+              className="h-12 px-4 py-2 border-b-2 border-blue-800 text-lg bg-white shadow-md"
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => {
+                setError("");
+                setEmail(e.target.value);
+              }}
+              required
+            />
+            <div className="relative w-full">
+  <InputField
+    className="w-full h-12 px-4 py-2 border-b-2 border-blue-800 text-lg bg-white shadow-md"
+    type={isPassVisible ? "text" : "password"}
+    placeholder="Password"
+    value={password}
+    onChange={(e) => {
+      setError("");
+      setPassword(e.target.value);
+      validate(e.target.value);
+      setUserTypingPassword(e.target.value.length > 0);
+    }}
+    required
+  />
+  {isPassVisible ? (
+    <FaEye
+      className="absolute right-4 top-3 text-blue-500 cursor-pointer"
+      onClick={() => setIsPassVisible(false)}
+    />
+  ) : (
+    <FaEyeSlash
+      className="absolute right-4 top-3 text-blue-500 cursor-pointer"
+      onClick={() => setIsPassVisible(true)}
+    />
+  )}
+</div>
 
-              <InputField
-                className="placeholder-stone h-16 mt-5 bg-opacity-45 w-80 px-4 py-2 items-center outline-0 border-b-2 border-blue-800 text-black text-lg bg-white shadow-dashBoardCardImageShadow"
-                type={`${isPassVisible?"text":"password"}`}
-                placeholder="Password"
-                value={password}
-                onChange={(e) => {
-                  setError("");
-                  setPassword(e.target.value);
-                  validate(e.target.value);
-                  setPassword(e.target.value);
-                  if (e.target.value.length > 0) {
-                    setUserTypingPassword(true);
-                  } else {
-                    setUserTypingPassword(false);
-                  }
-                }}
-                required
-              />
-            {
-              isPassVisible?<FaEye className="absolute right-[10px] text-[#59cceb] top-8" onClick={()=>setIsPassVisible(false)} size={"40px"}/>:<FaEyeSlash className="absolute right-[10px] text-[#59cceb] top-8" onClick={()=>setIsPassVisible(true)} size={"40px"}/>
-            }
+            {userTypingPassword && (
+              <div className="text-left w-full mt-2">
+                <p className={`text-sm ${isMinLength ? 'text-green-500' : 'text-red-500'}`}>• Minimum 8 characters</p>
+                <p className={`text-sm ${hasUpperCase ? 'text-green-500' : 'text-red-500'}`}>• At least one uppercase letter</p>
+                <p className={`text-sm ${hasLowerCase ? 'text-green-500' : 'text-red-500'}`}>• At least one lowercase letter</p>
+                <p className={`text-sm ${hasNumber ? 'text-green-500' : 'text-red-500'}`}>• At least one number</p>
+                <p className={`text-sm ${hasSymbol ? 'text-green-500' : 'text-red-500'}`}>• At least one symbol</p>
               </div>
-              {userTypingPassword && <div className="text-left w-80 mt-2">
-                <p style={{ color: isMinLength ? 'green' : 'red' }}>• Minimum 8 characters</p>
-                <p style={{ color: hasUpperCase ? 'green' : 'red' }}>• At least one uppercase letter</p>
-                <p style={{ color: hasLowerCase ? 'green' : 'red' }}>• At least one lowercase letter</p>
-                <p style={{ color: hasNumber ? 'green' : 'red' }}>• At least one number</p>
-                <p style={{ color: hasSymbol ? 'green' : 'red' }}>• At least one symbol</p>
-              </div>}
-
-              {!isLogin && (
-                <>
-                  <div className="w-screen relative h-[70px] mt-5 flex justify-center">
-                    <ReactiveButton
-                      style={customButtonStyle}
-                      buttonState={state}
-                      idleText="Register"
-                      loadingText="wait.."
-                      successText="Logging In"
-                      errorText="Register"
-                      messageDuration={3000}
-                      disabled={!(isMinLength && hasUpperCase && hasLowerCase && hasNumber && hasSymbol)}
-                      onClick={async () =>
-                        registration(
-                          name,
-                          phone_number,
-                          email,
-                          password,
-                          setError,
-                          setButtonState
-                        )
-                      }
-                    />
-                    {error && <p className="absolute top-[-25px] w-screen tracking-wide text-red-500 font-semibold text-center" style={{marginLeft:'35%',marginRight:'35%'}}>{error}</p>}
-                  </div>
-                </>
-              )}
-              {!isLogin && (
-                <>
-                  <div className="w-screen h-fit flex flex-col mt-3 gap-2 items-center">
-                    <LoginTextLink />
-                    <LoginTextLink
-                      text={"Are you an NGO ?"}
-                      link={"/ngoregister"}
-                      linkText={"Register Here!"}
-                      className="text-indigo-800 underline"
-                    />
-                  </div>
-                </>
-              )}
-              {isLogin && (
-                <div className="w-screen relative mt-7 h-fit flex justify-center">
+            )}
+            {!isLogin && (
+              <>
+                <div className="w-full relative flex justify-center mt-4">
                   <ReactiveButton
                     style={customButtonStyle}
                     buttonState={state}
-                    idleText="Login"
-                    loadingText="wait.."
-                    successText="Logging In"
-                    errorText="Login"
+                    idleText="Register"
+                    loadingText="Wait..."
+                    successText="Logged In"
+                    errorText="Error"
+                    messageDuration={3000}
+                    disabled={!(isMinLength && hasUpperCase && hasLowerCase && hasNumber && hasSymbol)}
                     onClick={async () =>
-                      login(email, password, setError, setButtonState)
+                      registration(
+                        name,
+                        phone_number,
+                        email,
+                        password,
+                        setError,
+                        setButtonState
+                      )
                     }
                   />
-                  {error && <p className="absolute w-screen top-[-40px] tracking-wide text-red-500 font-semibold text-center">{error}</p>}
+                  {error && (
+                    <p className="absolute top-[-20px] w-full text-center text-red-500 font-semibold">
+                      {error}
+                    </p>
+                  )}
                 </div>
-              )}
-            </form>
-          </div>
+                <div className="w-full flex flex-col mt-8 gap-2 items-center">
+                  <LoginTextLink />
+                  <LoginTextLink
+                    text={"Are you an NGO?"}
+                    link={"/ngoregister"}
+                    linkText={"Register Here!"}
+                    className="text-indigo-800 underline"
+                  />
+                </div>
+              </>
+            )}
+            {isLogin && (
+              <div className="w-full relative flex justify-center mt-4">
+                <ReactiveButton
+                  style={customButtonStyle}
+                  buttonState={state}
+                  idleText="Login"
+                  loadingText="Wait..."
+                  successText="Logged In"
+                  errorText="Error"
+                  onClick={async () =>
+                    login(email, password, setError, setButtonState)
+                  }
+                />
+                {error && (
+                  <p className="absolute top-[-20px] w-full text-center text-red-500 font-semibold">
+                    {error}
+                  </p>
+                )}
+              </div>
+            )}
+          </form>
         </div>
-        <div className="image-container w-1/2 flex justify-center items-center">
-          <img className="rounded-xl " id="scaledImage" src={i1} alt="Cute dog" />
-        </div>
-      </div>
-      </div>
+        <div className="sm:w-full flex justify-center items-center p-4 lg:mt-0 mt-8">
+  <img className="block  sm:hidden rounded-xl w-2/3" src={i1} alt="Cute dog" />
+</div>
+
       </div>
     </div>
   );
+  
 }
 
 export default LoginRegisterForm;
