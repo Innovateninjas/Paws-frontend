@@ -107,7 +107,7 @@ export function ProfilePhoto({ userDetails, setUserData }) {
     <>
       <div
         onClick={() => setOpenDialog(true)}
-        className="rounded-[50%] shadow-dashBoardCardImageShadow flex justify-center items-center cursor-pointer relative group overflow-hidden"
+        className="rounded-[50%] shadow-dashBoardCardImageShadow flex justify-center items-center cursor-pointer relative group"
       >
         <Avatar
           alt={userDetails.name}
@@ -120,6 +120,7 @@ export function ProfilePhoto({ userDetails, setUserData }) {
             bgcolor: blue[700],
             textTransform: "capitalize",
           }}
+          
         >
           {!userDetails.profile_image && userDetails.name[0]}
         </Avatar>

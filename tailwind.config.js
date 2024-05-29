@@ -70,7 +70,14 @@ module.exports = {
           }
         },
         screens: {
-          'h-md': {'raw': '(max-height: 768px)'}
+          'h-md': {'raw': '(max-height: 768px)'},
+        sm: { max: "600px" },
+        lg: { max: "1800px" },
+        lgm: { max: "1140px" },
+        md: { max: "990px" },
+        xs: { max: "400px" },
+        minmd: "1700px",
+        minlg: "2100px",
         },
         animation: {
           'fade-in': 'fade-in 0.5s ease-out',
