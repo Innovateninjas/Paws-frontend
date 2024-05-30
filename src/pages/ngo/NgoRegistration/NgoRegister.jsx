@@ -7,10 +7,12 @@ import LoginTextLink from "../../../Components/shared/LoginTextLink";
 import getUserLocation from "../../../utils/Functions/getLocationData";
 import { AnimalList } from "./animalList";
 import Background from "../../../Components/shared/Background";
+import AlertDialog from "../../../Components/shared/AlertDialog";
+
 
 // import { shadow } from "@cloudinary/url-gen/actions/effect";]
 function NgoRegisterForm() {
-
+  
   const customButtonStyle = {
     borderRadius: "40px",
     background: "linear-gradient(to bottom, #16a34a, #15803d)",
@@ -36,13 +38,52 @@ function NgoRegisterForm() {
   const [darpanid, setDarpanid] = useState("");
   const [latitude, setLatitude] = useState(0);
   const [longitude, setLongitude] = useState(0);
+
+  const [isOpenConfirmBox, setIsOpenConfirmBox] = useState(false);
+
   useEffect(() => {
     getUserLocation(setLatitude, setLongitude);
   }, []);
 
+  // ngo Registration
+  const handleRegistration = async () => {
+    const res = await registration(
+      orgName,
+      phoneNumber,
+      email,
+      emergency,
+      password,
+      animalSupported,
+      lcation,
+      darpanid,
+      latitude,
+      longitude,
+      setError,
+      setButtonState
+    );
+
+    // when res is success then only show confirmation dialog
+    if (res) {
+      setTimeout(() => {
+        setIsOpenConfirmBox(() => true);
+      }, 3000);
+    }
+  };
+
+  // condition based rendering when resigration successful
+  const closeConfirmationDialog = (isUploadPhoto) => {
+    if (isUploadPhoto) {
+      window.location.href = "/";
+    } else {
+      window.location.href = "/ngoProfile?upload=true";
+    }
+
+    setIsOpenConfirmBox(false);
+  };
+
   return (
     <div className="h-full pt-9 w-screen flex items-center justify-center mb-[200px]">
-    <Background/>
+      <Background/>
       <form className="flex gap-[20px] items-center justify-center flex-col">
         <>
           <h1 className="text-center pb-1 pl-2 pr-2 z-[3] text-indigo-900 font-bold text-[2.5em] underline">Join Us Today</h1>
@@ -108,47 +149,47 @@ function NgoRegisterForm() {
           />
 
           <Creatable
-           styles={{
-        control: base => ({
-            ...base,
-            height: "4rem",
-            width: '20rem',
-            border: '0',
-            backgroundColor: 'rgba(255, 255, 255, 0.5)',
-            boxShadow: "3.847223997116089px 4.946430683135986px 14.289689064025879px 0px #00000040",
-            borderRadius: '30px',
-            padding: '0.5rem 1rem',
-            fontSize: '16px',
-            backdropFilter: 'blur(6px)',
-            outline: '0',
-            overflow: 'scroll',
-            position: 'relative',
-            
-        }),
+            styles={{
+              control: base => ({
+                ...base,
+                height: "4rem",
+                width: '20rem',
+                border: '0',
+                backgroundColor: 'rgba(255, 255, 255, 0.5)',
+                boxShadow: "3.847223997116089px 4.946430683135986px 14.289689064025879px 0px #00000040",
+                borderRadius: '30px',
+                padding: '0.5rem 1rem',
+                fontSize: '16px',
+                backdropFilter: 'blur(6px)',
+                outline: '0',
+                overflow: 'scroll',
+                position: 'relative',
 
-        multiValue: (provided, state) => ({
-            ...provided,
-            backgroundColor: 'rgba(255, 255, 255, 0.5)',
-            borderRadius: '30px',
-            fontSize: '18px',
-            marginLeft: '5px',
-            padding: '2px',
-        }),
-        clearIndicator: (provided, state) => ({
-            ...provided,
-            color: 'rgb(244 63 94)',
-        }),
+              }),
+
+              multiValue: (provided, state) => ({
+                ...provided,
+                backgroundColor: 'rgba(255, 255, 255, 0.5)',
+                borderRadius: '30px',
+                fontSize: '18px',
+                marginLeft: '5px',
+                padding: '2px',
+              }),
+              clearIndicator: (provided, state) => ({
+                ...provided,
+                color: 'rgb(244 63 94)',
+              }),
               placeholder: defaultStyles => ({
                 ...defaultStyles,
                 color: '#53605B',
                 fontSize: '18px',
               }),
-        dropdownIndicator: (provided, state) => ({
-            ...provided,
-            color: 'black',
-            lineHeight: '32px',
-        }),
-    }}
+              dropdownIndicator: (provided, state) => ({
+                ...provided,
+                color: 'black',
+                lineHeight: '32px',
+              }),
+            }}
 
             isMulti={true}
             placeholder="Animal Supported"
@@ -158,7 +199,7 @@ function NgoRegisterForm() {
               setError("");
               setanimalSupported(animalNames);
             }
-            }
+          }
           />
           {/* EMERGENCY CONTACT NUMBER */}
           <InputField
@@ -181,7 +222,7 @@ function NgoRegisterForm() {
               setError("");
               setDarpanid(e.target.value);
             }
-            }
+          }
           />
         </>
         <>
@@ -194,37 +235,27 @@ function NgoRegisterForm() {
               successText="Logging In"
               errorText="Register"
               messageDuration={3000}
-              onClick={async () => {   
-                registration(
-                  orgName,
-                  phoneNumber,
-                  email,
-                  emergency,
-                  password,
-                  animalSupported,
-                  lcation,
-                  darpanid,
-                  latitude,
-                  longitude,
-                  setError,
-                  setButtonState
-                );
-              }}
+              onClick={handleRegistration}
             />
-             {error && <p className="absolute top-[-25px] tracking-wide text-red-500 font-semibold text-center">{error}</p>}
+            {error && <p className="absolute top-[-25px] tracking-wide text-red-500 font-semibold text-center">{error}</p>}
           </div>
         </>
         <div className="w-screen h-fit flex flex-col mt-3 gap-2 items-center">
-        <LoginTextLink
-        />
-        <LoginTextLink
-          text={"Not an Ngo ?"}
-          link={"/register"}
-          linkText={"Register Here!"}
-        />
+          <LoginTextLink 
+          />
+          <LoginTextLink
+            text={"Not an Ngo ?"}
+            link={"/register"}
+            linkText={"Register Here!"}
+          />
         </div>
       </form>
-     
+
+      {/* Alert Dialog for profile */}
+      <AlertDialog
+        open={isOpenConfirmBox}
+        handleClose={closeConfirmationDialog}
+      />
     </div>
   );
 }
