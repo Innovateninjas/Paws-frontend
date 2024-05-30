@@ -27,15 +27,15 @@ const NgoProfile = () => {
   if (userDetails) {
     return (
       <>
-        <div className="flex flex-col font-Calistoga items-center justify-center gap-[30px] min-h-screen bg-custom-gradient p-4">
-          <div className="w-full mt-8 break-normal border-1 flex flex-col gap-[15px] rounded-[30px] bg-opacity-35 bg-white shadow-dashBoardCardImageShadow backdrop-blur-[5px] break-word">
-            <div className="flex px-4 pt-5 gap-5 items-center">
+        <div className="flex flex-col font-Calistoga items-center justify-center gap-[30px] min-h-screen bg-custom-gradient p-4 pb-[70px]">
+          <div className="w-full md:w-[80%] mt-8 break-normal border-1 flex flex-col gap-[15px] rounded-[30px] bg-opacity-35 bg-white shadow-dashBoardCardImageShadow backdrop-blur-[5px] break-word">
+            <div className="flex px-4 md:px-5 pt-5 gap-5 items-center">
               <ProfilePhoto userDetails={userDetails} setUserData={setUserData} />
               <p className="text-[30px] break-words">{userDetails.name}</p>
             </div>
             <div className="flex flex-col gap-2">
               {/* CONTACT DETAILS */}
-              <div className=" px-4 py-2 flex border-t border-[#2e1ee49c] w-full flex-col gap-2">
+              <div className=" px-5 py-2 flex border-t border-[#2e1ee49c] w-full flex-col gap-2">
                 <p className="text-xl tracking-wider drop-shadow-md">
                   Contact Details:
                 </p>
@@ -58,12 +58,12 @@ const NgoProfile = () => {
                 </div>
               </div>
               {/* NUMBER OF REPORTS */}
-              <div className="px-4 py-2 flex border-t border-blue-800 items-center gap-1 text-[18px] drop-shadow-md">
+              <div className="px-5 py-2 flex border-t border-blue-800 items-center gap-1 text-[18px] drop-shadow-md">
                 <p className="tracking-wider">Reports Received :</p>
                 <span className="max-w-[60%] break-words">{userDetails.no_received_reports}</span>
               </div>
               {/*DATE JOINED*/}
-              <div className="px-4 py-2 flex border-t border-blue-800 items-center gap-1 text-[18px] drop-shadow-md">
+              <div className="px-5 py-2 flex border-t border-blue-800 items-center gap-1 text-[18px] drop-shadow-md">
                 <p className="tracking-wider">Date Joined :</p>
                 <span>
                   {
@@ -76,12 +76,12 @@ const NgoProfile = () => {
                 </span>
               </div>
               {/* WEBSITE URL */}
-              <div className="px-4 py-2 flex border-t border-blue-800  gap-1 text-[18px] drop-shadow-md">
+              <div className="px-5 py-2 flex border-t border-blue-800  gap-1 text-[18px] drop-shadow-md">
                 <p className="tracking-wider">Unique Darpan Id :</p>
                 <span className="max-w-[80%] ml-1 break-words">{userDetails.website} </span>
               </div>
               {/* ANIMALS SUPPORTED */}
-              <div className="px-4 py-2 pb-3 flex border-t border-blue-800 gap-1 text-[18px] drop-shadow-md">
+              <div className="px-5 py-2 pb-3 flex border-t border-blue-800 gap-1 text-[18px] drop-shadow-md">
                 <p className="tracking-wider">Animal Supported:</p>
                 <span className="ml-1 max-w-[80%] break-words flex flex-wrap" >
                   {animals_supported &&
