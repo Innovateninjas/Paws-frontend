@@ -69,6 +69,7 @@ module.exports = {
             '100%': { transform: 'scale(0.9)', opacity: '0' },
           }
         },
+
          },
       screens: {
         "h-md": { raw: "(max-height: 768px)" },
@@ -87,6 +88,7 @@ module.exports = {
         "zoom-out": "zoom-out 0.3s",
         "fade-in-donation": "fade-in 2s infinite alternate",
       },
+
     },
   },
     variants: {
