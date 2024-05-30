@@ -9,7 +9,7 @@ function Donation() {
   // Function to handle donation button click
   const handleDonate = (amount) => {
     console.log("handleDonate")
-    const upiLink = `upi://pay?pa=rishipaulstudy@okhdfcbank&pn=Rishi%20Paul&am=${amount}&cu=INR&aid=uGICAgMCerK_8eg`;
+    const upiLink = "https://donate.stripe.com/test_28o3dK1e53zyf1S9AA";
     window.location.href = upiLink;
   };
   // Function to handle custom amount input change
