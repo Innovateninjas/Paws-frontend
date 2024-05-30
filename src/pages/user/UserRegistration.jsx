@@ -202,7 +202,12 @@ function LoginRegisterForm() {
 												}}
 												required
 											/>
+<<<<<<< HEAD
                       </div>
+=======
+										</>
+									)}
+>>>>>>> 78c832406511468e13c8f020cf1ee1665e606171
 									{isLogin && (
 										<>
 											<h1 className="mt-[60px] text-center pb-1 pl-2 pr-2 z-[3] text-indigo-900 font-bold tracking-wide text-[2.5em] underline">
