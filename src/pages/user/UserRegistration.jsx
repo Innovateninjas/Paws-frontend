@@ -7,6 +7,8 @@ import {FaEye,FaEyeSlash} from 'react-icons/fa6'
 import i1 from '../user/imgs/white-dog-pastel-blue-background-3d_89917-269.jpg';
 import { login, registration } from "../../utils/Functions/userAuthService";
 import LoginTextLink from "../../Components/shared/LoginTextLink";
+import AlertDialog from "../../Components/shared/AlertDialog";
+
 // import Validator from 'validator';
 
 function CustomBackground({ image }) {
@@ -75,6 +77,8 @@ function LoginRegisterForm() {
   const [hasNumber, setHasNumber] = useState(false);
   const [hasSymbol, setHasSymbol] = useState(false);
 
+  const [isOpenConfirmBox , setIsOpenConfirmBox ] = useState(false);
+
   useEffect(() => {
     setError("");
   }, [isLogin]);
@@ -85,6 +89,36 @@ function LoginRegisterForm() {
     setHasLowerCase(/[a-z]/.test(value));
     setHasNumber(/[0-9]/.test(value));
     setHasSymbol(/[^A-Za-z0-9]/.test(value));
+  };
+
+  // user Registration
+  const handleRegistration = async () => {
+    const res = await registration(
+      name,
+      phone_number,
+      email,
+      password,
+      setError,
+      setButtonState
+    );
+
+    // when res is success then only show confirmation dialog
+    if (res) {
+      setTimeout(() => {
+        setIsOpenConfirmBox(() => true);
+      }, 3000);
+    }
+  };
+
+  // condition based rendering when resigration successful
+  const closeConfirmationDialog = (isUploadPhoto) => {
+    if (isUploadPhoto) {
+      window.location.href = "/";
+    } else {
+      window.location.href = "/user?upload=true";
+    }
+
+    setIsOpenConfirmBox(false);
   };
 
   return (
@@ -99,62 +133,62 @@ function LoginRegisterForm() {
       </style>
       <CustomBackground image={custBackgroundImage} />
       <div style={{
-            overflowY: 'scroll',
-            height: '100vh',
-            scrollbarWidth: 'thin',
-            scrollbarColor: '#888 transparent',
+          overflowY: 'scroll',
+          height: '100vh',
+          scrollbarWidth: 'thin',
+          scrollbarColor: '#888 transparent',
         }}>
-            <div>
-      <div className="container min-h-screen flex flex-row ">
-        <div className="w-1/2 flex justify-center items-center">
-          <div className="">
-            <form className="flex gap-[20px] items-center justify-start flex-col ">
-              {!isLogin && (
-                <>
-                  <h1 className="mt-[60px] text-center pb-1 pl-2 pr-2 z-[3] text-indigo-900 font-semibold text-[2.5em] ">Create Account</h1>
-                  <InputField
-                    className="placeholder-stone h-16 mt-5 bg-opacity-45 w-80 px-4 py-2 items-center outline-0 border-b-2 border-blue-800 text-black text-lg bg-white shadow-dashBoardCardImageShadow"
-                    type="text"
-                    placeholder="Full Name"
-                    value={name}
-                    onChange={(e) => {
-                      setError("");
-                      setname(e.target.value);
-                    }}
-                    style={{ marginBottom: "-2px" }} // Adjust this value as needed
-                    required
-                  />
+        <div>
+          <div className="container min-h-screen flex flex-row ">
+            <div className="w-1/2 flex justify-center items-center">
+              <div className="">
+                <form className="flex gap-[20px] items-center justify-start flex-col ">
+                  {!isLogin && (
+                    <>
+                      <h1 className="mt-[60px] text-center pb-1 pl-2 pr-2 z-[3] text-indigo-900 font-semibold text-[2.5em] ">Create Account</h1>
+                      <InputField
+                        className="placeholder-stone h-16 mt-5 bg-opacity-45 w-80 px-4 py-2 items-center outline-0 border-b-2 border-blue-800 text-black text-lg bg-white shadow-dashBoardCardImageShadow"
+                        type="text"
+                        placeholder="Full Name"
+                        value={name}
+                        onChange={(e) => {
+                          setError("");
+                          setname(e.target.value);
+                        }}
+                        style={{ marginBottom: "-2px" }} // Adjust this value as needed
+                        required
+                      />
 
+                      <InputField
+                        className="placeholder-stone h-16 mt-5 bg-opacity-45 w-80 px-4 py-2 items-center outline-0 border-b-2 border-blue-800 text-black text-lg bg-white shadow-dashBoardCardImageShadow"
+                        type="tel"
+                        placeholder="Phone Number"
+                        value={phone_number}
+                        onChange={(e) => {
+                          setError("");
+                          setPhone_number(e.target.value);
+                        }}
+                        required
+                      />
+                    </>
+                  )}
+                  {isLogin &&
+                    <>
+                      <h1 className="mt-[60px] text-center pb-1 pl-2 pr-2 z-[3] text-indigo-900 font-bold tracking-wide text-[2.5em] underline"> Welcome Back</h1>
+                    </>
+                  }
                   <InputField
                     className="placeholder-stone h-16 mt-5 bg-opacity-45 w-80 px-4 py-2 items-center outline-0 border-b-2 border-blue-800 text-black text-lg bg-white shadow-dashBoardCardImageShadow"
-                    type="tel"
-                    placeholder="Phone Number"
-                    value={phone_number}
+                    type="email"
+                    placeholder="Email"
+                    value={email}
                     onChange={(e) => {
                       setError("");
-                      setPhone_number(e.target.value);
+                      setEmail(e.target.value);
                     }}
                     required
                   />
-                </>
-              )}
-              {isLogin && 
-              <>
-                <h1 className="mt-[60px] text-center pb-1 pl-2 pr-2 z-[3] text-indigo-900 font-bold tracking-wide text-[2.5em] underline"> Welcome Back</h1>
-              </>
-              }
-              <InputField
-                className="placeholder-stone h-16 mt-5 bg-opacity-45 w-80 px-4 py-2 items-center outline-0 border-b-2 border-blue-800 text-black text-lg bg-white shadow-dashBoardCardImageShadow"
-                type="email"
-                placeholder="Email"
-                value={email}
-                onChange={(e) => {
-                  setError("");
-                  setEmail(e.target.value);
-                }}
-                required
-              />
-              <div className="relative">
+                  <div className="relative">
 
               <InputField
                 className="placeholder-stone h-16 mt-5 bg-opacity-45 w-80 px-4 py-2 items-center outline-0 border-b-2 border-blue-800 text-black text-lg bg-white shadow-dashBoardCardImageShadow"
@@ -186,71 +220,67 @@ function LoginRegisterForm() {
                 <p style={{ color: hasSymbol ? 'green' : 'red' }}>• At least one symbol</p>
               </div>}
 
-              {!isLogin && (
-                <>
-                  <div className="w-screen relative h-[70px] mt-5 flex justify-center">
-                    <ReactiveButton
-                      style={customButtonStyle}
-                      buttonState={state}
-                      idleText="Register"
-                      loadingText="wait.."
-                      successText="Logging In"
-                      errorText="Register"
-                      messageDuration={3000}
-                      disabled={!(isMinLength && hasUpperCase && hasLowerCase && hasNumber && hasSymbol)}
-                      onClick={async () =>
-                        registration(
-                          name,
-                          phone_number,
-                          email,
-                          password,
-                          setError,
-                          setButtonState
-                        )
-                      }
-                    />
-                    {error && <p className="absolute top-[-25px] w-screen tracking-wide text-red-500 font-semibold text-center" style={{marginLeft:'35%',marginRight:'35%'}}>{error}</p>}
-                  </div>
-                </>
-              )}
-              {!isLogin && (
-                <>
-                  <div className="w-screen h-fit flex flex-col mt-3 gap-2 items-center">
-                    <LoginTextLink />
-                    <LoginTextLink
-                      text={"Are you an NGO ?"}
-                      link={"/ngoregister"}
-                      linkText={"Register Here!"}
-                      className="text-indigo-800 underline"
-                    />
-                  </div>
-                </>
-              )}
-              {isLogin && (
-                <div className="w-screen relative mt-7 h-fit flex justify-center">
-                  <ReactiveButton
-                    style={customButtonStyle}
-                    buttonState={state}
-                    idleText="Login"
-                    loadingText="wait.."
-                    successText="Logging In"
-                    errorText="Login"
-                    onClick={async () =>
-                      login(email, password, setError, setButtonState)
-                    }
-                  />
-                  {error && <p className="absolute w-screen top-[-40px] tracking-wide text-red-500 font-semibold text-center">{error}</p>}
-                </div>
-              )}
-            </form>
+                  {!isLogin && (
+                    <>
+                      <div className="w-screen relative h-[70px] mt-5 flex justify-center">
+                        <ReactiveButton
+                          style={customButtonStyle}
+                          buttonState={state}
+                          idleText="Register"
+                          loadingText="wait.."
+                          successText="Logging In"
+                          errorText="Register"
+                          messageDuration={3000}
+                          disabled={!(isMinLength && hasUpperCase && hasLowerCase && hasNumber && hasSymbol)}
+                          onClick={handleRegistration}
+                        />
+                        {error && <p className="absolute top-[-25px] w-screen tracking-wide text-red-500 font-semibold text-center" style={{marginLeft:'35%',marginRight:'35%'}}>{error}</p>}
+                      </div>
+                    </>
+                  )}
+                  {!isLogin && (
+                    <>
+                      <div className="w-screen h-fit flex flex-col mt-3 gap-2 items-center">
+                        <LoginTextLink />
+                        <LoginTextLink
+                          text={"Are you an NGO ?"}
+                          link={"/ngoregister"}
+                          linkText={"Register Here!"}
+                          className="text-indigo-800 underline"
+                        />
+                      </div>
+                    </>
+                  )}
+                  {isLogin && (
+                    <div className="w-screen relative mt-7 h-fit flex justify-center">
+                      <ReactiveButton
+                        style={customButtonStyle}
+                        buttonState={state}
+                        idleText="Login"
+                        loadingText="wait.."
+                        successText="Logging In"
+                        errorText="Login"
+                        onClick={async () =>
+                          login(email, password, setError, setButtonState)
+                        }
+                      />
+                      {error && <p className="absolute w-screen top-[-40px] tracking-wide text-red-500 font-semibold text-center">{error}</p>}
+                    </div>
+                  )}
+                </form>
+              </div>
+            </div>
+            <div className="image-container w-1/2 flex justify-center items-center">
+            <img className="rounded-xl " id="scaledImage" src={i1} alt="Cute dog" />
+            </div>
           </div>
         </div>
-        <div className="image-container w-1/2 flex justify-center items-center">
-          <img className="rounded-xl " id="scaledImage" src={i1} alt="Cute dog" />
-        </div>
       </div>
-      </div>
-      </div>
+      {/* Alert Dialog for profile */}
+      <AlertDialog
+        open={isOpenConfirmBox}
+        handleClose={closeConfirmationDialog}
+      />
     </div>
   );
 }
