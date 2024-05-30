@@ -10,15 +10,24 @@ import {
 import { blue} from "@mui/material/colors";
 import { FaCamera } from "react-icons/fa";
 import { Close } from "@mui/icons-material";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export function ProfilePhoto({ userDetails, setUserData }) {
-  const [openDialog, setOpenDialog] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  
+
+  const queryParams = new URLSearchParams(location.search).get('upload') ? true : null;
+  
+  const [openDialog, setOpenDialog] = useState(queryParams || false);
 
   const [showSaveBtn, setShowSaveBtns] = useState(false);
 
   const [tempImg, setTempImg] = useState(userDetails.profile_image);
 
   const [loading , setLoading] = useState(false);
+
+  const csrftoken = localStorage.getItem('csrftoken');
 
   const dataURLtoFile = (dataUrl, filename) => {
     const arr = dataUrl.split(",");
@@ -48,7 +57,16 @@ export function ProfilePhoto({ userDetails, setUserData }) {
     setOpenDialog(false);
     setShowSaveBtns(false);
     setTempImg(userDetails.profile_image);
+    removeQueryParams();
   };
+
+  // when reload/cancel/update want to remove query params
+  const removeQueryParams = () => {
+    if(queryParams){
+      navigate(location.pathname); 
+    }
+    
+  }
 
   const handleSaveProfile = async () => {
     setLoading(true);
@@ -62,10 +80,10 @@ export function ProfilePhoto({ userDetails, setUserData }) {
       const response = await fetch(`${url}/profile/`, {
         method: "POST",
         headers: {
+          "Authorization": `Token ${csrftoken}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          email: userDetails.email,
           profile_image: imageUrl,
         }),
       });
@@ -73,6 +91,7 @@ export function ProfilePhoto({ userDetails, setUserData }) {
       setOpenDialog(false);
       setShowSaveBtns(false);
       setLoading(false);
+      removeQueryParams();
       if (response.ok) {
         const data = await response.json();
         console.log(data);
@@ -88,7 +107,7 @@ export function ProfilePhoto({ userDetails, setUserData }) {
     <>
       <div
         onClick={() => setOpenDialog(true)}
-        className="rounded-[50%] shadow-dashBoardCardImageShadow flex justify-center items-center cursor-pointer relative group overflow-hidden"
+        className="rounded-[50%] shadow-dashBoardCardImageShadow flex justify-center items-center cursor-pointer relative group"
       >
         <Avatar
           alt={userDetails.name}
@@ -101,6 +120,7 @@ export function ProfilePhoto({ userDetails, setUserData }) {
             bgcolor: blue[700],
             textTransform: "capitalize",
           }}
+          
         >
           {!userDetails.profile_image && userDetails.name[0]}
         </Avatar>
@@ -138,7 +158,7 @@ export function ProfilePhoto({ userDetails, setUserData }) {
                         color: "rgba(255,255,255,0.8)",
                         width: "15rem",
                         height: "15rem",
-                        fontSize: "3rem",
+                        fontSize: "5rem",
                         bgcolor: blue[700],
                         textTransform: "capitalize",
                       }}
