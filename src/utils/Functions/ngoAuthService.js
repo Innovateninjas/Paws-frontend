@@ -70,7 +70,7 @@ export const registration = async (orgName, phoneNumber, email, emergency, passw
         const token = response.data.token;
         localStorage.setItem("csrftoken", token);
         localStorage.setItem("userType", "ngo");
-        window.location.href = "/";
+        return true;
     } catch (error) {
         // Set button state to error and handle error message
         setButtonState('error');
@@ -79,6 +79,8 @@ export const registration = async (orgName, phoneNumber, email, emergency, passw
         } else {
             setError("An error occurred while registering.");
         }
+
+        return false;
     }
 };
 
