@@ -79,6 +79,7 @@ function LoginRegisterForm() {
 	const [hasSymbol, setHasSymbol] = useState(false);
 
   const [isOpenConfirmBox , setIsOpenConfirmBox ] = useState(false);
+  const [isPassVisible , setIsPassVisible ] = useState(false);
 
 	useEffect(() => {
 		setError("");
@@ -202,8 +203,7 @@ function LoginRegisterForm() {
 												}}
 												required
 											/>
-										</>
-									)}
+										</div>
 									{isLogin && (
 										<>
 											<h1 className="mt-[60px] text-center pb-1 pl-2 pr-2 z-[3] text-indigo-900 font-bold tracking-wide text-[2.5em] underline">
