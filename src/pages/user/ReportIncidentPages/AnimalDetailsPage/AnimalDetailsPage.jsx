@@ -101,10 +101,10 @@ function AnimalDetailsPage({
   }, [formData.predictedAnimal]);
   return (
     // A MASTER CONTAINER
-    <div className="">
+    <div>
       <Background />
       <div className="p-4 xs:p-3">
-      <h1 className="text-center mt-[20px] pb-1 z-[3]  xs:text-[25px] text-indigo-900 font-bold  text-[2.7em] underline">
+      <h1 className="text-center mt-[20px] pb-1 z-[3]  xs:text-[28px] text-indigo-900 font-bold  text-[2.7em] underline">
       Details of the Concern
       </h1>
       <div style={{ position: "relative", zIndex: 50 }}>
