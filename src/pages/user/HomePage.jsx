@@ -45,7 +45,7 @@ function LandingPage() {
             height: '100vh',
             scrollbarWidth: 'thin',
             scrollbarColor: '#888 transparent',
-        }}>
+        }} className="HomeLandingPage">
             <div>
     <div className="z-[-2] h-[120vh] bg-custom-gradient w-full flex flex-col items-center font-VarelaRound">
         {stars}
@@ -56,7 +56,7 @@ function LandingPage() {
                             <PiPawPrintFill className="text-white text-[2.2rem] transform rotate-45 " />
                             <PiPawPrintFill className="text-white text-[2rem] transform -rotate-12 mt-4" />
                         </div>
-                        <h2 style={{ textShadow: '2px 4px 6px black' }} className=" text-[6rem] text-white drop-shadow-3xl font-extrabold font-VarelaRound tracking-wider`">Paws</h2>
+                        <h2 style={{ textShadow: '2px 4px 6px black' }} className="headofhome text-[6rem] text-white drop-shadow-3xl font-extrabold font-VarelaRound tracking-wider`">Paws</h2>
                         <div className="absolute bottom-0 left-[-2rem] flex flex-row items-start">
                             <PiPawPrintFill className="text-white text-[2.2rem] transform rotate-45 " />
                             <PiPawPrintFill className="text-white text-[2rem] transform -rotate-12 mt-4 " />
@@ -64,12 +64,12 @@ function LandingPage() {
                     </div>
                     <img
 
-                        className="mx-auto my-auto h-72 backdrop-blur"
+                        className="mx-auto my-auto h-72 backdrop-blur homeimghead"
                         src="./images/paws.webp"
                         alt="Paws"
                     />
                     <p className="text-[24px] drop-shadow-3xl w-full px-4 text-center font-semibold tracking-wider h-md:hidden">Pause to save Paws</p>
-                <div className="text-[18px] text-center max-width-[95%] pt-3 font-baijam drop- tracking-wider">
+                <div className="text-[18px] text-center max-width-[95%] pt-3 font-baijam drop- tracking-wider homedowntext">
                     <p>
                         "Save lives - Click below to report 
                     </p>
