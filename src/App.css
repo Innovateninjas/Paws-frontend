@@ -133,21 +133,13 @@ body {
   .additional-links a:hover {
     text-decoration: underline;
   }
-  @media only screen and (max-width:426px){
-    .HomeLandingPage{
-      overflow-y: hidden !important;
-      width: 100vw !important;
+  
+
+  @media screen and (max-width:800px) {
+    .container{
+      box-shadow: none;
+      padding: 0;
+      margin:0;
     }
-    .headofhome{
-      font-size: 5rem;
-    }
-    .homeimghead{
-      height: 40%;
-      margin-block: 0px !important;
-    }
-  }
-  @media only screen and (max-width:321px){
-    .homedowntext{
-      font-size: 1rem;
-    }
+    
   }
