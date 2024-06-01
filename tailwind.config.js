@@ -78,6 +78,18 @@ module.exports = {
         xs: { max: "400px" },
         minmd: "1700px",
         minlg: "2100px",
+        'max-426': {'max': '426px'},
+        'max-321': {'max': '321px'},
+        },
+        fontSize: {
+          '5xl-custom': '5rem',
+          '1xl-custom': '1rem',
+        },
+        height: {
+          '40p': '40%',
+        },
+        marginBlock: {
+          '0': '0px',
         },
         animation: {
           'fade-in': 'fade-in 0.5s ease-out',

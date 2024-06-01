@@ -40,12 +40,7 @@ function LandingPage() {
       }, [csrftoken, userType, navigate]);
 
     return (
-        <div style={{
-            overflowY: 'scroll',
-            height: '100vh',
-            scrollbarWidth: 'thin',
-            scrollbarColor: '#888 transparent',
-        }} className="HomeLandingPage">
+        <div className="overflow-y-scroll h-screen scrollbar-thin scrollbar-thumb-[#888] scrollbar-track-transparent max-426:overflow-y-hidden sm:w-screen">
             <div>
     <div className="z-[-2] h-[120vh] bg-custom-gradient w-full flex flex-col items-center font-VarelaRound">
         {stars}
@@ -56,7 +51,7 @@ function LandingPage() {
                             <PiPawPrintFill className="text-white text-[2.2rem] transform rotate-45 " />
                             <PiPawPrintFill className="text-white text-[2rem] transform -rotate-12 mt-4" />
                         </div>
-                        <h2 style={{ textShadow: '2px 4px 6px black' }} className="headofhome text-[6rem] text-white drop-shadow-3xl font-extrabold font-VarelaRound tracking-wider`">Paws</h2>
+                        <h2 style={{ textShadow: '2px 4px 6px black' }} className="max-426:text-5xl-custom text-[6rem] text-white drop-shadow-3xl font-extrabold font-VarelaRound tracking-wider`">Paws</h2>
                         <div className="absolute bottom-0 left-[-2rem] flex flex-row items-start">
                             <PiPawPrintFill className="text-white text-[2.2rem] transform rotate-45 " />
                             <PiPawPrintFill className="text-white text-[2rem] transform -rotate-12 mt-4 " />
@@ -64,12 +59,12 @@ function LandingPage() {
                     </div>
                     <img
 
-                        className="mx-auto my-auto h-72 backdrop-blur homeimghead"
+                        className="mx-auto my-auto h-72 backdrop-blur max-426:h-40p max-426:my-0"
                         src="./images/paws.webp"
                         alt="Paws"
                     />
                     <p className="text-[24px] drop-shadow-3xl w-full px-4 text-center font-semibold tracking-wider h-md:hidden">Pause to save Paws</p>
-                <div className="text-[18px] text-center max-width-[95%] pt-3 font-baijam drop- tracking-wider homedowntext">
+                <div className="text-[18px] text-center max-width-[95%] pt-3 font-baijam drop- tracking-wider max-321:text-1xl-custom">
                     <p>
                         "Save lives - Click below to report 
                     </p>
