@@ -162,124 +162,6 @@ function LoginRegisterForm() {
                     required
                   />
                   <div className="relative">
-<<<<<<< HEAD
-											<InputField
-												className="placeholder-stone h-12 md:h-16 mt-5 bg-opacity-45 w-72 md:w-80 px-4 py-2 items-center outline-0 border-b-2 border-blue-800 text-black text-lg bg-white shadow-dashBoardCardImageShadow"
-												type="tel"
-												placeholder="Phone Number"
-												value={phone_number}
-												onChange={(e) => {
-													setError("");
-													setPhone_number(
-														e.target.value
-													);
-												}}
-												required
-											/>
-										</div>
-									{isLogin && (
-										<>
-											<h1 className="mt-[60px] text-center pb-1 pl-2 pr-2 z-[3] text-indigo-900 font-bold tracking-wide text-[2.5em] underline">
-												{" "}
-												Welcome Back
-											</h1>
-										</>
-									)}
-									<InputField
-										className="placeholder-stone h-12 md:h-16 mt-5 bg-opacity-45 w-72 md:w-80 px-4 py-2 items-center outline-0 border-b-2 border-blue-800 text-black text-lg bg-white shadow-dashBoardCardImageShadow"
-										type="email"
-										placeholder="Email"
-										value={email}
-										onChange={(e) => {
-											setError("");
-											setEmail(e.target.value);
-										}}
-										required
-									/>
-									<div className="relative">
-										<InputField
-											className="placeholder-stone h-12 md:h-16 mt-5 bg-opacity-45 w-72 md:w-80 px-4 py-2 items-center outline-0 border-b-2 border-blue-800 text-black text-lg bg-white shadow-dashBoardCardImageShadow"
-											type={`${
-												isPassVisible
-													? "text"
-													: "password"
-											}`}
-											placeholder="Password"
-											value={password}
-											onChange={(e) => {
-												setError("");
-												setPassword(e.target.value);
-												validate(e.target.value);
-												setPassword(e.target.value);
-											}}
-											required
-										/>
-										{isPassVisible ? (
-											<FaEye
-												className="absolute right-[10px] text-[#59cceb] top-8"
-												onClick={() =>
-													setIsPassVisible(false)
-												}
-												size={25}
-											/>
-										) : (
-											<FaEyeSlash
-												className="absolute right-[10px] text-[#59cceb] top-8 mt-0 md:mt-2"
-												onClick={() =>
-													setIsPassVisible(true)
-												}
-												size={25}
-											/>
-										)}
-									</div>
-									<div className="text-left pl-5 md:pl-0 w-80 mt-2">
-										<p
-											style={{
-												color: isMinLength
-													? "green"
-													: "red",
-											}}
-										>
-											• Minimum 8 characters
-										</p>
-										<p
-											style={{
-												color: hasUpperCase
-													? "green"
-													: "red",
-											}}
-										>
-											• At least one uppercase letter
-										</p>
-										<p
-											style={{
-												color: hasLowerCase
-													? "green"
-													: "red",
-											}}
-										>
-											• At least one lowercase letter
-										</p>
-										<p
-											style={{
-												color: hasNumber
-													? "green"
-													: "red",
-											}}
-										>
-											• At least one number
-										</p>
-										<p
-											style={{
-												color: hasSymbol
-													? "green"
-													: "red",
-											}}
-										>
-											• At least one symbol
-										</p>
-									</div>
-=======
                     <InputField
                       className="placeholder-stone h-12 md:h-16 mt-5 bg-opacity-45 w-72 md:w-80 px-4 py-2 items-center outline-0 border-b-2 border-blue-800 text-black text-lg bg-white shadow-dashBoardCardImageShadow"
                       type={isPassVisible ? "text" : "password"}
@@ -307,7 +189,6 @@ function LoginRegisterForm() {
                     )}
                   </div>
 
->>>>>>> 5d2f7ddc51d05ec00c6e837daf4266ef416109e0
                   {!isLogin && (
                     <div className="text-left pl-5 md:pl-0 w-80 mt-2">
                       <p style={{ color: isMinLength ? "green" : "red" }}>
