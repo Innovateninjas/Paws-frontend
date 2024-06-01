@@ -40,7 +40,7 @@ function LandingPage() {
       }, [csrftoken, userType, navigate]);
 
     return (
-        <div className="sm:w-screen overflow-y-scroll h-screen scrollbar-thin scrollbar-thumb-[#888] scrollbar-track-transparent max-426:overflow-y-hidden max-426:w-screen">
+        <div className="overflow-y-scroll h-screen scrollbar-thin scrollbar-thumb-[#888] scrollbar-track-transparent max-426:overflow-y-hidden sm:w-screen">
             <div>
     <div className="z-[-2] h-[120vh] bg-custom-gradient w-full flex flex-col items-center font-VarelaRound">
         {stars}
@@ -51,7 +51,7 @@ function LandingPage() {
                             <PiPawPrintFill className="text-white text-[2.2rem] transform rotate-45 " />
                             <PiPawPrintFill className="text-white text-[2rem] transform -rotate-12 mt-4" />
                         </div>
-                        <h2 style={{ textShadow: '2px 4px 6px black' }} className=" text-[6rem] text-white drop-shadow-3xl font-extrabold font-VarelaRound tracking-wider` max-426:text-5xl-custom">Paws</h2>
+                        <h2 style={{ textShadow: '2px 4px 6px black' }} className="max-426:text-5xl-custom text-[6rem] text-white drop-shadow-3xl font-extrabold font-VarelaRound tracking-wider`">Paws</h2>
                         <div className="absolute bottom-0 left-[-2rem] flex flex-row items-start">
                             <PiPawPrintFill className="text-white text-[2.2rem] transform rotate-45 " />
                             <PiPawPrintFill className="text-white text-[2rem] transform -rotate-12 mt-4 " />
