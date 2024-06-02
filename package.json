@@ -26,6 +26,7 @@
     "chart.js": "^4.4.2",
     "cloudinary": "^1.41.3",
     "core-js": "^3.36.1",
+    "dotenv": "^16.4.5",
     "firebase": "^9.23.0",
     "leaflet": "^1.9.4",
     "leaflet.heat": "^0.2.0",

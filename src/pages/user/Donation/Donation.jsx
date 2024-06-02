@@ -15,11 +15,9 @@ function Donation() {
       window.location.href = upiLink;
     }
     else{
-
-    // new razourpay method
     const options = {
-      key: "rzp_test_Qb7ck4jPdcI2XD",
-      key_secret: "cvyNrVazlw4hGofr57vqF2dO",
+      key: process.env.REACT_APP_RAZORPAY_KEY_ID,
+      key_secret: process.env.REACT_APP_RAZORPAY_KEY_SECRET,
       amount: parseInt(amount) * 100,
       currency: "INR",
       name: "Paws Donation",
