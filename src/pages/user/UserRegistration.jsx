@@ -107,18 +107,18 @@ function LoginRegisterForm() {
           scrollbarWidth: "thin",
           scrollbarColor: "#888 transparent",
         }}
-        className="p-10"  
+        className="p-10 md:p-0"  
       >
-        <div className=" w-full flex justify-center items-center shadow-[0_2px_20px_rgba(0,0,0,0.5)] rounded-3xl">
+        <div className=" w-full flex justify-center items-center shadow-[0_2px_20px_rgba(0,0,0,0.5)] rounded-3xl md:rounded-none md:shadow-[0_0px_0px_rgba(0,0,0,0)]">
           
-          <form className="w-[50%] gap-[1rem] flex flex-col justify-center items-center py-20">
+          <form className="w-[50%] md:w-full gap-[1rem] flex flex-col justify-center items-center py-20">
             {!isLogin && (
               <>
-                <h1 className="text-center z-[3] text-indigo-900 font-semibold text-[2.5em]">
+                <h1 className="w-[85%] text-center z-[3] text-indigo-900 font-semibold text-[2.5em] md:text-[2rem]">
                   Create Account
                 </h1>
                 <InputField
-                  className="placeholder-stone h-12 md:h-16 mt-5 bg-opacity-45 w-80 sm:w-60 px-4 py-2 items-center outline-0 border-b-2 border-blue-800 text-black text-lg bg-white shadow-dashBoardCardImageShadow"
+                  className="placeholder-stone h-12 md:h-12 mt-5 bg-opacity-45 w-80 sm:w-60 px-4 py-2 items-center outline-0 border-b-2 border-blue-800 text-black text-lg bg-white shadow-dashBoardCardImageShadow"
                   type="text"
                   placeholder="Full Name"
                   value={name}
@@ -129,7 +129,7 @@ function LoginRegisterForm() {
                   required
                 />
                 <InputField
-                  className="placeholder-stone h-12 md:h-16 mt-5 bg-opacity-45 w-80 sm:w-60 px-4 py-2 items-center outline-0 border-b-2 border-blue-800 text-black text-lg bg-white shadow-dashBoardCardImageShadow"
+                  className="placeholder-stone h-12 md:h-12 mt-5 bg-opacity-45 w-80 sm:w-60 px-4 py-2 items-center outline-0 border-b-2 border-blue-800 text-black text-lg bg-white shadow-dashBoardCardImageShadow"
                   type="tel"
                   placeholder="Phone Number"
                   value={phone_number}
@@ -149,7 +149,7 @@ function LoginRegisterForm() {
               </>
             )}
             <InputField
-              className="placeholder-stone h-12 md:h-16 mt-5 bg-opacity-45 w-80 sm:w-60 px-4 py-2 items-center outline-0 border-b-2 border-blue-800 text-black text-lg bg-white shadow-dashBoardCardImageShadow"
+              className="placeholder-stone h-12 md:h-12 mt-5 bg-opacity-45 w-80 sm:w-60 px-4 py-2 items-center outline-0 border-b-2 border-blue-800 text-black text-lg bg-white shadow-dashBoardCardImageShadow"
               type="email"
               placeholder="Email"
               value={email}
@@ -161,7 +161,7 @@ function LoginRegisterForm() {
             />
             <div className="relative w-80 sm:w-60 flex justify-center items-center">
               <InputField
-                className="placeholder-stone h-12 md:h-16 mt-5 bg-opacity-45 w-full px-4 py-2 items-center outline-0 border-b-2 border-blue-800 text-black text-lg bg-white shadow-dashBoardCardImageShadow"
+                className="placeholder-stone h-12 md:h-12 mt-5 bg-opacity-45 w-full px-4 py-2 items-center outline-0 border-b-2 border-blue-800 text-black text-lg bg-white shadow-dashBoardCardImageShadow"
                 type={isPassVisible ? "text" : "password"}
                 placeholder="Password"
                 value={password}
