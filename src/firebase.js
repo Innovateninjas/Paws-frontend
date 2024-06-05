@@ -1,7 +1,6 @@
-// Import the functions you need from the SDKs you need
+
 import { initializeApp } from "firebase/app";
 import { getMessaging } from "firebase/messaging";
-import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBgRI7QrEqlrtj94hZ-MKtYc77XunOc_9w",
@@ -16,4 +15,3 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const messaging = getMessaging(app);
-export const auth = getAuth(app);
