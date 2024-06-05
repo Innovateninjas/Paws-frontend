@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-import  SendOtp  from "../../utils/Functions/sendOtp"
 import InputField from "../../Components/shared/InputField";
-import isValidEmail from "../../utils/Functions/emailValidator";
-import isValidPhoneNumber from "../../utils/Functions/phoneNumberValidator";
 import ReactiveButton from "reactive-button";
 import custBackgroundImage from "../user/imgs/pngtree-blue-pastel-background-picture-image_1599663.jpg"; // Import your background image
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
@@ -31,9 +27,6 @@ function CustomBackground({ image }) {
 
 function LoginRegisterForm() {
   const location = useLocation();
-
-  const navigate = useNavigate();
-
   const [userTypingPassword, setUserTypingPassword] = useState(false);
   const isLogin = location.pathname !== "/register";
 
@@ -65,7 +58,6 @@ function LoginRegisterForm() {
 
   const [isOpenConfirmBox, setIsOpenConfirmBox] = useState(false);
   const [isPassVisible, setIsPassVisible] = useState(false);
-  
 
   useEffect(() => {
     setError("");
@@ -80,34 +72,20 @@ function LoginRegisterForm() {
   };
 
   const handleRegistration = async () => {
-
-
-    // Validate the email address
-  if (!isValidEmail(email)) {
-    setError("Enter a valid email address.");
-    return ;
-  }
-
-  // Validate the phone number
-  if (!isValidPhoneNumber(phone_number)) {
-    setError("Enter a valid phone number.");
-    return ;
-  }
-
-    const registrationData = {
+    const res = await registration(
       name,
       phone_number,
       email,
       password,
       setError,
       setButtonState
+    );
+
+    if (res) {
+      setTimeout(() => {
+        setIsOpenConfirmBox(true);
+      }, 3000);
     }
-
-    localStorage.setItem("registrationData", JSON.stringify(registrationData));
-    SendOtp(registrationData);
-    navigate("/verify-email");
-
-    
   };
 
   const closeConfirmationDialog = (isUploadPhoto) => {
