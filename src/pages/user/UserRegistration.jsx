@@ -22,25 +22,17 @@ function LoginRegisterForm() {
   const location = useLocation();
   const [isPassVisible, setIsPassVisible] = useState(false);
   const [userTypingPassword, setUserTypingPassword] = useState(false);
-  let isLogin = location.pathname !== "/register";
+  const isLogin = location.pathname !== "/register";
 
   const customButtonStyle = {
     borderRadius: "20px",
     background: "linear-gradient(to bottom, #b3d9ff, #3399ff)",
-
-    padding: "16px 32px",
-    marginTop: "1rem",
-    fontSize: "18px",
-
     padding: "20px 40px",
-    marginTop: "0.675rem",
     fontSize: "22px",
-
     fontWeight: "800",
     boxShadow: "rgb(38, 57, 77) 0px 15px 30px -10px",
     letterSpacing: "0.1rem",
     width: "fit-content",
-    margin: "auto",
   };
 
   const [name, setName] = useState("");
