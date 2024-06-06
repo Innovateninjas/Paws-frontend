@@ -200,53 +200,67 @@ function LoginRegisterForm() {
             )}
 
             {!isLogin && (
-              <div className="w-screen relative h-20 flex justify-center">
-                <ReactiveButton
-                  style={customButtonStyle}
-                  buttonState={state}
-                  idleText="Register"
-                  loadingText="wait.."
-                  successText="Registered"
-                  errorText="Register"
-                  messageDuration={3000}
-                  disabled={
-                    !(
-                      isMinLength &&
-                      hasUpperCase &&
-                      hasLowerCase &&
-                      hasNumber &&
-                      hasSymbol
-                    )
-                  }
-                  onClick={handleRegistration}
+              <>
+                <div className="w-screen relative h-20 flex justify-center">
+                  <ReactiveButton
+                    style={customButtonStyle}
+                    buttonState={state}
+                    idleText="Register"
+                    loadingText="wait.."
+                    successText="Registered"
+                    errorText="Register"
+                    messageDuration={3000}
+                    disabled={
+                      !(
+                        isMinLength &&
+                        hasUpperCase &&
+                        hasLowerCase &&
+                        hasNumber &&
+                        hasSymbol
+                      )
+                    }
+                    onClick={handleRegistration}
+                  />
+                  {error && (
+                    <p className="absolute top-[-25px] w-screen tracking-wide text-red-500 font-semibold text-center" style={{ marginLeft: "35%", marginRight: "35%" }}>
+                      {error}
+                    </p>
+                  )}
+                </div>
+                <LoginTextLink
+                  text={"Register as an NGO"}
+                  link={"/ngoregister"}
+                  linkText={"Here!"}
                 />
-                {error && (
-                  <p className="absolute top-[-25px] w-screen tracking-wide text-red-500 font-semibold text-center" style={{ marginLeft: "35%", marginRight: "35%" }}>
-                    {error}
-                  </p>
-                )}
-              </div>
+              </>
             )}
 
             {isLogin && (
-              <div className="w-screen relative h-20 flex justify-center">
-                <ReactiveButton
-                  style={customButtonStyle}
-                  buttonState={state}
-                  idleText="Login"
-                  loadingText="wait.."
-                  successText="Logging In"
-                  errorText="Login"
-                  onClick={async () =>
-                    login(email, password, setError, setButtonState)
-                  }
+              <>
+                <div className="w-screen relative h-20 flex justify-center">
+                  <ReactiveButton
+                    style={customButtonStyle}
+                    buttonState={state}
+                    idleText="Login"
+                    loadingText="wait.."
+                    successText="Logging In"
+                    errorText="Login"
+                    onClick={async () =>
+                      login(email, password, setError, setButtonState)
+                    }
+                  />
+                  {error && (
+                    <p className="absolute w-screen top-[-40px] tracking-wide text-red-500 font-semibold text-center">
+                      {error}
+                    </p>
+                  )}
+                </div>
+                <LoginTextLink
+                  text={"Login as an NGO"}
+                  link={"/ngologin"}
+                  linkText={"Here!"}
                 />
-                {error && (
-                  <p className="absolute w-screen top-[-40px] tracking-wide text-red-500 font-semibold text-center">
-                    {error}
-                  </p>
-                )}
-              </div>
+              </>
             )}
           </form>
 
