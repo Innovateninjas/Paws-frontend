@@ -27,3 +27,5 @@ yarn-error.log*
 .vercel
 src/Components/utils/Functions/ngooVerify.js
 bfg-1.14.0.jar
+firebase.js
+firebase-messaging-sw.js
