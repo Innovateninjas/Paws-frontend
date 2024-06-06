@@ -18,7 +18,8 @@
 1. Create an account on [Email.js](https://www.emailjs.com/).
 2. Add Gmail service on the dashboard.
 3. Create an email template similar to the one below and save it:
-   ![Email.js Template Example](https://example.com/template-image-url)  
+   ![paws-contri](https://github.com/atharvarekhawar/Paws-frontend/assets/113119063/690e65c5-f754-4f3a-be2a-c79e9d6ec0af
+)  
 4. Copy the Service ID from the Gmail service you created.
 5. Copy the Template ID from the template you created.
 6. Copy the Public Key from the account section.
