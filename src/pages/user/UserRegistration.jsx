@@ -31,7 +31,9 @@ function CustomBackground({ image }) {
 
 function LoginRegisterForm() {
   const location = useLocation();
+
   const navigate = useNavigate();
+
   const [userTypingPassword, setUserTypingPassword] = useState(false);
   const isLogin = location.pathname !== "/register";
 
@@ -78,6 +80,7 @@ function LoginRegisterForm() {
   };
 
   const handleRegistration = async () => {
+
 
     // Validate the email address
   if (!isValidEmail(email)) {
