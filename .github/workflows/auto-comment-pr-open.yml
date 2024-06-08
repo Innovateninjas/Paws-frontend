@@ -1,0 +1,20 @@
+name: Auto Comment on PR Open
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Add Comment to Opened PR
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        curl -X POST \
+          -H "Authorization: token $GITHUB_TOKEN" \
+          -H "Accept: application/vnd.github.v3+json" \
+          -d '{"body":"Thank you for your contribution to our project. Your efforts are greatly appreciated. Please note that there might be a delay in the review and merge process . For more details, please read [this discussion](https://github.com/Innovateninjas/Paws-frontend/discussions/475). Thank you for your understanding and patience. 🚀"}' \
+          "https://api.github.com/repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}/comments"
