@@ -6,7 +6,7 @@ const Background = () => {
     <div
     className="fixed top-0 w-full h-screen p-4 bg-cover bg-center sm-max:bg-custom-mobile sm-max:bg-no-repeat sm-max:bg-cover"
       style={{
-        backgroundImage: "url('./images/background.png')",
+        backgroundImage: "url('/images/background.png')",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover"
       }}
