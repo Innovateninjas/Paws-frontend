@@ -94,7 +94,7 @@ const CampaignBlog = () => {
       <>
         {!isLoading && (
           <>
-            <Background />
+            <div className="z-[-2] p-4 h-screen bg-custom-gradient fixed top-0 w-full "></div>
             <div className="font-breeSerif">
             {/* bg-gradient-to-br from-[rgba(189,255,185,0.87)] to-[rgb(0,238,8)] via-[rgba(155,255,160,0.93)]  */}
             <h1 className="text-center font-breeSerif text-[#40025D] leading-relaxed p-2 text-[30px] rounded-[30px] font-bold w-[90%] mx-auto mt-[30px] mb-5">
