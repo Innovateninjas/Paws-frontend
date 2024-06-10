@@ -1,5 +1,6 @@
 import React, { createContext, useState, useEffect } from 'react';
 import axios from 'axios';
+import Loader from '../../Components/shared/loader';
 
 export const NgoContext = createContext();
 
@@ -49,7 +50,9 @@ export const NgoProvider = ({ children }) => {
             isMounted = false;
         };
     }, []);
-
+    if (loading) {
+        return <Loader />;
+      }
     return (
         <NgoContext.Provider value={{ NgoData, loading, error }}>
             {children}

@@ -39,9 +39,11 @@ function App() {
   }, []);
 
   useEffect(() => {
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       setLoading(false);
     }, 2500);
+    // Cleanup function to clear the timeout
+    return () => clearTimeout(timer);
   }, []);
 
   if (loading) {
