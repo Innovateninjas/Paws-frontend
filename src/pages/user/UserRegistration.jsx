@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import InputField from "../../Components/shared/InputField";
 import ReactiveButton from "reactive-button";
-import custBackgroundImage from "../user/imgs/pngtree-blue-pastel-background-picture-image_1599663.jpg"; // Import your background image
+import custBackgroundImage from "../user/imgs/pngtree-blue-pastel-background-picture-image_1599663.jpg";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import i1 from "../user/imgs/white-dog-pastel-blue-background-3d_89917-269.jpg";
 import { login, registration } from "../../utils/Functions/userAuthService";

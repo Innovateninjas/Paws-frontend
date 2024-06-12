@@ -18,14 +18,25 @@ import PropTypes from "prop-types";
  */
 function InputField({
     name = "none",
-    placeholder="",
-    type="text",
+    placeholder = "",
+    type = "text",
     value = "",
     onChange,
     required,
     className,
     min,
 }) {
+    const handleInputChange = (e) => {
+        if (type === 'tel') {
+            const regex = /^[0-9]*$/;
+            const inputValue = e.target.value;
+            if (regex.test(inputValue)) {
+                onChange(e); // Call the passed in onChange function only if the value is numeric
+            }
+        } else {
+            onChange(e);
+        }
+    };
 
     if (type === 'textarea') {
         return (
@@ -34,36 +45,32 @@ function InputField({
                 type={type}
                 placeholder={placeholder}
                 value={value}
-                onChange={onChange}
+                onChange={handleInputChange}
                 required={required}
                 name={name}
             />
         );
-    } 
-    else if (type === 'date') {
+    } else if (type === 'date') {
         return (
-            <>
             <input
                 className={className}
                 type={type}
                 placeholder={placeholder}
                 value={value}
-                onChange={onChange}
+                onChange={handleInputChange}
                 required={required}
                 name={name}
                 min={min}
             />
-            </>
         );
-    }
-    else {
+    } else {
         return (
             <input
                 className={className}
                 type={type}
                 placeholder={placeholder}
                 value={value}
-                onChange={onChange}
+                onChange={handleInputChange}
                 required={required}
                 name={name}
             />
@@ -84,7 +91,10 @@ InputField.propTypes = {
     onChange: PropTypes.func.isRequired,
     /** Whether the input field is required. */
     required: PropTypes.bool,
-    className: PropTypes.string
+    /** CSS class for the input field. */
+    className: PropTypes.string,
+    /** Minimum value for the input field (used for date type). */
+    min: PropTypes.string,
 };
 
 InputField.defaultProps = {
