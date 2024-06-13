@@ -1,4 +1,4 @@
-import React ,{useEffect} from 'react';
+import React ,{useEffect,useState} from 'react';
 import './App.css';
 import 'react-tooltip/dist/react-tooltip.css'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -25,6 +25,7 @@ import { Donationfront } from './pages/user/Donation/Donationfront/Donationfront
 import requestPermission from './utils/Functions/notifyService';
 import TeamPage from './pages/shared/team';
 import NotFound from './Components/shared/PageNotfound';
+import Loadermain from './Components/shared/Loader/Loadermain';
 /**
  * The main component of the application.
  * @returns {JSX.Element} The rendered App component.
@@ -35,9 +36,15 @@ function App() {
     // Req user for notification permission
     requestPermission();
   }, []);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, []);
 
-
-
+  if (loading) return <Loadermain />;
   return (
     <div>
       <Router>

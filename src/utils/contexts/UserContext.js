@@ -1,6 +1,6 @@
 import React, { createContext, useState, useEffect } from 'react';
 import axios from 'axios';
-
+import Loader from '../../Components/shared/loader';
 export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
@@ -54,6 +54,9 @@ export const UserProvider = ({ children }) => {
         };
     }, [key]);
 
+    if (loading) {
+        return <Loader />;
+    }
     return (
         <UserContext.Provider value={{ userData, loading, error,setKey }}>
             {children}
