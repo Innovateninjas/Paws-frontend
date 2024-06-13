@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import IncidentForm from './pages/user/ReportIncidentPages/IncidentMain';
 import LandingPage from './pages/user/HomePage';
 import LoginRegisterForm from './pages/user/UserRegistration';
+import VerifyEmailComponent from './pages/user/VerifyEmail';
 import ViewReports from './pages/user/ViewReports'
 import Navbar from './Components/shared/Navbar';
 import UserPage from './pages/user/UserProfile';
@@ -50,6 +51,7 @@ function App() {
           <Route path="/view-reports" element={<ViewReports />} /> {/* Renders the ViewReports component */}
           <Route path="/login" element={<LoginRegisterForm />} /> {/* Renders the LoginRegisterForm component */}
           <Route path="/register" element={<LoginRegisterForm />} /> {/* Renders the LoginRegisterForm component */}
+          <Route path="/verify-email" element={<VerifyEmailComponent />} /> {/* Renders the Email verification component */}
           <Route path="/user" element={<UserPage />} /> {/* Renders the UserPage component */}
           <Route path="/ngo" element={<NgoPage />} /> {/* Renders the NgoPage component */}
           <Route path="/logout" element={<Logout />} /> {/* Renders the Logout component */}

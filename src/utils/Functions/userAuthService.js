@@ -3,6 +3,7 @@ import isValidEmail from "./emailValidator";
 import isValidPhoneNumber from "./phoneNumberValidator";
 import requestPermission from "./notifyService";
 
+
 /**
  * Performs a login request to the backend server.
  *
@@ -77,22 +78,11 @@ export const registration = async (
   setError,
   setButtonState
 ) => {
-  // Validate the email address
-  if (!isValidEmail(email)) {
-    setError("Enter a valid email address.");
-    return;
-  }
-
-  // Validate the phone number
-  if (!isValidPhoneNumber(phone_number)) {
-    setError("Enter a valid phone number.");
-    return;
-  }
 
   try {
     // Clear any previous error message and set button state to loading
-    setError("");
-    setButtonState("loading");
+    //setError("");
+    //setButtonState("loading");
     const url = process.env.REACT_APP_BACKEND_URL;
     // Send a POST request to the registration endpoint with user data
     const response = await axios.post(`${url}/register/user`, {
@@ -103,22 +93,13 @@ export const registration = async (
     });
 
     // Set button state to success and initiate login
-    setButtonState("success");
+    //setButtonState("success");
     const token = response.data.token;
     localStorage.setItem("csrftoken", token);
     localStorage.setItem("userType", "user");
     return true;
 
   } catch (error) {
-    // Set button state to error and handle error message
-    setButtonState("error");
-    if (error.response && error.response.data.error) {
-      setError(error.response.data.error);
-    } else if (error.message === "Network Error") {
-      setError("Network error.Please check your internet connection.");
-    } else {
-      setError("An error occurred while registering.");
-    }
     return false;
   }
 };
