@@ -12,9 +12,9 @@ module.exports = {
         'lg': '2px 4px 6px rgba(0, 0, 0, 0.5)',
       },
       colors: {
-        'gradient-start': 'rgba(252, 178, 231, 0.68)',
-        'gradient-middle': 'rgba(255, 174, 242, 0.68)',
-        'gradient-end': 'rgba(242, 117, 237, 0.68)',
+        'gradient-start': 'rgba(252, 177, 231, 0.68)',
+        'gradient-middle': 'rgba(255, 177, 242, 0.68)',
+        'gradient-end': 'rgba(242, 177, 237, 0.68)',
         'dashboard-gradient-top': 'rgba(160, 255, 181, 0.94)',
         'dashboard-gradient-bottom': 'rgba(6, 240, 255, 1)',
         'dashboard-card-gradient-bottom': 'rgba(117, 117, 117, 0.46)',
