@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 // import { FaUser, FaPhoneAlt } from "react-icons/fa";
 import { FaPhoneAlt } from "react-icons/fa";
-import Loader from "../../Components/shared/loader";
+import Loader from "../../Components/shared/Loader/loader";
 import { Link } from "react-router-dom";
 import { NgoContext } from "../../utils/contexts/NgoContext";
 import { IoIosMail } from "react-icons/io";

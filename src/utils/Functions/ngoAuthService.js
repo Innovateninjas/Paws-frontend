@@ -47,7 +47,7 @@ export const registration = async (orgName, phoneNumber, email, emergency, passw
         // Clear any previous error message and set button state to loading
         setError("");
         setButtonState('loading');
-        const url = process.env.REACT_APP_BACKEND_URL;
+        const url = import.meta.env.VITE_BACKEND_URL;
         // Send a POST request to the registration endpoint with user data
         const response = await axios.post(
             `${url}/register/ngo`,
