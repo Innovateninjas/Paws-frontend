@@ -24,8 +24,8 @@ export const NgoProvider = ({ children }) => {
                 return
             }
             try {
-                const url = process.env.REACT_APP_BACKEND_URL;
-                const response = await axios.get(`${url}/info/ngo`, {
+                const url = import.meta.env.VITE_BACKEND_URL;
+                response = await axios.get(`${url}/info/ngo`, {
                     headers: {
                         'Authorization': `Token ${csrftoken}`,
                     },
