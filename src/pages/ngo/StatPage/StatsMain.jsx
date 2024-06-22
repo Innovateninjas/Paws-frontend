@@ -18,7 +18,7 @@ function Stats() {
   useEffect(() => {
     const fetchReports = async () => {
       try {
-        const url = process.env.REACT_APP_BACKEND_URL;
+        const url = import.meta.env.VITE_BACKEND_URL;
         const response = await axios.get(`${url}/api/animals`);
         const data = response.data;
         setReports(data);
@@ -52,7 +52,7 @@ function Stats() {
           {/* <h1 className='text-4xl text-[#40025D]  tracking-[8px] bold  font-bayon'>STATISTICS</h1> */}
           <h1 className='text-[3rem] text-white  tracking-[8px]  font-bayon md:text-[4rem]'>STATISTICS</h1>
         </div>
-        <div className='px-[2.4rem] pt-2 mb-8 border-blue-200 mt-8 backdrop-blur-sm rounded-[2rem] md:mx-[5rem] px-[4rem]'>
+        <div className='px-[2.4rem] pt-2 mb-8 border-blue-200 mt-8 backdrop-blur-sm rounded-[2rem] md:mx-[5rem] '>
         {/* <h1 className='ml-2 mt-6 mb-2 underline underline-offset-4 text-white font-Calistoga tracking-wide text-xl'>Number of reports</h1> */}
         <h1 className='ml-2 mt-2 mb-3 text-white font-Calistoga tracking-wide text-[1.6rem]'>Number of reports</h1>
         {/* <div className='backdrop-blur-sm bg-white/30 cursor-pointer min-h-48  mb-9 rounded-2xl shadow-lg  mx-auto  flex text-center justify-center items-center'> */}

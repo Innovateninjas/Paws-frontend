@@ -13,10 +13,10 @@ const requestPermission = async () => {
         const permission = await Notification.requestPermission();
         if ((permission === "granted" || permission === "default" || permission === "denied") && csrftoken) {
             const notify_token = await getToken(messaging, {
-                vapidKey: process.env.REACT_APP_VAPID_KEY,
+                vapidKey: import.meta.env.VITE_VAPID_KEY,
             });
 
-            const url = process.env.REACT_APP_BACKEND_URL;
+            const url = import.meta.env.VITE_BACKEND_URL;
             const response = await axios.post(`${url}/update_token`, { token: notify_token }, {
                 headers: {
                     'Authorization': `Token ${csrftoken}`
