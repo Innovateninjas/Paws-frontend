@@ -136,11 +136,15 @@ function IncidentForm() {
       }));
     }
     else if (name === "numberOfAnimals") {
+       if (value === "" || value === undefined) {
+    alert("Please enter the number of animals.");
+  }else{
       setFormData((prevData) => ({
         ...prevData,
         predictedNumberOfAnimals: "",
         numberOfAnimals: value,
       }));
+       }
     }
     else if (name === "description") {
       setFormData((prevData) => ({
@@ -238,6 +242,9 @@ function IncidentForm() {
       case 2:
         if (!pageData.animal_type) {
           pageErrors.animal_type = "Animal type is required.";
+        }
+        if(!pageData.numberOfAnimals){
+           pageErrors.numberOfAnimals="Number of animals is required.";
         }
         if (!pageData.description) {
           pageErrors.description = "Description is required.";
