@@ -48,7 +48,7 @@ function LoginRegisterForm() {
 	const [phone_number, setPhone_number] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-	const [isPassVisible, setIsPassVisible] = useState(false);
+	// const [isPassVisible, setIsPassVisible] = useState(false);
 	const [error, setError] = useState("");
 	const [state, setButtonState] = useState("idle");
 
