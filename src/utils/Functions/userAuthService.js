@@ -24,7 +24,7 @@ export const login = async (email, password, setError, setButtonState) => {
     // Clear any previous error message and set button state to loading
     setError("");
     setButtonState("loading");
-    const url = process.env.REACT_APP_BACKEND_URL;
+    const url = import.meta.env.VITE_BACKEND_URL;
     // Send a POST request to the login endpoint with email and password
     const response = await axios.post(`${url}/login/`, {
       email,
@@ -93,7 +93,7 @@ export const registration = async (
     // Clear any previous error message and set button state to loading
     setError("");
     setButtonState("loading");
-    const url = process.env.REACT_APP_BACKEND_URL;
+    const url = import.meta.env.VITE_BACKEND_URL;
     // Send a POST request to the registration endpoint with user data
     const response = await axios.post(`${url}/register/user`, {
       name,
