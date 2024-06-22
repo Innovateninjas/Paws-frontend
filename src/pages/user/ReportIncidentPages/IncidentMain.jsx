@@ -48,7 +48,7 @@ function IncidentForm() {
 
   useEffect(() => {
     async function increment(no_reports,csrftoken) {
-      const url = process.env.REACT_APP_BACKEND_URL;
+      const url = import.meta.env.VITE_BACKEND_URL;
       try {
         const response = await axios.put(
           `${url}/info/user/`,
@@ -189,7 +189,7 @@ function IncidentForm() {
 
     try {
       if (validateForm()) {
-        const url = process.env.REACT_APP_BACKEND_URL;
+        const url = import.meta.env.VITE_BACKEND_URL;
         const response = await fetch(
           `${url}/api/animals/`,
           {

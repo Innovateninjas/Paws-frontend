@@ -2,7 +2,7 @@ import axios from "axios";
 
 export const ngoValidator = async (darpanid, setError) => {
     try {
-        const url = process.env.REACT_APP_BACKEND_URL;
+        const url = import.meta.env.VITE_BACKEND_URL;
         const formData = new FormData();
         formData.append('id', darpanid);
 
