@@ -3,7 +3,7 @@ import { FaUser, FaPhoneAlt } from "react-icons/fa";
 import { IoIosMail } from "react-icons/io";
 import { RiCoinsLine } from "react-icons/ri";
 import { IoDocumentSharp } from "react-icons/io5";
-import Loader from "../../Components/shared/loader";
+import Loader from "../../Components/shared/Loader/loader";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../utils/contexts/UserContext";
 import { ProfilePhoto } from "../../Components/shared/ProfilePhoto";

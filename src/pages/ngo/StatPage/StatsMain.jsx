@@ -18,7 +18,7 @@ function Stats() {
   useEffect(() => {
     const fetchReports = async () => {
       try {
-        const url = process.env.REACT_APP_BACKEND_URL;
+        const url = import.meta.env.VITE_BACKEND_URL;
         const response = await axios.get(`${url}/api/animals`);
         const data = response.data;
         setReports(data);
