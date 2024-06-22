@@ -21,7 +21,7 @@ export const Donationfront = () => {
   useEffect(() => {
     const fetchNgoNames = async () => {
       try {
-        const url = process.env.REACT_APP_BACKEND_URL;
+        const url = import.meta.env.VITE_BACKEND_URL;
         const response = await fetch(`${url}/ngo`);
         if (response.ok) {
           const data = await response.json();

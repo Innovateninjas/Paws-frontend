@@ -6,8 +6,8 @@
  * @throws {Error} If the upload fails or an error occurs during the process.
  */
 export const uploadImageToCloudinary = async (imageFile, setErrors) => {
-    const cloudinaryUploadUrl = process.env.REACT_APP_CLOUDINARY_UPLOAD_URL;
-    const uploadPreset = process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET;
+    const cloudinaryUploadUrl = import.meta.env.VITE_CLOUDINARY_UPLOAD_URL;
+    const uploadPreset = import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET;
     const formData = new FormData();
     formData.append("file", imageFile);
     formData.append("upload_preset", uploadPreset);

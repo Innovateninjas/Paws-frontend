@@ -81,7 +81,7 @@ const createCampaign = async ( orgName,phoneNumber,email,campaignTitle,CampaignD
     const age_group = ageGroup;
     setError("");
     try {
-        const url = process.env.REACT_APP_BACKEND_URL;
+        const url = import.meta.env.VITE_BACKEND_URL;
         console.log("i am here finally")
          await axios.post(
             `${url}/api/campaigns/`,
