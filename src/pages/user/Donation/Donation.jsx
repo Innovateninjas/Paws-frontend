@@ -8,9 +8,31 @@ function Donation() {
 
   // Function to handle donation button click
   const handleDonate = (amount) => {
-    console.log("handleDonate")
-    const upiLink = "https://donate.stripe.com/test_28o3dK1e53zyf1S9AA";
-    window.location.href = upiLink;
+    if(window.innerWidth < 636){
+    // previous payment method
+      console.log("handleDonate");
+      const upiLink = `upi://pay?pa=rishipaulstudy@okhdfcbank&pn=Rishi%20Paul&am=${amount}&cu=INR&aid=uGICAgMCerK_8eg`;
+      window.location.href = upiLink;
+    }
+    else{
+    const options = {
+      key: process.env.REACT_APP_RAZORPAY_KEY_ID,
+      key_secret: process.env.REACT_APP_RAZORPAY_KEY_SECRET,
+      amount: parseInt(amount) * 100,
+      currency: "INR",
+      name: "Paws Donation",
+      description: "Help us to brighten their lives",
+      handler: function (response) {
+        const paymentId = response.razorpay_payment_id;
+        console.log(paymentId);
+      },
+      theme: {
+        color: "#2592a8",
+      },
+    };
+    const pay = new window.Razorpay(options);
+    pay.open();
+  }
   };
   // Function to handle custom amount input change
   const handleCustomAmountChange = (event) => {
