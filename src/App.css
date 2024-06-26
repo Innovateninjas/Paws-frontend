@@ -1,11 +1,7 @@
-
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 body {
-  font-family: "Poppins", sans-serif;
-}
-
-* {
+  font-family: 'Poppins', sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -13,32 +9,32 @@ body {
 
 @font-face {
   font-family: 'VarelaRound';
-  src: url('..//public/fonts/VarelaRound-Regular.ttf') format('truetype');
+  src: url('/fonts/VarelaRound-Regular.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Bayon';
-  src: url('../public//fonts/bayon.ttf') format('truetype');
+  src: url('/fonts/bayon.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'BreeSerif';
-  src: url('../public//fonts/BreeSerif-Regular.ttf') format('truetype');
+  src: url('/fonts/BreeSerif-Regular.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Chau Philomene One';
-  src: url('../public//fonts/ChauPhilomeneOne-Regular.ttf') format('truetype');
+  src: url('/fonts/ChauPhilomeneOne-Regular.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Bai Jamjuree';
-  src: url('../public//fonts/BaiJamjuree.ttf') format('truetype');
+  src: url('/fonts/BaiJamjuree.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Calistoga';
-  src: url('../public//fonts/Calistoga-Regular.ttf') format('truetype');
+  src: url('/fonts/Calistoga-Regular.ttf') format('truetype');
 }
 
 .rodal-dialog {
@@ -69,6 +65,22 @@ body {
   border-radius: 20px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   margin: 90px;
+  padding: 1rem; /* Added padding for better spacing */
+}
+
+@media (max-width: 800px) {
+  .container {
+    box-shadow: none;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    margin: 20px;
+    padding: 1rem;
+  }
 }
 
 .form-container {
@@ -82,7 +94,7 @@ body {
   margin-top: 60px;
   text-align: center;
   font-weight: bold;
-  font-size: 2.5em;
+  font-size: 2em; /* Adjusted font size */
   color: #ffffff;
 }
 
