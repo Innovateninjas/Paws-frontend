@@ -260,8 +260,8 @@ function LoginRegisterForm() {
                   )}
                 </div>
                 <LoginTextLink
-                  text={"Login as an NGO"}
-                  link={"/ngologin"}
+                  text={"register now"}
+                  link={"/register"}
                   linkText={"Here!"}
                 />
               </>
