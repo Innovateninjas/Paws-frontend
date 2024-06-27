@@ -56,7 +56,6 @@ function App() {
               <Route path="*" element={<NotFound />} /> {/* Renders a 404 NOT FOUND message */}
               <Route path="/dashboard" element={<Dashboard />} /> {/* Renders the Dashboard component */}
               <Route path="/donation" element={<Donation />} /> {/* Renders the Donation component */}
-              <Route path="/ngologin" element={<NgoRegister />} /> {/* Renders the NGORegistration component */}
               <Route path="/ngoregister" element={<NgoRegister />} /> {/* Renders the NGORegistration component */}
               <Route path="/createcampaign" element={<Campaign />} /> {/* Renders the CreateCampaign component */}
               <Route path="/campaignList" element={<Campaignlist />} /> {/* Renders the CreateCampaign component */}
