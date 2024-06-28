@@ -1,4 +1,4 @@
-import React ,{useEffect} from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import 'react-tooltip/dist/react-tooltip.css'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -70,6 +70,7 @@ function App() {
           <Route path='/feedback' element={<Feedback/>}/>
         </Routes>
             </NgoProvider>
+
         </UserProvider>
       </Router>
     </div>

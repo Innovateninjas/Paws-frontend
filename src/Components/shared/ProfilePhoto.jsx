@@ -76,7 +76,7 @@ export function ProfilePhoto({ userDetails, setUserData }) {
         dataURLtoFile(tempImg, "image.png")
       );
       setUserData({ ...userDetails, profile_image: imageUrl });
-      const url = process.env.REACT_APP_BACKEND_URL;
+      const url = import.meta.env.VITE_BACKEND_URL;
       const response = await fetch(`${url}/profile/`, {
         method: "POST",
         headers: {
@@ -124,7 +124,7 @@ export function ProfilePhoto({ userDetails, setUserData }) {
         >
           {!userDetails.profile_image && userDetails.name[0]}
         </Avatar>
-        <div className="absolute rounded-[50%] top-0 left-0 z-10 w-full h-full bg-blue-900 bg-opacity-80 flex justify-center items-center opacity-0 transform  group-hover:opacity-100 transition-opacity duration-400 transition-transform">
+        <div className="absolute rounded-[50%] top-0 left-0 z-10 w-full h-full bg-blue-900 bg-opacity-80 flex justify-center items-center opacity-0 transform group-hover:opacity-100" style={{ transition: 'opacity 0.4s, transform 0.4s' }}>
           <div className="flex justify-center items-center flex-col text-white opacity-60 gap-1 pt-4">
             <span>Upload Photo</span>
             <FaCamera fontSize={25} />
