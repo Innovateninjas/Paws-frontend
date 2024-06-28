@@ -69,23 +69,26 @@ module.exports = {
             '100%': { transform: 'scale(0.9)', opacity: '0' },
           }
         },
-        screens: {
-          'h-md': {'raw': '(max-height: 768px)'},
-        sm: { max: "600px" },
+
+         },
+      screens: {
+        "h-md": { raw: "(max-height: 768px)" },
         lg: { max: "1800px" },
         lgm: { max: "1140px" },
         md: { max: "990px" },
+        sm: { max: "687px" },
         xs: { max: "400px" },
         minmd: "1700px",
         minlg: "2100px",
-        },
-        animation: {
-          'fade-in': 'fade-in 0.5s ease-out',
-          'fade-in-campaign': 'fade-in 2s infinite alternate',
-          'zoom-in': 'zoom-in 0.3s',
-          'zoom-out': 'zoom-out 0.3s',
-          'fade-in-donation': 'fade-in 2s infinite alternate',
-        },
+      },
+      animation: {
+        "fade-in": "fade-in 0.5s ease-out",
+        "fade-in-campaign": "fade-in 2s infinite alternate",
+        "zoom-in": "zoom-in 0.3s",
+        "zoom-out": "zoom-out 0.3s",
+        "fade-in-donation": "fade-in 2s infinite alternate",
+      },
+
     },
   },
     variants: {
