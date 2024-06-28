@@ -417,7 +417,7 @@ function AnimalDetailsPage({
                   />
                 </label>
               </div>
-              <small></small>
+                <small className="test-sm text-red-500">{errors.numberOfAnimals}</small>
             </div>
             {/* DESCRIBE WHAT  HAPPENED */}
             <div className="bg-white bg-opacity-57 shadow-lg ring-1 ring-gray-300 flex flex-col justify-center border-1 gap-2 p-5 rounded-3xl backdrop-blur-[6px]">
