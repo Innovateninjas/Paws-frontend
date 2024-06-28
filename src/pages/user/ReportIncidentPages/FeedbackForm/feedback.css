@@ -1,0 +1,107 @@
+
+.rating-title{
+    font-size: 23px;
+    font-weight: 500;
+}
+.rating-main{
+    
+    position: relative;
+    padding-bottom: 16px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.suggestion{
+    
+    position: relative;
+    padding-bottom: 25px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 40px;
+}
+
+.rating-main::after, .suggestion::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px; /* Height of the border */
+    background-image: linear-gradient(to left, rgba(255, 255, 255, 0),rgba(4, 22, 58, 0.148), rgba(24, 22, 58, 0.785),rgba(4, 22, 58, 0.148), rgba(255, 255, 255, 0.127));
+}
+
+
+.rate {
+  
+    float: left;
+    height: 46px;
+   
+}
+.rate:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.rate:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:37px;
+    color:#6c6b6f85;
+}
+.rate:not(:checked) > label:before {
+    content: '★ ';
+}
+.rate > input:checked ~ label {
+    color: #ffc700;    
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #deb217;  
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+}
+.outer-main{
+    background-image: linear-gradient(335deg,rgba(194, 193, 193, 0.168),rgba(251, 251, 251, 0.432));
+}
+.main-head{
+    font-size: 52px;
+    margin-bottom: 10px;
+    font-weight:700;
+}
+@media (max-width:1450px){
+    .main-head{
+        font-size: 50px;
+        margin-bottom: 10px;
+        font-weight:700;
+    }
+    .rating-title{
+        font-size: 17px;
+        font-weight: 500;
+    }
+}
+@media (max-width:1100px){
+    .main-head{
+        font-size: 48px;
+    }
+    .rating-title{
+        font-size: 15px;
+        font-weight: 500;
+    }
+}
+@media (max-width:500px){
+    .main-head{
+        font-size: 38px;
+    }
+    .rating-title{
+        font-size: 13px;
+        font-weight: 500;
+    }
+}

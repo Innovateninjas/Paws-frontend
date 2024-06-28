@@ -25,6 +25,7 @@ import { Donationfront } from './pages/user/Donation/Donationfront/Donationfront
 import requestPermission from './utils/Functions/notifyService';
 import TeamPage from './pages/shared/team';
 import NotFound from './Components/shared/PageNotfound';
+import Feedback from './pages/user/ReportIncidentPages/FeedbackForm/Feedback';
 /**
  * The main component of the application.
  * @returns {JSX.Element} The rendered App component.
@@ -42,31 +43,34 @@ function App() {
     <div>
       <Router>
         <UserProvider>
-          <NgoProvider>
-            <Navbar /> {/* Renders the Navbar component */}
-            <Routes>
-              <Route path="/" element={<LandingPage />} /> {/* Renders the LandingPage component */}
-              <Route path="/report-incident" element={<IncidentForm />} /> {/* Renders the IncidentForm component */}
-              <Route path="/view-reports" element={<ViewReports />} /> {/* Renders the ViewReports component */}
-              <Route path="/login" element={<LoginRegisterForm />} /> {/* Renders the LoginRegisterForm component */}
-              <Route path="/register" element={<LoginRegisterForm />} /> {/* Renders the LoginRegisterForm component */}
-              <Route path="/user" element={<UserPage />} /> {/* Renders the UserPage component */}
-              <Route path="/ngo" element={<NgoPage />} /> {/* Renders the NgoPage component */}
-              <Route path="/logout" element={<Logout />} /> {/* Renders the Logout component */}
-              <Route path="*" element={<NotFound />} /> {/* Renders a 404 NOT FOUND message */}
-              <Route path="/dashboard" element={<Dashboard />} /> {/* Renders the Dashboard component */}
-              <Route path="/donation" element={<Donation />} /> {/* Renders the Donation component */}
-              <Route path="/ngoregister" element={<NgoRegister />} /> {/* Renders the NGORegistration component */}
-              <Route path="/createcampaign" element={<Campaign />} /> {/* Renders the CreateCampaign component */}
-              <Route path="/campaignList" element={<Campaignlist />} /> {/* Renders the CreateCampaign component */}
-              <Route path="/campaignBlog/:campaignId" element={<Campaignblog />} />
-              <Route path="/stats" element={< Stats />} />
-              <Route path="/created" element={<Success />} />
-              <Route path="/ngoProfile" element={<NgoProfile />} />
-              <Route path="/donationfront" element={<Donationfront />} />
-              <Route path="/team" element={<TeamPage />} />
-            </Routes>
-          </NgoProvider>
+        <NgoProvider>
+        <Navbar /> {/* Renders the Navbar component */}
+        <Routes>
+          <Route path="/" element={<LandingPage />} /> {/* Renders the LandingPage component */}
+          <Route path="/report-incident" element={<IncidentForm />} /> {/* Renders the IncidentForm component */}
+          <Route path="/view-reports" element={<ViewReports />} /> {/* Renders the ViewReports component */}
+          <Route path="/login" element={<LoginRegisterForm />} /> {/* Renders the LoginRegisterForm component */}
+          <Route path="/register" element={<LoginRegisterForm />} /> {/* Renders the LoginRegisterForm component */}
+          <Route path="/user" element={<UserPage />} /> {/* Renders the UserPage component */}
+          <Route path="/ngo" element={<NgoPage />} /> {/* Renders the NgoPage component */}
+          <Route path="/logout" element={<Logout />} /> {/* Renders the Logout component */}
+          <Route path="*" element={<NotFound/>} /> {/* Renders a 404 NOT FOUND message */}
+          <Route path="/dashboard" element={<Dashboard />} /> {/* Renders the Dashboard component */}
+          <Route path="/donation" element={<Donation />} /> {/* Renders the Donation component */}
+          <Route path="/ngologin" element={<NgoRegister />} /> {/* Renders the NGORegistration component */}
+          <Route path="/ngoregister" element={<NgoRegister />} /> {/* Renders the NGORegistration component */}
+          <Route path="/createcampaign" element={<Campaign />} /> {/* Renders the CreateCampaign component */}
+          <Route path="/campaignList" element={<Campaignlist />} /> {/* Renders the CreateCampaign component */}
+          <Route path="/campaignBlog/:campaignId" element={<Campaignblog />} />
+          <Route path="/stats" element={< Stats/>} />
+          <Route path="/created" element={<Success />} />
+          <Route path="/ngoProfile" element={<NgoProfile />} />
+          <Route path="/donationfront" element={<Donationfront />} />
+          <Route path="/team" element={<TeamPage />} />
+          <Route path='/feedback' element={<Feedback/>}/>
+        </Routes>
+            </NgoProvider>
+
         </UserProvider>
       </Router>
     </div>
