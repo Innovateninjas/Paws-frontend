@@ -35,12 +35,15 @@ function LoginRegisterForm() {
     width: "fit-content",
   };
 
-  const [name, setName] = useState("");
-  const [phone_number, setPhoneNumber] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  const [state, setButtonState] = useState("idle");
+	// const [errorMessage, setErrorMessage] = useState("");
+	const [name, setname] = useState("");
+	const [phone_number, setPhone_number] = useState("");
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
+	// const [isPassVisible, setIsPassVisible] = useState(false);
+	const [error, setError] = useState("");
+	const [state, setButtonState] = useState("idle");
+
 
   const [isMinLength, setIsMinLength] = useState(false);
   const [hasUpperCase, setHasUpperCase] = useState(false);
