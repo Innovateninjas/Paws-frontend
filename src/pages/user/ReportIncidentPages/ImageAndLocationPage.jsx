@@ -140,7 +140,7 @@ function ImageAndLocationPage({
               rows={1}
               placeholder="Enter a landmark"
             ></textarea>
-
+<small className="text-sm text-red-500">{errors.landmark}</small>
           </div>
 
         </div>
