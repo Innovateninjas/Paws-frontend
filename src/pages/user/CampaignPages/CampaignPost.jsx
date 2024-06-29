@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import Skeleton from "../../../Components/user/SkeletonLoaders/CampaignPost";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import Background from "../../../Components/shared/Background";
+// import Background from "../../../Components/shared/Background";
 import Button from "../../../Components/shared/Button";
 import { handleInterest } from "../../../utils/Functions/handleInterest";
 import { UserContext } from "../../../utils/contexts/UserContext";
@@ -94,67 +94,71 @@ const CampaignBlog = () => {
       <>
         {!isLoading && (
           <>
-            <Background />
+            {/* <Background /> */}
+            <div className="z-[-2] p-4 h-screen bg-custom-gradient fixed top-0 w-full "></div>
             <div className="font-breeSerif">
-            {/* bg-gradient-to-br from-[rgba(189,255,185,0.87)] to-[rgb(0,238,8)] via-[rgba(155,255,160,0.93)]  */}
-            <h1 className="text-center font-breeSerif text-[#40025D] leading-relaxed p-2 text-[30px] rounded-[30px] font-bold w-[90%] mx-auto mt-[30px] mb-5">
+              {/* bg-gradient-to-br from-[rgba(189,255,185,0.87)] to-[rgb(0,238,8)] via-[rgba(155,255,160,0.93)]  */}
+              <h1 className="text-center font-breeSerif text-[#40025D] leading-relaxed p-2 text-[30px] rounded-[30px] font-bold w-[90%] mx-auto mt-[30px] mb-5">
                 {data.title}
               </h1>
               <small className="text-[#000000] pb-[15px] tracking-wider font-bold float-right mr-4 text-sm">
-                  Organised By- <u> {data.ngo_name}</u>
+                Organised By- <u> {data.ngo_name}</u>
               </small>
               <br />
               <div className=" py-[8px] h-fit px-[20px] w-[95vw] flex flex-col gap-4 rounded-3xl shadow-dashBoardCardImageShadow bg-[#ffffff66] mb-[120px] backdrop-blur-[5px] m-auto">
                 <h2 className="pt-[2px] text-[#0B0553] text-2xl drop-shadow-xl ">
                   <i>Description:</i>
                 </h2>
-                  {data.description}
-                  {/* LIST CONTAINER */}
-                  <div className="flex mt-[5px] w-full flex-col gap-[5px]">
-                    <li className="list-none">
-                      <b> Campaign starts on: </b>
-                      {startDate}
-                    </li>
-                    <li className="list-none">
-                      <b> Campaign ends on: </b>
-                      {endDate}
-                    </li>
-                    <li className="list-none">
-                      <b>Application Deadline: </b>
-                      {appEndDate}
-                    </li>   
-                    <li className="list-none">
-                      <b className="mr-[5px]"> Age Accessibility:</b>
-                      {ageAccess()}
-                    </li>
-                  </div>
-                  <p className="p-[5px]">
-                    For inquiries, contact us on:
-                    <li>{data.phone_number}</li>
-                    <li>{data.email}</li>
-                  </p>
+                {data.description}
+                {/* LIST CONTAINER */}
+                <div className="flex mt-[5px] w-full flex-col gap-[5px]">
+                  <li className="list-none">
+                    <b> Campaign starts on: </b>
+                    {startDate}
+                  </li>
+                  <li className="list-none">
+                    <b> Campaign ends on: </b>
+                    {endDate}
+                  </li>
+                  <li className="list-none">
+                    <b>Application Deadline: </b>
+                    {appEndDate}
+                  </li>
+                  <li className="list-none">
+                    <b className="mr-[5px]"> Age Accessibility:</b>
+                    {ageAccess()}
+                  </li>
+                </div>
+                <p className="p-[5px]">
+                  For inquiries, contact us on:
+                  <li>{data.phone_number}</li>
+                  <li>{data.email}</li>
+                </p>
 
-                  <img
-                    className="w-full rounded-[20px] object-center mt-[10px] shadow-dashBoardCardImageShadow"
-                    src={data.image_link}
-                    alt=""
-                  />
-                  <p className="font-normal w-full text-base flex flex-wrap gap-[5px]">
-                    {data.tags &&
-                      data.tags.map((item, index) => (
-                        <span
-                          className="bg-gradient-to-b from-gray-200 to-gray-400 px-5 shadow-buttonShadow py-2 rounded-[20px]"
-                          key={index}
-                        >
-                          {item} <br></br>
-                        </span>
-                      ))}
-                  </p>
-                  <div className="mt-4 w-full flex flex-wrap justify-evenly gap-4">            
+                <img
+                  className="w-full rounded-[20px] object-center mt-[10px] shadow-dashBoardCardImageShadow"
+                  src={data.image_link}
+                  alt=""
+                />
+                <p className="font-normal w-full text-base flex flex-wrap gap-[5px]">
+                  {data.tags &&
+                    data.tags.map((item, index) => (
+                      <span
+                        className="bg-gradient-to-b from-gray-200 to-gray-400 px-5 shadow-buttonShadow py-2 rounded-[20px]"
+                        key={index}
+                      >
+                        {item} <br></br>
+                      </span>
+                    ))}
+                </p>
+                <div className="mt-4 w-full flex flex-wrap justify-evenly gap-4">
                   <Button
                     text={interested}
-                    clas={`text-2xl text-white font-normal focus:outline-none rounded-[30px] tracking-wider shadow-buttonShadow mb-7 ${disable ? "bg-gradient-to-b from-gray-500 to-gray-700" : ""
-                      }`}
+                    clas={`text-2xl text-white font-normal focus:outline-none rounded-[30px] tracking-wider shadow-buttonShadow mb-7 ${
+                      disable
+                        ? "bg-gradient-to-b from-gray-500 to-gray-700"
+                        : ""
+                    }`}
                     onClick={() =>
                       handleInterest(
                         campaignId,
@@ -164,19 +168,20 @@ const CampaignBlog = () => {
                       )
                     }
                     disabled={disable}
-                  />                  
-                  </div>
+                  />
+                </div>
               </div>
             </div>
           </>
         )}
         {isLoading && (
           <>
-          <Background />
-          <div>
-            <Skeleton/>
-          </div></>
-          
+            {/* <Background /> */}
+            <div className="z-[-2] p-4 h-screen bg-custom-gradient fixed top-0 w-full "></div>
+            <div>
+              <Skeleton />
+            </div>
+          </>
         )}
       </>
     </div>
