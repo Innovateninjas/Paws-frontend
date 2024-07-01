@@ -3,8 +3,8 @@ import { useLocation } from "react-router-dom";
 import InputField from "../../Components/shared/InputField";
 import ReactiveButton from "reactive-button";
 import custBackgroundImage from "../user/imgs/pngtree-blue-pastel-background-picture-image_1599663.jpg";
-import { FaEye, FaEyeSlash } from 'react-icons/fa6';
-import i1 from '../user/imgs/white-dog-pastel-blue-background-3d_89917-269.jpg';
+import { FaEye, FaEyeSlash } from "react-icons/fa6";
+import i1 from "../user/imgs/white-dog-pastel-blue-background-3d_89917-269.jpg";
 import { login, registration } from "../../utils/Functions/userAuthService";
 import LoginTextLink from "../../Components/shared/LoginTextLink";
 import AlertDialog from "../../Components/shared/AlertDialog";
@@ -99,10 +99,9 @@ function LoginRegisterForm() {
           scrollbarWidth: "thin",
           scrollbarColor: "#888 transparent",
         }}
-        className="p-10 md:p-0"  
+        className="p-10 md:p-0"
       >
         <div className=" w-full flex justify-center items-center shadow-[0_2px_20px_rgba(0,0,0,0.5)] rounded-3xl md:rounded-none md:shadow-[0_0px_0px_rgba(0,0,0,0)]">
-          
           <form className="w-[50%] md:w-full gap-[1rem] flex flex-col justify-center items-center py-20">
             {!isLogin && (
               <>
@@ -209,6 +208,7 @@ function LoginRegisterForm() {
                     loadingText="wait.."
                     successText="Registered"
                     errorText="Register"
+                    type="submit"
                     messageDuration={3000}
                     disabled={
                       !(
@@ -222,7 +222,10 @@ function LoginRegisterForm() {
                     onClick={handleRegistration}
                   />
                   {error && (
-                    <p className="absolute top-[-25px] w-screen tracking-wide text-red-500 font-semibold text-center" style={{ marginLeft: "35%", marginRight: "35%" }}>
+                    <p
+                      className="absolute top-[-25px] w-screen tracking-wide text-red-500 font-semibold text-center"
+                      style={{ marginLeft: "35%", marginRight: "35%" }}
+                    >
                       {error}
                     </p>
                   )}
@@ -241,6 +244,7 @@ function LoginRegisterForm() {
                   <ReactiveButton
                     style={customButtonStyle}
                     buttonState={state}
+                    type="submit"
                     idleText="Login"
                     loadingText="wait.."
                     successText="Logging In"
@@ -272,9 +276,7 @@ function LoginRegisterForm() {
               alt="Cute dog"
             />
           </div>
-          
         </div>
-
       </div>
       <AlertDialog
         open={isOpenConfirmBox}
@@ -282,7 +284,6 @@ function LoginRegisterForm() {
       />
     </div>
   );
-  
 }
 
 export default LoginRegisterForm;
