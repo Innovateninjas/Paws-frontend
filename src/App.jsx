@@ -25,6 +25,8 @@ import { Donationfront } from './pages/user/Donation/Donationfront/Donationfront
 import requestPermission from './utils/Functions/notifyService';
 import TeamPage from './pages/shared/team';
 import NotFound from './Components/shared/PageNotfound';
+import Preloader from './Components/shared/preloader/preloader';
+
 /**
  * The main component of the application.
  * @returns {JSX.Element} The rendered App component.
@@ -69,7 +71,9 @@ function App() {
           </NgoProvider>
         </UserProvider>
       </Router>
+      <Preloader />
     </div>
+
   );
 }
 
