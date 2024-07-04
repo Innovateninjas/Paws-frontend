@@ -62,7 +62,8 @@ function LoginRegisterForm() {
     setHasSymbol(/[^A-Za-z0-9]/.test(value));
   };
 
-  const handleRegistration = async () => {
+  const handleRegistration = async (event) => {
+    event.preventDefault(); // Prevent default form submission
     const res = await registration(
       name,
       phone_number,
@@ -77,6 +78,11 @@ function LoginRegisterForm() {
         setIsOpenConfirmBox(true);
       }, 3000);
     }
+  };
+
+  const handleLogin = async (event) => {
+    event.preventDefault(); // Prevent default form submission
+    await login(email, password, setError, setButtonState);
   };
 
   const closeConfirmationDialog = (isUploadPhoto) => {
@@ -102,7 +108,10 @@ function LoginRegisterForm() {
         className="p-10 md:p-0"
       >
         <div className=" w-full flex justify-center items-center shadow-[0_2px_20px_rgba(0,0,0,0.5)] rounded-3xl md:rounded-none md:shadow-[0_0px_0px_rgba(0,0,0,0)]">
-          <form className="w-[50%] md:w-full gap-[1rem] flex flex-col justify-center items-center py-20">
+          <form
+            className="w-[50%] md:w-full gap-[1rem] flex flex-col justify-center items-center py-20"
+            onSubmit={isLogin ? handleLogin : handleRegistration}
+          >
             {!isLogin && (
               <>
                 <h1 className="w-[85%] text-center z-[3] text-indigo-900 font-semibold text-[2.5em] md:text-[2rem]">
@@ -219,7 +228,6 @@ function LoginRegisterForm() {
                         hasSymbol
                       )
                     }
-                    onClick={handleRegistration}
                   />
                   {error && (
                     <p
@@ -249,9 +257,6 @@ function LoginRegisterForm() {
                     loadingText="wait.."
                     successText="Logging In"
                     errorText="Login"
-                    onClick={async () =>
-                      login(email, password, setError, setButtonState)
-                    }
                   />
                   {error && (
                     <p className="absolute w-screen top-[-40px] tracking-wide text-red-500 font-semibold text-center">
