@@ -79,7 +79,7 @@ const HappyRecoveriesPage = () => {
         ))}
       </div>
       <p className="read-more-link">
-        <a href="/happy-recovery-stories">Read More Recovery Stories</a>
+        <a href="/recovereds-page">Our Rescuers</a>
       </p>
     </div>
   );

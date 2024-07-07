@@ -68,7 +68,7 @@ function App() {
               <Route path="/ngoProfile" element={<NgoProfile />} />
               <Route path="/donationfront" element={<Donationfront />} />
               <Route path="/team" element={<TeamPage />} />
-              <Route path="/recovereds" element={<RecoveredsPage />} />
+              <Route path="/recovereds-page" element={<RecoveredsPage />} />
               <Route path="/happy-recoveries" element={<HappyRecoveriesPage />} />
             </Routes>
           </NgoProvider>

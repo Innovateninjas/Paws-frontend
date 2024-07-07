@@ -48,7 +48,6 @@ const Navbar = () => {
               />,
               <BottomNavigationAction key="campaignList" value="/campaignList" component={Link} to="/campaignList" icon={<IoPeople size={28} />} />,
               <BottomNavigationAction key="donationfront" value="/donationfront" component={Link} to="/donationfront" icon={<PiHandCoinsBold size={28} />} />,
-              <BottomNavigationAction key="Testimonials" value="/Testimonials" component={Link} to="/Testimonials" icon={<FaPaw size={28} />} />, // for recovered stories icon
               <BottomNavigationAction key="profile" value="/user" component={Link} to="/user" icon={<FaUser size={24} />} />,
             ]
           ) : csrftoken && userType === "ngo" ? (
@@ -56,7 +55,6 @@ const Navbar = () => {
               <BottomNavigationAction key="stats" value="/stats" component={Link} to="/stats" icon={<ImStatsBars size={26}/>}/>,
               <BottomNavigationAction key="reports" value="/dashboard" component={Link} to="/dashboard" icon={<MdContentPasteSearch size={28}/>} />,
               <BottomNavigationAction key="createcampaign" value="/createcampaign" component={Link} to="/createcampaign" icon={<MdCampaign size={32} style={{ transform: 'rotate(-15deg)' }} />} />,
-              <BottomNavigationAction key="Testimonials" value="/Testimonials" component={Link} to="/Testimonials" icon={<FaPaw size={28} />} />, // for recovered stories icon
               <BottomNavigationAction key="ngoprofile" value="/ngoProfile" component={Link} to="/ngoProfile" icon={<FaUser size={24} />} />,
             ]
           ) : (
@@ -69,7 +67,7 @@ const Navbar = () => {
               />,
               <BottomNavigationAction key="register" value="/register" showLabel label="Register" component={Link} to="/register" icon={<FaUserPlus size={28} />} />,
               <BottomNavigationAction key="login" value="/login" showLabel label="Login" component={Link} to="/login" icon={<FaUser size={24} />} />,
-              <BottomNavigationAction key="RecoveredsPage" value="/recovereds" showLabel label="Stories" component={Link} to="/recovereds" icon={<FaPaw size={28} />} />, // for recovered stories section
+              /*<BottomNavigationAction key="RecoveredsPage" value="/recovereds-page" showLabel label="Stories" component={Link} to="/recovereds-page" icon={<FaPaw size={28} />} />, // for recovered stories section*/
             ]
           )}
         </BottomNavigation>
