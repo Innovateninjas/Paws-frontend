@@ -1,4 +1,5 @@
-;import React, { useEffect } from 'react';
+
+import React, { useEffect } from 'react';
 import './App.css';
 import 'react-tooltip/dist/react-tooltip.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -24,10 +25,9 @@ import NgoProfile from './pages/ngo/ngoProfile';
 import { Donationfront } from './pages/user/Donation/Donationfront/Donationfront';
 import requestPermission from './utils/Functions/notifyService';
 import TeamPage from './pages/shared/team';
-import ErrorPage from './ErrorPage'; // Correct import path for ErrorPage
+import NotFoundPage from './NotFoundPage'; // Import NotFoundPage component
 
 function App() {
-
   useEffect(() => {
     // Request user for notification permission
     requestPermission();
@@ -48,7 +48,6 @@ function App() {
               <Route path="/user" element={<UserPage />} /> {/* Renders the UserPage component */}
               <Route path="/ngo" element={<NgoPage />} /> {/* Renders the NgoPage component */}
               <Route path="/logout" element={<Logout />} /> {/* Renders the Logout component */}
-              <Route path="*" element={<ErrorPage />} /> {/* Renders a 404 NOT FOUND message */}
               <Route path="/dashboard" element={<Dashboard />} /> {/* Renders the Dashboard component */}
               <Route path="/donation" element={<Donation />} /> {/* Renders the Donation component */}
               <Route path="/ngoregister" element={<NgoRegister />} /> {/* Renders the NGORegistration component */}
@@ -60,7 +59,7 @@ function App() {
               <Route path="/ngoProfile" element={<NgoProfile />} />
               <Route path="/donationfront" element={<Donationfront />} />
               <Route path="/team" element={<TeamPage />} />
-              <Route path="/homepage" element={<LandingPage />} /> {/* Ensure this route is defined */}
+              <Route path="*" element={<NotFoundPage />} /> {/* Renders the NotFoundPage component for any unmatched route */}
             </Routes>
           </NgoProvider>
         </UserProvider>

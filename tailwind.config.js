@@ -1,6 +1,9 @@
+
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
+    "./index.html",
     "./src/**/*.{js,jsx}",
   ],
   theme: {
@@ -28,8 +31,6 @@ module.exports = {
         'stone': '#53605B',
         'success-top':'rgba(167, 254, 181, 0.60)',
         'success-bottom': 'rgba(240, 7, 231, 0.60)'
-
-
       },
       fontFamily: {
         bayon: ['Bayon', 'sans-serif'], 
@@ -52,25 +53,25 @@ module.exports = {
         '57': '0.57',
       },
       transitionDelay: {
-          '0': '0ms',
-          '2000': '2000ms',
-        },
+        '0': '0ms',
+        '2000': '2000ms',
+      },
       keyframes: {
-          'fade-in': {
-            '0%': { opacity: 0 },
-            '100%': { opacity: 1 },
-          },
-          'zoom-in': {
-            '0%': { transform: 'scale(0.9)', opacity: '0' },
-            '100%': { transform: 'scale(1)', opacity: '1' },
-          },
-          'zoom-out': {
-            '0%': { transform: 'scale(1)', opacity: '1' },
-            '100%': { transform: 'scale(0.9)', opacity: '0' },
-          }
+        'fade-in': {
+          '0%': { opacity: 0 },
+          '100%': { opacity: 1 },
         },
-        screens: {
-          'h-md': {'raw': '(max-height: 768px)'},
+        'zoom-in': {
+          '0%': { transform: 'scale(0.9)', opacity: '0' },
+          '100%': { transform: 'scale(1)', opacity: '1' },
+        },
+        'zoom-out': {
+          '0%': { transform: 'scale(1)', opacity: '1' },
+          '100%': { transform: 'scale(0.9)', opacity: '0' },
+        }
+      },
+      screens: {
+        'h-md': {'raw': '(max-height: 768px)'},
         sm: { max: "600px" },
         lg: { max: "1800px" },
         lgm: { max: "1140px" },
@@ -78,25 +79,23 @@ module.exports = {
         xs: { max: "400px" },
         minmd: "1700px",
         minlg: "2100px",
-        },
-        animation: {
-          'fade-in': 'fade-in 0.5s ease-out',
-          'fade-in-campaign': 'fade-in 2s infinite alternate',
-          'zoom-in': 'zoom-in 0.3s',
-          'zoom-out': 'zoom-out 0.3s',
-          'fade-in-donation': 'fade-in 2s infinite alternate',
-        },
+      },
+      animation: {
+        'fade-in': 'fade-in 0.5s ease-out',
+        'fade-in-campaign': 'fade-in 2s infinite alternate',
+        'zoom-in': 'zoom-in 0.3s',
+        'zoom-out': 'zoom-out 0.3s',
+        'fade-in-donation': 'fade-in 2s infinite alternate',
+      },
     },
   },
-    variants: {
-      extend: {
-        transitionDelay: ['hover', 'focus'],
-      },
-},
-  plugins: [
-  ],
+  variants: {
+    extend: {
+      transitionDelay: ['hover', 'focus'],
+    },
+  },
+  plugins: [],
   corePlugins: {
     scrollbarHide: true,
   },
 }
-
