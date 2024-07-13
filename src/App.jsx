@@ -26,6 +26,8 @@ import requestPermission from './utils/Functions/notifyService';
 import TeamPage from './pages/shared/team';
 import NotFound from './Components/shared/PageNotfound';
 import Preloader from './Components/shared/preloader/preloader';
+import RecoveredsPage from './pages/user/RecoveredsPage/RecoveredsPage';
+import HappyRecoveriesPage from './pages/user/RecoveredsPage/HappyRecoveriesPage';
 
 /**
  * The main component of the application.
@@ -67,6 +69,8 @@ function App() {
               <Route path="/ngoProfile" element={<NgoProfile />} />
               <Route path="/donationfront" element={<Donationfront />} />
               <Route path="/team" element={<TeamPage />} />
+              <Route path="/recovereds-page" element={<RecoveredsPage />} />
+              <Route path="/happy-recoveries" element={<HappyRecoveriesPage />} />
             </Routes>
           </NgoProvider>
         </UserProvider>

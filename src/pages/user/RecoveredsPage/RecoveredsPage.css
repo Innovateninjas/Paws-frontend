@@ -1,0 +1,103 @@
+.recovereds-page {
+    background: url('../RecoveredsPage/images/background.png') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .recovereds-container {
+    text-align: center;
+    width: 100%;
+    min-height: 100vh;
+    box-sizing: border-box;
+    margin-left: 300px;
+    margin-top: 100px;
+  }
+  
+  .title {
+    font-size: 3.5rem;
+    margin-bottom: 40px;
+    color: #0056AF;
+    font-weight: bold;
+    margin-left: 300px;
+    
+  }
+  
+  .rescuers {
+    display: flex;
+    justify-content: flex-end; 
+    flex-wrap: wrap;
+    gap: 150px;
+    margin-bottom: 40px;
+    margin-right: 50px;
+  }
+
+  .rescuer {
+    text-align: center;
+  }
+  
+  .rescuer-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 20px;
+    border-right: 7px solid #0056AF;
+    border-bottom: 7px solid #0056AF;
+    object-fit: cover;
+    margin-bottom: 10px;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+  }
+
+  .rescuer-image:hover {
+    width: 150px;
+    height: 150px;
+    border-radius: 20px;
+    border-right: 7px solid #0056AF;
+    border-bottom: 7px solid #0056AF;
+    object-fit: cover;
+    margin-bottom: 10px;
+    transform: scale(1.07);
+  }
+  
+  .rescuer-details h2 {
+    font-size: 1.5rem;
+    margin-right: 30px;
+    color: #0056AF;
+  }
+  
+  .rescuer-details p {
+        font-size: 1.0rem;
+        color: #434343;
+        overflow: hidden; 
+        white-space: nowrap;
+        animation: typing 1s steps(20, end) forwards; 
+      }
+      
+      @keyframes typing {
+        from {
+          width: 0; 
+        }
+        to {
+          width: 100%;
+        }
+      }
+
+  .read-stories-link {
+    margin-top: 90px;
+    font-size: 1.0rem;
+    color: #434343;
+    margin-left: 300px;
+  }
+  
+  .read-stories-link a {
+    color: #007bff;
+    text-decoration: none;
+    
+  }
+  
+  .read-stories-link a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+  }
+  
