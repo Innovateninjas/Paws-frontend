@@ -25,6 +25,7 @@ import { Donationfront } from './pages/user/Donation/Donationfront/Donationfront
 import requestPermission from './utils/Functions/notifyService';
 import TeamPage from './pages/shared/team';
 import NotFound from './Components/shared/PageNotfound';
+import ContactPage from './pages/user/Conatctus';
 /**
  * The main component of the application.
  * @returns {JSX.Element} The rendered App component.
@@ -65,6 +66,7 @@ function App() {
               <Route path="/ngoProfile" element={<NgoProfile />} />
               <Route path="/donationfront" element={<Donationfront />} />
               <Route path="/team" element={<TeamPage />} />
+              <Route path="/contact" element={<ContactPage />} />
             </Routes>
           </NgoProvider>
         </UserProvider>
