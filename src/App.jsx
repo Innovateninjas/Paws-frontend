@@ -24,8 +24,11 @@ import NgoProfile from './pages/ngo/ngoProfile';
 import { Donationfront } from './pages/user/Donation/Donationfront/Donationfront';
 import requestPermission from './utils/Functions/notifyService';
 import TeamPage from './pages/shared/team';
-import ErrorPage from './ErrorPage'; // Correct import path for ErrorPage
-
+import NotFound from './Components/shared/PageNotfound';
+/**
+ * The main component of the application.
+ * @returns {JSX.Element} The rendered App component.
+ */
 function App() {
 
   useEffect(() => {
@@ -37,6 +40,7 @@ function App() {
     <div>
       <Router>
         <UserProvider>
+
           <NgoProvider>
             <Navbar /> {/* Renders the Navbar component */}
             <Routes>
@@ -60,9 +64,9 @@ function App() {
               <Route path="/ngoProfile" element={<NgoProfile />} />
               <Route path="/donationfront" element={<Donationfront />} />
               <Route path="/team" element={<TeamPage />} />
-              <Route path="/homepage" element={<LandingPage />} /> {/* Ensure this route is defined */}
             </Routes>
           </NgoProvider>
+
         </UserProvider>
       </Router>
     </div>
