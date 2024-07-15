@@ -1,8 +1,6 @@
 import React from 'react'
-import  { useContext, useEffect, useState } from "react";
-import InputField from "../../../../Components/shared/InputField";
 import Background from "../../../../Components/shared/Background";
-import './feedBack.css'
+import './feedback.css'
 import Button from '../../../../Components/shared/Button';
 
 const Feedback = () => {
