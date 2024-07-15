@@ -25,6 +25,12 @@ import { Donationfront } from './pages/user/Donation/Donationfront/Donationfront
 import requestPermission from './utils/Functions/notifyService';
 import TeamPage from './pages/shared/team';
 import NotFound from './Components/shared/PageNotfound';
+import Preloader from './Components/shared/preloader/preloader';
+import Feedback from './pages/user/ReportIncidentPages/FeedbackForm/Feedback';
+import RecoveredsPage from './pages/user/RecoveredsPage/RecoveredsPage';
+import HappyRecoveriesPage from './pages/user/RecoveredsPage/HappyRecoveriesPage';
+
+
 /**
  * The main component of the application.
  * @returns {JSX.Element} The rendered App component.
@@ -69,7 +75,9 @@ function App() {
 
         </UserProvider>
       </Router>
+      <Preloader />
     </div>
+
   );
 }
 
