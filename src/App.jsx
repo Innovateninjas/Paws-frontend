@@ -26,6 +26,7 @@ import requestPermission from './utils/Functions/notifyService';
 import TeamPage from './pages/shared/team';
 import NotFound from './Components/shared/PageNotfound';
 import Preloader from './Components/shared/preloader/preloader';
+import Feedback from './pages/user/ReportIncidentPages/FeedbackForm/Feedback';
 import RecoveredsPage from './pages/user/RecoveredsPage/RecoveredsPage';
 import HappyRecoveriesPage from './pages/user/RecoveredsPage/HappyRecoveriesPage';
 
@@ -46,6 +47,7 @@ function App() {
     <div>
       <Router>
         <UserProvider>
+
           <NgoProvider>
             <Navbar /> {/* Renders the Navbar component */}
             <Routes>
@@ -71,8 +73,10 @@ function App() {
               <Route path="/team" element={<TeamPage />} />
               <Route path="/recovereds-page" element={<RecoveredsPage />} />
               <Route path="/happy-recoveries" element={<HappyRecoveriesPage />} />
+                    <Route path='/feedback' element={<Feedback/>}/>
             </Routes>
           </NgoProvider>
+
         </UserProvider>
       </Router>
       <Preloader />
