@@ -1,3 +1,4 @@
+
 {
   "name": "paws",
   "version": "1.0.0",
@@ -57,6 +58,7 @@
   },
   "scripts": {
     "start": "vite",
+    "dev": "vite",
     "build": "vite build",
     "serve": "vite preview"
   },
