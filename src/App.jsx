@@ -33,7 +33,7 @@ function App() {
 
   useEffect(() => {
     // Request user for notification permission
-    // requestPermission();
+    requestPermission();
   }, []);
 
   return (
@@ -52,7 +52,7 @@ function App() {
               <Route path="/user" element={<UserPage />} /> {/* Renders the UserPage component */}
               <Route path="/ngo" element={<NgoPage />} /> {/* Renders the NgoPage component */}
               <Route path="/logout" element={<Logout />} /> {/* Renders the Logout component */}
-              {/* <Route path="*" element={<ErrorPage />} /> Renders a 404 NOT FOUND message */}
+              <Route path="*" element={<NotFound />} /> 
               <Route path="/dashboard" element={<Dashboard />} /> {/* Renders the Dashboard component */}
               <Route path="/donation" element={<Donation />} /> {/* Renders the Donation component */}
               <Route path="/ngoregister" element={<NgoRegister />} /> {/* Renders the NGORegistration component */}
