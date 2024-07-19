@@ -36,6 +36,7 @@ function App() {
     <div>
       <Router>
         <UserProvider>
+
           <NgoProvider>
             <Navbar /> {/* Renders the Navbar component */}
             <Routes>
@@ -61,6 +62,7 @@ function App() {
               <Route path="*" element={<NotFound />} /> {/* Renders the NotFound component for any unmatched route */}
             </Routes>
           </NgoProvider>
+
         </UserProvider>
       </Router>
     </div>

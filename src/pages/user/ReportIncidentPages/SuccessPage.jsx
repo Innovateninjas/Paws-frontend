@@ -79,9 +79,16 @@ function SuccessPage() {
           </div>
           <CustomizedAccordions />
         </div>
+        <div className="text-lg">
+Give your valuable &nbsp;
+        <Link to="/feedback" className="underline underline-offset-2 font-medium active:text-blue-800">
+          feedback!
+        </Link>
+</div>
       </div>
     </div>
   );
 }
 
 export default SuccessPage;
+
