@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import './App.css';
 import 'react-tooltip/dist/react-tooltip.css';
@@ -25,7 +24,7 @@ import NgoProfile from './pages/ngo/ngoProfile';
 import { Donationfront } from './pages/user/Donation/Donationfront/Donationfront';
 import requestPermission from './utils/Functions/notifyService';
 import TeamPage from './pages/shared/team';
-import NotFoundPage from './NotFoundPage'; // Import NotFoundPage component
+import NotFound from './Components/shared/PageNotfound'; // Import NotFound component
 
 function App() {
   useEffect(() => {
@@ -52,14 +51,14 @@ function App() {
               <Route path="/donation" element={<Donation />} /> {/* Renders the Donation component */}
               <Route path="/ngoregister" element={<NgoRegister />} /> {/* Renders the NGORegistration component */}
               <Route path="/createcampaign" element={<Campaign />} /> {/* Renders the CreateCampaign component */}
-              <Route path="/campaignList" element={<Campaignlist />} /> {/* Renders the CreateCampaign component */}
+              <Route path="/campaignList" element={<Campaignlist />} /> {/* Renders the CampaignList component */}
               <Route path="/campaignBlog/:campaignId" element={<Campaignblog />} />
               <Route path="/stats" element={<Stats />} />
               <Route path="/created" element={<Success />} />
-              <Route path="/ngoProfile" element={<NgoProfile />} />
+              <Route path="/ngoProfile" element={<NgoProfile />} /> {/* Renders the NgoProfile component */}
               <Route path="/donationfront" element={<Donationfront />} />
               <Route path="/team" element={<TeamPage />} />
-              <Route path="*" element={<NotFoundPage />} /> {/* Renders the NotFoundPage component for any unmatched route */}
+              <Route path="*" element={<NotFound />} /> {/* Renders the NotFound component for any unmatched route */}
             </Routes>
           </NgoProvider>
         </UserProvider>
