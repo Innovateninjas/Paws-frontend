@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
-import { FaUser, FaUserPlus} from 'react-icons/fa';
+import { FaRegEye, FaUser, FaUserPlus} from 'react-icons/fa';
 import { PiHandCoinsBold } from "react-icons/pi";
 import { MdCampaign, MdHome, MdContentPasteSearch } from "react-icons/md";
 import { IoPeople } from "react-icons/io5";
@@ -51,6 +51,7 @@ const Navbar = () => {
             <BottomNavigationAction key="campaignList" value="/campaignList" component={Link} to="/campaignList" icon={<IoPeople size={28} />} />,
             <BottomNavigationAction key="donationfront" value="/donationfront" component={Link} to="/donationfront" icon={<PiHandCoinsBold size={28} />} />,
             <BottomNavigationAction key="profile" value="/user" component={Link} to="/user" icon={<FaUser size={24} />} />,
+            <BottomNavigationAction key="review" value="/review" component={Link} to="/review" icon={<FaRegEye size={24} />} />,
           ]
         ) : csrftoken && userType === "ngo" ? (
           [
@@ -58,6 +59,7 @@ const Navbar = () => {
             <BottomNavigationAction key="reports" value="/dashboard" component={Link} to="/dashboard" icon={<MdContentPasteSearch size={28}/>} />,
             <BottomNavigationAction key="createcampaign" value="/createcampaign" component={Link} to="/createcampaign" icon={<MdCampaign size={32} style={{ transform: 'rotate(-15deg)' }} />} />,
             <BottomNavigationAction key="ngoprofile" value="/ngoProfile" component={Link} to="/ngoProfile" icon={<FaUser size={24} />} />,
+            <BottomNavigationAction key="review" value="/review" component={Link} to="/review" icon={<FaRegEye size={24} />} />,
           ]
         )
           : (
@@ -70,6 +72,7 @@ const Navbar = () => {
               />,
               <BottomNavigationAction key="register" value="/register" showLabel label="Register" component={Link} to="/register" icon={<FaUserPlus size={28} />} />,
               <BottomNavigationAction key="login" value="/login" showLabel label="Login" component={Link} to="/login" icon={<FaUser size={24} />} />,
+              <BottomNavigationAction key="review" value="/review" showLabel label="Review" component={Link} to="/review" icon={<FaRegEye size={24} />} />,
             ]
           )}
       </BottomNavigation>

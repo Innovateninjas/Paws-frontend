@@ -25,6 +25,7 @@ import { Donationfront } from './pages/user/Donation/Donationfront/Donationfront
 import requestPermission from './utils/Functions/notifyService';
 import TeamPage from './pages/shared/team';
 import NotFound from './Components/shared/PageNotfound'; // Import NotFound component
+import Reviewus from './pages/shared/Reviewus/Reviewus';
 
 function App() {
   useEffect(() => {
@@ -60,6 +61,7 @@ function App() {
               <Route path="/donationfront" element={<Donationfront />} />
               <Route path="/team" element={<TeamPage />} />
               <Route path="*" element={<NotFound />} /> {/* Renders the NotFound component for any unmatched route */}
+              <Route path="/review" element={<Reviewus/>} /> {/* Renders the Review component */}
             </Routes>
           </NgoProvider>
 
