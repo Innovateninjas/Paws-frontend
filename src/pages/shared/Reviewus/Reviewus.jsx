@@ -1,10 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Background from "../../../Components/shared/Background";
 
 const Reviewus = () => {
-
+const handleSubmit = (event) => {
+  event.preventDefault();
+  // Add validation logic here
+  if (
+    !event.target.name.value ||
+    !event.target.email.value ||
+    !event.target.review.value
+  ) {
+    alert("All fields are required!");
+    return;
+  }
+  // Submit the form if validation passes
+  event.target.submit();
+};
   return (
-    <>
+    <main>
       <Background />
           <div className="flex flex-col items-center font-breeSerif justify-center gap-6 mb-20 w-full px-4 md:px-0">
             <h1 className="text-center mt-10 pb-1 z-3 text-[#40025D] font-extrabold tracking-widest text-3xl sm:text-4xl drop-shadow-xl flex flex-col">
@@ -12,7 +25,7 @@ const Reviewus = () => {
               <span>Drop in your review!</span>
             </h1>
             <div className="mt-[-15px] pb-1 z-3 text-[#40025D] font-bold tracking-widest text-lg sm:text-xl drop-shadow-xl flex flex-col w-full max-w-lg">
-              <form action="your_formspree_link" method="POST">
+                <form action="your_formspree_link" method="POST" onSubmit={handleSubmit}>
                 {/* add formspree link linked with your mail here to get the responses */}
                 <div className="flex flex-col gap-4">
                   <label htmlFor="name" className="text-[#40025D] font-bold">
@@ -51,7 +64,7 @@ const Reviewus = () => {
               </form>
             </div>
           </div>
-    </>
+    </main>
   );
 };
 
