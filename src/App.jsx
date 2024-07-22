@@ -1,4 +1,4 @@
-;import React, { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import 'react-tooltip/dist/react-tooltip.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -24,6 +24,7 @@ import NgoProfile from './pages/ngo/ngoProfile';
 import { Donationfront } from './pages/user/Donation/Donationfront/Donationfront';
 import requestPermission from './utils/Functions/notifyService';
 import TeamPage from './pages/shared/team';
+
 import NotFound from './Components/shared/PageNotfound';
 
 
@@ -36,13 +37,10 @@ import Feedback from './pages/user/ReportIncidentPages/FeedbackForm/Feedback';
 import RecoveredsPage from './pages/user/RecoveredsPage/RecoveredsPage';
 import HappyRecoveriesPage from './pages/user/RecoveredsPage/HappyRecoveriesPage';
 
+import NotFound from './Components/shared/PageNotfound'; // Import NotFound component
 
-/**
- * The main component of the application.
- * @returns {JSX.Element} The rendered App component.
- */
+
 function App() {
-
   useEffect(() => {
     // Request user for notification permission
     requestPermission();
@@ -64,18 +62,18 @@ function App() {
               <Route path="/user" element={<UserPage />} /> {/* Renders the UserPage component */}
               <Route path="/ngo" element={<NgoPage />} /> {/* Renders the NgoPage component */}
               <Route path="/logout" element={<Logout />} /> {/* Renders the Logout component */}
-              <Route path="*" element={<ErrorPage />} /> {/* Renders a 404 NOT FOUND message */}
               <Route path="/dashboard" element={<Dashboard />} /> {/* Renders the Dashboard component */}
               <Route path="/donation" element={<Donation />} /> {/* Renders the Donation component */}
               <Route path="/ngoregister" element={<NgoRegister />} /> {/* Renders the NGORegistration component */}
               <Route path="/createcampaign" element={<Campaign />} /> {/* Renders the CreateCampaign component */}
-              <Route path="/campaignList" element={<Campaignlist />} /> {/* Renders the CreateCampaign component */}
+              <Route path="/campaignList" element={<Campaignlist />} /> {/* Renders the CampaignList component */}
               <Route path="/campaignBlog/:campaignId" element={<Campaignblog />} />
               <Route path="/stats" element={<Stats />} />
               <Route path="/created" element={<Success />} />
-              <Route path="/ngoProfile" element={<NgoProfile />} />
+              <Route path="/ngoProfile" element={<NgoProfile />} /> {/* Renders the NgoProfile component */}
               <Route path="/donationfront" element={<Donationfront />} />
               <Route path="/team" element={<TeamPage />} />
+
 
 
               <Route path="/contact" element={<ContactPage />} />
@@ -85,14 +83,15 @@ function App() {
 
 
 
+
+              <Route path="*" element={<NotFound />} /> {/* Renders the NotFound component for any unmatched route */}
+
             </Routes>
           </NgoProvider>
 
         </UserProvider>
       </Router>
-      <Preloader />
     </div>
-
   );
 }
 
