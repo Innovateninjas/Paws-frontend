@@ -1,0 +1,33 @@
+
+  
+  .input-with-icon {
+    padding-left: 30px; /* Adjust based on icon size and padding */
+    background-color: azure;
+    background-repeat: no-repeat;
+    background-position:left; /* Adjust as needed */
+    border-radius: 0.5rem;
+    
+  }
+  
+  .input-with-icon::placeholder {
+    color: #999;
+  }
+  
+ 
+  .container {
+    background-color: rgb(4, 4, 83);
+    color: white;
+    padding: 20px;
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-right: 0px;
+    border-radius: 0px;
+    position: absolute;
+    top: 60px;
+    left: 64px;
+    width: 87rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+
+ } 
