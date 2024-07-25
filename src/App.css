@@ -11,6 +11,10 @@ body {
 * {
   box-sizing: inherit;
 }
+input::-ms-reveal,
+input::-ms-clear {
+  display: none;
+}
 
 @font-face {
   font-family: 'VarelaRound';
