@@ -39,6 +39,7 @@ import HappyRecoveriesPage from './pages/user/RecoveredsPage/HappyRecoveriesPage
 
 import NotFound from './Components/shared/PageNotfound'; // Import NotFound component
 
+import Reviewus from './pages/shared/Reviewus/Reviewus';
 
 function App() {
   useEffect(() => {
@@ -85,7 +86,6 @@ function App() {
 
 
               <Route path="*" element={<NotFound />} /> {/* Renders the NotFound component for any unmatched route */}
-
             </Routes>
           </NgoProvider>
 
