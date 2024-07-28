@@ -30,14 +30,10 @@ import NotFound from './Components/shared/PageNotfound';
 
 import ContactPage from './pages/user/Conatctus';
 
-
-import Preloader from './Components/shared/preloader/preloader';
 import Feedback from './pages/user/ReportIncidentPages/FeedbackForm/Feedback';
 
 import RecoveredsPage from './pages/user/RecoveredsPage/RecoveredsPage';
 import HappyRecoveriesPage from './pages/user/RecoveredsPage/HappyRecoveriesPage';
-
-import NotFound from './Components/shared/PageNotfound'; // Import NotFound component
 
 
 function App() {

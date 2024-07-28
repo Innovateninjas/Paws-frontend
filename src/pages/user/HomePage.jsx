@@ -4,8 +4,6 @@ import { FaStar } from "react-icons/fa";
 import { PiPawPrintFill } from "react-icons/pi";
 import ReactiveButton from "reactive-button";
 import InputField from "../../Components/shared/InputField";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPhone, faMapMarkerAlt, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import './home.css';
 import './Conatctus';
 
