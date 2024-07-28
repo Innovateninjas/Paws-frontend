@@ -143,7 +143,7 @@ function LoginRegisterForm() {
             )}
             {isLogin && (
               <>
-                <h1 className="mt-[60px] text-center pb-1 pl-2 pr-2 z-[3] text-indigo-900 font-bold tracking-wide text-[2.5em]">
+                <h1 className="mt-[60px] text-center pl-2 pr-2 z-[3] text-blue-800 font-bold tracking-wide text-[2.5em]">
                   Welcome Back
                 </h1>
               </>
@@ -207,6 +207,12 @@ function LoginRegisterForm() {
               </div>
             )}
 
+            {error && (
+              <p className="w-80 sm:w-60 mt-2 text-red-500 font-semibold text-center">
+                {error}
+              </p>
+            )}
+
             {!isLogin && (
               <>
                 <div className="w-screen relative h-20 flex justify-center">
@@ -229,14 +235,6 @@ function LoginRegisterForm() {
                       )
                     }
                   />
-                  {error && (
-                    <p
-                      className="absolute top-[-25px] w-screen tracking-wide text-red-500 font-semibold text-center"
-                      style={{ marginLeft: "35%", marginRight: "35%" }}
-                    >
-                      {error}
-                    </p>
-                  )}
                 </div>
                 <LoginTextLink
                   text={"Register as an NGO"}
@@ -258,11 +256,6 @@ function LoginRegisterForm() {
                     successText="Logging In"
                     errorText="Login"
                   />
-                  {error && (
-                    <p className="absolute w-screen top-[-40px] tracking-wide text-red-500 font-semibold text-center">
-                      {error}
-                    </p>
-                  )}
                 </div>
                 <LoginTextLink
                   text={"register now"}
