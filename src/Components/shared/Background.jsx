@@ -1,10 +1,16 @@
-import React from 'react'
+import React from "react";
 
 const Background = () => {
   return (
-    
-    <div className="z-[-2] p-4 h-screen bg-custom-gradient fixed top-0 w-full ">
-    {/* <div className="absolute top-0 left-[-10%] w-1/2 z-0">
+    <div
+      className="fixed top-0 w-full h-screen p-4 bg-cover bg-center sm-max:bg-custom-mobile sm-max:bg-no-repeat sm-max:bg-cover"
+      style={{
+        backgroundImage: "url('/images/background.png')",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+      }}
+    >
+      {/* <div className="absolute top-0 left-[-10%] w-1/2 z-0">
       <svg
         width="355"
         height="413"
@@ -137,8 +143,8 @@ const Background = () => {
         </defs>
       </svg>
     </div> */}
-  </div>
-  )
-}
+    </div>
+  );
+};
 
-export default Background
+export default Background;
