@@ -13,6 +13,23 @@
 3. Run the project using `npm start`.
 4. Create a new branch using `git checkout -b <branch_name>`
 
+**Email.js (mandatory)**
+
+1. Create an account on [Email.js](https://www.emailjs.com/).
+2. Add Gmail service on the dashboard.
+3. Create an email template similar to the one below and save it:
+   ![paws-contri](https://github.com/atharvarekhawar/Paws-frontend/assets/113119063/690e65c5-f754-4f3a-be2a-c79e9d6ec0af
+)  
+4. Copy the Service ID from the Gmail service you created.
+5. Copy the Template ID from the template you created.
+6. Copy the Public Key from the account section.
+7. Paste these values into your `.env` file as follows:
+   ```env
+   REACT_APP_serviceID = service ID of your service in Email.js
+   REACT_APP_templateID = template ID of your template in Email.js
+   REACT_APP_public_key = public key of your account
+
+
 **Firebase(mandatory)**
 
 - Go to [Firebase Console](https://console.firebase.google.com/u/0/) and create a new project with any name(Do not enable the google anlytics for the project if asked )  
@@ -49,3 +66,5 @@
 - to understand how its working please take a look at [Paws System Design](https://excalidraw.com/#json=GMHuRPYEPAvFAn5xM4ok8,8w53-nnoWQeDL0hPE86s9A)
 For setting up backend please refer to [Paws Backend](https://github.com/Innovateninjas/Paws-Backend)
 
+# Gssoc'24 
+ issues under gssoc24 time alloted is 5 days . if a issue needed more time we will mention it while assigning after alloted time is passed if no update is given issue will be assigned to other contributor 

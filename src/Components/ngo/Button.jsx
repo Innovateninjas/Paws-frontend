@@ -12,12 +12,12 @@ import PropTypes from "prop-types";
 const MButton = ({ text, icon,onClick, customstyle }) => {
     // Merge default styles with custom styles if provided
     const defaultStyles = {
-        borderRadius: "40px",
+        // borderRadius: "40px",
         // background: 'linear-gradient(180deg, rgba(200, 135, 251, 0.94) 0%, rgba(241, 159, 254, 0.54) 100%)',
         boxShadow: "2px 3px 4px black",
         padding: "20px 30px",
         marginTop: "0.675rem",
-        fontSize: "24px",
+        // fontSize: "24px",
         backdropFilter: "blur(10px)",
         fontWeight: "700",
         outline: "0",
@@ -26,7 +26,7 @@ const MButton = ({ text, icon,onClick, customstyle }) => {
     };
 
     return (
-        <button style={defaultStyles} className="text-white focus:outline-none rounded-[30px] shadow-buttonShadow bg-gradient-to-b from-green-600 to-green-700 drop-shadow-md py-3 px-4 text-[1.5rem] " onClick={onClick}>
+        <button style={defaultStyles} className="text-white focus:outline-none rounded-[40px] md:rounded-[45px] shadow-buttonShadow bg-gradient-to-b from-green-600 to-green-700 drop-shadow-md py-3 px-4 text-[1.5rem] md:text-[2rem] cursor-pointer" onClick={onClick}>
             {text}{icon}
         </button>
     );

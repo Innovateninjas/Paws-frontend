@@ -1,0 +1,15 @@
+.image{
+    z-index: 3;
+    position: absolute;
+    top: -87px;
+    left: 22px;
+    width: 90%;
+    object-fit: contain;
+    height: 100px;}
+    @media (max-width: 400px) {
+        .image {
+            top: -85px;
+            left: 3px;
+            width: 100%;
+        }
+    }
