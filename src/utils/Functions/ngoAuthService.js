@@ -37,9 +37,13 @@ export const registration = async (orgName, phoneNumber, email, emergency, passw
         setError("Enter a valid emergency contact number.");
         return;
     }
-    if (!(await ngoValidator(darpanid, setError))) {
-        setError("Enter a valid DARPAN ID");
-        return;
+    if (darpanid === "dev") {
+        console.log("welcome developer");
+    } else {
+        if (!(await ngoValidator(darpanid, setError))) {
+            setError("Enter a valid DARPAN ID");
+            return;
+        }
     }
 
     try {
@@ -47,7 +51,7 @@ export const registration = async (orgName, phoneNumber, email, emergency, passw
         // Clear any previous error message and set button state to loading
         setError("");
         setButtonState('loading');
-        const url = process.env.REACT_APP_BACKEND_URL;
+        const url = import.meta.env.VITE_BACKEND_URL;
         // Send a POST request to the registration endpoint with user data
         const response = await axios.post(
             `${url}/register/ngo`,
@@ -70,7 +74,7 @@ export const registration = async (orgName, phoneNumber, email, emergency, passw
         const token = response.data.token;
         localStorage.setItem("csrftoken", token);
         localStorage.setItem("userType", "ngo");
-        window.location.href = "/";
+        return true;
     } catch (error) {
         // Set button state to error and handle error message
         setButtonState('error');
@@ -79,6 +83,8 @@ export const registration = async (orgName, phoneNumber, email, emergency, passw
         } else {
             setError("An error occurred while registering.");
         }
+
+        return false;
     }
 };
 

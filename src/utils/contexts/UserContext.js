@@ -24,7 +24,7 @@ export const UserProvider = ({ children }) => {
                 return
             }
             try {
-                const url = process.env.REACT_APP_BACKEND_URL;
+                const url = import.meta.env.VITE_BACKEND_URL;
                 const response = await axios.get(`${url}/info/user/`, {
                     headers: {
                         'Authorization': `Token ${csrftoken}`,
