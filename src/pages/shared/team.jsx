@@ -62,7 +62,7 @@ const TeamPage = () => {
       }
     },
 
-    
+
     {
       name: "Debayudh Basu",
       position: "Frontend and Payments Developer",
@@ -73,7 +73,7 @@ const TeamPage = () => {
         github: "https://github.com/debayudh07"
       }
     },
-    
+
     {
       name: "Chandrima Ghosh",
       position: "QA & Testing Engineer",
