@@ -1,0 +1,126 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "Hi",
+        "Hello",
+        "Hey",
+        "How are you",
+        "Is anyone there?"
+      ],
+      "responses": [
+        "Hello! Welcome to Paws, a platform dedicated to animal welfare. How can I assist you today?",
+        "Hi there! How can I help you with Paws today?",
+        "Hello! How can we make your experience better with Paws?"
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": ["Bye", "Goodbye", "See you later"],
+      "responses": [
+        "Goodbye! Thank you for visiting Paws.",
+        "See you later! Have a great day!",
+        "Bye! Come back again soon to Paws."
+      ]
+    },
+    {
+      "tag": "thanks",
+      "patterns": ["Thanks", "Thank you", "That's helpful", "Thank you so much"],
+      "responses": [
+        "You're welcome! Happy to help.",
+        "Anytime! We're here to assist you.",
+        "My pleasure! If you have more questions, feel free to ask."
+      ]
+    },
+    {
+      "tag": "mission",
+      "patterns": [
+        "What is Paws?",
+        "Tell me about Paws",
+        "What does Paws do?",
+        "What is the mission of Paws?"
+      ],
+      "responses": [
+        "Paws is a platform developed to address animal welfare by enabling users to report injured animals and connect them with necessary assistance. Our mission is to raise awareness, foster compassion, and make a positive impact in the lives of animals in need."
+      ]
+    },
+    {
+      "tag": "hackathon",
+      "patterns": [
+        "Tell me about Smart Bengal Hackathon",
+        "What is the Smart Bengal Hackathon?",
+        "How did Paws perform at the hackathon?"
+      ],
+      "responses": [
+        "Paws was developed during the Smart Bengal Hackathon 2024 and proudly emerged as one of the finalist apps. This recognition further fuels our commitment to advancing animal welfare and leveraging technology for social good."
+      ]
+    },
+    {
+      "tag": "features",
+      "patterns": [
+        "What features does Paws offer?",
+        "Tell me about the features of Paws",
+        "What can Paws do?"
+      ],
+      "responses": [
+        "Paws offers features such as enabling users to report injured animals, connecting them with necessary assistance, raising awareness about animal welfare issues, and fostering a compassionate community."
+      ]
+    },
+    {
+      "tag": "report_animal",
+      "patterns": [
+        "How can I report an injured animal?",
+        "Can I report an injured animal?",
+        "Tell me how to report an animal in need"
+      ],
+      "responses": [
+        "You can report an injured animal by using the 'Report' feature on our website. Simply provide the details of the animal's condition and location, and we will connect them with the necessary assistance."
+      ]
+    },
+    {
+      "tag": "volunteer",
+      "patterns": [
+        "How can I volunteer for Paws?",
+        "Can I volunteer?",
+        "Tell me about volunteering opportunities"
+      ],
+      "responses": [
+        "Thank you for your interest in volunteering! Please visit our website and fill out the volunteer form to get started. We appreciate your support in making a difference in the lives of animals."
+      ]
+    },
+    {
+      "tag": "donate",
+      "patterns": [
+        "How can I donate to Paws?",
+        "Can I donate?",
+        "Tell me about donation options"
+      ],
+      "responses": [
+        "Thank you for considering a donation! You can donate through our website by clicking on the 'Donate' button. Your contributions help us continue our mission to support animal welfare."
+      ]
+    },
+    {
+      "tag": "awareness",
+      "patterns": [
+        "How does Paws raise awareness?",
+        "What does Paws do for awareness?",
+        "Tell me about Paws' awareness campaigns"
+      ],
+      "responses": [
+        "Paws raises awareness through various campaigns and educational content aimed at highlighting the challenges faced by animals and the importance of animal welfare. We strive to foster compassion and encourage community involvement."
+      ]
+    },
+    {
+      "tag": "contact",
+      "patterns": [
+        "How can I contact Paws?",
+        "Can I get in touch with Paws?",
+        "Tell me how to contact you"
+      ],
+      "responses": [
+        "You can contact us through the 'Contact' section on our website. We are here to assist you with any questions or concerns you may have."
+      ]
+    }
+  ]
+}

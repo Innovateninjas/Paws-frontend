@@ -149,22 +149,23 @@ const ImageUploader = ({ formData, setFormData, onChange }) => {
                 unmountOnExit
             >
             <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 animate-zoom-in">
-                <div className="w-full h-[29rem] z-[30] bg-white rounded-3xl bg-opacity-57 backdrop-blur-[5px] shadow-lg ring-1 ring-gray-300 animate-zoom-in">
-                    <button 
-                        className="absolute top-0 right-0 text-base mt-3 text-white bg-gradient-to-b from-red-300 to-red-500 focus:outline-none rounded-[30px] mr-3 px-5 py-3 bg-opacity-20 font-semibold" 
-                        onClick={() => setCameraActive(false)}
-                    >
-                        X
-                    </button>
-                    <video ref={videoRef} className="w-full mt-[4rem] " style={{ height: "20rem"}} />
-                    <div className="flex justify-center mt-1">
-                        <button className="text-base mt-3 text-white bg-gradient-to-b from-blue-300 to-emerald-500 focus:outline-none rounded-[30px] mr-3 px-3 py-4 bg-opacity-20 font-semibold" onClick={captureImage}>Capture</button>
-                        <button className="text-base mt-3 text-white bg-gradient-to-b from-blue-300 to-emerald-500 focus:outline-none rounded-[30px] px-5 py-4 bg-opacity-20 font-semibold" onClick={toggleCameraFacingMode}>
-                            {cameraFacingMode === 'user' ? <ArrowRepeat style={{ fontSize: '24px' }} /> : <Camera />}
-                        </button>
-                    </div>
-                </div>
-            </div>
+    <div className="w-full max-w-md h-auto max-h-[80vh] z-[30] bg-white rounded-3xl bg-opacity-57 backdrop-blur-[5px] shadow-lg ring-1 ring-gray-300 animate-zoom-in">
+        <button 
+            className="absolute top-0 right-0 text-base mt-3 text-white bg-gradient-to-b from-red-300 to-red-500 focus:outline-none rounded-[30px] mr-3 px-5 py-3 bg-opacity-20 font-semibold" 
+            onClick={() => setCameraActive(false)}
+        >
+            X
+        </button>
+        <video ref={videoRef} className="w-full mt-[4rem] max-h-[60vh] object-contain" />
+        <div className="flex justify-center mt-1">
+            <button className="text-base mt-3 text-white bg-gradient-to-b from-blue-300 to-emerald-500 focus:outline-none rounded-[30px] mr-3 px-3 py-4 bg-opacity-20 font-semibold" onClick={captureImage}>Capture</button>
+            <button className="text-base mt-3 text-white bg-gradient-to-b from-blue-300 to-emerald-500 focus:outline-none rounded-[30px] px-5 py-4 bg-opacity-20 font-semibold" onClick={toggleCameraFacingMode}>
+                {cameraFacingMode === 'user' ? <ArrowRepeat style={{ fontSize: '24px' }} /> : <Camera />}
+            </button>
+        </div>
+    </div>
+</div>
+
         </CSSTransition>
     )}
         </div>

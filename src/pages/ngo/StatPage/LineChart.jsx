@@ -85,7 +85,8 @@ const LineChart = ({data}) => {
     return (
         <div>
             
-            <div className='w-ful flex justify-evenly mb-2'>
+            {/* <div className='w-ful flex justify-evenly mb-2'> */}
+            <div className='w-ful px-6 pt-3 flex justify-between mb-2'>
                 <button onClick={() => setView('day')} 
                 style={{backgroundColor: view === 'day' ? 'lightgray' : 'white'}}
                 className = " px-2 rounded-lg"
@@ -136,9 +137,9 @@ const LineChart = ({data}) => {
                                 color: '#40025D',
                                 family: 'Sans-serif',
                                 font: {
-                                    size: 12,
+                                    size: 20,
                                     weight: 'bold',
-                                    lineHeight:0,
+                                    lineHeight:1,
                                 }
                             }
                         },
@@ -149,7 +150,7 @@ const LineChart = ({data}) => {
                                 color: '#40025D',
                                 family:'Sans-serif',
                                 font: {
-                                    size: 12,
+                                    size: 20,
                                     weight: 'bold',
                                 }
                             }

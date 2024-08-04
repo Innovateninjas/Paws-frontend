@@ -27,7 +27,7 @@ function ImageAndLocationPage({
 
   useEffect(() => {
     const id = setTimeout(() => {
-      const url = process.env.REACT_APP_BACKEND_URL;
+      const url = import.meta.env.VITE_BACKEND_URL;
       axios.get(`${url}/nearest_ngo?lat=${formData.latitude}&lon=${formData.longitude}`).then((response) => {
         setNearestNgo(response.data);
         setModalIsOpen(true);
@@ -140,7 +140,7 @@ function ImageAndLocationPage({
               rows={1}
               placeholder="Enter a landmark"
             ></textarea>
-
+<small className="text-sm text-red-500">{errors.landmark}</small>
           </div>
 
         </div>
