@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: 'VarelaRound';
+    src: url('..//public/fonts/VarelaRound-Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Bayon';
+    src: url('../public//fonts/bayon.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'BreeSerif';
+    src: url('../public//fonts/BreeSerif-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Chau Philomene One';
+    src: url('../public//fonts/ChauPhilomeneOne-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Bai Jamjuree';
+    src: url('../public//fonts/BaiJamjuree.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Calistoga';
+    src: url('../public//fonts/Calistoga-Regular.ttf') format('truetype');
+}
+
+
+.rodal-dialog {
+    background: linear-gradient(0deg, #c1dcf6 0%, #cce1f7 10%, #caeaee 100% ) !important;
+    border-radius: 1.5rem !important;
+}
+
+
+
+
+
+
+
