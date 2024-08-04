@@ -48,7 +48,7 @@ function IncidentForm() {
 
   useEffect(() => {
     async function increment(no_reports,csrftoken) {
-      const url = process.env.REACT_APP_BACKEND_URL;
+      const url = import.meta.env.VITE_BACKEND_URL;
       try {
         const response = await axios.put(
           `${url}/info/user/`,
@@ -136,11 +136,15 @@ function IncidentForm() {
       }));
     }
     else if (name === "numberOfAnimals") {
+       if (value === "" || value === undefined) {
+    alert("Please enter the number of animals.");
+  }else{
       setFormData((prevData) => ({
         ...prevData,
         predictedNumberOfAnimals: "",
         numberOfAnimals: value,
       }));
+       }
     }
     else if (name === "description") {
       setFormData((prevData) => ({
@@ -189,7 +193,7 @@ function IncidentForm() {
 
     try {
       if (validateForm()) {
-        const url = process.env.REACT_APP_BACKEND_URL;
+        const url = import.meta.env.VITE_BACKEND_URL;
         const response = await fetch(
           `${url}/api/animals/`,
           {
@@ -238,6 +242,9 @@ function IncidentForm() {
       case 2:
         if (!pageData.animal_type) {
           pageErrors.animal_type = "Animal type is required.";
+        }
+        if(!pageData.numberOfAnimals){
+           pageErrors.numberOfAnimals="Number of animals is required.";
         }
         if (!pageData.description) {
           pageErrors.description = "Description is required.";

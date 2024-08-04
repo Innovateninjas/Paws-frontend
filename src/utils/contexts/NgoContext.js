@@ -20,12 +20,14 @@ export const NgoProvider = ({ children }) => {
             }
 
             const userType = localStorage.getItem('userType');
-            if (userType==="user"){
-                return
+            if (userType === "user") {
+                setLoading(false);
+                return;
             }
+
             try {
-                const url = process.env.REACT_APP_BACKEND_URL;
-                const response = await axios.get(`${url}/info/ngo`, {
+                const url = import.meta.env.VITE_BACKEND_URL;
+                const response = await axios.get(`${url}/info/ngo/`, {
                     headers: {
                         'Authorization': `Token ${csrftoken}`,
                     },

@@ -24,8 +24,8 @@ export const handleImageChange = async (imageList, handleChange ,setErrors, setF
         let injuryTypes = [];
 
         // Detect animal type using Azure Custom Vision API
-        const predictionUrlAnimal = process.env.REACT_APP_PREDICTION_URL_ANIMAL;
-        const predictionKeyAnimal = process.env.REACT_APP_PREDICTION_KEY_ANIMAL;
+        const predictionUrlAnimal = import.meta.env.VITE_PREDICTION_URL_ANIMAL;
+        const predictionKeyAnimal = import.meta.env.VITE_PREDICTION_KEY_ANIMAL;
 
         const animalResponse = await fetch(predictionUrlAnimal, {
             method: "POST",
@@ -58,8 +58,8 @@ export const handleImageChange = async (imageList, handleChange ,setErrors, setF
         }
 
         // Detect injury using Azure Custom Vision API
-        const predictionUrlInjury = process.env.REACT_APP_PREDICTION_URL_INJURY;
-        const predictionKeyInjury = process.env.REACT_APP_PREDICTION_KEY_INJURY;
+        const predictionUrlInjury = import.meta.env.VITE_PREDICTION_URL_INJURY;
+        const predictionKeyInjury = process.env.VITE_PREDICTION_KEY_INJURY;
 
         const injuryResponse = await fetch(predictionUrlInjury, {
             method: "POST",
