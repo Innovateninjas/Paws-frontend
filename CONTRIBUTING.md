@@ -49,3 +49,5 @@
 - to understand how its working please take a look at [Paws System Design](https://excalidraw.com/#json=GMHuRPYEPAvFAn5xM4ok8,8w53-nnoWQeDL0hPE86s9A)
 For setting up backend please refer to [Paws Backend](https://github.com/Innovateninjas/Paws-Backend)
 
+# Gssoc'24 
+ issues under gssoc24 time alloted is 5 days . if a issue needed more time we will mention it while assigning after alloted time is passed if no update is given issue will be assigned to other contributor 

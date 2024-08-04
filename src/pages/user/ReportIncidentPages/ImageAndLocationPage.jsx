@@ -27,8 +27,9 @@ function ImageAndLocationPage({
 
   useEffect(() => {
     const id = setTimeout(() => {
-      const url = process.env.REACT_APP_BACKEND_URL;
+      const url = import.meta.env.VITE_BACKEND_URL;
       axios.get(`${url}/nearest_ngo?lat=${formData.latitude}&lon=${formData.longitude}`).then((response) => {
+           alert('Please enter the landmark.');
         setNearestNgo(response.data);
         setModalIsOpen(true);
       }).catch((error) => {
@@ -50,6 +51,10 @@ function ImageAndLocationPage({
         landmark: currentLandmark,
       }));
     }
+      else{
+          
+       alert('Please enter the landmark.');
+      }
   };
 
   const prevLandmarkRef = useRef();
@@ -170,6 +175,9 @@ function LazyLoadedMap({ formData }) {
     if (!isNaN(latitude) && !isNaN(longitude)) {
       setCustomCenter([latitude, longitude]);
     }
+      else{
+ alert('Please enter the landmark.');
+      }
   }, [formData.latitude, formData.longitude]);
 
   return <LazyMap zoom={18} customCenter={customCenter} />;

@@ -19,7 +19,7 @@ function ViewReports() {
     const fetchReports = async () => {
       try {
         if (userData) {
-          const url = process.env.REACT_APP_BACKEND_URL;
+          const url = import.meta.env.VITE_BACKEND_URL;
           const response = await axios.get(
             `${url}/api/animals/?user_email=${userData.email}`
           );

@@ -11,7 +11,7 @@ function Logout() {
       return;
     }
 
-    const url = process.env.REACT_APP_BACKEND_URL;
+    const url = import.meta.env.VITE_BACKEND_URL;
     axios.post(`${url}/logout/`, {}, {
       headers: {
         'Authorization': `Token ${csrftoken}`,
