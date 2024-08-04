@@ -61,8 +61,6 @@ const TeamPage = () => {
         github: "https://github.com/shreyashaw05"
       }
     },
-
-    
     {
       name: "Debayudh Basu",
       position: "Frontend and Payments Developer",
@@ -73,7 +71,6 @@ const TeamPage = () => {
         github: "https://github.com/debayudh07"
       }
     },
-    
     {
       name: "Chandrima Ghosh",
       position: "QA & Testing Engineer",
@@ -84,28 +81,26 @@ const TeamPage = () => {
         github: "https://github.com/chandrima25"
       }
     },
-
-
     // Add more team members as needed
   ];
 
   return (
-    <div className="bg-gradient-to-r from-blue-500 to-green-500 min-h-screen pb-8">
-      <div className="container mx-auto py-8">
-        <h2 className="text-3xl font-semibold text-center mb-8 text-white">Our Team</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-4 justify-center pb-4 md:px-8">
+    <div className="bg-gradient-to-r from-blue-500 to-green-500 min-h-screen pb-4">
+      <div className='mx-auto mb-2 px-8 py-8 overflow-hidden'>
+        <h2 className="text-4xl font-semibold text-center mb-8 text-white">Our Team</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-center pb-4">
           {teamMembers.map((member, index) => (
             <div key={index} className="z-[30] bg-white rounded-3xl bg-opacity-57 backdrop-blur-[5px] shadow-lg ring-1 ring-gray-300">
-              <img className="w-60 mt-2 h-60 rounded-full border-4 border-emerald-500 mx-auto block" src={member.image} alt={member.name} />
+              <img className="w-50 mt-2 h-60 rounded-full border-4 border-emerald-500 mx-auto block" src={member.image} alt={member.name} />
               <div className="px-6 py-4 text-center">
                 <div className="font-bold text-xl mb-2">{member.name}</div>
                 <p className="text-gray-700 text-base">{member.position}</p>
                 <p className="text-gray-700 text-base mt-2">{member.featureText}</p>
               </div>
               <div className="px-6 py-4 text-center mb-2">
-                <a href={member.socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="text-base mt-3 text-white bg-gradient-to-b from-blue-300 to-emerald-500 focus:outline-none rounded-[30px] mr-3 px-3 py-4 bg-opacity-20 font-semibold">Linkedin</a>
-                {member.socialLinks.github && ( // Check if GitHub link exists
-                  <a href={member.socialLinks.github} target="_blank" rel="noopener noreferrer" className="text-base mt-3 text-white bg-gradient-to-b from-blue-300 to-emerald-500 focus:outline-none rounded-[30px] mr-3 px-3 py-4 bg-opacity-20 font-semibold">Github</a>
+                <a href={member.socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="text-base mt-3 text-white bg-gradient-to-b from-blue-300 to-emerald-500 focus:outline-none rounded-[30px] mr-3 px-3 py-4 bg-opacity-20 font-semibold">LinkedIn</a>
+                {member.socialLinks.github && ( //Check for github
+                  <a href={member.socialLinks.github} target="_blank" rel="noopener noreferrer" className="text-base mt-3 text-white bg-gradient-to-b from-blue-300 to-emerald-500 focus:outline-none rounded-[30px] mr-3 px-3 py-4 bg-opacity-20 font-semibold">GitHub</a>
                 )}
               </div>
             </div>
